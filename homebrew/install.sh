@@ -37,6 +37,7 @@ brew install ack
 brew install git
 brew install git-extras
 brew install imagemagick --with-webp
+brew install ffmpeg
 brew install node 
 brew install pv
 brew install rename
@@ -46,14 +47,16 @@ brew install redis
 brew install composer
 brew install nmap
 brew install mtr
-brew install ab
 brew install aircrack-ng
 brew install cowsay
 brew install fortune
 brew install python
+brew install webkit2png
+brew install pngcheck
 
 # Javascript
 brew install spidermonkey
+brew install v8
 
 # Remove outdated versions from the cellar
 brew cleanup
