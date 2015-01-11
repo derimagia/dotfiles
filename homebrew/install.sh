@@ -38,7 +38,6 @@ brew install git
 brew install git-extras
 brew install imagemagick --with-webp
 brew install ffmpeg
-brew install node 
 brew install pv
 brew install rename
 brew install tree
