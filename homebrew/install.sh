@@ -57,6 +57,8 @@ brew install pngcheck
 brew install spidermonkey
 brew install v8
 
+brew install phantomjs
+
 # Remove outdated versions from the cellar
 brew cleanup
 

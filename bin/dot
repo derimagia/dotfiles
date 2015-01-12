@@ -20,3 +20,6 @@ $ZSH/python/install.sh 2>&1
 
 # Install node packages
 $ZSH/node/install.sh 2>&1
+
+# Install ruby packages
+$ZSH/ruby/install.sh 2>&1
