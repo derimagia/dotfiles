@@ -36,6 +36,7 @@ brew install ack
 #install exiv2
 brew install git
 brew install git-extras
+brew install git-flow
 brew install imagemagick --with-webp
 brew install ffmpeg
 brew install pv
