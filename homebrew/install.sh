@@ -15,6 +15,10 @@ fi
 # Upgrade any already-installed formulae
 brew upgrade
 
+brew tab homebrew/dupes
+brew tap homebrew/php
+brew tap homebrew/versions
+
 # Install GNU core utilities (those that come with OS X are outdated)
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -66,6 +70,9 @@ brew install lastpass-cli --with-pinentry
 # Databases
 brew install mysql
 brew install mongodb
+brew install postgresql
+brew install php53
+brew install php55
 
 # Remove outdated versions from the cellar
 brew cleanup
