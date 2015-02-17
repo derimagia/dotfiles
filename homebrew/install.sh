@@ -15,7 +15,7 @@ fi
 # Upgrade any already-installed formulae
 brew upgrade
 
-brew tab homebrew/dupes
+brew tap homebrew/dupes
 brew tap homebrew/php
 brew tap homebrew/versions
 
@@ -73,6 +73,10 @@ brew install mongodb
 brew install postgresql
 brew install php53
 brew install php55
+
+brew install caskroom/cask/brew-cask
+
+$ZSH/homebrew/casks.sh
 
 # Remove outdated versions from the cellar
 brew cleanup

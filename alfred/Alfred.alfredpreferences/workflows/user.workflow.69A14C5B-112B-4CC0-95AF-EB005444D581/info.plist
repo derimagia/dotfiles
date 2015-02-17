@@ -1250,17 +1250,40 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>script</key>
+				<string>Dash dynamically updates this workflow with docset and search profile keywords.
+
+Do not try to change the keywords from within Alfred, as Dash will overwrite your changes. If you want to change a keyword, change it from within Dash (in Preferences &gt; Docsets).
+
+That said, you can edit anything else within this workflow (including adding new triggers/actions/hotkeys).</string>
+				<key>subtext</key>
+				<string>Please read what's in the "Script:" section below</string>
+				<key>title</key>
+				<string>PLEASE README</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>dash_note_readme</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>android</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1290,14 +1313,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>angularjs</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1327,14 +1342,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>apache</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1364,14 +1371,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>backbone</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1401,14 +1400,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>bash</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1438,14 +1429,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>bootstrap</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1475,14 +1458,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>coffee</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1512,14 +1487,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>compass</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1549,14 +1516,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>css</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1586,14 +1545,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>django</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1623,14 +1574,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>drupal</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1660,14 +1603,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>html</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1697,14 +1632,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>java6</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1734,14 +1661,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>java7</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1771,14 +1690,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>javascript</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1808,14 +1719,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>jquery</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1845,14 +1748,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>jquerym</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1882,14 +1777,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>jqueryui</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1919,14 +1806,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>laravel</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1956,14 +1835,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>less</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -1993,14 +1864,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>manpages</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2030,14 +1893,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>mysql</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2067,14 +1922,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>phaser</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2104,14 +1951,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>php</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2141,14 +1980,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>psql</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2178,14 +2009,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>python2</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2215,14 +2038,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>python3</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2252,14 +2067,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>redis</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2289,14 +2096,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>sass</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2326,14 +2125,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>sqlite</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2363,14 +2154,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>symfony</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2400,14 +2183,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>twig</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2437,14 +2212,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>twisted</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2474,14 +2241,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>underscore</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2511,14 +2270,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>vim</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2548,14 +2299,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>wordpress</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
@@ -2585,14 +2328,6 @@ That said, you can edit anything else within this workflow (including adding new
 				<integer>110</integer>
 				<key>keyword</key>
 				<string>xul</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
