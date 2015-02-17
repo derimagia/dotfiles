@@ -53,12 +53,19 @@ brew install fortune
 brew install python
 brew install webkit2png
 brew install pngcheck
+brew install bropages
 
-# Javascript
+# Javascript / Web
 brew install spidermonkey
 brew install v8
-
 brew install phantomjs
+brew install sassc
+
+brew install lastpass-cli --with-pinentry
+
+# Databases
+brew install mysql
+brew install mongodb
 
 # Remove outdated versions from the cellar
 brew cleanup

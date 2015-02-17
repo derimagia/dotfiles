@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>themes</key>
+	<dict>
+		<key>alfred.theme.custom.93064695-2209-4F9A-98F9-4F7E4D09C1A5</key>
+		<dict>
+			<key>background</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmgzkF9T2DOQX1PYM5BfU9AYY=
+			</data>
+			<key>border</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmAQEBAIY=
+			</data>
+			<key>cornerRoundness</key>
+			<integer>3</integer>
+			<key>credits</key>
+			<string>Hannes Egler</string>
+			<key>imageStyle</key>
+			<integer>7</integer>
+			<key>name</key>
+			<string>Minimalistic Dark</string>
+			<key>resultPaddingSize</key>
+			<integer>2</integer>
+			<key>resultSelectedBackgroundColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmAQEBAIY=
+			</data>
+			<key>resultSelectedSubtextColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg1joiz6DL0agPoNQpac+AYY=
+			</data>
+			<key>resultSelectedTextColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg/v6ej+D+/p6P4P7+no/AYY=
+			</data>
+			<key>resultSubtextColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg7W0tD6DtbS0PoPDwsI+AYY=
+			</data>
+			<key>resultSubtextFont</key>
+			<string>Helvetica Neue Light</string>
+			<key>resultSubtextFontSize</key>
+			<integer>1</integer>
+			<key>resultTextColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg7W0tD6DtbS0PoPDwsI+AYY=
+			</data>
+			<key>resultTextFont</key>
+			<string>Helvetica Neue Light</string>
+			<key>resultTextFontSize</key>
+			<integer>3</integer>
+			<key>scrollbarColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMChARmZmZmg4/CVT+Dj8JVP4OPwlU/AYY=
+			</data>
+			<key>searchBackgroundColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmAAAAAIY=
+			</data>
+			<key>searchFont</key>
+			<string>Helvetica Neue Light</string>
+			<key>searchFontSize</key>
+			<integer>4</integer>
+			<key>searchForegroundColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg/v6ej+D+/p6P4P7+no/AYY=
+			</data>
+			<key>searchPaddingSize</key>
+			<integer>0</integer>
+			<key>searchSelectionBackgroundColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMDhAJmZoMAAEA/AYY=
+			</data>
+			<key>searchSelectionForegroundColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg1joiz6DL0agPoNQpac+AYY=
+			</data>
+			<key>separatorColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmAQEBAIY=
+			</data>
+			<key>shortcutColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg7W0tD6DtbS0PoPDwsI+AYY=
+			</data>
+			<key>shortcutFont</key>
+			<string>Helvetica Neue Light</string>
+			<key>shortcutFontSize</key>
+			<integer>2</integer>
+			<key>shortcutSelectedColor</key>
+			<data>
+			BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2Jq
+			ZWN0AIWEAWMBhARmZmZmg/v6ej+D+/p6P4P7+no/AYY=
+			</data>
+			<key>uid</key>
+			<string>alfred.theme.custom.93064695-2209-4F9A-98F9-4F7E4D09C1A5</string>
+			<key>widthSize</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

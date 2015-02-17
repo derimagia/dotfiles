@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.brice.alfred.phpstorm</string>
+	<key>category</key>
+	<string>Development</string>
+	<key>connections</key>
+	<dict>
+		<key>717C8EA0-95DF-451D-B44F-0F417D928E51</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CBAF55E7-AEC5-4D41-9A90-1801BAE83D17</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CBAF55E7-AEC5-4D41-9A90-1801BAE83D17</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1DF1F2CD-B3F2-4586-A988-BC17FDF50052</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Brice</string>
+	<key>description</key>
+	<string>Easily open your PhpStorm projects with Alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>PhpStorm: Open project</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>pstorm</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>searching projects</string>
+				<key>script</key>
+				<string>. find-project.sh
+
+findProjects {query}</string>
+				<key>subtext</key>
+				<string>Open PhpStorm project</string>
+				<key>title</key>
+				<string>Open PhpStorm project</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>717C8EA0-95DF-451D-B44F-0F417D928E51</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Opening {query} project</string>
+				<key>title</key>
+				<string>PhpStorm</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1DF1F2CD-B3F2-4586-A988-BC17FDF50052</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>if [[ ! -z "{query}" ]] &amp;&amp; [ -d {query} ]; then
+    /usr/local/bin/pstorm {query}
+    cat {query}/.idea/.name
+fi
+</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>CBAF55E7-AEC5-4D41-9A90-1801BAE83D17</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Requirements:
+
+This workflow need PhpStorm command line tools:
+ - Open PhpStorm
+ - Go to « Tools » and « Create Command-line Launcher… »
+ - In the popup windows, just click on OK
+
+
+More information on https://github.com/bchatard/phpstorm-alfred-workflow</string>
+	<key>uidata</key>
+	<dict>
+		<key>1DF1F2CD-B3F2-4586-A988-BC17FDF50052</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>717C8EA0-95DF-451D-B44F-0F417D928E51</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>CBAF55E7-AEC5-4D41-9A90-1801BAE83D17</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/bchatard/phpstorm-alfred-workflow</string>
+</dict>
+</plist>
