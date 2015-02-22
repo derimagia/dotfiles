@@ -1,51 +1,35 @@
 'global':
-  'tabs_small': true
-  'sidebar_default': true
-  'findreplace_small': true
-  'exception-reporting':
-    'userId': 'eaa340e1-3dad-6ba4-5656-ae99af0b90d9'
-  'welcome':
-    'showOnStartup': false
+  'editor':
+    'showIndentGuide': true
+    'fontFamily': 'Menlo'
+    'fontSize': 15
+    'invisibles': {}
   'core':
+    'ignoredNames': [
+      '.bundle'
+      '.git'
+      'log'
+      'repositories'
+      'tmp'
+      'vendor'
+    ]
     'themes': [
-      'glacier-ui'
+      'unity-ui'
       'glacier-syntax'
     ]
-  'editor':
-    'fontSize': 12
-    'fontFamily': 'Roboto'
-    'invisibles': {}
-'release-notes':
-  'viewedVersion': '0.89.0'
-'welcome':
-  'showOnStartup': false
-'spell-check':
-  'grammars': [
-    'text.plain'
-    'source.gfm'
-    'text.git-commit'
-  ]
-'core':
-  'ignoredNames': [
-    '.bundle'
-    '.git'
-    'log'
-    'repositories'
-    'tmp'
-    'vendor'
-  ]
-  'themes': [
-    'predawn-ui'
-    'predawn-syntax'
-  ]
-  'hideGitIgnoredFiles': false
-  'disabledPackages': [
-    'background-tips'
-    'exception-reporting'
-    'metrics'
-  ]
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Menlo'
-  'fontSize': 15
-  'invisibles': {}
+    'hideGitIgnoredFiles': true
+    'disabledPackages': [
+      'background-tips'
+      'exception-reporting'
+      'metrics'
+    ]
+  'spell-check':
+    'grammars': [
+      'text.plain'
+      'source.gfm'
+      'text.git-commit'
+    ]
+  'welcome':
+    'showOnStartup': false
+  'release-notes':
+    'viewedVersion': '0.89.0'
