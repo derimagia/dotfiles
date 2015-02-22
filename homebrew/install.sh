@@ -66,6 +66,7 @@ brew install phantomjs
 brew install sassc
 
 brew install lastpass-cli --with-pinentry
+brew install android-platform-tools
 
 # Databases
 brew install mysql
