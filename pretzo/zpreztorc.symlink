@@ -10,6 +10,14 @@
 # Options
 #
 
+fpath=($ZSH/functions $fpath)
+
+autoload -U $ZSH/functions/*(:t)
+
+# don't expand aliases _before_ completion has finished
+#   like: git comm-[tab]
+setopt complete_aliases
+
 setopt MULTIOS
 setopt PUSHD_TO_HOME # Blank pushd goes home
 setopt HISTIGNORESPACE # Ignore history items with space
