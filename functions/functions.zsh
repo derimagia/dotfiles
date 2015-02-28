@@ -11,7 +11,7 @@ function f() {
 
 
 # cd into whatever is the forefront Finder window.
-cdf() {  # short for cdfinder
+cdff() {  # short for cdfinder
   cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
