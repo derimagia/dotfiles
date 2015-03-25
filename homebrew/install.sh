@@ -46,6 +46,8 @@ brew install ffmpeg
 brew install pv
 brew install rename
 brew install tree
+brew install ruby
+brew install node
 #install zopfli
 brew install redis
 brew install composer

@@ -59,7 +59,6 @@ zstyle ':prezto:load' pmodule \
   'rsync' \
   'ruby' \
   'python' \
-  'node' \
   'osx' \
   'archive' \
   'fasd' \
