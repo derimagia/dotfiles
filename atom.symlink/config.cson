@@ -33,3 +33,9 @@
     'showOnStartup': false
   'release-notes':
     'viewedVersion': '0.89.0'
+'exception-reporting':
+  'userId': '0802cbb2-8ead-4358-1420-92e7c023ab38'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '128128f9f72d2b3132b3153bcab0af83f025ceb1'
