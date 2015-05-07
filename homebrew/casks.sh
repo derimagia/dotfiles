@@ -39,3 +39,4 @@ brew cask install sequel-pro
 brew cask install psequel
 brew cask install virtualbox
 brew cask install teamviewer
+brew cask install cyberduck

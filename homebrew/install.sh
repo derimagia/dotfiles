@@ -74,8 +74,12 @@ brew install android-platform-tools
 brew install mysql
 brew install mongodb
 brew install postgresql
+
+# PPHP
 brew install php53
 brew install php55
+brew install wp-cli
+brew install drush
 
 $ZSH/homebrew/casks.sh
 

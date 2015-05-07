@@ -1,5 +1,11 @@
 #compdef c
-_files -W $PROJECTS -/
-_files -W $GOPATH/src/github.com -/
 
-# See further documentation in `functions/c`.
+if [ -d "$PROJECTS" ]
+then
+  _files -W $PROJECTS -/
+fi
+
+if [ -d "$DASHBREWPATH" ]
+then
+  _files -W $DASHBREWPATH -/
+fi
