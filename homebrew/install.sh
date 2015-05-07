@@ -41,6 +41,7 @@ brew install ack
 brew install git
 brew install git-extras
 brew install git-flow
+brew install bfg
 brew install imagemagick --with-webp
 brew install ffmpeg
 brew install pv
