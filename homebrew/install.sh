@@ -61,6 +61,7 @@ brew install python
 brew install webkit2png
 brew install pngcheck
 brew install bropages
+brew install htop
 
 # Javascript / Web
 brew install spidermonkey
@@ -76,7 +77,7 @@ brew install mysql
 brew install mongodb
 brew install postgresql
 
-# PPHP
+# PHP
 brew install php53
 brew install php55
 brew install wp-cli
