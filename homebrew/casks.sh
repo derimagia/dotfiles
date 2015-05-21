@@ -5,7 +5,8 @@
 # This installs casks
 brew install caskroom/cask/brew-cask
 
-brew cask install caskroom/homebrew-versions/java6
+brew tap caskroom/homebrew-versions
+brew cask install java6
 
 brew cask install launchrocket
 brew cask install 1password
