@@ -20,15 +20,10 @@ brew tap homebrew/php
 brew tap homebrew/versions
 
 # Install GNU core utilities (those that come with OS X are outdated)
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-# Install some other useful utilities like `sponge`
-brew install moreutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`
-brew install gnu-sed --default-names
-
+brew install coreutils # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install moreutils # Install some other useful utilities like `sponge`
+brew install findutils # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
+brew install gnu-sed --default-names # Install GNU `sed`, overwriting the built-in `sed`
 brew install grc
 brew install spark
 
@@ -38,30 +33,37 @@ brew install wget --enable-iri
 # Install other useful binaries
 brew install ack
 #install exiv2
+brew install pv
+brew install rename
+brew install tree
+#install zopfli
+brew install cowsay
+brew install fortune
+brew install bropages
+brew install htop
+brew install tmux
+
+# Security / Network
+brew install nmap
+brew install mtr
+brew install aircrack-ng
+
+# Languages
+brew install ruby
+brew install node
+brew install python
+
+# GIT / VS
 brew install git
 brew install git-extras
 brew install git-flow
 brew install bfg
+
+# Media 
 brew install imagemagick --with-webp
 brew install ffmpeg
-brew install pv
-brew install rename
-brew install tree
-brew install ruby
-brew install node
-#install zopfli
-brew install redis
-brew install composer
-brew install nmap
-brew install mtr
-brew install aircrack-ng
-brew install cowsay
-brew install fortune
-brew install python
 brew install webkit2png
 brew install pngcheck
-brew install bropages
-brew install htop
 
 # Javascript / Web
 brew install spidermonkey
@@ -76,12 +78,14 @@ brew install android-platform-tools
 brew install mysql
 brew install mongodb
 brew install postgresql
+brew install redis
 
 # PHP
 brew install php53
 brew install php55
 brew install wp-cli
 brew install drush
+brew install composer
 
 $ZSH/homebrew/casks.sh
 
