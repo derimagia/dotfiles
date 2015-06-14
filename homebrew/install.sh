@@ -36,10 +36,10 @@ brew install ack
 brew install pv
 brew install rename
 brew install tree
+brew install p7zip
 #install zopfli
 brew install cowsay
 brew install fortune
-brew install bropages
 brew install htop
 brew install tmux
 
@@ -47,6 +47,7 @@ brew install tmux
 brew install nmap
 brew install mtr
 brew install aircrack-ng
+brew install netcat
 
 # Languages
 brew install ruby
