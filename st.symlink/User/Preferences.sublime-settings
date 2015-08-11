@@ -11,6 +11,7 @@
 	"git_gutter_live_mode": false,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Vintage"
@@ -18,7 +19,6 @@
 	"match_selection": true,
 	"minimap_scroll_to_clicked_text": false,
 	"open_files_in_new_window": false,
-	"hot_exit": false,
 	"remember_open_files": false,
 	"shift_tab_unindent": true,
 	"tab_completion": false,

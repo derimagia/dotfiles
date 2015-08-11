@@ -3,6 +3,8 @@
 # Homebrew
 #
 # This installs casks
+brew cask update
+
 brew install caskroom/cask/brew-cask
 
 brew tap caskroom/homebrew-versions
@@ -42,3 +44,5 @@ brew cask install virtualbox
 brew cask install teamviewer
 brew cask install cyberduck
 brew cask install torbrowser
+
+brew cask cleanup
