@@ -48,6 +48,7 @@ brew install nmap
 brew install mtr
 brew install aircrack-ng
 brew install netcat
+brew install httpie
 
 # Languages
 brew install ruby
