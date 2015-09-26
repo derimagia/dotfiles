@@ -44,5 +44,6 @@ brew cask install virtualbox
 brew cask install teamviewer
 brew cask install cyberduck
 brew cask install torbrowser
+brew cask install hosts
 
 brew cask cleanup

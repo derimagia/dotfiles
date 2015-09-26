@@ -43,6 +43,11 @@ brew install fortune
 brew install htop
 brew install tmux
 
+# Searching / Analyzing
+brew install jq
+brew install pup
+brew install the_silver_searcher
+
 # Security / Network
 brew install nmap
 brew install mtr
@@ -60,6 +65,7 @@ brew install git
 brew install git-extras
 brew install git-flow
 brew install bfg
+brew install icdiff
 
 # Media 
 brew install imagemagick --with-webp
@@ -85,6 +91,7 @@ brew install redis
 # PHP
 brew install php53
 brew install php55
+brew install php57
 brew install wp-cli
 brew install drush
 brew install composer

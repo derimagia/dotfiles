@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.sverdlik.michael</string>
 	<key>category</key>
-	<string>Development</string>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>28EE8EA4-6933-4E8E-8414-789A1E8B383C</key>
@@ -113,7 +113,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>108</integer>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>vagrant</string>
 				<key>queuedelaycustom</key>
@@ -184,7 +184,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>0</integer>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>:vagrant-id</string>
 				<key>queuedelaycustom</key>
