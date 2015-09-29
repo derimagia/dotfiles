@@ -45,5 +45,7 @@ brew cask install teamviewer
 brew cask install cyberduck
 brew cask install torbrowser
 brew cask install hosts
+brew cask install numi
+brew cask install bartender
 
 brew cask cleanup
