@@ -3,7 +3,6 @@ function md() {
     mkdir -p "$@" && cd "$@"
 }
 
-
 # find shorthand
 function f() {
     find . -name "$1"
@@ -11,9 +10,9 @@ function f() {
 
 # lets toss an image onto my server and pbcopy that bitch.
 function scpp() {
-    scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
-    echo "http://paulirish.com/i/$1" | pbcopy;
-    echo "Copied to clipboard: http://paulirish.com/i/$1"
+    #scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
+    #echo "http://paulirish.com/i/$1" | pbcopy;
+    #echo "Copied to clipboard: http://paulirish.com/i/$1"
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
@@ -29,33 +28,6 @@ function server() {
 cp_p () {
   rsync -WavP --human-readable --progress $1 $2
 }
-
-
-# Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
-# Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
-function httpcompression() {
-    encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
-}
-
-# Syntax-highlight JSON strings or files
-function json() {
-    if [ -p /dev/stdin ]; then
-        # piping, e.g. `echo '{"foo":42}' | json`
-        python -mjson.tool | pygmentize -l javascript
-    else
-        # e.g. `json '{"foo":42}'`
-        python -mjson.tool <<< "$*" | pygmentize -l javascript
-    fi
-}
-
-
-# take this repo and copy it to somewhere else minus the .git stuff.
-function gitexport(){
-    mkdir -p "$1"
-    git archive master | tar -x -C "$1"
-}
-
-
 
 # get gzipped size
 function gz() {
