@@ -29,6 +29,7 @@ cask macfusion
 cask mou
 cask mumble
 cask osxfuse
+cask paw
 cask phpstorm
 cask psequel
 cask pycharm-ce
@@ -52,6 +53,7 @@ cask font-source-code-pro
 
 ## caskroom/versions
 tap caskroom/versions
+cask firefoxdeveloperedition
 cask google-chrome-canary
 cask java6
 
@@ -61,7 +63,7 @@ tap homebrew/dupes
 ## homebrew/php
 tap homebrew/php
 brew drush
-brew php55
+brew php55 --with-gmp
 brew wp-cli
 
 ## homebrew/versions
@@ -91,9 +93,10 @@ brew coreutils
 brew cowsay
 brew docbook
 brew docbook-xsl
+brew dos2unix
 brew faac
 brew fdk-aac
-brew ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
+brew ffmpeg
 brew findutils
 brew flex
 brew fontconfig
@@ -108,7 +111,7 @@ brew git
 brew git-extras
 brew git-flow
 brew glib
-brew gnu-sed --default-names
+brew gnu-sed --with-default-names
 brew gobject-introspection
 brew grc
 brew harfbuzz
@@ -120,7 +123,7 @@ brew imagemagick --with-webp
 brew jpeg
 brew jq
 brew lame
-brew lastpass-cli --with-pinentry
+brew lastpass-cli --with-pinentry --with-doc
 brew libass
 brew libassuan
 brew libevent
@@ -139,20 +142,16 @@ brew libvpx
 brew libxml2
 brew libyaml
 brew little-cms2
+brew mariadb
 brew mongodb
 brew moreutils
 brew mtr
-brew mysql
 brew netcat
 brew nmap
 brew node
 brew nspr
 brew oniguruma
-brew opencore-amr
-brew openjpeg
 brew openssl
-brew opus
-brew orc
 brew p7zip
 brew pcre
 brew phantomjs
@@ -168,43 +167,41 @@ brew re2c
 brew readline
 brew redis
 brew rename
-brew rtmpdump
 brew ruby
 brew sassc
-brew schroedinger
-brew sdl
 brew spark
-brew speex
 brew spidermonkey
 brew sqlite
-brew texi2html
+brew ssh-copy-id
 brew the_silver_searcher
-brew theora
 brew tmux
 brew tree
 brew unixodbc
 brew v8
+brew watch
 brew webkit2png
 brew webp
-brew wget --with-iri
+brew wget
 brew x264
 brew xvid
 brew xz
-brew yasm
 brew zlib
 
 # App Store applications
-appstore Authy Bluetooth
 appstore GarageBand
 appstore Gear for Google Play and YouTube
 appstore iMovie
 appstore iPhoto
+appstore JenkinsNotifier
 appstore Keynote
 appstore Mint QuickView
+appstore LastPass
+appstore Microsoft Remote Desktop
 appstore Numbers
 appstore Pages
 appstore Pushbullet
 appstore Quiver
-appstore Shazam
+appstore Sip
+appstore SQLPro for SQLite
 appstore Textual 5
 appstore Xcode
