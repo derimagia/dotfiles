@@ -8,6 +8,7 @@ brew cask update
 brew install caskroom/cask/brew-cask
 
 brew tap caskroom/homebrew-versions
+brew tap caskroom/homebrew-fonts
 brew cask install java6
 
 brew cask install launchrocket
@@ -48,4 +49,6 @@ brew cask install hosts
 brew cask install numi
 brew cask install bartender
 
+# Fonts
+cask install font-source-code-pro
 brew cask cleanup

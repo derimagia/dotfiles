@@ -1,26 +1,27 @@
-welcome:
-  showOnStartup: false
-editor:
-  showIndentGuide: true
-  fontSize: 15
-core:
-  ignoredNames: [
-    ".bundle"
-    ".git"
-    "log"
-    "repositories"
-    "tmp"
-    "vendor"
-  ]
-  hideGitIgnoredFiles: false
-  disabledPackages: [
-    "background-tips"
-    "exception-reporting"
-    "metrics"
-  ]
-"spell-check":
-  grammars: [
-    "text.plain"
-    "source.gfm"
-    "text.git-commit"
-  ]
+"*":
+  welcome:
+    showOnStartup: false
+  editor:
+    showIndentGuide: true
+    fontSize: 16
+  core:
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      "vendor"
+    ]
+    hideGitIgnoredFiles: false
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
+    ]
