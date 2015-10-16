@@ -1,0 +1,210 @@
+
+# tap repositories and their packages
+
+## caskroom/cask
+tap caskroom/cask
+brew brew-cask
+cask 1password
+cask adium
+cask adobe-creative-cloud
+cask alfred
+cask android-studio
+cask atom
+cask bartender
+cask bettertouchtool
+cask charles
+cask cyberduck
+cask dash
+cask diffmerge
+cask dockertoolbox
+cask dropbox
+cask evernote
+cask firefox
+cask google-chrome
+cask hosts
+cask intellij-idea-ce
+cask iterm2
+cask launchrocket
+cask macfusion
+cask mou
+cask mumble
+cask osxfuse
+cask phpstorm
+cask psequel
+cask pycharm-ce
+cask rightzoom
+cask sequel-pro
+cask slack
+cask sourcetree
+cask sshfs
+cask steam
+cask teamviewer
+cask torbrowser
+cask vagrant-manager
+cask vagrant
+cask virtualbox
+cask vlc
+cask xtrafinder
+
+## caskroom/fonts
+tap caskroom/fonts
+cask font-source-code-pro
+
+## caskroom/versions
+tap caskroom/versions
+cask google-chrome-canary
+cask java6
+
+## homebrew/dupes
+tap homebrew/dupes
+
+## homebrew/php
+tap homebrew/php
+brew drush
+brew php55
+brew wp-cli
+
+## homebrew/versions
+tap homebrew/versions
+brew bison27
+brew cloog018
+brew gcc48
+brew gmp4
+brew isl011
+brew libmpc08
+brew mpfr2
+
+## rcmdnk/file
+tap rcmdnk/file
+brew brew-file
+
+# Other Homebrew packages
+brew ack
+brew aircrack-ng
+brew android-platform-tools
+brew autoconf
+brew automake
+brew bfg
+brew cairo
+brew composer
+brew coreutils
+brew cowsay
+brew docbook
+brew docbook-xsl
+brew faac
+brew fdk-aac
+brew ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
+brew findutils
+brew flex
+brew fontconfig
+brew fortune
+brew freetype
+brew frei0r
+brew fribidi
+brew gdbm
+brew geoip
+brew gettext
+brew git
+brew git-extras
+brew git-flow
+brew glib
+brew gnu-sed --default-names
+brew gobject-introspection
+brew grc
+brew harfbuzz
+brew htop-osx
+brew httpie
+brew icdiff
+brew icu4c
+brew imagemagick --with-webp
+brew jpeg
+brew jq
+brew lame
+brew lastpass-cli --with-pinentry
+brew libass
+brew libassuan
+brew libevent
+brew libffi
+brew libgpg-error
+brew libidn
+brew libksba
+brew libogg
+brew libpng
+brew libsass
+brew libtiff
+brew libtool
+brew libvo-aacenc
+brew libvorbis
+brew libvpx
+brew libxml2
+brew libyaml
+brew little-cms2
+brew mongodb
+brew moreutils
+brew mtr
+brew mysql
+brew netcat
+brew nmap
+brew node
+brew nspr
+brew oniguruma
+brew opencore-amr
+brew openjpeg
+brew openssl
+brew opus
+brew orc
+brew p7zip
+brew pcre
+brew phantomjs
+brew pinentry
+brew pixman
+brew pkg-config
+brew pngcheck
+brew postgresql
+brew pup
+brew pv
+brew python
+brew re2c
+brew readline
+brew redis
+brew rename
+brew rtmpdump
+brew ruby
+brew sassc
+brew schroedinger
+brew sdl
+brew spark
+brew speex
+brew spidermonkey
+brew sqlite
+brew texi2html
+brew the_silver_searcher
+brew theora
+brew tmux
+brew tree
+brew unixodbc
+brew v8
+brew webkit2png
+brew webp
+brew wget --with-iri
+brew x264
+brew xvid
+brew xz
+brew yasm
+brew zlib
+
+# App Store applications
+appstore Authy Bluetooth
+appstore GarageBand
+appstore Gear for Google Play and YouTube
+appstore iMovie
+appstore iPhoto
+appstore Keynote
+appstore Mint QuickView
+appstore Numbers
+appstore Pages
+appstore Pushbullet
+appstore Quiver
+appstore Shazam
+appstore Textual 5
+appstore Xcode
