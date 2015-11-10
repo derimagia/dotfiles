@@ -7,6 +7,7 @@ brew brew-cask
 cask 1password
 cask adium
 cask adobe-creative-cloud
+cask aerial
 cask alfred
 cask android-studio
 cask atom
@@ -35,6 +36,7 @@ cask psequel
 cask pycharm-ce
 cask rightzoom
 cask sequel-pro
+cask skype
 cask slack
 cask sourcetree
 cask sshfs
@@ -86,6 +88,8 @@ brew aircrack-ng
 brew android-platform-tools
 brew autoconf
 brew automake
+brew awscli
+brew awsebcli
 brew bfg
 brew cairo
 brew composer
@@ -113,6 +117,7 @@ brew git-flow
 brew glib
 brew gnu-sed --with-default-names
 brew gobject-introspection
+brew gource
 brew grc
 brew harfbuzz
 brew htop-osx
