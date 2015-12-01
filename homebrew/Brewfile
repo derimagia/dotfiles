@@ -12,6 +12,8 @@ cask android-studio
 cask atom
 cask bartender
 cask bettertouchtool
+cask betterzipql
+cask cert-quicklook
 cask charles
 cask cyberduck
 cask dash
@@ -31,8 +33,16 @@ cask mumble
 cask osxfuse
 cask paw
 cask phpstorm
+cask provisionql
 cask psequel
 cask pycharm-ce
+cask qlcolorcode
+cask qlimagesize
+cask qlmarkdown
+cask qlprettypatch
+cask qlstephen
+cask quicklook-csv
+cask quicklook-json
 cask rightzoom
 cask sequel-pro
 cask skype
@@ -46,6 +56,7 @@ cask vagrant-manager
 cask vagrant
 cask virtualbox
 cask vlc
+cask webpquicklook
 cask xtrafinder
 
 ## caskroom/fonts
