@@ -8,3 +8,4 @@ gem install bropages
 gem install compass
 gem install bootstrap-sass
 gem install zurb-foundation
+gem install cocoapods
