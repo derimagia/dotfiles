@@ -5,4 +5,4 @@ export DASHBREWPATH=/vagrant/dashbrew/public
 PATH="./bin:$ZSH/bin:$PATH"
 
 # Coreutils
-PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
