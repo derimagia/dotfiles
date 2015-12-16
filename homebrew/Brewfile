@@ -51,6 +51,7 @@ cask sourcetree
 cask sshfs
 cask steam
 cask teamviewer
+cask textual
 cask torbrowser
 cask vagrant-manager
 cask vagrant
