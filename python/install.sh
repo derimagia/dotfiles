@@ -1,5 +1,3 @@
-pip install SpoofMAC
-pip install livestreamer
-pip install mitmproxy
-pip install tamper
-pip install Pygments
+pip install --upgrade pip
+pip install --upgrade livestreamer
+pip install --upgrade Pygments
