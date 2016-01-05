@@ -3,7 +3,6 @@
 
 ## caskroom/cask
 tap caskroom/cask
-brew brew-cask
 cask adium
 cask adobe-creative-cloud
 cask aerial
@@ -22,12 +21,14 @@ cask dockertoolbox
 cask dropbox
 cask evernote
 cask firefox
+cask gear-player
 cask google-chrome
 cask hosts
 cask intellij-idea-ce
 cask iterm2
 cask launchrocket
 cask macfusion
+cask minecraft
 cask mou
 cask mumble
 cask osxfuse
@@ -52,6 +53,7 @@ cask sshfs
 cask steam
 cask teamviewer
 cask textual
+cask tigervnc-viewer
 cask torbrowser
 cask vagrant-manager
 cask vagrant
@@ -99,11 +101,13 @@ brew brew-file
 brew ack
 brew aircrack-ng
 brew android-platform-tools
+brew asciidoc
 brew autoconf
 brew automake
 brew awscli
 brew awsebcli
 brew bfg
+brew brew-gem
 brew cairo
 brew composer
 brew coreutils
@@ -207,7 +211,6 @@ brew zlib
 
 # App Store applications
 appstore GarageBand
-appstore Gear for Google Play and YouTube
 appstore iMovie
 appstore iPhoto
 appstore JenkinsNotifier

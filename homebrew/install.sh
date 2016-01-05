@@ -22,8 +22,13 @@ then
   brew install rcmdnk/file/brew-file
 fi
 
-# Update using brew-file
-brew file update
+# Pull down latest Brew
+brew update
+
+# Upgrade Brews
+brew upgrade
+
+# Update Casks
 brew file cask_upgrade -C
 
 exit 0
