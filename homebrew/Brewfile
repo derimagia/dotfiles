@@ -83,6 +83,9 @@ brew drush
 brew php55 --with-gmp
 brew wp-cli
 
+## homebrew/services
+tap homebrew/services
+
 ## homebrew/versions
 tap homebrew/versions
 brew bison27
@@ -104,10 +107,11 @@ brew android-platform-tools
 brew asciidoc
 brew autoconf
 brew automake
+brew aws-elasticbeanstalk
 brew awscli
-brew awsebcli
 brew bfg
 brew brew-gem
+brew brew-pip
 brew cairo
 brew composer
 brew coreutils
@@ -207,6 +211,7 @@ brew wget
 brew x264
 brew xvid
 brew xz
+brew youtube-dl
 brew zlib
 
 # App Store applications

@@ -1,8 +1,8 @@
 # Bundler
-gem install bundler
+# gem install bundler
 
 # Misc
-gem install bropages
+# gem install bropages
 
 # Compass/Sass
-gem install compass
+# gem install compass
