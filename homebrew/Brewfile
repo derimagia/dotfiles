@@ -6,6 +6,7 @@ tap caskroom/cask
 cask adium
 cask adobe-creative-cloud
 cask aerial
+cask alcatraz
 cask alfred
 cask android-studio
 cask atom
