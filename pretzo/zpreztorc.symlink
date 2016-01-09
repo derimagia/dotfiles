@@ -28,7 +28,6 @@ setopt EXTENDED_HISTORY # Save the time and how long a command ran
 setopt APPEND_HISTORY # Append History
 setopt SHARE_HISTORY # Share history between shells
 
-
 #
 # General
 #
@@ -48,16 +47,12 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'environment' \
   'terminal' \
-  'editor' \
   'history' \
   'history-substring-search' \
   'spectrum' \
   'utility' \
-  'completion' \
   'rsync' \
-  'ruby' \
   'python' \
   'osx' \
   'archive' \
@@ -65,6 +60,11 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'syntax-highlighting' \
   'prompt'
+
+#
+# Completion
+#
+
 
 #
 # Editor
