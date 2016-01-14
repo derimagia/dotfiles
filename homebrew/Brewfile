@@ -1,6 +1,10 @@
 
 # tap repositories and their packages
 
+## --repair
+tap --repair
+
+## caskroom/cask
 tap caskroom/cask
 cask adium
 cask adobe-creative-cloud
@@ -61,10 +65,12 @@ cask webpquicklook
 cask xtrafinder
 cask yakyak
 
+## caskroom/fonts
 tap caskroom/fonts
 cask font-roboto
 cask font-source-code-pro
 
+## caskroom/versions
 tap caskroom/versions
 cask 1password-beta
 cask firefoxdeveloperedition
@@ -73,15 +79,19 @@ cask intellij-idea-ce
 cask java6
 cask pycharm-ce
 
+## homebrew/dupes
 tap homebrew/dupes
 
+## homebrew/php
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
 brew wp-cli
 
+## homebrew/services
 tap homebrew/services
 
+## homebrew/versions
 tap homebrew/versions
 brew bison27
 brew cloog018
@@ -91,6 +101,7 @@ brew isl011
 brew libmpc08
 brew mpfr2
 
+## rcmdnk/file
 tap rcmdnk/file
 brew brew-file
 
