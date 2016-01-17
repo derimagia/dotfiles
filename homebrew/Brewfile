@@ -16,6 +16,8 @@ cask atom
 cask bartender
 cask bettertouchtool
 cask betterzipql
+cask bitbar
+cask bitcoin-core
 cask cert-quicklook
 cask charles
 cask cyberduck
@@ -55,7 +57,6 @@ cask sshfs
 cask steam
 cask teamviewer
 cask textual
-cask tigervnc-viewer
 cask torbrowser
 cask vagrant-manager
 cask vagrant
