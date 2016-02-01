@@ -23,7 +23,7 @@ function handleResponse(body) {
         var url = channel.url.replace('http://', '');
         var command = '"livestreamer ' + url + ' best"';
         var status = channel.status.replace(/\|/g, '').substr(0,40) + '...';
-        return [status, '| size=9 \n', channel.display_name, ' - ', stream.viewers, ' | size=12 color=white bash=', command, ' \n'].join('');
+        return [status, '| size=9 \n', channel.display_name, ' - ', stream.viewers, ' | size=12 bash=', command, ' \n'].join('');
     }).join('\n---\n');
     console.log(icon + '\n---\n' + output);
 }
@@ -39,3 +39,4 @@ https.get(url, function(res) {
         handleResponse(JSON.parse(body));
     });
 });
+

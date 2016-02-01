@@ -1,36 +1,38 @@
 
 # tap repositories and their packages
 
-## --repair
 tap --repair
 
-## caskroom/cask
 tap caskroom/cask
 cask adium
 cask adobe-creative-cloud
 cask aerial
+cask airdroid
 cask alcatraz
 cask alfred
 cask android-studio
 cask atom
+cask awareness
 cask bartender
 cask bettertouchtool
 cask betterzipql
 cask bitbar
-cask bitcoin-core
-cask cert-quicklook
 cask charles
+cask cocoapods
 cask cyberduck
 cask dash
 cask diffmerge
 cask dockertoolbox
 cask dropbox
+cask electrum
 cask evernote
 cask firefox
 cask gear-player
 cask google-chrome
 cask hosts
+cask imageoptim
 cask iterm2
+cask jadengeller-helium
 cask launchrocket
 cask macfusion
 cask minecraft
@@ -39,6 +41,7 @@ cask mumble
 cask osxfuse
 cask paw
 cask phpstorm
+cask postman
 cask provisionql
 cask psequel
 cask qlcolorcode
@@ -66,12 +69,10 @@ cask webpquicklook
 cask xtrafinder
 cask yakyak
 
-## caskroom/fonts
 tap caskroom/fonts
 cask font-roboto
 cask font-source-code-pro
 
-## caskroom/versions
 tap caskroom/versions
 cask 1password-beta
 cask firefoxdeveloperedition
@@ -80,19 +81,15 @@ cask intellij-idea-ce
 cask java6
 cask pycharm-ce
 
-## homebrew/dupes
 tap homebrew/dupes
 
-## homebrew/php
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
 brew wp-cli
 
-## homebrew/services
 tap homebrew/services
 
-## homebrew/versions
 tap homebrew/versions
 brew bison27
 brew cloog018
@@ -102,9 +99,10 @@ brew isl011
 brew libmpc08
 brew mpfr2
 
-## rcmdnk/file
 tap rcmdnk/file
 brew brew-file
+
+tap vitorgalvao/tiny-scripts
 
 # Other Homebrew packages
 brew ack
@@ -119,6 +117,7 @@ brew bfg
 brew brew-gem
 brew brew-pip
 brew cairo
+brew cask-repair
 brew composer
 brew coreutils
 brew cowsay
@@ -141,14 +140,17 @@ brew gettext
 brew git
 brew git-extras
 brew git-flow
+brew git-ftp
 brew glib
 brew gnu-sed --with-default-names
 brew gobject-introspection
 brew gource
 brew grc
 brew harfbuzz
+brew hr
 brew htop-osx
 brew httpie
+brew hub
 brew icdiff
 brew icu4c
 brew imagemagick --with-webp
@@ -218,8 +220,15 @@ brew x264
 brew xvid
 brew xz
 brew youtube-dl
+brew z
 brew zlib
 brew zsh-completions
+
+# gem packages
+gem cocoapods
+
+# Cask applications
+cask cert-quicklook
 
 # App Store applications
 appstore GarageBand
