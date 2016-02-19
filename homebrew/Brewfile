@@ -38,6 +38,7 @@ cask macfusion
 cask minecraft
 cask mou
 cask mumble
+cask nylas-n1
 cask osxfuse
 cask paw
 cask phpstorm
@@ -113,6 +114,7 @@ brew autoconf
 brew automake
 brew aws-elasticbeanstalk
 brew awscli
+brew bash-completion
 brew bfg
 brew brew-gem
 brew brew-pip
@@ -125,6 +127,7 @@ brew docbook
 brew docbook-xsl
 brew dos2unix
 brew faac
+brew fasd
 brew fdk-aac
 brew ffmpeg
 brew findutils
@@ -220,15 +223,11 @@ brew x264
 brew xvid
 brew xz
 brew youtube-dl
-brew z
 brew zlib
 brew zsh-completions
 
 # gem packages
 gem cocoapods
-
-# Cask applications
-cask cert-quicklook
 
 # App Store applications
 appstore GarageBand
