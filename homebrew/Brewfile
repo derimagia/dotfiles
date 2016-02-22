@@ -31,14 +31,13 @@ cask gear-player
 cask google-chrome
 cask hosts
 cask imageoptim
-cask iterm2
 cask jadengeller-helium
 cask launchrocket
 cask macfusion
 cask minecraft
 cask mou
 cask mumble
-cask nylas-n1
+cask noizio
 cask osxfuse
 cask paw
 cask phpstorm
@@ -79,6 +78,7 @@ cask 1password-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask intellij-idea-ce
+cask iterm2-beta
 cask java6
 cask pycharm-ce
 
@@ -87,6 +87,7 @@ tap homebrew/dupes
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
+brew terminus
 brew wp-cli
 
 tap homebrew/services
