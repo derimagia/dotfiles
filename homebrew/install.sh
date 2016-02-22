@@ -29,6 +29,7 @@ brew update
 brew upgrade
 
 # Update Casks
+brew file update -C
 brew file cask_upgrade -C
 
 exit 0
