@@ -22,6 +22,7 @@ tap homebrew/dupes
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
+brew php70
 brew terminus
 brew wp-cli
 
