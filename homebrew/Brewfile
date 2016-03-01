@@ -23,7 +23,6 @@ tap homebrew/php
 brew drush
 brew php55 --with-gmp
 brew php70
-brew terminus
 brew wp-cli
 
 tap homebrew/services
@@ -198,6 +197,7 @@ cask launchrocket
 cask macfusion
 cask mou
 cask mumble
+cask onyx
 cask osxfuse
 cask paw
 cask phpstorm
@@ -221,11 +221,10 @@ cask steam
 cask teamviewer
 cask textual
 cask torbrowser
-cask vagrant-manager
 cask vagrant
+cask vagrant-manager
 cask virtualbox
 cask vlc
 cask webpquicklook
 cask xtrafinder
 cask yakyak
-cask noizio

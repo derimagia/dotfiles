@@ -22,14 +22,12 @@ then
   brew install rcmdnk/file/brew-file
 fi
 
-# Pull down latest Brew
-brew update
-
-# Upgrade Brews
-brew upgrade
+brew update # Pull down Taps / Git Repo
+brew upgrade # Upgrade Brews
 
 # Update Casks
-brew file update -C
 brew file cask_upgrade -C
+brew file update -C
+
 
 exit 0

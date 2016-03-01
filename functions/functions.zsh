@@ -54,6 +54,16 @@ function unidecode() {
     echo # newline
 }
 
+# Open in Man
+function dman() {
+	open "dash://manpages:$*"
+}
+
+# Open in Dash
+function dash() {
+	open "dash://$*"
+}
+
 # animated gifs from any video
 # from alex sexton   gist.github.com/SlexAxton/4989674
 gifify() {
