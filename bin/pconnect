@@ -41,7 +41,7 @@ USER=`echo $CONNECTION_STRING | sed -e 's/.*--user=\([^\\ ]*\).*/\1/g'`
 
 # This is for Sequel Pro:
 eval "echo \"$(< $TEMPLATE)\""
-# For some reason, Sequel Pro or Open do not behave the same way given the -f 
+# For some reason, Sequel Pro or Open do not behave the same way given the -f
 # flag compared to opening a file from file system. So, we write to a tmp file.
 eval "echo \"$(< $TEMPLATE)\"" > $TMP_SPF
 

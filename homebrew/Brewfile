@@ -23,7 +23,6 @@ tap homebrew/php
 brew drush
 brew php55 --with-gmp
 brew php70
-brew terminus
 brew wp-cli
 
 tap homebrew/services
@@ -43,7 +42,6 @@ brew brew-file
 tap vitorgalvao/tiny-scripts
 
 # Other Homebrew packages
-brew ack
 brew aircrack-ng
 brew android-platform-tools
 brew asciidoc
@@ -60,6 +58,7 @@ brew cask-repair
 brew composer
 brew coreutils
 brew cowsay
+brew diff-so-fancy
 brew docbook
 brew docbook-xsl
 brew dos2unix
@@ -77,6 +76,7 @@ brew fribidi
 brew gdbm
 brew geoip
 brew gettext
+brew ghq
 brew git
 brew git-extras
 brew git-flow
@@ -128,6 +128,7 @@ brew oniguruma
 brew openssl
 brew p7zip
 brew pcre
+brew peco
 brew phantomjs
 brew pinentry
 brew pixman
@@ -198,6 +199,7 @@ cask launchrocket
 cask macfusion
 cask mou
 cask mumble
+cask onyx
 cask osxfuse
 cask paw
 cask phpstorm
@@ -221,11 +223,10 @@ cask steam
 cask teamviewer
 cask textual
 cask torbrowser
-cask vagrant-manager
 cask vagrant
+cask vagrant-manager
 cask virtualbox
 cask vlc
 cask webpquicklook
 cask xtrafinder
 cask yakyak
-cask noizio

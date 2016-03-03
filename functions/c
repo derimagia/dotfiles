@@ -13,8 +13,12 @@
 #
 # ...to quickly jump into holman/boom, for example.
 
-if [ -d "$DASHBREWPATH/$1" ]; then
-  cd "$DASHBREWPATH/$1"
+if [ $# -eq 0 ]; then
+  cd $(ghq list --full-path | peco)
 else
-  cd "$PROJECTS/$1"
+  if [ -d "$DASHBREWPATH/$1" ]; then
+    cd "$DASHBREWPATH/$1"
+  else
+    cd "$PROJECTS/$1"
+  fi
 fi

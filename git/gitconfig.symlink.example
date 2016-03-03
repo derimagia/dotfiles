@@ -2,25 +2,30 @@
 	name = AUTHORNAME
 	email = AUTHOREMAIL
 [alias]
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	tree = !git lg --graph
 	co = checkout
-	promote = !$ZSH/bin/git-promote
- wtf		 = !$ZSH/bin/git-wtf
-	count	 = !git shortlog -sn
-	amend	 =commit --amend -C HEAD
-	all	 =add -A
+	st = status
+	count = !git shortlog -sn
+	amend = commit --amend -C HEAD
+	all = add -A
+	uncommit = reset --soft HEAD^
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/dave/.gitignore
 [difftool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path =
 [mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
-	keepBackup = false
+  keepBackup = false
 [push]
-	default = current
+  default = current
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
