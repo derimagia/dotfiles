@@ -42,7 +42,6 @@ brew brew-file
 tap vitorgalvao/tiny-scripts
 
 # Other Homebrew packages
-brew ack
 brew aircrack-ng
 brew android-platform-tools
 brew asciidoc
@@ -59,6 +58,7 @@ brew cask-repair
 brew composer
 brew coreutils
 brew cowsay
+brew diff-so-fancy
 brew docbook
 brew docbook-xsl
 brew dos2unix
@@ -76,6 +76,7 @@ brew fribidi
 brew gdbm
 brew geoip
 brew gettext
+brew ghq
 brew git
 brew git-extras
 brew git-flow
@@ -127,6 +128,7 @@ brew oniguruma
 brew openssl
 brew p7zip
 brew pcre
+brew peco
 brew phantomjs
 brew pinentry
 brew pixman
