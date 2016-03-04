@@ -58,6 +58,7 @@ brew cask-repair
 brew composer
 brew coreutils
 brew cowsay
+brew curl
 brew diff-so-fancy
 brew docbook
 brew docbook-xsl
@@ -177,7 +178,6 @@ cask awareness
 cask bartender
 cask bettertouchtool
 cask betterzipql
-cask bitbar
 cask charles
 cask cocoapods
 cask cyberduck
