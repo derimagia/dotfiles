@@ -174,7 +174,6 @@ cask alcatraz
 cask alfred
 cask android-studio
 cask atom
-cask awareness
 cask bartender
 cask bettertouchtool
 cask betterzipql
@@ -213,7 +212,6 @@ cask qlprettypatch
 cask qlstephen
 cask quicklook-csv
 cask quicklook-json
-cask rightzoom
 cask sequel-pro
 cask skype
 cask slack
