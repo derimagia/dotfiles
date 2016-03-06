@@ -1,10 +1,11 @@
 "*":
-  welcome:
-    showOnStartup: false
-  editor:
-    showIndentGuide: true
-    fontSize: 16
   core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+    hideGitIgnoredFiles: false
     ignoredNames: [
       ".bundle"
       ".git"
@@ -13,15 +14,26 @@
       "tmp"
       "vendor"
     ]
-    hideGitIgnoredFiles: false
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
+    themes: [
+      "seti-ui"
+      "seti-syntax"
     ]
+  drupal:
+    fileTypesPhp: "module,install,inc,test"
+  editor:
+    fontSize: 16
+    invisibles: {}
+    showIndentGuide: true
+  "markdown-preview-plus": {}
+  minimap:
+    plugins:
+      linter: true
+      pigments: true
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
+  welcome:
+    showOnStartup: false

@@ -22,7 +22,6 @@ tap homebrew/dupes
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
-brew php70
 brew wp-cli
 
 tap homebrew/services
@@ -78,12 +77,14 @@ brew gdbm
 brew geoip
 brew gettext
 brew ghq
+brew gifsicle
 brew git
 brew git-extras
 brew git-flow
 brew git-ftp
 brew glib
 brew gnu-sed --with-default-names
+brew go
 brew gobject-introspection
 brew gource
 brew grc
@@ -145,6 +146,7 @@ brew redis
 brew rename
 brew ruby
 brew sassc
+brew sox
 brew spark
 brew spidermonkey
 brew sqlite
