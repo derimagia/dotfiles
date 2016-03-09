@@ -26,6 +26,21 @@ function clone () {
   ghq get -u -p $1 && ghq look $1
 }
 
+# Clone Drupal Project
+function dclone() {
+  clone "https://git.drupal.org/project/$1.git"
+}
+
+# Clone and Open Drupal Project
+function datom() {
+  dclone $1 && atom .
+}
+
+# Open dotfiles
+function dopen() {
+  atom $ZSH
+}
+
 # All the dig info
 function digga() {
     dig +nocmd "$1" any +multiline +noall +answer

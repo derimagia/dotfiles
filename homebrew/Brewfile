@@ -172,11 +172,13 @@ brew zsh-completions
 cask adium
 cask adobe-creative-cloud
 cask aerial
+cask airflow
 cask alcatraz
 cask alfred
 cask android-studio
 cask atom
 cask bartender
+cask beamer
 cask bettertouchtool
 cask betterzipql
 cask charles
