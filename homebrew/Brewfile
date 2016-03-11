@@ -195,6 +195,7 @@ cask firefox
 cask gear-player
 cask gitkraken
 cask google-chrome
+cask hopper-disassembler
 cask hosts
 cask imageoptim
 cask jadengeller-helium
@@ -229,6 +230,7 @@ cask torbrowser
 cask vagrant
 cask vagrant-manager
 cask virtualbox
+cask visual-studio-code
 cask vlc
 cask webpquicklook
 cask xtrafinder

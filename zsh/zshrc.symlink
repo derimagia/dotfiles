@@ -1,8 +1,10 @@
 export ZSH=$HOME/.dotfiles
 export HOMEBREW_PREFIX=/usr/local
+export GHQ_ROOT=$HOME/src
+export GOPATH=$HOME/go
 
 [[ -f "$HOME/.env" ]] && source $HOME/.env
-export GHQ_ROOT=~/src
+
 
 # all of our zsh files
 typeset -U config_files
