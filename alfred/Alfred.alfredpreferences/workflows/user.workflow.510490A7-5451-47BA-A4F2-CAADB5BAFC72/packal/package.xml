@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>LastPass Vault Manager</name>
-  <version>4.2</version>
-  <bundle>com.bachya.lpvm</bundle>
-  <updated>1421957835</updated>
-  <file>lastpass_vault_manager.alfredworkflow</file>
-</workflow>
