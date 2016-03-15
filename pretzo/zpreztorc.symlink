@@ -59,6 +59,7 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'homebrew' \
   'syntax-highlighting' \
+  'autosuggestions' \
   'prompt'
 
 #

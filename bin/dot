@@ -12,9 +12,6 @@ $ZSH/osx/set-defaults.sh
 # Install homebrew packages
 $ZSH/homebrew/install.sh 2>&1
 
-# OSX
-$ZSH/osx/install.sh 2>&1
-
 # Install python packages
 $ZSH/python/install.sh 2>&1
 

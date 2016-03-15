@@ -1,36 +1,30 @@
 export ZSH=$HOME/.dotfiles
 export HOMEBREW_PREFIX=/usr/local
-export GHQ_ROOT=$HOME/src
-export GOPATH=$HOME/go
+export GHQ_ROOT=$HOME/dev/src
+export GOPATH=$HOME/dev/go
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
-[[ -f "$HOME/.env" ]] && source $HOME/.env
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
+# ZSH Directory, ./bin Directory, gopath
+PATH="./bin:$ZSH/bin:$PATH:$GOPATH/bin"
 
-# all of our zsh files
+# Coreutils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Android SDK Tools
+PATH="$HOME/Library/Android/sdk/tools:$PATH"
+
+[[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
+
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
-
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+for file in ${config_files}
 do
   source $file
 done
@@ -38,5 +32,3 @@ done
 unset config_files
 
 autoload -U compinit && compinit
-
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
