@@ -1,4 +1,6 @@
 "*":
+  "atom-beautify":
+    _analyticsUserId: "5dcfdbb3-8d59-41ec-b6e5-bb8885e1a057"
   core:
     disabledPackages: [
       "background-tips"

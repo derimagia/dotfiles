@@ -55,3 +55,16 @@ function dman() {
 function dash() {
 	open "dash://$*"
 }
+
+# Run an Android Activity
+function adb-run() {
+  adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
+}
+
+# Switchs Java Home
+function jhome () {
+  export JAVA_HOME=`/usr/libexec/java_home $@`
+  echo "JAVA_HOME:" $JAVA_HOME
+  echo "java -version:"
+  java -version
+}

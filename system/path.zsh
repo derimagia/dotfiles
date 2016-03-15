@@ -5,3 +5,6 @@ PATH="./bin:$ZSH/bin:$PATH:$GOPATH/bin"
 
 # Coreutils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Android SDK Tools
+PATH="$HOME/Library/Android/sdk/tools:$PATH"

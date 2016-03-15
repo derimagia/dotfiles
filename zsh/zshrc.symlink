@@ -2,6 +2,7 @@ export ZSH=$HOME/.dotfiles
 export HOMEBREW_PREFIX=/usr/local
 export GHQ_ROOT=$HOME/src
 export GOPATH=$HOME/go
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 [[ -f "$HOME/.env" ]] && source $HOME/.env
 
