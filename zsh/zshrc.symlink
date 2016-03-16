@@ -15,20 +15,19 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Android SDK Tools
 PATH="$HOME/Library/Android/sdk/tools:$PATH"
 
+fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
 
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-for file in ${config_files}
-do
-  source $file
-done
-
-unset config_files
+source $ZSH/functions/*.zsh
+source $ZSH/homebrew/homebrew.zsh
+source $ZSH/iTerm/iterm2_shell_integration.zsh
+source $ZSH/system/aliases.zsh
 
 autoload -U compinit && compinit
