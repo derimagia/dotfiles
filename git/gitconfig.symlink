@@ -9,13 +9,14 @@
 	amend = commit --amend -C HEAD
 	all = add -A
 	uncommit = reset --soft HEAD^
+	pup = !git pull && git submodule init && git submodule update && git submodule status
 [color]
   diff = auto
   status = auto
   branch = auto
   ui = true
 [core]
-	excludesfile = /Users/dave/.gitignore
+	excludesfile = ~/.gitignore
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
