@@ -40,9 +40,7 @@ source $ZSH/iTerm/iterm2_shell_integration.zsh
 source $ZSH/system/aliases.zsh
 
 # Colors!
-if [[ -s "$HOME/.dir_colors" ]]; then
-  eval "$(dircolors --sh "$HOME/.dir_colors")"
-fi
+eval "$(dircolors --sh "$ZSH/system/dircolors")"
 
 source $ZSH/system/zsh-syntax-highlighting-filetypes.zsh
 

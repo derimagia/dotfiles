@@ -73,6 +73,11 @@ function dash() {
 	open "dash://$*"
 }
 
+# direct it all to /dev/null
+function nullify() {
+  "$@" >/dev/null 2>&1
+}
+
 # Run an Android Activity
 function adb-run() {
   adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
