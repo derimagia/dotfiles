@@ -41,5 +41,7 @@
       "source.gfm"
       "text.git-commit"
     ]
+  "tool-bar":
+    visible: false
   welcome:
     showOnStartup: false

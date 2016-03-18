@@ -155,6 +155,8 @@ brew git-flow
 brew git-ftp
 brew glib
 brew gnu-sed --with-default-names
+brew gnu-tar --with-default-names
+brew gnu-which --with-default-names
 brew go
 brew gobject-introspection
 brew gource

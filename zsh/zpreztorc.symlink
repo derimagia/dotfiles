@@ -43,7 +43,6 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'history-substring-search' \
   'spectrum' \
-  'utility' \
   'rsync' \
   'python' \
   'osx' \
@@ -193,6 +192,3 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-
-# Utlity - Turn off git diff alias since it messes up diffing from stdin
-zstyle ':prezto:module:utility:diff' color 'no'

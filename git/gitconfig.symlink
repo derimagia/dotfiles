@@ -1,15 +1,20 @@
 [include]
   path = ~/.gitconfig.local
 [alias]
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+  # Graphs/Charts
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
 	tree = !git lg --graph
-	co = checkout
-	st = status
+
+  # Show the diff between the latest commit and the current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	count = !git shortlog -sn
 	amend = commit --amend -C HEAD
-	all = add -A
 	uncommit = reset --soft HEAD^
-	pup = !git pull && git submodule init && git submodule update && git submodule status
+  pup = !git pull && git submodule init && git submodule update && git submodule status
+  # Shortcuts
+  co = checkout
+  st = status
+  all = add -A
 [color]
   diff = auto
   status = auto
@@ -40,11 +45,23 @@
   attributesfile = ~/.gitattributes
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
   keepBackup = false
+# rewrites of repo paths
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	insteadOf = "git://github.com"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+  pushInsteadOf = "https://github.com/"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+	pushInsteadOf = "https://gist.github.com/"
 [push]
   default = current
 [pager]
