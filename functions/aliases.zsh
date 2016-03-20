@@ -9,7 +9,8 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # Git Root
 alias fs='stat -c "%s Bytes"' # File Size
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
-alias c='pygmentize -O style=monokai -f console256 -g'
-
+alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias ls='ls -AFh --color --group-directories-first'
 alias lsd='ls -l | grep "^d"' # only directories
+alias cask='brew cask'
+alias map="xargs -n1"

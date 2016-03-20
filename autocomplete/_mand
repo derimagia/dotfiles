@@ -1,0 +1,4 @@
+#compdef mand
+#autoload
+
+_man

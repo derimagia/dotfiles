@@ -1,7 +1,3 @@
-DIR=`dirname $0`
-source $DIR/file-functions.zsh
-source $DIR/processing-functions.zsh
-
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
     local port="${1:-8000}"
@@ -17,8 +13,8 @@ function md() {
 }
 
 # List all files, long format, colorized, permissions in octal
-function la(){
- 	ls -l  "$@" | awk '
+function la() {
+ 	ls -l $@ | awk '
     {
       k=0;
       for (i=0;i<=8;i++)
@@ -32,10 +28,15 @@ function la(){
 # Go to project folders
 function c() {
   if [ $# -eq 0 ]; then
-    cd $(ghq list --full-path | peco)
+    cd $(ghq list --full-path | fzf-tmux)
   else
-    cd $(ghq list --full-path | fgrep $1 | peco --select-1)
+    cd $(ghq list --full-path | fgrep $1 | fzf-tmux --select-1)
   fi
+}
+
+# z is the new j? I guess?
+function z() {
+  cd $(fasd -d "$1" | fzf-tmux --select-1)
 }
 
 # Clone and CD
@@ -55,22 +56,17 @@ function datom() {
 
 # Open dotfiles
 function dopen() {
-  atom $ZSH
+  atom $DOTFILES
+}
+
+# Lazy source a function so the file doesn't get loaded until it's called
+lazy_source () {
+    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
 }
 
 # All the dig info
 function digga() {
     dig +nocmd "$1" any +multiline +noall +answer
-}
-
-# Open in Man
-function dman() {
-	open "dash://manpages:$*"
-}
-
-# Open in Dash
-function dash() {
-	open "dash://$*"
 }
 
 # direct it all to /dev/null
@@ -81,12 +77,4 @@ function nullify() {
 # Run an Android Activity
 function adb-run() {
   adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
-}
-
-# Switchs Java Home
-function jhome () {
-  export JAVA_HOME=`/usr/libexec/java_home $@`
-  echo "JAVA_HOME:" $JAVA_HOME
-  echo "java -version:"
-  java -version
 }

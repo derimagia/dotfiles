@@ -132,6 +132,7 @@ brew dex2jar
 brew diff-so-fancy
 brew docbook
 brew docbook-xsl
+brew docker-machine-nfs
 brew dos2unix
 brew faac
 brew fasd
@@ -144,6 +145,7 @@ brew fortune
 brew freetype
 brew frei0r
 brew fribidi
+brew fzf
 brew gdbm
 brew geoip
 brew gettext
@@ -203,7 +205,6 @@ brew oniguruma
 brew openssl
 brew p7zip
 brew pcre
-brew peco
 brew phantomjs
 brew pinentry
 brew pixman

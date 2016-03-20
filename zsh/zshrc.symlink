@@ -1,47 +1,41 @@
-export ZSH=$HOME/.dotfiles
-# Install all casks to /Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export HOMEBREW_BREWFILE=$ZSH/homebrew/Brewfile
-export HOMEBREW_PREFIX=/usr/local
-export GHQ_ROOT=$HOME/dev/src
-export GOPATH=$HOME/dev/go
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export MANPAGER="less -X"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+export DOTFILES=$HOME/.dotfiles
+export ZGEN=$HOME/.zgen
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+source "$ZGEN/zgen.zsh"
 
-# ZSH Directory, ./bin Directory, gopath
-PATH="./bin:$ZSH/bin:$PATH:$GOPATH/bin"
+# check if there's no init script
+if ! zgen saved; then
+    ZSHCACHE=$HOME/.cache/cache.zsh
+    </dev/null > $ZSHCACHE
 
-# Coreutils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    echo "Creating a zgen save"
+    zgen load $DOTFILES/zsh
+    zgen load $DOTFILES/functions
+    zgen load $DOTFILES/iTerm
 
-# Android SDK Tools
-PATH="$HOME/Library/Android/sdk/tools:$PATH"
+    autoload -Uz compinit
 
-fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+    zgen load zsh-users/zsh-history-substring-search
+    zgen load zsh-users/zsh-autosuggestions
 
-[[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
+    zgen load zsh-users/zaw
 
-# Brew Wrap
-if [ -f $HOMEBREW_PREFIX/etc/brew-wrap ];then
-  source $HOMEBREW_PREFIX/etc/brew-wrap
+    zgen load sharat87/pip-app
+    zgen load mafredri/zsh-async
+    zgen load sindresorhus/pure
+    zgen load $HOMEBREW_PREFIX/etc/brew-wrap
+
+    zgen load supercrabtree/k
+
+    zgen load $ZSHCACHE
+
+    dircolors --sh "$DOTFILES/.dircolors" >> $ZSHCACHE
+    fasd --init zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >>| $ZSHCACHE
+    <$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh >> $ZSHCACHE
+    <$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh >> $ZSHCACHE
+
+    # Needs to be loaded after compinit
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen save
 fi
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-source $ZSH/functions/functions.zsh
-source $ZSH/functions/file-functions.zsh
-source $ZSH/functions/processing-functions.zsh
-source $ZSH/iTerm/iterm2_shell_integration.zsh
-source $ZSH/system/aliases.zsh
-
-# Colors!
-eval "$(dircolors --sh "$ZSH/system/dircolors")"
-
-source $ZSH/system/zsh-syntax-highlighting-filetypes.zsh
-
-autoload -U compinit && compinit
