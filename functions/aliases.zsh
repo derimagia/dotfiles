@@ -14,6 +14,7 @@ alias ls='ls -AFh --color --group-directories-first'
 alias l='k -Ah'
 alias cask='brew cask'
 alias map="xargs -n1"
+alias mou="open /Applications/Mou.app" # Mou!
 
 # tmux
 alias tmux='tmux -2'
