@@ -228,6 +228,7 @@ brew sqlite
 brew ssh-copy-id
 brew sshrc
 brew the_silver_searcher
+brew tig
 brew tmux
 brew tree
 brew unixodbc

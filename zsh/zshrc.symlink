@@ -9,23 +9,23 @@ if ! zgen saved; then
     </dev/null > $ZSHCACHE
 
     echo "Creating a zgen save"
+
     zgen load $DOTFILES/zsh
     zgen load $DOTFILES/functions
     zgen load $DOTFILES/iTerm
 
     autoload -Uz compinit
 
-    zgen load zsh-users/zsh-history-substring-search
-    zgen load zsh-users/zsh-autosuggestions
-
     zgen load zsh-users/zaw
+    zgen load supercrabtree/k
 
-    zgen load sharat87/pip-app
+    # Themes
     zgen load mafredri/zsh-async
     zgen load sindresorhus/pure
-    zgen load $HOMEBREW_PREFIX/etc/brew-wrap
 
-    zgen load supercrabtree/k
+    # Packages
+    zgen load sharat87/pip-app
+    zgen load $HOMEBREW_PREFIX/etc/brew-wrap
 
     zgen load $ZSHCACHE
 
@@ -35,7 +35,10 @@ if ! zgen saved; then
     <$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh >> $ZSHCACHE
 
     # Needs to be loaded after compinit
+
+    zgen load zsh-users/zsh-autosuggestions
     zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-history-substring-search
 
     zgen save
 fi

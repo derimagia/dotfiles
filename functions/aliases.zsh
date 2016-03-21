@@ -11,6 +11,14 @@ alias fs='stat -c "%s Bytes"' # File Size
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias ls='ls -AFh --color --group-directories-first'
-alias lsd='ls -l | grep "^d"' # only directories
+alias l='k -Ah'
 alias cask='brew cask'
 alias map="xargs -n1"
+
+# tmux
+alias tmux='tmux -2'
+alias ta='tmux attach -d'
+alias tnew='tmux new -s'
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t'
+alias tmn='tmux -CC new -As $(basename $(pwd))'

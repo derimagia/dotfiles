@@ -47,6 +47,7 @@ function osx-rm-dir-metadata() {
   -type d -name '__MACOSX' \
   \) -print0 | xargs -0 rm -rf
 }
+
 function ls-download-history() {
   local db
   for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
