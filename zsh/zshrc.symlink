@@ -18,6 +18,7 @@ if ! zgen saved; then
 
     zgen load zsh-users/zaw
     zgen load supercrabtree/k
+    zgen load chriskempson/base16-shell base16-ocean.dark.sh
 
     # Themes
     zgen load mafredri/zsh-async

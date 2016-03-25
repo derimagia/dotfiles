@@ -127,6 +127,7 @@ brew cask-repair
 brew composer
 brew coreutils
 brew cowsay
+brew cscope
 brew curl
 brew dex2jar
 brew diff-so-fancy
@@ -138,7 +139,7 @@ brew faac
 brew fasd
 brew fdk-aac
 brew ffmpeg
-brew findutils
+brew findutils --with-default-names
 brew flex
 brew fontconfig
 brew fortune
@@ -193,6 +194,9 @@ brew libvpx
 brew libxml2
 brew libyaml
 brew little-cms2
+brew lua
+brew luajit
+brew macvim --override-system-vim
 brew mariadb
 brew mongodb
 brew moreutils
@@ -215,6 +219,7 @@ brew pup
 brew pv
 brew pypy
 brew python
+brew python3
 brew re2c
 brew readline
 brew redis
