@@ -15,6 +15,8 @@ alias l='k -Ah'
 alias cask='brew cask'
 alias map="xargs -n1"
 alias mou="open /Applications/Mou.app" # Mou!
+alias vssh="ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.vagrant.d/insecure_private_key vagrant@127.0.0.1"
+alias watch="watch --color"
 
 # tmux
 alias tmux='tmux -2'
