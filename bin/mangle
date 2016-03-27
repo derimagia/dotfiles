@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Get section
+if [[ $1 =~ [0-9]+ ]]
+then
+    section=$1
+    shift
+fi
+
+# Find the longest set of args that gets a man page
+args=("$@")
+while ! command man -w $(echo "${args[@]}" | tr " " "-") &>/dev/null
+do
+    # Add last argument to beginning of patterns to grep
+    patterns=( "${args[@]: -1}" "${patterns[@]}" )
+    unset args[${#args[@]}-1]
+done
+
+# Build grep command
+if [[ ${patterns[@]} ]]
+then
+    grepCommand="| grep -C4 --color=always -- '${patterns[@]}'"
+fi
+
+# Do it
+manpage=$(echo "${args[@]}" | tr " " "-")
+eval "command man $section $manpage $grepCommand | ${MANPAGER:-less -RFX}"

@@ -28,17 +28,15 @@ if ! zgen saved; then
     zgen load sharat87/pip-app
     zgen load $HOMEBREW_PREFIX/etc/brew-wrap
 
-    zgen load $ZSHCACHE
-
     dircolors --sh "$DOTFILES/.dircolors" >> $ZSHCACHE
     fasd --init zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >>| $ZSHCACHE
     <$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh >> $ZSHCACHE
     <$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh >> $ZSHCACHE
+    <$HOMEBREW_PREFIX/etc/grc.zsh >> $ZSHCACHE
+    zgen load $ZSHCACHE
 
-    # Needs to be loaded after compinit
-
-    zgen load zsh-users/zsh-autosuggestions
     zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
     zgen load zsh-users/zsh-history-substring-search
 
     zgen save

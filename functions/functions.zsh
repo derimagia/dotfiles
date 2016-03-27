@@ -78,3 +78,8 @@ function nullify() {
 function adb-run() {
   adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
 }
+
+# Search aliases
+function aliases() {
+  alias | grep ${1-.} | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort
+}

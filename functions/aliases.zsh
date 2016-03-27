@@ -15,8 +15,8 @@ alias l='k -Ah'
 alias cask='brew cask'
 alias map="xargs -n1"
 alias mou="open /Applications/Mou.app" # Mou!
-alias vssh="ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.vagrant.d/insecure_private_key vagrant@127.0.0.1"
-alias watch="watch --color"
+alias time="command time" # I never want the builtin
+alias man="mangle" # This should be a drop-in change, let's me do "man ls -A"
 
 # tmux
 alias tmux='tmux -2'
@@ -25,3 +25,10 @@ alias tnew='tmux new -s'
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 alias tmn='tmux -CC new -As $(basename $(pwd))'
+
+# Docker
+
+alias dl="docker ps -l -q"
+alias dps="docker ps"
+alias di="docker images"
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"

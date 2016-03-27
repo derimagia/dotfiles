@@ -9,12 +9,14 @@ export MANPAGER="less -X"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 export FZF_DEFAULT_OPTS="--inline-info"
 
-setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP
-setopt INTERACTIVECOMMENTS HISTIGNORESPACE EXTENDED_HISTORY INC_APPEND_HISTORY SHARE_HISTORY HIST_BEEP
+setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
 
-HISTFILE="$HOME/.zhistory"       # The path to the history file.
-HISTSIZE=10000                   # The maximum number of events to save in the internal history.
-SAVEHIST=10000                   # The maximum number of events to save in the history file.
+# History
+HISTFILE="$HOME/.zhistory"
+HISTSIZE=100000
+SAVEHIST=100000
+HISTCONTROL=ignoredups:erasedups
+setopt HISTIGNORESPACE EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -29,12 +31,6 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Android SDK Tools
 PATH="$HOME/Library/Android/sdk/tools:$PATH"
-
-# Key Combinations
-zmodload zsh/terminfo
-
-bindkey "$terminfo[cuu1]" history-substring-search-up
-bindkey "$terminfo[cud1]" history-substring-search-down
 
 # fpath
 fpath=($HOMEBREW_PREFIX/share/zsh-completions $DOTFILES/autocomplete $fpath)

@@ -91,6 +91,7 @@ tap homebrew/dupes
 tap homebrew/php
 brew drush
 brew php55 --with-gmp
+brew psysh
 brew wp-cli
 
 tap homebrew/services
@@ -120,6 +121,7 @@ brew aws-elasticbeanstalk
 brew awscli
 brew bash-completion
 brew bfg
+brew boost
 brew brew-gem
 brew brew-pip
 brew cairo
@@ -151,12 +153,15 @@ brew gdbm
 brew geoip
 brew gettext
 brew ghq
+brew giflib
 brew gifsicle
 brew git
 brew git-extras
 brew git-flow
 brew git-ftp
+brew glew
 brew glib
+brew gmp
 brew gnu-sed --with-default-names
 brew gnu-tar --with-default-names
 brew gnu-which --with-default-names
@@ -194,9 +199,9 @@ brew libvpx
 brew libxml2
 brew libyaml
 brew little-cms2
-brew lua
 brew luajit
-brew macvim --override-system-vim
+brew macvim --with-override-system-vim
+brew mad
 brew mariadb
 brew mongodb
 brew moreutils
@@ -206,6 +211,7 @@ brew nmap
 brew node
 brew nspr
 brew oniguruma
+brew open-mpi
 brew openssl
 brew p7zip
 brew pcre
@@ -226,6 +232,8 @@ brew redis
 brew rename
 brew ruby
 brew sassc
+brew sdl2
+brew sdl2_image
 brew sox
 brew spark
 brew spidermonkey
@@ -248,4 +256,5 @@ brew xz
 brew youtube-dl
 brew z
 brew zlib
+brew zsh
 brew zsh-completions

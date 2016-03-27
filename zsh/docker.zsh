@@ -1,4 +1,1 @@
-#!/bin/sh
-set -e
-
 eval $(docker-machine env default)
