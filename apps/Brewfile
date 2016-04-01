@@ -122,8 +122,6 @@ brew awscli
 brew bash-completion
 brew bfg
 brew boost
-brew brew-gem
-brew brew-pip
 brew cairo
 brew cask-repair
 brew composer
@@ -149,6 +147,7 @@ brew freetype
 brew frei0r
 brew fribidi
 brew fzf
+brew gcc
 brew gdbm
 brew geoip
 brew gettext
@@ -177,6 +176,7 @@ brew hub
 brew icdiff
 brew icu4c
 brew imagemagick --with-webp
+brew isl
 brew jpeg
 brew jq
 brew lame
@@ -188,6 +188,7 @@ brew libffi
 brew libgpg-error
 brew libidn
 brew libksba
+brew libmpc
 brew libogg
 brew libpng
 brew libsass
@@ -205,6 +206,7 @@ brew mad
 brew mariadb
 brew mongodb
 brew moreutils
+brew mpfr
 brew mtr
 brew netcat
 brew nmap
@@ -240,6 +242,7 @@ brew spidermonkey
 brew sqlite
 brew ssh-copy-id
 brew sshrc
+brew stormssh
 brew the_silver_searcher
 brew tig
 brew tmux

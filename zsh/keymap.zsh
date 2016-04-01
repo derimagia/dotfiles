@@ -1,9 +1,7 @@
+#!/usr/bin/env bash
 bindkey -v
 autoload -U edit-command-line
 zle -N edit-command-line
-
-bindkey -M vicmd 'v' edit-command-line
-bindkey -M vicmd ':' execute-named-cmd
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -16,8 +14,11 @@ function globalias() {
   zle self-insert
 }
 
+bindkey -e  # emacs key bindings
+
 zle -N globalias
 
-bindkey ' ' globalias
 bindkey '^ ' magic-space           # control-space to bypass completion
-bindkey -M isearch ' ' magic-space # normal space during searche
+bindkey -M isearch ' ' magic-space # normal space during search
+
+bindkey '^v' edit-command-line # Vi Mode

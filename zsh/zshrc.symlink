@@ -1,5 +1,6 @@
 export DOTFILES=$HOME/.dotfiles
 export ZGEN=$HOME/.zgen
+export HOMEBREW_PREFIX=/usr/local
 
 source "$ZGEN/zgen.zsh"
 
@@ -10,9 +11,9 @@ if ! zgen saved; then
 
     echo "Creating a zgen save"
 
+    zgen load $HOMEBREW_PREFIX/etc/grc.zsh
     zgen load $DOTFILES/zsh
     zgen load $DOTFILES/functions
-    zgen load $DOTFILES/iTerm
 
     autoload -Uz compinit
 
@@ -32,7 +33,6 @@ if ! zgen saved; then
     fasd --init zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >>| $ZSHCACHE
     <$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh >> $ZSHCACHE
     <$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh >> $ZSHCACHE
-    <$HOMEBREW_PREFIX/etc/grc.zsh >> $ZSHCACHE
     zgen load $ZSHCACHE
 
     zgen load zsh-users/zsh-syntax-highlighting

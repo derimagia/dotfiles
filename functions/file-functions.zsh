@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copy w/ progress
 function cpp () {
   rsync -WavP --human-readable --progress $1 $2

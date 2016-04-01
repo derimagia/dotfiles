@@ -10918,7 +10918,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>307</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -10938,7 +10938,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2075 473 592 584 1920 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 130 570 352 0 0 1920 1057 </string>
+	<string>1989 199 1760 854 1920 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>120 233 570 451 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
@@ -13498,6 +13498,8 @@
 				<key>Red Component</key>
 				<real>0.74901960784313726</real>
 			</dict>
+			<key>Application Keypad Allowed</key>
+			<false/>
 			<key>Automatically Log</key>
 			<false/>
 			<key>BM Growl</key>
@@ -14227,7 +14229,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-03-27T04:47:47Z</date>
+	<date>2016-04-01T04:48:00Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Show Toolbelt</key>
@@ -14267,7 +14269,18 @@
 	<key>UKCrashReporterLastCrashReportDate</key>
 	<real>1458464768</real>
 	<key>URLHandlersByGuid</key>
-	<dict/>
+	<dict>
+		<key>ssh</key>
+		<string>darksupply</string>
+		<key>telnet</key>
+		<string>darksupply</string>
+		<key>wais</key>
+		<string>darksupply</string>
+		<key>whois</key>
+		<string>D7C32772-13CB-477F-834F-434817169751</string>
+		<key>x-man-page</key>
+		<string>darksupply</string>
+	</dict>
 	<key>Use background pattern indicator</key>
 	<true/>
 	<key>UseBorder</key>

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 npm install grunt -g
 npm install gulp -g
 npm install bower -g

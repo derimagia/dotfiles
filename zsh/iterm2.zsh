@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [[ -o login ]]; then
   if [ x"$TERM" != "xscreen" ]; then
     # Indicates start of command output. Runs just before command executes.
@@ -14,7 +15,11 @@ if [[ -o login ]]; then
     # e.g., iterm2_set_user_var currentDirectory $PWD
     # Accessible in iTerm2 (in a badge now, elsewhere in the future) as
     # \(user.currentDirectory).
-    iterm2_print_user_vars() {
+    function iterm2_print_user_vars() {
+      if [[ -n "$TMUX" ]]; then
+        tmuxname=$(tmux display-message -p '#W')
+      fi;
+      iterm2_set_user_var badge "$tmuxname"
     }
 
     iterm2_print_state_data() {

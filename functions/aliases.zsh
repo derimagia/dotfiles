@@ -17,6 +17,9 @@ alias map="xargs -n1"
 alias mou="open /Applications/Mou.app" # Mou!
 alias time="command time" # I never want the builtin
 alias man="mangle" # This should be a drop-in change, let's me do "man ls -A"
+alias docker="grc docker"
+alias docker-machine="grc docker-machine"
+alias gg="ghq -p -u"
 
 # tmux
 alias tmux='tmux -2'
