@@ -1,43 +1,29 @@
 export DOTFILES=$HOME/.dotfiles
-export ZGEN=$HOME/.zgen
 export HOMEBREW_PREFIX=/usr/local
 
-source "$ZGEN/zgen.zsh"
+source ~/.zplug/zplug
 
-# check if there's no init script
-if ! zgen saved; then
-    ZSHCACHE=$HOME/.cache/cache.zsh
-    </dev/null > $ZSHCACHE
+zplug $HOMEBREW_PREFIX/opt/fzf/shell, from:local
 
-    echo "Creating a zgen save"
+zplug $DOTFILES/zsh, from:local
+zplug $DOTFILES/functions, from:local
 
-    zgen load $HOMEBREW_PREFIX/etc/grc.zsh
-    zgen load $DOTFILES/zsh
-    zgen load $DOTFILES/functions
+zplug supercrabtree/k
+zplug chriskempson/base16-shell, of:base16-ocean.dark.sh
 
-    autoload -Uz compinit
+# Themes
+zplug mafredri/zsh-async | \
+    zplug sindresorhus/pure
 
-    zgen load zsh-users/zaw
-    zgen load supercrabtree/k
-    zgen load chriskempson/base16-shell base16-ocean.dark.sh
+# Packages
+zplug sharat87/pip-app
+zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local
 
-    # Themes
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
+#if ! zplug check; then
+#    zplug install
+#fi
 
-    # Packages
-    zgen load sharat87/pip-app
-    zgen load $HOMEBREW_PREFIX/etc/brew-wrap
+zplug load
 
-    dircolors --sh "$DOTFILES/.dircolors" >> $ZSHCACHE
-    fasd --init zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >>| $ZSHCACHE
-    <$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh >> $ZSHCACHE
-    <$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh >> $ZSHCACHE
-    zgen load $ZSHCACHE
-
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
-    zgen load zsh-users/zsh-history-substring-search
-
-    zgen save
-fi
+eval "$(fasd --init auto)"
+eval "$(dircolors --sh $DOTFILES/.dircolors)"

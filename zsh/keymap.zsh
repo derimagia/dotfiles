@@ -3,6 +3,8 @@ bindkey -v
 autoload -U edit-command-line
 zle -N edit-command-line
 
+bindkey '^v' edit-command-line # Vi Mode
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 

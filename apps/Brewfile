@@ -86,6 +86,9 @@ cask iterm2-beta
 cask java7
 cask pycharm-ce
 
+tap codekitchen/dinghy
+brew dinghy
+
 tap homebrew/dupes
 
 tap homebrew/php
@@ -131,6 +134,7 @@ brew cscope
 brew curl
 brew dex2jar
 brew diff-so-fancy
+brew dnsmasq
 brew docbook
 brew docbook-xsl
 brew docker-machine-nfs
@@ -228,6 +232,7 @@ brew pv
 brew pypy
 brew python
 brew python3
+brew ranger
 brew re2c
 brew readline
 brew redis
@@ -247,6 +252,7 @@ brew the_silver_searcher
 brew tig
 brew tmux
 brew tree
+brew unfs3
 brew unixodbc
 brew v8
 brew watch

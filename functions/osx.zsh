@@ -22,7 +22,7 @@ function mand() {
 }
 
 # Finder Directory
-function pfd() {
+function osx-pfd() {
   osascript 2>/dev/null <<EOF
   tell application "Finder"
     return POSIX path of (target of first window as text)
@@ -31,7 +31,7 @@ EOF
 }
 
 # Finder Selection
-function pds() {
+function osx-pds() {
   osascript 2>&1 <<EOF
   tell application "Finder" to set the_selection to selection
   if the_selection is not {}
@@ -49,7 +49,7 @@ function osx-rm-dir-metadata() {
   \) -print0 | xargs -0 rm -rf
 }
 
-function ls-download-history() {
+function osx-ls-download-history() {
   local db
   for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
     if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then

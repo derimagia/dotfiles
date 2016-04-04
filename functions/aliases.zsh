@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 alias reload!='. ~/.zshrc'
 alias st='stree'
 alias g="git"
@@ -20,6 +21,10 @@ alias man="mangle" # This should be a drop-in change, let's me do "man ls -A"
 alias docker="grc docker"
 alias docker-machine="grc docker-machine"
 alias gg="ghq -p -u"
+alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t'
+alias docker-clean-containers='docker ps -aqf status=exited | xargs -r docker rm -v'
+alias docker-clean-images='docker images -aqf dangling=true | xargs -r docker rmi'
+alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
 
 # tmux
 alias tmux='tmux -2'
