@@ -19,3 +19,9 @@ $DOTFILES/apps/node.sh 2>&1
 
 # Install ruby packages
 $DOTFILES/apps/ruby.sh 2>&1
+
+# Install idea packages
+$DOTFILES/apps/idea/idea.sh 2>&1
+
+# Install OSX Settings
+$DOTFILES/apps/osx.sh 2>&1
