@@ -66,3 +66,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif

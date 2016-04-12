@@ -18,12 +18,12 @@ zplug mafredri/zsh-async | \
 # Packages
 zplug sharat87/pip-app
 zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local
+zplug zsh-users/zsh-syntax-highlighting
 
-#if ! zplug check; then
-#    zplug install
-#fi
+if ! zplug check; then
+    zplug install
+fi
 
 zplug load
 
 eval "$(fasd --init auto)"
-eval "$(dircolors --sh $DOTFILES/.dircolors)"

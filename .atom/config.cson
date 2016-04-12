@@ -17,8 +17,8 @@
       "vendor"
     ]
     themes: [
-      "seti-ui"
-      "seti-syntax"
+      "spacegray-dark-ui"
+      "base16-ocean-dark"
     ]
   drupal:
     fileTypesPhp: "module,install,inc,test"

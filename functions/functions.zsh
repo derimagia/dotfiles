@@ -86,7 +86,7 @@ function aliases() {
 }
 
 # Git Rebase
-rebase() {
+function rebase() {
     printf "Stash? (y/n): "
     read -r shouldStash
 

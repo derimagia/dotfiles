@@ -25,7 +25,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
 
 # ZSH Directory, ./bin Directory, gopath
-PATH="./bin:$DOTFILES/bin:$PATH:$GOPATH/bin:$COMPOSER_HOME/vendor/bin"
+PATH="./bin:$HOME/bin:$PATH:$GOPATH/bin:$COMPOSER_HOME/vendor/bin"
 
 # Coreutils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
