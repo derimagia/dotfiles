@@ -143,10 +143,8 @@ print_success() {
 #
 
 
-# finds all .dotfiles in this folder
-declare -a FILES_TO_SYMLINK=$(find . -mindepth 1 -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx -not -name .idea | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK bin" # add in vim and the binaries
-
+# finds all .dotfiles in this folder and the bin folder
+declare -a FILES_TO_SYMLINK=$(git --git-dir=$DOTFILES/.git --work-tree=$DOTFILES ls-files --cached | cut -d '/' -f1 | uniq | grep '^\.\|bin')
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -158,7 +156,7 @@ main() {
 
     for i in ${FILES_TO_SYMLINK[@]}; do
 
-        sourceFile="$(pwd)/$i"
+        sourceFile="$DOTFILES/$i"
         targetFile="$HOME/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
         if [ -e "$targetFile" ]; then

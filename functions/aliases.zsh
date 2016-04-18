@@ -9,8 +9,8 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # Git Root
 alias fs='stat -c "%s Bytes"' # File Size
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
-alias ls='grc ls -Ah --group-directories-first'
-alias la='ls -AFh --group-directories-first'
+alias ls='grc ls --color -CAh --group-directories-first'
+alias la='ls -l'
 alias l='k -Ah'
 alias cask='brew cask'
 alias map="xargs -n1"
@@ -34,6 +34,6 @@ alias dps="docker ps"
 alias di="docker images"
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t'
-alias docker-clean-containers='docker ps -aqf status=exited | xargs -r docker rm -v'
-alias docker-clean-images='docker images -aqf dangling=true | xargs -r docker rmi'
-alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
+alias docker-clean-containers='docker ps -aqf status=exited | xargs docker rm -v'
+alias docker-clean-images='docker images -aqf dangling=true | xargs docker rmi'
+alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs docker volume rm'

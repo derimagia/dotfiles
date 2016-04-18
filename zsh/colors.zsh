@@ -12,3 +12,10 @@ alias docker-machine="grc docker-machine"
 
 export GREP_OPTIONS='--color=auto';
 eval "$(gdircolors -b)"
+
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='underline'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'

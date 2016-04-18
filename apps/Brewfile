@@ -116,7 +116,7 @@ brew faac
 brew fasd
 brew fdk-aac
 brew ffmpeg
-brew findutils --with-default-names
+brew findutils
 brew flex
 brew fontconfig
 brew fortune
@@ -230,7 +230,7 @@ tap homebrew/dupes
 
 tap homebrew/php
 brew drush
-brew php55 --with-gmp
+brew php55
 brew psysh
 brew wp-cli
 

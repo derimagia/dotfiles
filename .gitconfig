@@ -44,10 +44,10 @@
 	excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
 [difftool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/p4merge/2015.2-1312139/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/p4merge/2015.2-1312139/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
   keepBackup = false
 # rewrites of repo paths

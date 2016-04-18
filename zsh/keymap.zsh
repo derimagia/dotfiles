@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
-bindkey -v
-autoload -U edit-command-line
-zle -N edit-command-line
-
-bindkey '^v' edit-command-line # Vi Mode
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-function globalias() {
-  if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
-   zle _expand_alias
-   zle expand-word
-  fi
-  zle self-insert
-}
 
 bindkey -e  # emacs key bindings
 
-zle -N globalias
+autoload -U edit-command-line
+zle -N edit-command-line
+
+expand-aliases() {
+    unset 'functions[_expand-aliases]'
+    functions[_expand-aliases]=$BUFFER
+    (($+functions[_expand-aliases])) &&
+    BUFFER=${functions[_expand-aliases]#$'\t'} &&
+    CURSOR=$#BUFFER
+}
+
+zle -N expand-aliases
 
 bindkey '^ ' magic-space           # control-space to bypass completion
 bindkey -M isearch ' ' magic-space # normal space during search
 
-bindkey '^v' edit-command-line # Vi Mode
+bindkey '\ev' edit-command-line # Vi Mode
+bindkey '\ee' expand-aliases
+
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
