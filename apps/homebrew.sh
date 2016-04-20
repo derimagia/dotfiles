@@ -19,6 +19,6 @@ brew upgrade # Upgrade Brews
 # Update Casks
 brew file cask_upgrade -C
 brew file update -C --no_appstore
-
+brew clean -C
 
 exit 0

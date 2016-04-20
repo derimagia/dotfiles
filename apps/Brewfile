@@ -5,6 +5,7 @@ tap argon/mas
 brew mas
 
 tap caskroom/cask
+cask 1password
 cask adium
 cask adobe-creative-cloud
 cask aerial
@@ -78,7 +79,6 @@ cask font-roboto
 cask font-source-code-pro
 
 tap caskroom/versions
-cask 1password-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask intellij-idea-ce
@@ -105,7 +105,7 @@ brew cairo
 brew coreutils
 brew cowsay
 brew cscope
-brew curl
+brew curl --with-libssh2
 brew diff-so-fancy
 brew dnsmasq
 brew docbook-xsl
@@ -116,7 +116,7 @@ brew faac
 brew fasd
 brew fdk-aac
 brew ffmpeg
-brew findutils
+brew findutils --with-default-names
 brew flex
 brew fontconfig
 brew fortune
@@ -269,3 +269,6 @@ brew nspr
 brew ranger
 brew the_silver_searcher
 brew zlib
+
+# App Store applications
+appstore No installed apps found

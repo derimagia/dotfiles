@@ -20,8 +20,7 @@ zplug mafredri/zsh-async, nice:1
 zplug sindresorhus/pure, nice:4
 
 # Packages
-zplug sharat87/pip-app
-zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local
+zplug $HOMEBREW_PREFIX/etc, of:brew-wrap, from:local
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-syntax-highlighting, nice:10 # Run Last
 zplug zsh-users/zsh-history-substring-search
