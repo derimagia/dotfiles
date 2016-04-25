@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+is_ssh_running && exit
+
+if is_screen_or_tmux_running; then
+    if is_tmux_runnning; then
+        echo ' _____ __  __ _   ___  __ '
+        echo '|_   _|  \/  | | | \ \/ / '
+        echo '  | | | |\/| | | | |\  /  '
+        echo '  | | | |  | | |_| |/  \  '
+        echo '  |_| |_|  |_|\___//_/\_\ '
+        export DISPLAY="$TMUX"
+    elif is_screen_running; then
+        # For GNU screen
+        :
+    fi
+else
+    if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '.*]$'; then
+        tmux attach-session
+        if [ $? -eq 0 ]; then
+            echo "$(tmux -V) attached session"
+            exit
+        fi
+    fi
+
+    tmux new-session && echo "tmux created new session"
+fi

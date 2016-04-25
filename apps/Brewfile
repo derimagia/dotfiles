@@ -32,6 +32,7 @@ cask evernote
 cask firefox
 cask gear-player
 cask gitkraken
+cask gitup
 cask google-chrome
 cask hopper-disassembler
 cask hosts
@@ -60,6 +61,7 @@ cask sequel-pro
 cask skype
 cask slack
 cask sourcetree
+cask spectacle
 cask sshfs
 cask steam
 cask teamviewer
@@ -174,6 +176,8 @@ brew luajit
 brew macvim --with-override-system-vim
 brew mad
 brew moreutils
+brew most
+brew multitail
 brew netcat
 brew nmap
 brew node
@@ -195,12 +199,15 @@ brew python
 brew python3
 brew re2c
 brew readline
+brew reattach-to-user-namespace
 brew redis
 brew rename
 brew ruby
+brew s-lang
 brew sassc
 brew sdl2
 brew sdl2_image
+brew socat
 brew sox
 brew spark
 brew spidermonkey

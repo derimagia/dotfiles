@@ -1,28 +1,32 @@
-#!/usr/bin/env bash
+alias o="open"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+alias cask='brew cask'
+
 
 # Quicklook
-function ql() {
+ql() {
   nullify qlmanage -p "$@"
 }
 
-function dash() {
+dash() {
 	open "dash://$*"
 }
 
 # Switchs Java Home
-function jhome () {
+jhome () {
   export JAVA_HOME=`/usr/libexec/java_home $@`
   echo "JAVA_HOME:" $JAVA_HOME
   echo "java -version:"
   java -version
 }
 
-function mand() {
+mand() {
   open "dash://manpages:$1" 2>/dev/null
 }
 
 # Finder Directory
-function osx-pfd() {
+osx-pfd() {
   osascript 2>/dev/null <<EOF
   tell application "Finder"
     return POSIX path of (target of first window as text)
@@ -31,7 +35,7 @@ EOF
 }
 
 # Finder Selection
-function osx-pds() {
+osx-pds() {
   osascript 2>&1 <<EOF
   tell application "Finder" to set the_selection to selection
   if the_selection is not {}
@@ -42,14 +46,14 @@ function osx-pds() {
 EOF
 }
 
-function osx-rm-dir-metadata() {
+osx-rm-dir-metadata() {
   find "${@:-$PWD}" \( \
   -type f -name '.DS_Store' -o \
   -type d -name '__MACOSX' \
   \) -print0 | xargs -0 rm -rf
 }
 
-function osx-ls-download-history() {
+osx-ls-download-history() {
   local db
   for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
     if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then

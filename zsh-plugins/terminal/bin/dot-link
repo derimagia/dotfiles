@@ -144,7 +144,7 @@ print_success() {
 
 
 # finds all .dotfiles in this folder and the bin folder
-declare -a FILES_TO_SYMLINK=$(git --git-dir=$DOTFILES/.git --work-tree=$DOTFILES ls-files --cached | cut -d '/' -f1 | uniq | grep '^\.\|bin')
+declare -a FILES_TO_SYMLINK=$(git --git-dir=$DOTFILES/.git --work-tree=$DOTFILES ls-files --cached | cut -d '/' -f1 | uniq | grep '^\.\')
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
