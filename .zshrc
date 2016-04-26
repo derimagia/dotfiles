@@ -24,12 +24,12 @@ PATH="./bin:$PATH" # ./bin
 [[ -d ~/.zplug ]] || git clone https://github.com/b4b4r07/zplug ~/.zplug
 
 source $HOME/.zplug/zplug
-
 export ZPLUG_USE_CACHE=false # For Debugging
 
-
-zplug $HOMEBREW_PREFIX/opt/fzf/shell, of:completion.zsh, from:local
-zplug $DOTFILES/zsh-plugins, of:'**/*'.zsh, from:local
+zplug $DOTFILES/zsh-plugins, of:'**/*.vital.zsh', from:local
+zplug $HOMEBREW_PREFIX/opt/fzf/shell, of:completion.zsh, from:local, if:'which fzf'
+zplug $DOTFILES/zsh-plugins, of:'**/*.plugin.zsh', from:local
+zplug $DOTFILES/zsh-plugins, of:'zsh-plugins/terminal/iterm2.zsh', from:local
 zplug $DOTFILES/zsh-plugins, as:command, of:'**/bin/**/*', from:local
 
 zplug supercrabtree/k
@@ -42,9 +42,9 @@ zplug sindresorhus/pure, nice:3
 # Packages
 zplug $HOMEBREW_PREFIX/etc, of:brew-wrap, from:local
 zplug zsh-users/zsh-completions
-zplug zsh-users/zsh-syntax-highlighting, nice:10, if:'[[ -z $DOTFILES_LOADED ]]' # Run Last
 zplug zsh-users/zsh-history-substring-search
-zplug zsh-users/zsh-autosuggestions, if:'[[ -z $DOTFILES_LOADED ]]' # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
+zplug zsh-users/zsh-autosuggestions # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
+zplug zsh-users/zsh-syntax-highlighting, nice:10
 
 if ! zplug check; then
     zplug install
