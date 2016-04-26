@@ -1,5 +1,5 @@
 # Setting Terminal
-if [[ is_osx ]]; then
+if is_osx; then
     export TERM='xterm-256color';
     [ -n "$TMUX"  ] && export TERM=screen-256color
 fi
