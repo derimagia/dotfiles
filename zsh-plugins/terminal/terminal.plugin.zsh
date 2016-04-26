@@ -85,9 +85,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Colors
 export CLICOLOR=1
 
-# GRC
-GRC=`has.command grc`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ] ; then
+if [ "$TERM" != dumb ] && has.command grc ; then
     alias cl='grc -es --colour=auto'
     alias configure='cl ./configure'
     alias diff='cl diff'
@@ -113,7 +111,7 @@ alias tail='multitail';
 alias top='htop';
 
 export GREP_OPTIONS='--color=auto';
-eval "$(dircolors -b)"
+eval "$(dircolors -b $HOME/.dircolors)"
 
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
