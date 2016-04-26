@@ -53,7 +53,8 @@ fi
 zplug load
 
 #TODO: Is there a better way to do this?
-if [[ -n "`which fasd`" ]]; then
+FASD=`which fasd`
+if [[ -n "$FASD" ]]; then
   eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 fi
 
