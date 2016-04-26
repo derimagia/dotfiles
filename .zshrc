@@ -5,7 +5,6 @@ export DOTFILES_CACHE_DIR=$HOME/.cache
 export HOMEBREW_PREFIX=/usr/local
 export HOMEBREW_CASK_OPTS="--appdir=/Applications" # Install all casks to /Applications
 export HOMEBREW_BREWFILE=$DOTFILES/apps/Brewfile
-export HOMEBREW_PREFIX=/usr/local
 export GHQ_ROOT=$HOME/dev/src
 export GOPATH=$HOME/dev/go
 export MANPAGER="most"

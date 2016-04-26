@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Start an HTTP server from a directory, optionally specifying the port
+#@TODO: Never use this one...
 server() {
     local port="${1:-8000}"
     open "http://localhost:${port}/"
@@ -82,3 +83,6 @@ gifify() {
     echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
   fi
 }
+
+fpath+="`dirname $0`/functions"
+autoload dot

@@ -83,11 +83,23 @@ has() {
     return $status
 }
 
+
+
 is_login_shell() { [[ $SHLVL == 1 ]]; }
 shell_has_started_interactively() { [ ! -z "$PS1" ]; }
 is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
 hasnt() { ( has "$1" && exit 0 || exit 1 ); return $? }
 is_git_repo() { git rev-parse --is-inside-work-tree &>/dev/null; }
+
+# PLATFORM
+export SHELL_PLATFORM='unknown'
+ostype() { echo "$OSTYPE" | tr '[:upper:]' '[:lower:]'; }
+case "$(ostype)" in
+    *'linux'*)  SHELL_PLATFORM='linux' ;;
+    *'darwin'*) SHELL_PLATFORM='osx'   ;;
+esac
+is_linux() { [[ $SHELL_PLATFORM == 'linux' || $SHELL_PLATFORM == 'bsd' ]]; }
+is_osx()   { [[ $SHELL_PLATFORM == 'osx' ]]; }
 
 allcolors() {
     # credit to http://askubuntu.com/a/279014
