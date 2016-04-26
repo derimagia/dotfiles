@@ -10,13 +10,13 @@ is_osx && ink blue "Installing Homebrew Packages...\n" && $DOTFILES/apps/homebre
 is_linux && ink blue "Installing Ubuntu Packages...\n" && $DOTFILES/apps/ubuntu.sh
 
 # Install python packages
-{has.command python && ink blue "Installing Python Packages...\n" && $DOTFILES/apps/python.sh} || ink red "Python is not installed. Skipping...\n"
+{has.command pip && ink blue "Installing Python Packages...\n" && $DOTFILES/apps/python.sh} || ink red "Python is not installed or failed. Skipping...\n"
 
 # Install node packages
-{has.command node  && ink blue "Installing Node Packages...\n" &&  $DOTFILES/apps/node.sh} || ink red "Node is not installed. Skipping...\n"
+{has.command node  && ink blue "Installing Node Packages...\n" && $DOTFILES/apps/node.sh} || ink red "Node is not installed or failed. Skipping...\n"
 
 # Install ruby packages
-{has.command ruby  && ink blue "Installing Ruby Packages...\n" && $DOTFILES/apps/ruby.sh} || ink red "Ruby is not installed. Skipping...\n"
+{has.command ruby  && ink blue "Installing Ruby Packages...\n" && $DOTFILES/apps/ruby.sh} || ink red "Ruby is not installed or failed. Skipping...\n"
 
 # Install idea packages
 #is_osx && $DOTFILES/apps/idea/idea.sh
