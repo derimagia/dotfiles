@@ -23,12 +23,12 @@ PATH="./bin:$PATH" # ./bin
 [[ -d ~/.zplug ]] || git clone https://github.com/b4b4r07/zplug ~/.zplug
 
 source $HOME/.zplug/zplug
-export ZPLUG_USE_CACHE=false # For Debugging
+#export ZPLUG_USE_CACHE=false # For Debugging
 
 zplug $DOTFILES/zsh-plugins, of:'**/*.vital.zsh', from:local
 zplug $HOMEBREW_PREFIX/opt/fzf/shell, of:completion.zsh, from:local, if:'which fzf'
 zplug $DOTFILES/zsh-plugins, of:'**/*.plugin.zsh', from:local
-zplug $DOTFILES/zsh-plugins, of:'zsh-plugins/terminal/iterm2.zsh', from:local
+zplug $DOTFILES/zsh-plugins, of:'terminal/iterm2.zsh', from:local
 zplug $DOTFILES/zsh-plugins, as:command, of:'**/bin/**/*', from:local
 
 zplug supercrabtree/k
