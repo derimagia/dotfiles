@@ -8,12 +8,12 @@ export HOMEBREW_BREWFILE=$DOTFILES/apps/Brewfile
 export HOMEBREW_PREFIX=/usr/local
 export GHQ_ROOT=$HOME/dev/src
 export GOPATH=$HOME/dev/go
-export JAVA_HOME="$(/usr/libexec/java_home)"
 export MANPAGER="most"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 export FZF_DEFAULT_OPTS="--inline-info"
 export COMPOSER_HOME=$HOME/.composer
 
+[[ -f `/usr/libexec/java_home` ]] && export JAVA_HOME="$(/usr/libexec/java_home)"
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
 
 PATH="$GOPATH/bin:$HOME/bin:$COMPOSER_HOME/vendor/bin:$PATH" # GO / Composer Dirs
