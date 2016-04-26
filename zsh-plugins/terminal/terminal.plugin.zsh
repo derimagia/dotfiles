@@ -101,6 +101,8 @@ if [ "$TERM" != dumb ] && has.command grc ; then
     alias ls='cl ls --color -CAh --group-directories-first'
     alias docker='grc docker'
     alias docker-machine='grc docker-machine'
+else
+    alias ls='ls --color -CAh --group-directories-first'
 fi
 
 alias ccat='pygmentize -O style=monokai -f console256 -g'
