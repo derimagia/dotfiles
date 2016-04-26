@@ -53,8 +53,6 @@ fi
 zplug load
 
 #TODO: Is there a better way to do this?
-if [[ command -v fasd >/dev/null 2>&1 ]]; then
-  eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-fi
+has.command fasd && eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 DOTFILES_LOADED=1

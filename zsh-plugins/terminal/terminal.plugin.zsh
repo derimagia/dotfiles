@@ -86,7 +86,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export CLICOLOR=1
 
 # GRC
-GRC=`which grc`
+GRC=`has.command grc`
 if [ "$TERM" != dumb ] && [ -n "$GRC" ] ; then
     alias cl='grc -es --colour=auto'
     alias configure='cl ./configure'
