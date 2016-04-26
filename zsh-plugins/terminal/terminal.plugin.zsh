@@ -6,7 +6,6 @@ export TERM='xterm-256color';
 alias re='. ~/.zshrc'
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias fs='stat -c "%s Bytes"' # File Size
-alias ls='grc ls --color -CAh --group-directories-first'
 alias la='ls -l'
 alias l='k -Ah'
 alias map="xargs -n1"
@@ -15,7 +14,6 @@ alias man="mangle" # This should be a drop-in change, let's me do "man ls -A"
 alias dottime="/usr/bin/time zsh -i -c exit"
 alias '?'='echo $?'
 alias mou="open /Applications/Mou.app" # Mou!
-
 
 # General Terminal Options
 setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
@@ -87,6 +85,26 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Colors
 export CLICOLOR=1
 
+# GRC
+GRC=`which grc`
+if [ "$TERM" != dumb ] && [ -n "$GRC" ] ; then
+    alias cl='grc -es --colour=auto'
+    alias configure='cl ./configure'
+    alias diff='cl diff'
+    alias make='cl make'
+    alias gcc='cl gcc'
+    alias g++='cl g++'
+    alias as='cl as'
+    alias gas='cl gas'
+    alias ld='cl ld'
+    alias netstat='cl netstat'
+    alias ping='cl ping'
+    alias traceroute='cl traceroute'
+    alias ls='cl ls --color -CAh --group-directories-first'
+    alias docker='grc docker'
+    alias docker-machine='grc docker-machine'
+fi
+
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -95,7 +113,7 @@ alias tail='multitail';
 alias top='htop';
 
 export GREP_OPTIONS='--color=auto';
-eval "$(gdircolors -b)"
+eval "$(dircolors -b)"
 
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
