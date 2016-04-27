@@ -18,5 +18,8 @@ is_linux && ink blue "Installing Ubuntu Packages...\n" && $DOTFILES/apps/ubuntu.
 # Install ruby packages
 {has.command ruby  && ink blue "Installing Ruby Packages...\n" && $DOTFILES/apps/ruby.sh} || ink red "Ruby is not installed or failed. Skipping...\n"
 
+# Install ruby packages
+ink blue "Installing VIM Packages...\n" && $DOTFILES/apps/vim.sh
+
 # Install idea packages
 #is_osx && $DOTFILES/apps/idea/idea.sh

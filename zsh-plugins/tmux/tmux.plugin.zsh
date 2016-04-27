@@ -19,3 +19,7 @@ is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
 
 fpath+="`dirname $0`/functions"
 autoload tmuxx
+
+ if [[ -z "$TMUX" ]]; then
+    tmuxx
+ fi

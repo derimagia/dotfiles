@@ -52,6 +52,10 @@ unidecode() {
     echo # newline
 }
 
+ip() {
+    dig +short myip.opendns.com @resolver1.opendns.com
+}
+
 cpp () {
   rsync -WavP --human-readable --progress $1 $2
 }
