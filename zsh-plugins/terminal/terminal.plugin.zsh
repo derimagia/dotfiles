@@ -113,6 +113,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tail='multitail';
 alias top='htop';
+alias time.='/usr/bin/time zsh -i -c exit';
 
 export GREP_OPTIONS='--color=auto';
 eval "$(dircolors -b $HOME/.dircolors)"
@@ -124,3 +125,5 @@ typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='underline'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
 
+# Load Fasd
+has.command fasd && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"

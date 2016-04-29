@@ -1,4 +1,10 @@
-#!/usr/bin/env bash
+fpath=(
+    "${${(%):-%N}:A:h}"/functions(N-/)
+    $fpath
+)
+
+autoload -Uz dot ink
+
 # Start an HTTP server from a directory, optionally specifying the port
 #@TODO: Never use this one...
 server() {
@@ -19,6 +25,11 @@ md() {
 z() {
   cd $(fasd -d "$1" | fzf-tmux --select-1)
 }
+
+f() {
+  fasd -f "$1" | fzf-tmux --select-1
+}
+
 
 # Lazy source a function so the file doesn't get loaded until it's called
 #TODO: This can probably be replaced with zsh auto loading
@@ -60,11 +71,6 @@ cpp () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
-# find shorthand
-f() {
-    find . -name "$1"
-}
-
 # get gzipped size
 gz() {
     echo "orig size    (bytes): "
@@ -87,6 +93,3 @@ gifify() {
     echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
   fi
 }
-
-fpath+="`dirname $0`/functions"
-autoload dot

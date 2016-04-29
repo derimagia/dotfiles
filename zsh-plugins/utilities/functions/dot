@@ -1,22 +1,22 @@
 #!/bin/sh
 
 # Set OS X defaults
-is_osx && ink blue "Installing OSX Defaults...\n" && $DOTFILES/apps/osx.sh
+is_osx && ink --color blue "Installing OSX Defaults...\n" && $DOTFILES/apps/osx.sh
 
 # Install homebrew packages
-is_osx && ink blue "Installing Homebrew Packages...\n" && $DOTFILES/apps/homebrew.sh
+is_osx && ink --color blue "Installing Homebrew Packages...\n" && $DOTFILES/apps/homebrew.sh
 
 # Linix Packages, right now only ubuntu..
-is_linux && ink blue "Installing Ubuntu Packages...\n" && $DOTFILES/apps/ubuntu.sh
+is_linux && ink --color blue  "Installing Ubuntu Packages...\n" && $DOTFILES/apps/ubuntu.sh
 
 # Install python packages
-{has.command pip && ink blue "Installing Python Packages...\n" && $DOTFILES/apps/python.sh} || ink red "Python is not installed or failed. Skipping...\n"
+{has.command pip && ink --color blue "Installing Python Packages...\n" && $DOTFILES/apps/python.sh} || ink --color red "Python is not installed or failed. Skipping...\n"
 
 # Install node packages
-{has.command node  && ink blue "Installing Node Packages...\n" && $DOTFILES/apps/node.sh} || ink red "Node is not installed or failed. Skipping...\n"
+{has.command node  && ink --color blue "Installing Node Packages...\n" && $DOTFILES/apps/node.sh} || ink --color red "Node is not installed or failed. Skipping...\n"
 
 # Install ruby packages
-{has.command ruby  && ink blue "Installing Ruby Packages...\n" && $DOTFILES/apps/ruby.sh} || ink red "Ruby is not installed or failed. Skipping...\n"
+{has.command ruby  && ink --color blue "Installing Ruby Packages...\n" && $DOTFILES/apps/ruby.sh} || ink --color red "Ruby is not installed or failed. Skipping...\n"
 
 # Install ruby packages
 ink blue "Installing VIM Packages...\n" && $DOTFILES/apps/vim.sh
