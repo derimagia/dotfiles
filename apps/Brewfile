@@ -94,6 +94,7 @@ brew dinghy
 tap homebrew/core
 brew aircrack-ng
 brew android-platform-tools
+brew ansible
 brew apktool
 brew asciidoc
 brew autoconf
@@ -113,6 +114,7 @@ brew dnsmasq
 brew docbook-xsl
 brew docbook
 brew docker-machine-nfs
+brew docker-machine
 brew dos2unix
 brew faac
 brew fasd
@@ -215,6 +217,8 @@ brew sqlite
 brew ssh-copy-id
 brew sshrc
 brew stormssh
+brew syncthing-inotify
+brew syncthing
 brew tig
 brew tmux
 brew tree
@@ -260,6 +264,7 @@ tap vitorgalvao/tiny-scripts
 brew cask-repair
 brew composer
 brew dex2jar
+brew docker
 brew frei0r
 brew giflib
 brew glib
