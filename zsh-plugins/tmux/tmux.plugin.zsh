@@ -4,8 +4,6 @@ alias ta='tmux attach -d'
 alias tnew='tmux new -s'
 alias tmn='tmux -CC new -As $(basename $(pwd))'
 
-autoload -Uz tmuxx
-
 # Start TMUXX by calling tmuxx
 _start-tmux-if-it-is-not-already-started() {
     BUFFER=tmuxx

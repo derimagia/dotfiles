@@ -29,11 +29,12 @@ source $HOME/.zplug/zplug
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/zsh-plugins/*; do
     vital_paths=($plugin_path/*.vital.zsh(N-))
+    autoload_files=($plugin_path/autoload/*(N-))
 
     zplug $plugin_path, use:'*.plugin.zsh', as:plugin, nice:3, from:local # Main Plugin
     [[ -n $vital_paths ]] && zplug $plugin_path, use:'*.vital.zsh', nice:-1, from:local # Vital Files First
     [[ -d $plugin_path/bin ]] && zplug $plugin_path, as:command, use:"bin", from:local
-    [[ -d $plugin_path/autoload ]] && fpath+=($plugin_path/autoload)
+    [[ -n $autoload_files ]] && fpath+=($plugin_path/autoload) && autoload -Uz ${autoload_files:t}
 done
 
 [[ -f $HOMEBREW_PREFIX/opt/fzf/shell ]] && zplug $HOMEBREW_PREFIX/opt/fzf/shell, use:completion.zsh, from:local
