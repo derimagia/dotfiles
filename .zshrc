@@ -13,8 +13,6 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$HOMEBREW
 export FZF_DEFAULT_OPTS="--inline-info"
 export COMPOSER_HOME=$HOME/.composer
 
-
-[[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$(/usr/libexec/java_home)"
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
 
 PATH="$GOPATH/bin:$HOME/bin:$COMPOSER_HOME/vendor/bin:$PATH" # GO / Composer Dirs
@@ -42,8 +40,8 @@ zplug supercrabtree/k
 zplug chriskempson/base16-shell, use:base16-ocean.dark.sh
 
 # Themes
-zplug mafredri/zsh-async, nice:2
-zplug sindresorhus/pure, nice:3
+zplug mafredri/zsh-async, nice:-1 # Dependency for a few things, so load early
+zplug sindresorhus/pure, on:mafredri/zsh-async
 
 # Packages
 zplug $HOMEBREW_PREFIX/etc, use:brew-wrap, from:local
