@@ -113,8 +113,6 @@ brew diff-so-fancy
 brew dnsmasq
 brew docbook-xsl
 brew docbook
-brew docker-machine-nfs
-brew docker-machine
 brew dos2unix
 brew faac
 brew fasd

@@ -61,5 +61,3 @@ osx-ls-download-history() {
     fi
   done
 }
-
-source iterm2.zsh

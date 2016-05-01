@@ -1,43 +1,13 @@
 #!/usr/bin/env zsh
 
-# General functions that
+# General functions that should be loaded first
 
-# has_command returns true if $1 as a shell command exists
-has.command() {
-    (( $+commands[${1:?too few argument}] ))
+# Has Commands
+has.{command,function,builtin,alias,galias}() {
+    eval "(( $+${0/#has./}s[${1:?too few argument}] ))"
     return $status
 }
 
-# has_command returns true if $1 as a shell function exists
-has.function() {
-    (( $+functions[${1:?too few argument}] ))
-    return $status
-}
-
-# has_command returns true if $1 as a builtin command exists
-has.builtin() {
-    (( $+builtins[${1:?too few argument}] ))
-    return $status
-}
-
-# has_command returns true if $1 as an alias exists
-has.alias() {
-    (( $+aliases[${1:?too few argument}] ))
-    return $status
-}
-
-# has_command returns true if $1 as an alias exists
-has.galias() {
-    (( $+galiases[${1:?too few argument}] ))
-    return $status
-}
-
-# direct it all to /dev/null
-nullify() {
-  "$@" >/dev/null 2>&1
-}
-
-# has returns true if $1 exists
 has() {
     has.function "$1" || \
         has.command "$1" || \
@@ -48,8 +18,10 @@ has() {
     return $status
 }
 
+# Global Aliases
+alias -g __DIRECTORY__='${${(%):-%N}:A:h}' # Get Directory Script is in
 
-
+require() { echo $(readlink -f $0) }
 is_login_shell() { [[ $SHLVL == 1 ]]; }
 shell_has_started_interactively() { [ ! -z "$PS1" ]; }
 is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
@@ -78,3 +50,6 @@ allcolors() {
     done
     echo ""
 }
+
+# Autoload vitals
+autoload -Uz add-zsh-hook

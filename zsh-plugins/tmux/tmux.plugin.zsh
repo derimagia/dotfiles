@@ -4,12 +4,6 @@ alias ta='tmux attach -d'
 alias tnew='tmux new -s'
 alias tmn='tmux -CC new -As $(basename $(pwd))'
 
-
-fpath=(
-    "${${(%):-%N}:A:h}"/functions(N-/)
-    $fpath
-)
-
 autoload -Uz tmuxx
 
 # Start TMUXX by calling tmuxx

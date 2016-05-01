@@ -26,12 +26,14 @@ PATH="./bin:$PATH" # ./bin
 
 source $HOME/.zplug/zplug
 
-for plugin in utilities android docker git prompt terminal tmux; do
-    plugin_path=$DOTFILES/zsh-plugins/$plugin
+zplugs=() # Reset zplugs
+for plugin_path in $DOTFILES/zsh-plugins/*; do
+    vital_paths=($plugin_path/*.vital.zsh(N-))
 
-    zplug $plugin_path, use:"$plugin.vital.zsh", from:local, nice:-1 # Load Vitals First
-    zplug $plugin_path, use:"$plugin.plugin.zsh", from:local, nice:3
-    [[ -d $plugin_path/bin ]] && zplug $plugin_path, use:"$plugin/bin", from:local
+    zplug $plugin_path, use:'*.plugin.zsh', as:plugin, nice:3, from:local # Main Plugin
+    [[ -n $vital_paths ]] && zplug $plugin_path, use:'*.vital.zsh', nice:-1, from:local # Vital Files First
+    [[ -d $plugin_path/bin ]] && zplug $plugin_path, as:command, use:"bin", from:local
+    [[ -d $plugin_path/autoload ]] && fpath+=($plugin_path/autoload)
 done
 
 [[ -f $HOMEBREW_PREFIX/opt/fzf/shell ]] && zplug $HOMEBREW_PREFIX/opt/fzf/shell, use:completion.zsh, from:local
@@ -46,12 +48,12 @@ zplug sindresorhus/pure, nice:3
 zplug $HOMEBREW_PREFIX/etc, use:brew-wrap, from:local
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-history-substring-search
-zplug zsh-users/zsh-autosuggestions # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
-zplug zsh-users/zsh-syntax-highlighting, nice:10
+zplug zsh-users/zsh-autosuggestions
+[[ -z "$DOTFILES_LOADED" ]] && zplug zsh-users/zsh-syntax-highlighting, nice:10  # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
 
-zplug check || zplug install
+#export ZPLUG_USE_CACHE=false && zplug load --verbose
 
-#export ZPLUG_USE_CACHE=false # For Debugging
+#zplug check || zplug install
 zplug load
 
-DOTFILES_LOADED=1
+export DOTFILES_LOADED=1
