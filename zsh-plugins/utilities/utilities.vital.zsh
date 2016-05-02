@@ -40,6 +40,13 @@ is_osx()   { [[ $SHELL_PLATFORM == 'osx' ]]; }
 
 allcolors() {
     # credit to http://askubuntu.com/a/279014
+    for C in {0..255}; do
+        tput setab $C
+        echo -n "$C "
+    done
+    tput sgr0
+    echo ""
+
     for x in 0 1 4 5 7 8; do
         for i in `seq 30 37`; do
             for a in `seq 40 47`; do

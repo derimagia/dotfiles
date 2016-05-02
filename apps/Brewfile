@@ -176,7 +176,6 @@ brew luajit
 brew macvim --with-override-system-vim
 brew mad
 brew moreutils
-brew most
 brew multitail
 brew netcat
 brew nmap

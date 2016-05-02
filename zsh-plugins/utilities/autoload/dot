@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # Set OS X defaults
 is_osx && ink --color blue "Installing OSX Defaults...\n" && $DOTFILES/apps/osx.sh

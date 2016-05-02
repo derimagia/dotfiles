@@ -3,25 +3,56 @@
 # Get section
 if [[ $1 =~ [0-9]+ ]]
 then
-    section=$1
-    shift
+    man $@
+    exit
 fi
 
+_exec-man() {
+    man_args=$@
+    man "${man_args//[[:space:]]/-}" 2>/dev/null
+}
+
+_exec-man_test() {
+    man_args=$@
+    man -w "${man_args//[[:space:]]/-}" &>/dev/null
+}
+
 # Find the longest set of args that gets a man page
-args=("$@")
-while ! command man -w $(echo "${args[@]}" | tr " " "-") &>/dev/null
-do
-    # Add last argument to beginning of patterns to grep
-    patterns=( "${args[@]: -1}" "${patterns[@]}" )
+args=($@)
+while ! _exec-man_test "${args[@]}" &>/dev/null ; do
+    man_search=( "${args[@]: -1}" "${man_search[@]}" ) # Add last argument to beginning of man_search to grep
     unset args[${#args[@]}-1]
 done
 
+pattern=${man_search[@]}
+man_entry=${args[@]}
+
 # Build grep command
-if [[ ${patterns[@]} ]]
-then
-    grepCommand="| grep -C4 --color=always -- '${patterns[@]}'"
+if [[ $man_search ]]; then
+    search="${pattern[@]}"
+
+    standout=$'\e[3;31;40m'
+    normal=$'\e[0m'
+    retcode=$?
+
+    if (( $retcode )); then
+        echo "Error: Could not find man page"
+    else
+
+
+        # Find and replace for sed...
+        keyword=$(printf -- "${search}" | sed -e 's/[]\/$*.^|[]/\\&/g')
+        replace=$(printf -- "%s%s%s" "${standout}" "${search}" "${normal}" | sed -e 's/[\/&]/\\&/g')
+
+        _exec-man $man_entry | egrep -C5 -- "$search"  \
+                | sed "s/${keyword}/${replace}/g" \
+                | less -Xr
+        exit $?
+    fi
 fi
 
-# Do it
-manpage=$(echo "${args[@]}" | tr " " "-")
-eval "command man $section $manpage $grepCommand | ${MANPAGER:-less -RFX}"
+# Fallback to proper man
+man $@
+
+
+

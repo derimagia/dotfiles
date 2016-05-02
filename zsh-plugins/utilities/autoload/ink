@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 autoload -Uz colors && colors
 local color tty=1 is_bold=false
@@ -8,7 +8,7 @@ while (( $# > 0 )); do
     case "$1" in
         --color)
             if [[ ! $2 =~ ^(black|blue|cyan|default|green|grey|magenta|red|white|yellow)$ ]]; then
-                command printf -- "$2: must be a color" >&2
+                printf -- "$2: must be a color" >&2
                 return 1
             fi
             color="$2"; shift
@@ -18,7 +18,7 @@ while (( $# > 0 )); do
             ;;
         --tty)
             if [[ $2 != <-> ]]; then
-                command printf -- "$2: must be an interger" >&2
+                printf -- "$2: must be an interger" >&2
                 return 1
             fi
             tty="$2"; shift
@@ -38,9 +38,9 @@ fi
 
 case $tty in
     1)
-        command printf -- "${color}${text}${reset_color}"
+        printf -- "${color}${text}${reset_color}"
         ;;
     2)
-        command printf -- "${color}${text}${reset_color}" >&2
+        printf -- "${color}${text}${reset_color}" >&2
         ;;
 esac
