@@ -21,7 +21,7 @@ PATH="./bin:$PATH" # ./bin
 
 # Init Zplug
 export ZPLUG_HOME=$HOME/.zplug
-{ [[ -d $ZPLUG_HOME ]] || git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/zplug
+{ [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/zplug
 
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/zsh-plugins/*; do
@@ -42,14 +42,13 @@ zplug chriskempson/base16-shell, use:base16-ocean.dark.sh
 zplug mafredri/zsh-async, nice:-1 # Dependency for a few things, so load early
 zplug sindresorhus/pure, on:mafredri/zsh-async
 
+
 # Packages
-zplug $HOMEBREW_PREFIX/etc, use:brew-wrap, from:local
+zplug rcmdnk/homebrew-file, as:plugin, use:etc/brew-wrap; zplug rcmdnk/homebrew-file, as:command, use:bin/brew-file
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
 zplug zsh-users/zsh-syntax-highlighting, nice:10  # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
-
-#export ZPLUG_USE_CACHE=false && zplug load --verbose
 
 #zplug check || zplug install
 #export ZPLUG_USE_CACHE=false &&

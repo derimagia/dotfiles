@@ -252,11 +252,6 @@ brew isl011
 brew libmpc08
 brew mpfr2
 
-tap rcmdnk/file
-brew brew-file
-
-tap vitorgalvao/tiny-scripts
-
 # Other Homebrew packages
 brew cask-repair
 brew composer

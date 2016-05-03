@@ -13,6 +13,10 @@ alias tail='multitail';
 alias top='htop';
 alias editvar='vared';
 
+# Url functions
+alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
+alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
+
 # Alias-Specific Functions
 _expand-aliases() {
     unset 'functions[_expand-aliases-temp]'
