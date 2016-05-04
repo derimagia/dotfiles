@@ -164,6 +164,7 @@ brew libmpc
 brew libogg
 brew libpng
 brew libsass
+brew libssh2
 brew libtiff
 brew libtool
 brew libvo-aacenc
@@ -193,9 +194,7 @@ brew pngcheck
 brew postgresql
 brew pup
 brew pv
-brew pypy
 brew python
-brew python3
 brew re2c
 brew readline
 brew reattach-to-user-namespace

@@ -58,8 +58,3 @@ gz() {
 nullify() {
   "$@" >/dev/null 2>&1
 }
-
-# Use pip without requiring virtualenv
-function syspip() {
-    PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
