@@ -2,7 +2,7 @@
 
 # Init Zplug
 ZPLUG_HOME=$HOME/.zplug
-{ [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/zplug
+{ [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
 
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/zsh-plugins/*; do
@@ -16,7 +16,7 @@ for plugin_path in $DOTFILES/zsh-plugins/*; do
 done
 
 [[ -f $HOMEBREW_PREFIX/opt/fzf/shell ]] && zplug $HOMEBREW_PREFIX/opt/fzf/shell, use:completion.zsh, from:local
-zplug supercrabtree/k
+zplug ogham/exa, from:gh-r, as:command
 zplug chriskempson/base16-shell, use:base16-ocean.dark.sh
 
 # Themes
