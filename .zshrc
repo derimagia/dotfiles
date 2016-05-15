@@ -3,6 +3,7 @@
 # Init Zplug
 ZPLUG_HOME=$HOME/.zplug
 { [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
+source $DOTFILES/zsh/zplug-async.zsh
 
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/zsh-plugins/*; do
@@ -28,7 +29,7 @@ zplug rcmdnk/homebrew-file, as:plugin, use:etc/brew-wrap; zplug rcmdnk/homebrew-
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
-zplug zsh-users/zsh-syntax-highlighting, nice:10  # @TODO Autosuggestions and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
+zplug zsh-users/zsh-syntax-highlighting, nice:10  # @TODO Autosuggestion and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
 
 #zplug check || zplug install
 #export ZPLUG_USE_CACHE=false &&

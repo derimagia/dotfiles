@@ -10,10 +10,10 @@ ql() {
 }
 
 dash() {
-	open "dash://$*"
+  open "dash://$*"
 }
 
-# Switchs Java Home
+# Switches Java Home
 jhome () {
   export JAVA_HOME=`/usr/libexec/java_home $@`
   echo "JAVA_HOME:" $JAVA_HOME
