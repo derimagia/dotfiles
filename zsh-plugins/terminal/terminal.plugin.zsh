@@ -1,8 +1,6 @@
 # Setting Terminal
-if is_osx; then
-    export TERM='xterm-256color';
-    [ -n "$TMUX"  ] && export TERM=screen-256color
-fi
+export TERM='xterm-256color';
+[ -n "$TMUX"  ] && export TERM=screen-256color
 
 # General Terminal Options
 setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
@@ -51,7 +49,7 @@ else
     alias ls='ls --color -CAh --group-directories-first'
 fi
 
-alias ccat='pygmentize -P style=base16_ocean_dark -f console256 -g'
+alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

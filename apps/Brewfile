@@ -109,10 +109,12 @@ brew coreutils
 brew cowsay
 brew cscope
 brew curl --with-libssh2
+brew dex2jar
 brew diff-so-fancy
 brew dnsmasq
 brew docbook-xsl
 brew docbook
+brew docker
 brew dos2unix
 brew faac
 brew fasd
@@ -123,28 +125,34 @@ brew flex
 brew fontconfig
 brew fortune
 brew freetype
+brew frei0r
 brew fribidi
 brew gcc
 brew gdbm
 brew geoip
 brew gettext
 brew ghq
+brew giflib
 brew gifsicle
 brew git-extras
 brew git-flow
 brew git-ftp
 brew git
 brew glew
+brew glib
 brew gmp
 brew gnu-sed --with-default-names
+brew gnu-tar --with-default-names
 brew gnu-which --with-default-names
 brew go
 brew gobject-introspection
 brew gource
 brew grc
 brew harfbuzz
+brew hr
 brew htop-osx
 brew httpie
+brew hub
 brew icdiff
 brew icu4c
 brew imagemagick --with-webp
@@ -157,6 +165,7 @@ brew libass
 brew libassuan
 brew libevent
 brew libffi
+brew libgpg-error
 brew libidn
 brew libksba
 brew libmpc
@@ -175,12 +184,17 @@ brew little-cms2
 brew luajit
 brew macvim --with-override-system-vim
 brew mad
+brew mariadb
 brew mas
+brew mongodb
 brew moreutils
+brew mpfr
+brew mtr
 brew multitail
 brew netcat
 brew nmap
 brew node
+brew nspr
 brew oniguruma
 brew open-mpi
 brew openssl
@@ -195,6 +209,7 @@ brew postgresql
 brew pup
 brew pv
 brew python
+brew ranger
 brew re2c
 brew readline
 brew reattach-to-user-namespace
@@ -215,8 +230,9 @@ brew sshrc
 brew stormssh
 brew syncthing-inotify
 brew syncthing
+brew the_silver_searcher
 brew tig
-brew tmux
+brew tmux --HEAD
 brew tree
 brew unfs3
 brew unixodbc
@@ -233,8 +249,10 @@ brew z
 brew zsh
 
 tap homebrew/dupes
+brew zlib
 
 tap homebrew/php
+brew composer
 brew drush
 brew php55
 brew psysh
@@ -253,21 +271,3 @@ brew mpfr2
 
 # Other Homebrew packages
 brew cask-repair
-brew composer
-brew dex2jar
-brew docker
-brew frei0r
-brew giflib
-brew glib
-brew gnu-tar --with-default-names
-brew hr
-brew hub
-brew libgpg-error
-brew mariadb
-brew mongodb
-brew mpfr
-brew mtr
-brew nspr
-brew ranger
-brew the_silver_searcher
-brew zlib

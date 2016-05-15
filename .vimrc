@@ -10,10 +10,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 
-Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
+Plugin 'othree/yajs.vim'
 
 call plug#end()
 
@@ -21,7 +22,8 @@ syntax on
 
 let base16colorspace=256
 set background=dark
-colorscheme base16-ocean
+set t_Co=256
+colorscheme OceanicNext
 
 set nobackup            " don't create pointless backup files; Use VCS instead
 set cursorline          " highlight the current line

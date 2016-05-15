@@ -16,10 +16,9 @@ for plugin_path in $DOTFILES/zsh-plugins/*; do
     [[ -n $autoload_files ]] && fpath+=($plugin_path/autoload) && autoload_filenames=${(@)autoload_files:t} && autoload -Uz ${=autoload_filenames}
 done
 
-zplug derimagia/base16-builder, use:output/shell/base16-ocean.dark.sh
-zplug junegunn/fzf, from:gh-r, use:shell/completion.zsh
-zplug junegunn/fzf, from:gh-r, as:command, use:fzf
-zplug junegunn/fzf, from:gh-r, as:command, use:bin/fzf-tmux
+zplug derimagia/base16-builder, use:output/shell/base16-oceanicnext.dark.sh
+zplug junegunn/fzf, use:shell/completion.zsh
+zplug junegunn/fzf, from:gh-r, as:command, use:"{fzf,bin/fzf-tmux}"
 zplug ogham/exa, from:gh-r, as:command
 
 # Themes

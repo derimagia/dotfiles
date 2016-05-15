@@ -1,7 +1,7 @@
 #!/bin/sh
 
 directory=$(readlink -f $(dirname $0))
-theme_file="material-theme-custom.icls"
+theme_file="oceanic-next.icls"
 
 for idea_pref_folder in ~/Library/Preferences/{PhpStorm,PyCharm,IntelliJ}*; do
 
