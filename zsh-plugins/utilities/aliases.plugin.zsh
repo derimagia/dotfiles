@@ -19,14 +19,14 @@ alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 # Alias-Specific Functions
 _expand-aliases() {
     unset 'functions[_expand-aliases-temp]'
-    functions[_expand-aliases-temp]=$BUFFER
-    (($+functions[_expand-aliases-temp])) &&
+    functions [ _expand - aliases - temp ] = $BUFFER
+    (( $ + functions [ _expand - aliases - temp ] )) &&
     BUFFER=${functions[_expand-aliases]#$'\t'} &&
     CURSOR=$#BUFFER
 }
 zle -N expand-aliases && bindkey '\ee' _expand-aliases
 
 aliases() {
-  alias | grep -E ${1-.} | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort | fzf-tmux
+    alias | grep -E ${1-.} | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/['|\']//g" | sort | fzf-tmux
 }
 

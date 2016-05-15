@@ -8,5 +8,5 @@ PATH="$HOME/Library/Android/sdk/tools:$PATH"
 
 # Run an Android Activity
 adb-run() {
-  adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
+    adb shell monkey -p `cat .identifier` -c android.intent.category.LAUNCHER 1
 }

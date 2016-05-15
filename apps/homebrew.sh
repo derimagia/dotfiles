@@ -1,4 +1,5 @@
 #!/bin/sh
+
 #
 # Homebrew
 #
@@ -8,9 +9,9 @@
 # Check for Homebrew
 if test ! $(which brew)
 then
-  echo "Installing Homebrew for you."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install rcmdnk/file/brew-file
+    echo "Installing Homebrew for you."
+    ruby -e "$(curl-fsSLhttps://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install rcmdnk/file/brew-file
 fi
 
 brew update # Pull down Taps / Git Repo

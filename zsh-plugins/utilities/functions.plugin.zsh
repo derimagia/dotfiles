@@ -1,19 +1,21 @@
 # Create a new directory and enter it
-take(){[ $# -eq 1 ]  && mkdir "$1" && cd "$1"}
+take()
+
+{ [  $# -eq 1  ] && mkdir "$1" && cd "$1"}
 
 # z is the new j? I guess?
 z() {
-  cd $(fasd -d "$1" | fzf-tmux --select-1)
+    cd $(fasd -d "$1" | fzf-tmux --select-1)
 }
 
 f() {
-  fasd -f "$1" | fzf-tmux --select-1
+    fasd -f "$1" | fzf-tmux --select-1
 }
 
 # Lazy source a function so the file doesn't get loaded until it's called
 #TODO: This can probably be replaced with zsh auto loading
-lazy_source () {
-    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+lazy_source() {
+    eval " $1 ( ) {[ -f $2 ] && source $2 && $1\$@} "
 }
 
 # All the dig info
@@ -22,9 +24,9 @@ digga() {
 }
 
 envs() {
-  alias | grep -E ${1-.} | \
-    sed 's/^(\w+)(=)(.*)$/\%F{green}$1%f\033[m $2 $3/' | \
-    fzf-tmux
+    alias | grep -E ${1-.} |  \
+ sed 's/^(\w+)(=)(.*)$/\%F{green}$1%f\033[m $2 $3/' |  \
+ fzf-tmux
 }
 
 escape() {
@@ -42,8 +44,8 @@ ip() {
     dig +short myip.opendns.com @resolver1.opendns.com
 }
 
-cpp () {
-  rsync -WavP --human-readable --progress $1 $2
+cpp() {
+    rsync -WavP --human-readable --progress $1 $2
 }
 
 # get gzipped size
@@ -56,5 +58,5 @@ gz() {
 
 # direct it all to /dev/null
 nullify() {
-  "$@" >/dev/null 2>&1
+    "$@" >/dev/null 2>&1
 }

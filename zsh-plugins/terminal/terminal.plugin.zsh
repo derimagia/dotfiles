@@ -51,7 +51,7 @@ else
     alias ls='ls --color -CAh --group-directories-first'
 fi
 
-alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias ccat='pygmentize -P style=base16_ocean_dark -f console256 -g'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -59,6 +59,7 @@ alias egrep='egrep --color=auto'
 export GREP_OPTIONS='--color=auto';
 eval "$(dircolors -b $HOME/.dircolors)"
 
+#export LESS_TERMCAP_DEBUG=1
 export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
 export LESS_TERMCAP_me=$'\e[0m'           # end mode

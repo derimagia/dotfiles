@@ -24,7 +24,7 @@ function rebase() {
     git rebase -i HEAD~$commit
 
     if [[ $shouldStash -eq true ]]; then
-        git stash pop > /dev/null
+        git stash pop >/dev/null
     fi
 }
 

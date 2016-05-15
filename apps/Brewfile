@@ -124,7 +124,6 @@ brew fontconfig
 brew fortune
 brew freetype
 brew fribidi
-brew fzf
 brew gcc
 brew gdbm
 brew geoip
@@ -149,7 +148,6 @@ brew httpie
 brew icdiff
 brew icu4c
 brew imagemagick --with-webp
-brew iodine
 brew isl
 brew jpeg
 brew jq
@@ -220,7 +218,6 @@ brew syncthing
 brew tig
 brew tmux
 brew tree
-brew tuntap
 brew unfs3
 brew unixodbc
 brew v8
