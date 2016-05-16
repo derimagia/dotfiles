@@ -45,12 +45,6 @@
         <option name="BACKGROUND" value="ab7967" />
       </value>
     </option>
-    <option name="BASH.FUNCTION_CALL" baseAttributes="DEFAULT_FUNCTION_CALL" />
-    <option name="BASH.HERE_DOC" baseAttributes="DEFAULT_STRING" />
-    <option name="BASH.HERE_DOC_END" baseAttributes="DEFAULT_KEYWORD" />
-    <option name="BASH.HERE_DOC_START" baseAttributes="DEFAULT_KEYWORD" />
-    <option name="BASH.REDIRECTION" baseAttributes="DEFAULT_OPERATION_SIGN" />
-    <option name="BASH.SHEBANG" baseAttributes="BASH.LINE_COMMENT" />
     <option name="BOOKMARKS_ATTRIBUTES">
       <value>
         <option name="ERROR_STRIPE_COLOR" value="e91e63" />
@@ -311,11 +305,6 @@
     <option name="CONSOLE_YELLOW_OUTPUT">
       <value>
         <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="CSS.COMMENT">
-      <value>
-        <option name="FOREGROUND" value="65737e" />
       </value>
     </option>
     <option name="CSS.FUNCTION">
@@ -1480,12 +1469,6 @@
         <option name="FOREGROUND" value="6699cc" />
       </value>
     </option>
-    <option name="PY.INVALID_STRING_ESCAPE">
-      <value>
-        <option name="FOREGROUND" value="68e868" />
-        <option name="BACKGROUND" value="481515" />
-      </value>
-    </option>
     <option name="PY.KEYWORD">
       <value>
         <option name="FOREGROUND" value="c594c5" />
@@ -1823,79 +1806,9 @@
         <option name="FOREGROUND" value="99c794" />
       </value>
     </option>
-    <option name="SASS_COMMENT">
-      <value>
-        <option name="FOREGROUND" value="65737e" />
-      </value>
-    </option>
-    <option name="SASS_DEFAULT">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
-    <option name="SASS_EXTEND">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
-    <option name="SASS_FUNCTION">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SASS_IDENTIFIER">
-      <value>
-        <option name="FOREGROUND" value="bb80b3" />
-      </value>
-    </option>
-    <option name="SASS_IMPORTANT">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
-    <option name="SASS_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
     <option name="SASS_MIXIN">
       <value>
         <option name="FOREGROUND" value="bb80b3" />
-      </value>
-    </option>
-    <option name="SASS_NUMBER">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SASS_PROPERTY_NAME">
-      <value>
-        <option name="FOREGROUND" value="fac863" />
-      </value>
-    </option>
-    <option name="SASS_PROPERTY_VALUE">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SASS_STRING">
-      <value>
-        <option name="FOREGROUND" value="99c794" />
-      </value>
-    </option>
-    <option name="SASS_TAG_NAME">
-      <value>
-        <option name="FOREGROUND" value="eb606b" />
-      </value>
-    </option>
-    <option name="SASS_URL">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SASS_VARIABLE">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
       </value>
     </option>
     <option name="SEARCH_RESULT_ATTRIBUTES">
@@ -1956,107 +1869,6 @@
     <option name="SLIM_TAG_START">
       <value>
         <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SMARTY_BACKGROUND">
-      <value>
-        <option name="BACKGROUND" value="2a2d32" />
-      </value>
-    </option>
-    <option name="SMARTY_BAD_CHARACTER">
-      <value>
-        <option name="BACKGROUND" value="6e3b3b" />
-      </value>
-    </option>
-    <option name="SMARTY_BRACKETS">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SMARTY_COMMENT">
-      <value>
-        <option name="FOREGROUND" value="65737e" />
-      </value>
-    </option>
-    <option name="SMARTY_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
-    <option name="SMARTY_NUMBER">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SMARTY_OPERATION_SIGN">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SMARTY_STRING">
-      <value>
-        <option name="FOREGROUND" value="99c794" />
-      </value>
-    </option>
-    <option name="SQL_BAD_CHARACTER">
-      <value>
-        <option name="BACKGROUND" value="6e3b3b" />
-      </value>
-    </option>
-    <option name="SQL_BRACES">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_BRACKETS">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_COLUMN">
-      <value>
-        <option name="FOREGROUND" value="fda5ff" />
-        <option name="FONT_TYPE" value="1" />
-      </value>
-    </option>
-    <option name="SQL_COMMA">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_COMMENT">
-      <value>
-        <option name="FOREGROUND" value="65737e" />
-      </value>
-    </option>
-    <option name="SQL_DOT">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="c594c5" />
-      </value>
-    </option>
-    <option name="SQL_NUMBER">
-      <value>
-        <option name="FOREGROUND" value="f99157" />
-      </value>
-    </option>
-    <option name="SQL_PARENS">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_SEMICOLON">
-      <value>
-        <option name="FOREGROUND" value="5fb3b3" />
-      </value>
-    </option>
-    <option name="SQL_STRING">
-      <value>
-        <option name="FOREGROUND" value="99c794" />
       </value>
     </option>
     <option name="SQL_SYNTETIC_ENTITY">

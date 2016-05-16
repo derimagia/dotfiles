@@ -14,7 +14,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
-Plugin 'othree/yajs.vim'
+Plug 'othree/yajs.vim'
 
 call plug#end()
 
