@@ -18,7 +18,7 @@
     ]
     themes: [
       "spacegray-dark-ui"
-      "base16-ocean-dark"
+      "oceanic-next"
     ]
   drupal:
     fileTypesPhp: "module,install,inc,test"
