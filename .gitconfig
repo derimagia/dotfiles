@@ -41,7 +41,7 @@
 	changed = green
 	untracked = cyan
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/dave/.gitignore_global
 	attributesfile = ~/.gitattributes
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"

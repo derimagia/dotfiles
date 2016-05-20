@@ -1,22 +1,28 @@
 #!/usr/bin/env zsh
 
 autoload -Uz colors && colors
-local color tty=1 is_bold=false
+local color text_after tty=1 is_bold=false is_new_line=false
 local -a text
+
+# Check STDIN
+while read line ; do text+=($line) ; done
 
 while (( $# > 0 )); do
     case "$1" in
-        --color)
+        --color|-c)
             if [[ ! $2 =~ ^(black|blue|cyan|default|green|grey|magenta|red|white|yellow)$ ]]; then
                 printf -- "$2: must be a color" >&2
                 return 1
             fi
             color="$2"; shift
             ;;
-        --bold)
+        --line|-l)
+            is_new_line=true
+        ;;
+        --bold|-b)
             is_bold=true
             ;;
-        --tty)
+        --tty|-t)
             if [[ $2 != <-> ]]; then
                 printf -- "$2: must be an interger" >&2
                 return 1
@@ -36,11 +42,15 @@ else
     color="$fg_no_bold[$color]"
 fi
 
+$is_new_line && text_after="\n" || text_after=""
+
+text=${color}${text}${reset_color}
+
 case $tty in
     1)
-        printf -- "${color}${text}${reset_color}"
+        printf -- $text
         ;;
     2)
-        printf -- "${color}${text}${reset_color}" >&2
+        printf -- $text >&2
         ;;
 esac

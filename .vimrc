@@ -64,6 +64,9 @@ map <C-n> :NERDTreeToggle<CR>
 command! -nargs=1 Locate call fzf#run(
       \ {'source': 'locate <q-args>', 'sink': 'e', 'options': '-m'})
 
+" Add FZF"
+set rtp+=/usr/local/opt/fzf
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>

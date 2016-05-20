@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+
+# this symlinks all the dotfiles $HOME
+DOTFILES=${DOTFILES-$HOME/.dotfiles/}
+
+link_dotfiles() {
+    # finds all .dotfiles in this folder and the bin folder
+    excluded=($(git --git-dir=$DOTFILES/.git check-ignore *(D)) .git .gitignore .DS_Store .editorconfig)
+    excluded=($DOTFILES/$^excluded[@])
+
+    dotfiles_all=($DOTFILES/.*)
+    files=(${dotfiles_all:|excluded})
+    dotfiles_source=(${dotfiles_all:|excluded})
+
+    symlink-files "$dotfiles_source" "$HOME"
+}
+
+# Intellij Files
+link_intellij() {
+    # Actual Source Files/Folders
+    source_files=($DOTFILES/plugins/apps/idea/*)
+
+    for idea_pref_folder in ~/Library/Preferences/{PhpStorm,PyCharm,IntelliJ}*; do
+        symlink-files "$source_files" "$idea_pref_folder"
+    done;
+}
+
+hr ' ' '-' ' '
+link_dotfiles
+hr ' ' '-' ' '
+link_intellij
+hr ' ' '-' ' '

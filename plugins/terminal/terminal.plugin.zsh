@@ -5,13 +5,6 @@ export TERM='xterm-256color';
 # General Terminal Options
 setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
 
-# General Bindings and Widgets
-bindkey -e  # emacs key bindings
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^v' edit-command-line # Vi Mode
-
 zmodload zsh/terminfo
 bindkey "$terminfo[cuu1]" history-substring-search-up
 bindkey "$terminfo[cud1]" history-substring-search-down
@@ -72,10 +65,11 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='underline'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-## Completion
+## Completions
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:warnings' format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d'
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:functions' ignored-patterns '_*'
@@ -83,3 +77,4 @@ zstyle ':completion:*:*:zcompile:*' ignored-patterns '(*~|*.zwc)'
 
 # Load Fasd
 has.command fasd && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+

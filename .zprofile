@@ -1,11 +1,5 @@
 export MANPAGER="less -X"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 export FZF_DEFAULT_OPTS="--inline-info"
-
-
-PATH="$GOPATH/bin:$HOME/bin:$COMPOSER_HOME/vendor/bin:$PATH" # GO / Composer Dirs
-PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH" # Throw Coreutils at front of system binaries
-PATH="./bin:$PATH" # ./bin
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
@@ -16,10 +10,22 @@ export VISUAL='vim'
 export PAGER='less'
 export LANG='en_US.UTF-8'
 
-typeset -gU cdpath fpath mailpath path
+typeset -gU cdpath fpath mailpath manpath path
+
+bindkey -e  # emacs key bindings
+
+if [ -x /usr/libexec/path_helper ]; then
+    path=()
+    eval `/usr/libexec/path_helper`
+fi
 
 path=(
-  /usr/local/{bin,sbin}
+  "$HOME/bin"
+  "$GOPATH/bin"
+  "$COMPOSER_HOME/vendor/bin"
+  "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+  "$HOMEBREW_PREFIX/sbin"
+  "$HOMEBREW_PREFIX/bin"
   $path
 )
 

@@ -23,21 +23,21 @@ digga() {
     dig +nocmd "$1" any +multiline +noall +answer
 }
 
-envs() {
-    alias | grep -E ${1-.} |  \
- sed 's/^(\w+)(=)(.*)$/\%F{green}$1%f\033[m $2 $3/' |  \
- fzf-tmux
+aliases() {
+    alias | grep -E ${1-.} | \
+        ccat | \
+        fzf-tmux
 }
 
 escape() {
     printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-    echo # newline
+    print -l
 }
 
 # Decode \x{ABCD}-style Unicode escape sequences
 unidecode() {
     perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-    echo # newline
+    print -l
 }
 
 ip() {

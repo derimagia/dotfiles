@@ -9,7 +9,7 @@
 # Check for Homebrew
 if test ! $(which brew)
 then
-    echo "Installing Homebrew for you."
+    echo "Installing Homebrew."
     ruby -e "$(curl-fsSLhttps://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install rcmdnk/file/brew-file
 fi
