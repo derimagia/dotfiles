@@ -267,10 +267,3 @@ brew gmp4
 brew isl011
 brew libmpc08
 brew mpfr2
-
-# App Store applications
-appstore 866773894 Quiver
-appstore 507257563 Sip
-appstore 497799835 Xcode
-appstore 408981434 iMovie
-appstore 408981434 iMovie 9.0.9

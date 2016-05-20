@@ -48,7 +48,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 export GREP_OPTIONS='--color=auto';
-eval "$(dircolors -b $HOME/.dircolors)"
+has.command dircolors && eval "$(dircolors -b $HOME/.dircolors)"
 
 #export LESS_TERMCAP_DEBUG=1
 export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking

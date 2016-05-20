@@ -18,13 +18,16 @@ answer_is_yes() {
 }
 
 ask_for_confirmation() {
-    printf "\e[0;33m  [?] $1 (y/n) \e[0m"
+    print_question "$1 (y/n)"
     read -q "REPLY"
-    printf "\n"
 }
 
 execute() {
     eval "$1" && print_success "$2" || print_error "$2"
+}
+
+print_question() {
+    printf "\e[0;33m  [?] $1 \e[0m\n"
 }
 
 print_error() {
@@ -46,30 +49,31 @@ main() {
     filesToSymlink=($1)
     targetFolder="$2"
 
-    if [[ ! -d $targetFolder ]]; then
-        print_success "Created directory $targetFolder\n"
-        mkdir -p $targetFolder
-    fi
-
     # sourceFile can be a file or a directory
     for sourceFile in ${(z)filesToSymlink}; do
         targetFile="$targetFolder/${sourceFile:t}"
 
+        proposedLink="'$targetFile' → '$sourceFile'"
+        linkCommand="ln -fsn ${(qq)sourceFile} ${(qq)targetFile}"
+
         if [[ -e "$targetFile" ]]; then
-            if [[ $targetFile:A != "$sourceFile" ]]; then
-                ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+            if [[ "$targetFile:A" != "$sourceFile:A" ]]; then
+                currentLink="'$targetFile' → '$targetFile:A'"
+                print_warning "Current File: $currentLink"
+                print_warning "Proposed Link: $proposedLink"
+                ask_for_confirmation "Do you want to overwrite this file?"
                 if answer_is_yes; then
                     # ln can't remove directories so remove it if needed
                     [[ -d  "$targetFile" ]] && rm -rf $targetFile
-                    execute "ln -fsn $sourceFile $targetFile" "$targetFile → $sourceFile"
+                    execute $linkCommand $proposedLink
                 else
-                    print_error "$targetFile → $sourceFile"
+                    print_error $proposedLink
                 fi
             else
-                print_warning "$targetFile → $sourceFile"
+                print_warning $proposedLink
             fi
         else
-            execute "ln -fsn $sourceFile $targetFile" "$targetFile → $sourceFile"
+            execute $linkCommand $proposedLink
         fi
     done
 }

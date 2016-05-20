@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 #
 # Homebrew
@@ -21,5 +21,13 @@ brew upgrade # Upgrade Brews
 brew file cask_upgrade -C
 brew file update -C --no_appstore
 brew clean --no_appstore -C
+
+
+gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
+manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
+
+# Link Man Files that aren't linked by default
+symlink-files "$gnufiles" "$HOMEBREW_PREFIX/bin"
+symlink-files "$manfiles" "$HOMEBREW_PREFIX/share/man/man1"
 
 exit 0

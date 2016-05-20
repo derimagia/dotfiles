@@ -14,12 +14,12 @@ _exec-man() {
 
 _exec-man_test() {
     man_args="$@"
-    man -w "${man_args//[[:space:]]/-}"
+    man -w -- "${man_args//[[:space:]]/-}" 2>&1 &>/dev/null
 }
 
 # Find the longest set of args that gets a man page
 args=($@)
-while [[ -n "${args[@]}" ]] && ( ! _exec-man_test "${args[@]}" 2>&1 &>/dev/null ) ; do
+while [[ -n "${args[@]}" ]] && ( ! _exec-man_test "${args[@]}" ) ; do
     man_search=( "${args[@]: -1}" "${man_search[@]}" ) # Add last argument to beginning of man_search to grep
     unset args[${#args[@]}-1]
 done
@@ -28,7 +28,7 @@ pattern=${man_search[@]}
 man_entry=${args[@]}
 
 # Build grep command
-if [[ -n "$pattern" ]]; then
+if [[ -n "$man_entry" ]] && [[ -n "$pattern" ]]; then
     search="${pattern[@]}"
 
     standout=$'\e[3;31;40m'
@@ -50,7 +50,7 @@ if [[ -n "$pattern" ]]; then
 fi
 
 # Fallback to proper man
-man $@
+man "$@"
 
 
 

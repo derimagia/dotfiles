@@ -4,9 +4,6 @@ autoload -Uz colors && colors
 local color text_after tty=1 is_bold=false is_new_line=false
 local -a text
 
-# Check STDIN
-while read line ; do text+=($line) ; done
-
 while (( $# > 0 )); do
     case "$1" in
         --color|-c)
@@ -29,6 +26,12 @@ while (( $# > 0 )); do
             fi
             tty="$2"; shift
             ;;
+        -)
+            # STDIN
+            while IFS= read -r line; do
+                text+=($line) ;
+            done
+            ;;
         *)
             text+=("$1")
             ;;
@@ -44,7 +47,7 @@ fi
 
 $is_new_line && text_after="\n" || text_after=""
 
-text=${color}${text}${reset_color}
+text=${color}${text}${reset_color}${text_after}
 
 case $tty in
     1)

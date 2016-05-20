@@ -20,13 +20,12 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 path=(
-  "$HOME/bin"
-  "$GOPATH/bin"
-  "$COMPOSER_HOME/vendor/bin"
-  "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
-  "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/bin"
-  $path
+    "$HOME/bin"
+    "$GOPATH/bin"
+    "$COMPOSER_HOME/vendor/bin"
+    "$HOMEBREW_PREFIX/bin"
+    "$HOMEBREW_PREFIX/sbin"
+    $path
 )
 
 if [[ ! -d "$TMPDIR" ]]; then

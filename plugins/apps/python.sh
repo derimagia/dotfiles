@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-pip install --upgrade pip
-pip install --upgrade virtualenv
-pip install --upgrade livestreamer
-pip install --upgrade pygments
+pip install -U pip
+pip install -U virtualenv
+pip install -U livestreamer
+pip install -U pygments
+pip install -U http-prompt
 
 # Install Pygments Style
 if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]]; then

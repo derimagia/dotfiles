@@ -1,7 +1,7 @@
 # Create a new directory and enter it
-take()
-
-{ [  $# -eq 1  ] && mkdir "$1" && cd "$1"}
+take(){
+    mkdir "$1" && cd "$1"
+}
 
 # z is the new j? I guess?
 z() {
@@ -10,12 +10,6 @@ z() {
 
 f() {
     fasd -f "$1" | fzf-tmux --select-1
-}
-
-# Lazy source a function so the file doesn't get loaded until it's called
-#TODO: This can probably be replaced with zsh auto loading
-lazy_source() {
-    eval " $1 ( ) {[ -f $2 ] && source $2 && $1\$@} "
 }
 
 # All the dig info
@@ -30,14 +24,7 @@ aliases() {
 }
 
 escape() {
-    printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-    print -l
-}
-
-# Decode \x{ABCD}-style Unicode escape sequences
-unidecode() {
-    perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-    print -l
+    print -f "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
 }
 
 ip() {
