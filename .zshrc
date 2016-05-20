@@ -3,7 +3,6 @@
 # Init Zplug
 ZPLUG_HOME=$HOME/.zplug
 { [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
-#source $DOTFILES/zsh/zplug-async.zsh
 
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/plugins/*; do
