@@ -48,7 +48,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 export GREP_OPTIONS='--color=auto';
-has.command dircolors && eval "$(dircolors -b $HOME/.dircolors)"
+has.command dircolors && [[ -d $ZPLUG_REPOS/trapd00r/LS_COLORS ]] && eval "$(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)"
 
 #export LESS_TERMCAP_DEBUG=1
 export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
@@ -70,10 +70,13 @@ zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:warnings' format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d'
-zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:zcompile:*' ignored-patterns '(*~|*.zwc)'
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select
 
 # Load Fasd
 has.command fasd && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"

@@ -1,18 +1,15 @@
 export MANPAGER="less -X"
 export FZF_DEFAULT_OPTS="--inline-info"
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
+export BROWSER='open'
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 export LANG='en_US.UTF-8'
 
-typeset -gU cdpath fpath mailpath manpath path
-
 bindkey -e  # emacs key bindings
+
+typeset -gU fpath path
 
 if [ -x /usr/libexec/path_helper ]; then
     path=()
@@ -23,8 +20,8 @@ path=(
     "$HOME/bin"
     "$GOPATH/bin"
     "$COMPOSER_HOME/vendor/bin"
-    "$HOMEBREW_PREFIX/bin"
     "$HOMEBREW_PREFIX/sbin"
+    "$HOMEBREW_PREFIX/bin"
     $path
 )
 

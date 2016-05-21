@@ -28,10 +28,11 @@ zplug sindresorhus/pure
 
 # Packages
 zplug rcmdnk/homebrew-file, as:plugin, use:etc/brew-wrap; zplug rcmdnk/homebrew-file, as:command, use:bin/brew-file
+zplug trapd00r/LS_COLORS
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
-zplug zsh-users/zsh-syntax-highlighting, nice:10  # @TODO Autosuggestion and Syntax Highlighting conflict when you reload zsh config files using . ~/.zshrc.
+#zplug jimmijj/chromatic-zsh, use:chromatic-zsh.zsh
 
 #zplug check || zplug install
 #export ZPLUG_USE_CACHE=false &&

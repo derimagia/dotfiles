@@ -82,10 +82,8 @@ cask font-source-code-pro
 tap caskroom/versions
 cask firefoxdeveloperedition
 cask google-chrome-canary
-cask intellij-idea-ce
 cask iterm2-beta
 cask java7
-cask pycharm-ce
 
 tap codekitchen/dinghy
 brew dinghy
@@ -253,7 +251,7 @@ brew zlib
 tap homebrew/php
 brew composer
 brew drush
-brew php55
+brew php70
 brew psysh
 brew wp-cli
 
