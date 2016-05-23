@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Async
+[[ -f $ZPLUG_REPOS/mafredri/zsh-async/async.plugin.zsh ]] && source $ZPLUG_REPOS/mafredri/zsh-async/async.plugin.zsh
 
 # PLATFORM
 export SHELL_PLATFORM='unknown'

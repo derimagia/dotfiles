@@ -9,21 +9,20 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-
 Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim'
 Plug 'othree/yajs.vim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-syntax on
-
-let base16colorspace=256
-set background=dark
-set t_Co=256
+syntax enable
 colorscheme OceanicNext
+set background=dark
+
+set encoding=utf8
 
 set nobackup            " don't create pointless backup files; Use VCS instead
 set cursorline          " highlight the current line

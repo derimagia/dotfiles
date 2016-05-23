@@ -1,7 +1,23 @@
 local command=()
+local clearcache=false
 
-if (( $# > 0 )); then
-    command="$@"
+while (( $# > 0 )); do
+    case "$1" in
+        -c)
+            clearcache=true
+        ;;
+        *)
+            command+=("$1")
+        ;;
+    esac
+    shift
+done
+
+if $clearcache; then
+    zplug clear
+    zplug clean --force
+    zplug check || zplug install
+    print -l "Cleared Caches"
 fi
 
 if [[ -n $command ]]; then

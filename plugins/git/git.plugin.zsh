@@ -56,4 +56,3 @@ function c() {
 function dopen() {
   atom $DOTFILES
 }
-
