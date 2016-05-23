@@ -1,7 +1,6 @@
 export MANPAGER="less -X"
 export FZF_DEFAULT_OPTS="--inline-info"
 
-export BROWSER='open'
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'

@@ -250,6 +250,7 @@ brew zlib
 
 tap homebrew/php
 brew composer
+brew drupalconsole
 brew drush
 brew php70
 brew psysh

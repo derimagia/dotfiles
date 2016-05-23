@@ -1,0 +1,26 @@
+local args=()
+
+while (( $# > 0 )); do
+    case "$1" in
+        -)
+            # STDIN
+            while IFS= read -r line; do
+                data+=($line) ;
+            done
+            datafile=$(mktemp)
+            (print $data > $datafile)
+            args+=("$datafile")
+            ;;
+        *)
+            args+=("$1")
+        ;;
+    esac
+    shift
+done
+
+_open-chrome() {
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --kiosk --remote-debugging-port=9222 $@
+}
+
+_open-chrome $args
+

@@ -219,6 +219,18 @@
         <option name="FOREGROUND" value="99c794" />
       </value>
     </option>
+    <option name="DEBUGGER_INLINED_VALUES_EXECUTION_LINE">
+      <value>
+        <option name="FOREGROUND" value="6699cc" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="DEBUGGER_INLINED_VALUES_MODIFIED">
+      <value>
+        <option name="FOREGROUND" value="bb80b3" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
     <option name="DEFAULT_ATTRIBUTE">
       <value>
         <option name="FOREGROUND" value="bb80b3" />
@@ -456,8 +468,7 @@
     </option>
     <option name="EXECUTIONPOINT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="101" />
-        <option name="BACKGROUND" value="c7c7ff" />
+        <option name="BACKGROUND" value="4f5b66" />
       </value>
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
@@ -766,7 +777,6 @@
         <option name="FOREGROUND" value="6699cc" />
       </value>
     </option>
-    <option name="MULTIMARKDOWN.AUTO_LINK" baseAttributes="CTRL_CLICKABLE" />
     <option name="NOT_USED_ELEMENT_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="80807f" />

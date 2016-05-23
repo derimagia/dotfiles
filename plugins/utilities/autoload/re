@@ -1,0 +1,12 @@
+local command=()
+
+if (( $# > 0 )); then
+    command="$@"
+fi
+
+if [[ -n $command ]]; then
+    zsh -ic "$command; exit"
+else
+    print -l "Re-sourced .zshrc"
+    source $HOME/.zshrc
+fi

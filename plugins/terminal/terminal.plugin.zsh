@@ -35,13 +35,11 @@ if [ "$TERM" != dumb ] && has.command grc ; then
     alias netstat='cl netstat'
     alias ping='cl ping'
     alias traceroute='cl traceroute'
-    alias ls='cl ls --color -CAh --group-directories-first'
     alias docker='grc docker'
     alias docker-machine='grc docker-machine'
-else
-    alias ls='ls --color -CAh --group-directories-first'
 fi
 
+alias ls='ls --color -CAh --group-directories-first'
 alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -81,3 +79,6 @@ zstyle ':completion:*' menu select
 # Load Fasd
 has.command fasd && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
+
+export BROWSER=$PAGER
+is_osx && export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
