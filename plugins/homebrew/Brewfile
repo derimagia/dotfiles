@@ -206,6 +206,7 @@ brew postgresql
 brew pup
 brew pv
 brew python
+brew python3
 brew ranger
 brew re2c
 brew readline

@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
-pip install -U pip
+pip install -U pip setuptools
 pip install -U virtualenv
 pip install -U livestreamer
 pip install -U pygments
 pip install -U http-prompt
+
+if has.command pip3; then
+    pip3 install -U pip setuptools
+    pip3 install -U gitsome
+    pip3 install -U Pillow
+fi
 
 # Install Pygments Style
 if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]]; then
