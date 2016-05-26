@@ -20,7 +20,7 @@ brew upgrade # Upgrade Brews
 # Update Casks
 brew file cask_upgrade -C
 brew file update -C --no_appstore
-brew clean --no_appstore -C
+brew file clean --no_appstore -C
 
 
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
