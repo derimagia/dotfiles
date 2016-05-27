@@ -6,10 +6,10 @@ ZPLUG_HOME=$HOME/.zplug
 
 zplugs=() # Reset zplugs
 for plugin_path in $DOTFILES/plugins/*; do
-    local vital_paths=($plugin_path/*.vital.zsh(N-))
-    local autoload_files=($plugin_path/autoload/*(N-))
-    local plugin_files=($plugin_path/*.plugin.zsh(N-))
-    local postinit_files=($plugin_path/*.postinit.zsh(N-))
+    local vital_paths=($plugin_path/*.vital.zsh(N))
+    local autoload_files=($plugin_path/autoload/*(N))
+    local plugin_files=($plugin_path/*.plugin.zsh(N))
+    local postinit_files=($plugin_path/*.postinit.zsh(N))
 
     [[ -n $vital_paths ]] && zplug $plugin_path, use:'*.vital.zsh', nice:-1, from:local # Vital Files are Nice
     [[ -n $plugin_files ]] && zplug $plugin_path, use:'*.plugin.zsh', as:plugin, nice:3, from:local

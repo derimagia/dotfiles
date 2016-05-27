@@ -12,7 +12,6 @@ cask alcatraz
 cask alfred
 cask android-studio
 cask atom
-cask bartender
 cask beamer
 cask bettertouchtool
 cask betterzipql
@@ -22,13 +21,11 @@ cask cocoapods
 cask cyberduck
 cask dash
 cask diffmerge
-cask dockertoolbox
 cask dropbox
 cask electrum
 cask evernote
 cask firefox
 cask gear-player
-cask gitkraken
 cask gitup
 cask google-chrome
 cask hopper-disassembler
@@ -80,6 +77,7 @@ cask font-roboto
 cask font-source-code-pro
 
 tap caskroom/versions
+cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
@@ -96,7 +94,6 @@ brew apktool
 brew asciidoc
 brew autoconf
 brew automake
-brew aws-elasticbeanstalk
 brew awscli
 brew bash-completion
 brew bfg
@@ -124,6 +121,7 @@ brew fortune
 brew freetype
 brew frei0r
 brew fribidi
+brew fzf
 brew gcc
 brew gdbm
 brew geoip
@@ -177,7 +175,6 @@ brew libvorbis
 brew libvpx
 brew libxml2
 brew libyaml
-brew little-cms2
 brew luajit
 brew macvim --with-override-system-vim
 brew mad
@@ -193,7 +190,6 @@ brew nmap
 brew node
 brew nspr
 brew oniguruma
-brew open-mpi
 brew openssl
 brew p7zip
 brew pcre
@@ -212,7 +208,6 @@ brew re2c
 brew readline
 brew reattach-to-user-namespace
 brew redis
-brew rename
 brew ruby
 brew s-lang
 brew sassc

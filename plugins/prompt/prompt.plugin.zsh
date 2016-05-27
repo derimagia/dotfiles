@@ -5,8 +5,10 @@ _rprompt() {
     local last_status=$?
 
     _drush_rprompt() {
+        local f="${TMPDIR:-/tmp/}/drush-env-${USER}/drush-drupal-site-$$"
+
         if [[ -f $f ]]; then
-            __DRUPAL_SITE=$(< "${TMPDIR:-/tmp/}/drush-env-${USER}/drush-drupal-site-$$")
+            __DRUPAL_SITE=$(< $f)
         else
             __DRUPAL_SITE="$DRUPAL_SITE"
         fi
