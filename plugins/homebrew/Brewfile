@@ -41,7 +41,6 @@ cask mumble
 cask onyx
 cask osxfuse
 cask paw
-cask phpstorm
 cask postman
 cask provisionql
 cask psequel
@@ -253,12 +252,3 @@ brew psysh
 brew wp-cli
 
 tap homebrew/services
-
-tap homebrew/versions
-brew bison27
-brew cloog018
-brew gcc48
-brew gmp4
-brew isl011
-brew libmpc08
-brew mpfr2

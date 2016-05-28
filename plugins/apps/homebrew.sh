@@ -14,13 +14,9 @@ then
     brew install rcmdnk/file/brew-file
 fi
 
-brew update # Pull down Taps / Git Repo
-brew upgrade # Upgrade Brews
 
-# Update Casks
+brew file update --preupdate -C
 brew file cask_upgrade -C
-brew file update -C --no_appstore
-brew file clean --no_appstore -C
 
 
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)

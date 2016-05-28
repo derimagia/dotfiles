@@ -18,11 +18,11 @@ for plugin_path in $DOTFILES/plugins/*; do
     [[ -n $autoload_files ]] && fpath+=$plugin_path/autoload && autoload_filenames=${(@)autoload_files:t} && autoload -Uz ${=autoload_filenames}
 done
 
-zplug mafredri/zsh-async, use:""
+zplug mafredri/zsh-async, use:"" # Just download the repo
 zplug derimagia/base16-builder, use:output/shell/base16-oceanicnext.dark.sh
-zplug junegunn/fzf-bin, from:gh-r, as:command, rename-to:fzf
-zplug junegunn/fzf, as:command, use:'bin/fzf-tmux'
-zplug junegunn/fzf, use:shell/completion.zsh
+zplug $HOMEBREW_PREFIX/etc/brew-wrap, as:command, from:local, if:"[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]]"
+zplug junegunn/fzf, as:command, use:'bin/fzf-tmux', if:"which fzf"
+zplug junegunn/fzf, use:shell/completion.zsh, if:"which fzf"
 zplug ogham/exa, from:gh-r, as:command
 zplug MarianoGappa/jira-cli, use:jira.sh
 
@@ -30,7 +30,6 @@ zplug MarianoGappa/jira-cli, use:jira.sh
 zplug sindresorhus/pure
 
 # Packages
-zplug rcmdnk/homebrew-file, as:plugin, use:etc/brew-wrap; zplug rcmdnk/homebrew-file, as:command, use:bin/brew-file
 zplug trapd00r/LS_COLORS
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
