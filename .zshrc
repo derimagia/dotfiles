@@ -39,7 +39,7 @@ zplug zsh-users/zsh-autosuggestions
 #zplug jimmijj/chromatic-zsh, use:chromatic-zsh.zsh
 
 # OSX
-[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]] && zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local, if:"[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]]"
+[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]] && zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local
 
 {zplug check || zplug install}&!
 
