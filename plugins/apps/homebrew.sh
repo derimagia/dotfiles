@@ -15,7 +15,7 @@ then
 fi
 
 
-brew file update --preupdate -C
+brew file update --preupdate --no_appstore -C
 brew file cask_upgrade -C
 
 

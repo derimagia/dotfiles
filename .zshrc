@@ -4,12 +4,15 @@
 ZPLUG_HOME=$HOME/.zplug
 { [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
 
+
 zplugs=() # Reset zplugs
+
+local vital_paths autoload_files plugin_files postinit_files
 for plugin_path in $DOTFILES/plugins/*; do
-    local vital_paths=($plugin_path/*.vital.zsh(N))
-    local autoload_files=($plugin_path/autoload/*(N))
-    local plugin_files=($plugin_path/*.plugin.zsh(N))
-    local postinit_files=($plugin_path/*.postinit.zsh(N))
+    vital_paths=( $plugin_path/*.vital.zsh(N) )
+    autoload_files=($plugin_path/autoload/*(N))
+    plugin_files=($plugin_path/*.plugin.zsh(N))
+    postinit_files=($plugin_path/*.postinit.zsh(N))
 
     [[ -n $vital_paths ]] && zplug $plugin_path, use:'*.vital.zsh', nice:-1, from:local # Vital Files are Nice
     [[ -n $plugin_files ]] && zplug $plugin_path, use:'*.plugin.zsh', as:plugin, nice:3, from:local
@@ -20,9 +23,8 @@ done
 
 zplug mafredri/zsh-async, use:"" # Just download the repo
 zplug derimagia/base16-builder, use:output/shell/base16-oceanicnext.dark.sh
-zplug $HOMEBREW_PREFIX/etc/brew-wrap, as:command, from:local, if:"[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]]"
-zplug junegunn/fzf, as:command, use:'bin/fzf-tmux', if:"which fzf"
-zplug junegunn/fzf, use:shell/completion.zsh, if:"which fzf"
+zplug junegunn/fzf, as:command, use:'bin/fzf-tmux', if:"($+commands[fzf])"
+zplug junegunn/fzf, use:shell/completion.zsh, if:"($+commands[fzf])"
 zplug ogham/exa, from:gh-r, as:command
 zplug MarianoGappa/jira-cli, use:jira.sh
 
@@ -36,10 +38,10 @@ zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
 #zplug jimmijj/chromatic-zsh, use:chromatic-zsh.zsh
 
+# OSX
+zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local, if:"[[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]]"
 
-#zplug check || zplug install
-#export ZPLUG_USE_CACHE=false &&
-#zplug load --verbose
+{zplug check || zplug install}&!
 
 zplug load
 
