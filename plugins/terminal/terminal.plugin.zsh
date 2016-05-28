@@ -39,7 +39,7 @@ if [ "$TERM" != dumb ] && has.command grc ; then
     alias docker-machine='grc docker-machine'
 fi
 
-alias ls='ls --color -CAh --group-directories-first'
+alias ls='ls --color=auto -CAh --group-directories-first'
 alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

@@ -116,7 +116,7 @@ brew faac
 brew fasd
 brew fdk-aac
 brew ffmpeg
-brew findutils --with-default-names
+brew findutils
 brew flex
 brew fontconfig
 brew fortune

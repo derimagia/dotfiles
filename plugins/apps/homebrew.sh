@@ -19,8 +19,15 @@ brew file update --preupdate --no_appstore -C
 brew file cask_upgrade -C
 
 
-gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
-manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
+gnufiles=(
+    $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*
+    $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin/*
+)
+
+manfiles=(
+    $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*
+    $HOMEBREW_PREFIX/opt/findutils/libexec/gnuman/man1/*
+)
 
 # Link Man Files that aren't linked by default
 symlink-files "$gnufiles" "$HOMEBREW_PREFIX/bin"
