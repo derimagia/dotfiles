@@ -15,5 +15,5 @@ if is_screen_or_tmux_running; then
         :
     fi
 else
-    tmux attach || tmux new-session
+    tmux new -As base
 fi

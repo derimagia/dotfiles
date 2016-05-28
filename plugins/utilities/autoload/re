@@ -1,8 +1,12 @@
 local command=()
 local clearcache=false
+local restarttmux=false
 
 while (( $# > 0 )); do
     case "$1" in
+        -t)
+            restarttmux=true
+        ;;
         -c)
             clearcache=true
         ;;
@@ -18,6 +22,11 @@ if $clearcache; then
     zplug clean --force
     zplug check || zplug install
     print -l "Cleared Caches"
+fi
+
+if $restarttmux && [[ -n $TMUX ]] ; then
+    # Doesn't work since it kills this session...
+    { tmux kill-server  && tmuxx && print -l "Restarted Tmux" }&!
 fi
 
 if [[ -n $command ]]; then

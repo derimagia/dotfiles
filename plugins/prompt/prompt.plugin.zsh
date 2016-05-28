@@ -1,26 +1,27 @@
 setopt transient_rprompt
 
-export LAST_COMMAND
 _rprompt() {
     local last_status=$?
+    local local_drush_prompt
+    local last_status_prompt
 
     _drush_rprompt() {
         local f="${TMPDIR:-/tmp/}/drush-env-${USER}/drush-drupal-site-$$"
 
         if [[ -f $f ]]; then
-            __DRUPAL_SITE=$(< $f)
+            DRUSH_SITE=$(< $f)
         else
-            __DRUPAL_SITE="$DRUPAL_SITE"
+            DRUSH_SITE="$DRUPAL_SITE"
         fi
 
-        case "$__DRUPAL_SITE" in
+        case "$DRUSH_SITE" in
             *.live|*.prod) local ENV_COLOR="%{$fg[red]%}" ;;
             *.stage|*.test) local ENV_COLOR="%{$fg[yellow]%}" ;;
             *.local) local ENV_COLOR="%{$fg[green]%}" ;;
             *) local ENV_COLOR="%{$fg[blue]%}" ;;
         esac
 
-        [[ -n "$__DRUPAL_SITE" ]] && local_drush_prompt="${ENV_COLOR}${__DRUPAL_SITE}%{$reset_color%}"
+        [[ -n "$DRUSH_SITE" ]] && local_drush_prompt="${ENV_COLOR}${DRUSH_SITE}%{$reset_color%}"
     }
 
     _last_status_rprompt() {
@@ -33,6 +34,20 @@ _rprompt() {
 
     _drush_rprompt
     _last_status_rprompt
+
+    if is_tmux_runnning; then
+        tmux_pane=$(tmux display -p "#D" | tr -d %)
+
+        _send_to_tmux() {
+            tmux setenv -g "TMUX_$1_${tmux_pane}" "$2"
+        }
+
+        _send_to_tmux DRUSH_SITE $DRUSH_SITE
+        _send_to_tmux TERMINUS_SITE $TERMINUS_SITE
+        _send_to_tmux TERMINUS_ENV $TERMINUS_ENV
+
+        tmux refresh-client -S
+    fi
 
     RPROMPT="$local_drush_prompt $last_status_prompt"
 }

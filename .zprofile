@@ -5,14 +5,17 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 export LANG='en_US.UTF-8'
+export MANPATH
+export PATH
 
 bindkey -e  # emacs key bindings
 
-typeset -gU fpath path
+typeset -gU fpath path manpath
 
 if [ -x /usr/libexec/path_helper ]; then
     path=()
-    eval `/usr/libexec/path_helper`
+    manpath=()
+    eval `/usr/libexec/path_helper -s`
 fi
 
 path=(
