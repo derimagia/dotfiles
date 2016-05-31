@@ -1,21 +1,22 @@
-local command=()
-local clearcache=false
-local restarttmux=false
+emulate -L zsh
 
-while (( $# > 0 )); do
-    case "$1" in
-        -t)
+local clearcache=false restarttmux=false readall=false command
+
+while getopts tcr opt; do
+    case $opt in
+        (t)
             restarttmux=true
         ;;
-        -c)
+        (c)
             clearcache=true
         ;;
-        *)
-            command+=("$1")
+        (r)
+            readall=true
         ;;
     esac
-    shift
 done
+shift $(( OPTIND - 1 ))
+command="$@"
 
 if $clearcache; then
     zplug clear
@@ -30,8 +31,20 @@ if $restarttmux && [[ -n $TMUX ]] ; then
 fi
 
 if [[ -n $command ]]; then
+    if $readall; then
+        command+=" | cat -A"
+    fi
     zsh -ic "$command; exit"
 else
     print -l "Re-sourced .zshrc"
+
+    # Reload functions that were autoloaded, @TODO: Find a better way to do this
+    typeset -a funs
+    funs=("${(@f)$(typeset -f + | grep -Ev '^(_|comp|VCS|vcs|prompt|pure|async|zplug|bash)')}")
+
+    for f in $funs; do
+        unfunction $f
+    done
+
     source $HOME/.zshrc
 fi

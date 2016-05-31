@@ -36,7 +36,8 @@ zplug trapd00r/LS_COLORS
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
-#zplug jimmijj/chromatic-zsh, use:chromatic-zsh.zsh
+zplug zsh-users/zsh-syntax-highlighting
+zplug jimmijj/chromatic-zsh, use:"" # Just download
 
 # OSX
 [[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]] && zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local

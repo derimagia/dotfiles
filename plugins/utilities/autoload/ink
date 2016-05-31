@@ -1,59 +1,57 @@
 #!/usr/bin/env zsh
 
-autoload -Uz colors && colors
-local color text_after tty=1 is_bold=false is_new_line=false
-local -a text
+autoload -Uz colors
 
-while (( $# > 0 )); do
-    case "$1" in
-        --color|-c)
-            if [[ ! $2 =~ ^(black|blue|cyan|default|green|grey|magenta|red|white|yellow)$ ]]; then
-                printf -- "$2: must be a color" >&2
+while getopts c:lbt: opt; do
+    case $opt in
+        (c)
+            if [[ ! $OPTARG =~ ^(black|blue|cyan|default|green|grey|magenta|red|white|yellow)$ ]]; then
+                print -- "$OPTARG: must be a color" >&2
                 return 1
             fi
-            color="$2"; shift
+            inkcolor=$OPTARG
             ;;
-        --line|-l)
+        (l)
             is_new_line=true
         ;;
-        --bold|-b)
+        (b)
             is_bold=true
             ;;
-        --tty|-t)
-            if [[ $2 != <-> ]]; then
-                printf -- "$2: must be an interger" >&2
+        (t)
+            if [[ $OPTARG != <-> ]]; then
+                print -- "$OPTARG: must be an interger" >&2
                 return 1
             fi
-            tty="$2"; shift
-            ;;
-        -)
-            # STDIN
-            while IFS= read -r line; do
-                text+=($line) ;
-            done
-            ;;
-        *)
-            text+=("$1")
+            tty="$OPTARG"
             ;;
     esac
-    shift
 done
+shift $(( OPTIND - 1 ))
+
+if [[ $* == '-' ]]; then
+    while IFS= read -r line; do
+        text+=($line) ;
+    done
+    shift
+fi
+
+text+=($*)
 
 if $is_bold; then
-    color="$fg_bold[$color]"
+    inkcolor="$fg_bold[$inkcolor]"
 else
-    color="$fg_no_bold[$color]"
+    inkcolor="$fg_no_bold[$inkcolor]"
 fi
 
 $is_new_line && text_after="\n" || text_after=""
 
-text=${color}${text}${reset_color}${text_after}
+text=${inkcolor}${text}${reset_color}${text_after}
 
 case $tty in
-    1)
-        printf -- $text
+    (2)
+        print -- $text >&2
         ;;
-    2)
-        printf -- $text >&2
+    (*)
+        print -- $text
         ;;
 esac

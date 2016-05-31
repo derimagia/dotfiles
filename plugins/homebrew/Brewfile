@@ -94,7 +94,6 @@ brew aircrack-ng
 brew android-platform-tools
 brew ansible
 brew apktool
-brew asciidoc
 brew autoconf
 brew automake
 brew awscli
@@ -108,28 +107,21 @@ brew cscope
 brew curl
 brew dex2jar
 brew diff-so-fancy
-brew dnsmasq
-brew docbook-xsl
 brew docbook
 brew dos2unix
 brew faac
 brew fasd
-brew fdk-aac
 brew ffmpeg
 brew findutils
-brew flex
 brew fontconfig
 brew fortune
 brew freetype
-brew frei0r
-brew fribidi
 brew fzf
+brew gawk
 brew gcc
 brew gdbm
-brew geoip
 brew gettext
 brew ghq
-brew giflib
 brew gifsicle
 brew git-extras
 brew git-flow
@@ -158,26 +150,18 @@ brew jpeg
 brew jq
 brew lame
 brew lastpass-cli --with-pinentry --with-doc
-brew libass
 brew libassuan
 brew libevent
 brew libffi
 brew libgpg-error
-brew libidn
-brew libksba
 brew libmpc
-brew libogg
 brew libpng
 brew libsass
 brew libssh2
 brew libtiff
 brew libtool
-brew libvo-aacenc
-brew libvorbis
-brew libvpx
 brew libxml2
 brew libyaml
-brew luajit
 brew macvim --with-override-system-vim
 brew mad
 brew mariadb
@@ -193,7 +177,6 @@ brew node
 brew nspr
 brew oniguruma
 brew openssl
-brew p7zip
 brew pcre
 brew phantomjs
 brew pinentry
@@ -206,12 +189,10 @@ brew pv
 brew python
 brew python3
 brew ranger
-brew re2c
 brew readline
 brew reattach-to-user-namespace
 brew redis
 brew ruby
-brew s-lang
 brew sassc
 brew sdl2
 brew sdl2_image
@@ -221,7 +202,6 @@ brew spark
 brew spidermonkey
 brew sqlite
 brew ssh-copy-id
-brew sshrc
 brew stormssh
 brew syncthing-inotify
 brew syncthing
@@ -244,7 +224,8 @@ brew z
 brew zsh
 
 tap homebrew/dupes
-brew zlib
+brew gpatch
+brew grep
 
 tap homebrew/php
 brew composer

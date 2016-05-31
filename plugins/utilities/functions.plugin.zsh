@@ -5,11 +5,23 @@ take(){
 
 # z is the new j? I guess?
 z() {
-    cd $(fasd -d "$1" | fzf-tmux --select-1)
+    text="$@"
+    if [[ -z "$text" ]]; then
+        # Print with score
+        cd "$(fasd -d "$text" | fzf-tmux | awk '{print $2}')"
+        return
+    fi
+
+    directory=$(fasd -ld "$text" | head -n1)
+    if [[ -n $directory ]]; then
+        cd "$directory"
+    else
+        ink -c red -t 2 'No Directory found'
+    fi
 }
 
 f() {
-    fasd -f "$1" | fzf-tmux --select-1
+    fasd -f "$1" | fzf-tmux --select-1 | awk '{print $2}'
 }
 
 # All the dig info
