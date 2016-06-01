@@ -20,13 +20,13 @@ is_osx && print_status "Installing Homebrew Packages..." && $apps_directory/home
 is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubuntu.sh
 
 # Install python packages
-{has.command pip && print_status "Installing Python Packages..." && $apps_directory/python.sh} || print_error "Python is not installed or failed. Skipping..."
+{ [[ $+commands[pip] ]] && print_status "Installing Python Packages..." && $apps_directory/python.sh} || print_error "Python is not installed or failed. Skipping..."
 
 # Install node packages
-{has.command node && print_status "Installing Node Packages..." && $apps_directory/node.sh} || print_error "Node is not installed or failed. Skipping..."
+{ [[ $+commands[node] ]] && print_status "Installing Node Packages..." && $apps_directory/node.sh} || print_error "Node is not installed or failed. Skipping..."
 
 # Install ruby packages
-{has.command ruby && print_status "Installing Ruby Packages..." && $apps_directory/ruby.sh} || print_error "Ruby is not installed or failed. Skipping..."
+{ [[ $+commands[ruby] ]] && print_status "Installing Ruby Packages..." && $apps_directory/ruby.sh} || print_error "Ruby is not installed or failed. Skipping..."
 
 # Install vim packages
-{has.command vim && print_status "Installing VIM Packages..." && $apps_directory/vim.sh} || print_error "Vim is not installed or failed. Skipping..."
+{ [[ $+commands[vim] ]] && print_status "Installing VIM Packages..." && $apps_directory/vim.sh} || print_error "Vim is not installed or failed. Skipping..."

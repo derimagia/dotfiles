@@ -7,8 +7,9 @@ export PAGER='less'
 export LANG='en_US.UTF-8'
 export MANPATH
 export PATH
+export BROWSER=$PAGER
 
-bindkey -e  # emacs key bindings
+bindkey -e
 
 typeset -gU fpath path manpath
 

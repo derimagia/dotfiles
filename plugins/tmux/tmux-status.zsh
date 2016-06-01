@@ -2,13 +2,12 @@
 
 local tmux_pane=$(print "$1" | tr -d %)
 
-function print_tmux_var() {
+print_tmux_var() {
     printenv "TMUX_$1_${tmux_pane}"
 }
 
 local terminus_site=$(print_tmux_var TERMINUS_SITE)
 local terminus_env=$(print_tmux_var TERMINUS_ENV)
-
 
 local default='#[fg=default]'
 local cyan='#[fg=cyan]'

@@ -99,6 +99,7 @@ brew automake
 brew awscli
 brew bash-completion
 brew bfg
+brew binutils
 brew boost
 brew cairo
 brew coreutils
@@ -112,7 +113,7 @@ brew dos2unix
 brew faac
 brew fasd
 brew ffmpeg
-brew findutils
+brew findutils --with-default-names
 brew fontconfig
 brew fortune
 brew freetype
@@ -224,8 +225,12 @@ brew z
 brew zsh
 
 tap homebrew/dupes
+brew diffutils
 brew gpatch
-brew grep
+brew grep --with-default-names
+brew gzip
+brew less
+brew rsync
 
 tap homebrew/php
 brew composer

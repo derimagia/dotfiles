@@ -1,84 +1,113 @@
 # Setting Terminal
-export TERM='xterm-256color';
-[ -n "$TMUX"  ] && export TERM=screen-256color
+if [[ -n "$TMUX"  ]]; then
+    export TERM=screen-256color
+else
+    export TERM=xterm-256color
+fi
 
 # General Terminal Options
 setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
+setopt MENU_COMPLETE # Automatically select menu
 
-zmodload zsh/terminfo
 bindkey "$terminfo[cuu1]" history-substring-search-up
 bindkey "$terminfo[cud1]" history-substring-search-down
+
 
 # History
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=100000
 SAVEHIST=100000
 setopt HISTIGNORESPACE EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_DUPS
-
 setopt KSHOPTIONPRINT # Better Options with setopt
 
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY=true
 
-# Colors
-export CLICOLOR=1
+# F5 to reload zsh
+_zle_re() {
+    re
+    zle accept-line
+}
+zle -N _zle_re
+bindkey $terminfo[kf5] _zle_re
 
-if [ "$TERM" != dumb ] && has.command grc ; then
-    alias cl='grc -es --colour=auto'
-    alias configure='cl ./configure'
-    alias diff='cl diff'
-    alias make='cl make'
-    alias gcc='cl gcc'
-    alias g++='cl g++'
-    alias as='cl as'
-    alias gas='cl gas'
-    alias ld='cl ld'
-    alias netstat='cl netstat'
-    alias ping='cl ping'
-    alias traceroute='cl traceroute'
-    alias docker='grc docker'
-    alias docker-machine='grc docker-machine'
-fi
 
-alias ls='ls --color=auto -CAh --group-directories-first'
-alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-export GREP_OPTIONS='--color=auto';
-has.command dircolors && [[ -d $ZPLUG_REPOS/trapd00r/LS_COLORS ]] && eval "$(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)"
-
-#export LESS_TERMCAP_DEBUG=1
-export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
-
-## ZSH Highlight
-typeset -gA ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='underline'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
 
 ## Completions
-zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
-zstyle ':completion:*:warnings' format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' verbose yes
+
+# Turn on menu selection when selections do not fit on screen
+zstyle ':completion:*' menu true=long select=long
+zstyle ':completion:*:matches' group yes
+zstyle ':completion:*' group-name '' # Group based on the tag, everywhere
+
+# Describe Options
+zstyle ':completion:*:options' description yes
+
+# Ignored Patterns (Except rm)
+zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' '*?.old' '*?.pro'
+
+# Completion presentation styles.
+zstyle ':completion:*:options' auto-description 'specify: %d'
+zstyle ':completion:*:descriptions' format $'\e[32m -- %d --\e[00m'
+zstyle ':completion:*:messages'     format $'\e[32m -- %d --\e[00m'
+zstyle ':completion:*:warnings'     format $'\e[33m -- No matches found for %d --\e[00m'
+
+# Case insensitive search
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
+#zstyle -e ':completion:*:default'      list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:/${(s.:.)LS_COLORS}")' # Parial Matching
+zstyle ':completion:*:commands'        list-colors '=*=32'
+zstyle ':completion:*:builtins'        list-colors '=*=34'
+zstyle ':completion:*:functions'       list-colors '=*=34'
+zstyle ':completion:*:aliases'         list-colors '=*=34'
+zstyle ':completion:*:parameters'      list-colors '=*=33'
+zstyle ':completion:*:reserved-words'  list-colors '=*=31'
+zstyle ':completion:*:manuals*'        list-colors '=*=36'
+zstyle ':completion:*:options'         list-colors '=*=32' #'=^(-- *)=38;5;28'
+
+zstyle ':completion:*:functions' ignored-patterns '_*' # Remove complete/hidden functions
+zstyle '*' single-ignored show # Fall back to ignored
+
+# Don't complete uninteresting users.
+zstyle ':completion:*:*:*:users' ignored-patterns '_*'
+
+# Hostnames completion.
+zstyle -e ':completion:*:hosts' hosts 'reply=(
+    ${${${${(f)"$(<~/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}
+    ${${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*[*?]*}%\#*}% *}
+    ${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}}
+  )'
+zstyle ':completion:*:*:*:hosts' ignored-patterns 'ip6*' 'localhost*'
+
+zstyle ':completion:*'    completer   _complete \
+                                      _ignored \
+                                      _approximate
+
+# Ignore Patterns
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:zcompile:*' ignored-patterns '(*~|*.zwc)'
 
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select
+# Ignore hidden files by default
+zstyle ':completion:*:(all-|other-|)files'  ignored-patterns '*/.*'
+zstyle ':completion:*:(local-|)directories' ignored-patterns '*/.*'
+zstyle ':completion:*:cd:*'                 ignored-patterns '*/.*'
+
+# Speed up completion by avoiding partial globs.
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' accept-exact-dirs true
+
+# Style for cd
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:*:cd:*' tag-order local-directories path-directories
+
+# Style for Kill
+zstyle ':completion:*:*:kill:*:processes'        list-colors '=(#b) #([0-9]#)* (*[a-z])*=32=31'
+zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
+
+# rm/cp/mv style.
+zstyle ':completion:*:(rm|mv|cp):*' ignore-line yes
 
 # Load Fasd
-has.command fasd && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
-
-export BROWSER=$PAGER
-is_osx && export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+[[ $+commands[fasd] ]] && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"

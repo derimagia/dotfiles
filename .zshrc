@@ -1,9 +1,15 @@
 #!/usr/bin/env zsh
 
+# PLATFORM
+export SHELL_PLATFORM='unknown'
+case "$(print "$OSTYPE" | tr '[:upper:]' '[:lower:]')" in
+    *'linux'*) SHELL_PLATFORM='linux' ;;
+    *'darwin'*) SHELL_PLATFORM='osx' ;;
+esac
+
 # Init Zplug
 ZPLUG_HOME=$HOME/.zplug
 { [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
-
 
 zplugs=() # Reset zplugs
 
@@ -13,8 +19,10 @@ for plugin_path in $DOTFILES/plugins/*; do
     autoload_files=($plugin_path/autoload/*(N))
     plugin_files=($plugin_path/*.plugin.zsh(N))
     postinit_files=($plugin_path/*.postinit.zsh(N))
+    osx_files=($plugin_path/*.osx.zsh(N))
 
     [[ -n $vital_paths ]] && zplug $plugin_path, use:'*.vital.zsh', nice:-1, from:local # Vital Files are Nice
+    [[ -n $osx_files ]] && zplug $plugin_path, use:'*.osx.zsh', as:plugin, nice:3, from:local, if:'[[ $SHELL_PLATFORM == "osx" ]]'
     [[ -n $plugin_files ]] && zplug $plugin_path, use:'*.plugin.zsh', as:plugin, nice:3, from:local
     [[ -n $postinit_files ]] && zplug $plugin_path, use:'*.postinit.zsh', as:plugin, nice:10, from:local
     [[ -d $plugin_path/bin ]] && zplug $plugin_path, as:command, use:'bin/*', from:local
@@ -36,8 +44,7 @@ zplug trapd00r/LS_COLORS
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
-zplug zsh-users/zsh-syntax-highlighting
-zplug jimmijj/chromatic-zsh, use:"" # Just download
+zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
 
 # OSX
 [[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]] && zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local

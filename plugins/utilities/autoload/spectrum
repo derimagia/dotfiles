@@ -1,5 +1,6 @@
-#!/bin/zsh
-has.command 'hr' && hr ' ' '-' ' '
+#!/usr/bin/env zsh
+
+hr ' ' '-' ' '
 
 print -l '256 Colors\n'
 
@@ -12,7 +13,7 @@ for x in 0 1 4 5 7 8; do
     done
 done
 
-has.command 'hr' && hr ' ' '-' ' '
+hr ' ' '-' ' '
 
 print -l '256 Colors\n'
 
@@ -22,7 +23,7 @@ for C in {0..255}; do
 done
 tput sgr0
 
-has.command 'hr' && hr ' ' '-' ' '
+hr ' ' '-' ' '
 
 print -l 'True Color Tests\n'
 
@@ -116,5 +117,5 @@ for i in `seq 255 -1 128`; do
 done
 resetOutput
 
-has.command 'hr' && hr ' ' '-' ' '
+hr ' ' '-' ' '
 

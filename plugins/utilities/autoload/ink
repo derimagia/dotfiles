@@ -1,22 +1,26 @@
 #!/usr/bin/env zsh
 
-autoload -Uz colors
+emulate -L zsh
 
-while getopts c:lbt: opt; do
+local ink_text=() ink_color='' is_new_line=false ink_effects=()
+
+while getopts c:luibt: opt; do
     case $opt in
         (c)
-            if [[ ! $OPTARG =~ ^(black|blue|cyan|default|green|grey|magenta|red|white|yellow)$ ]]; then
-                print -- "$OPTARG: must be a color" >&2
-                return 1
-            fi
-            inkcolor=$OPTARG
+            ink_color=$OPTARG
             ;;
         (l)
             is_new_line=true
         ;;
+        (i)
+            ink_effects+=(italic)
+        ;;
         (b)
-            is_bold=true
+            ink_effects+=(bold)
             ;;
+        (u)
+            ink_effects+=(underline)
+        ;;
         (t)
             if [[ $OPTARG != <-> ]]; then
                 print -- "$OPTARG: must be an interger" >&2
@@ -30,28 +34,26 @@ shift $(( OPTIND - 1 ))
 
 if [[ $* == '-' ]]; then
     while IFS= read -r line; do
-        text+=($line) ;
+        ink_text+=($line) ;
     done
     shift
 fi
 
-text+=($*)
+ink_text+=($*)
 
-if $is_bold; then
-    inkcolor="$fg_bold[$inkcolor]"
-else
-    inkcolor="$fg_no_bold[$inkcolor]"
-fi
+for ink_effect in $ink_effects; do
+    ink_text="${FX[$ink_effect]}${ink_text}${FX[reset]}"
+done
 
 $is_new_line && text_after="\n" || text_after=""
 
-text=${inkcolor}${text}${reset_color}${text_after}
+ink_text="$FG[$ink_color]${ink_text}${FX[reset]}${text_after}"
 
 case $tty in
     (2)
-        print -- $text >&2
+        print -- $ink_text >&2
         ;;
     (*)
-        print -- $text
+        print -- $ink_text
         ;;
 esac
