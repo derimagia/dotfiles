@@ -110,4 +110,4 @@ zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
 zstyle ':completion:*:(rm|mv|cp):*' ignore-line yes
 
 # Load Fasd
-[[ $+commands[fasd] ]] && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+(( $+commands[fasd] )) && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
