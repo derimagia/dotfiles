@@ -10688,13 +10688,11 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
+	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/plugins/apps/iTerm</string>
+	<string>~/dev/src/github.com/chriskempson/base16-builder/output/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 565}</string>
+	<string>{1217, 810}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -10720,34 +10718,25 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
-	<key>NSToolbar Configuration Terminal Toolbar</key>
-	<dict>
-		<key>TB Display Mode</key>
-		<integer>1</integer>
-		<key>TB Icon Size Mode</key>
-		<integer>1</integer>
-		<key>TB Is Shown</key>
-		<integer>0</integer>
-		<key>TB Size Mode</key>
-		<integer>1</integer>
-	</dict>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>4569 174 445 103 3360 -56 1920 1057 </string>
+	<string>311 532 1044 242 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>0 92 606 456 0 0 1920 1177 </string>
+	<string>2613 581 606 456 1920 0 1920 1057 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>524 962 400 129 0 0 1920 1177 </string>
+	<string>520 562 400 129 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>2570 433 620 392 1920 -65 1920 1057 </string>
+	<string>650 499 620 392 0 0 1920 1057 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>2075 473 592 584 1920 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 155 1130 777 0 0 1920 1177 </string>
+	<string>155 93 1130 777 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2001 410 570 434 1920 0 1440 877 </string>
+	<string>120 233 570 451 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11368,7 +11357,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 12</string>
+			<string>FiraCode-Retina 12</string>
 			<key>Open Toolbelt</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -11540,13 +11529,13 @@
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<true/>
+			<false/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Cursor Guide</key>
 			<true/>
 			<key>Use Italic Font</key>
-			<false/>
+			<true/>
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
@@ -12166,7 +12155,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 11</string>
+			<string>FiraCode-Retina 11</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -12338,7 +12327,7 @@
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<true/>
+			<false/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
@@ -12357,8 +12346,6 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
-	<key>NoSyncDisablePromotions</key>
-	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
@@ -12366,19 +12353,27 @@
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>B748069D-F847-4138-B1B0-3BE0323C6D21</string>
+	<string>96C5B04D-FF5E-437D-A463-75133774FA0D</string>
 	<key>NoSyncLastTipTime</key>
-	<real>479140847.043338</real>
+	<real>479276220.25015599</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
+	<true/>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncSuppressAnnyoingBellOffer</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>477852084.63480699</real>
+	<real>477679435.17337298</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477851512.49858099</real>
+	<real>477625668.32119399</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477851506.85040301</real>
+	<real>477588075.70407701</real>
 	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>NoSyncTipsToNotShow</key>
@@ -12391,6 +12386,10 @@
 		<string>0004</string>
 		<string>0005</string>
 		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -12462,11 +12461,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml?shard=57</string>
+	<string>https://iterm2.com/appcasts/testing3.xml?shard=50</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-02T13:44:56Z</date>
+	<date>2016-05-31T20:16:36Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Show Toolbelt</key>
@@ -12503,6 +12502,8 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1458464768</real>
 	<key>URLHandlersByGuid</key>
 	<dict>
 		<key>ssh</key>
