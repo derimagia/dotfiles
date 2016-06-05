@@ -10,3 +10,4 @@ npm install bless -g
 npm install tldr -g
 npm install speed-test -g
 npm install spoof -g
+npm install castnow -g

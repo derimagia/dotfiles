@@ -90,6 +90,10 @@ cask java7
 tap codekitchen/dinghy
 brew dinghy
 
+tap homebrew/completions
+brew brew-cask-completion
+brew tmuxinator-completion
+
 tap homebrew/core
 brew aircrack-ng
 brew android-platform-tools
@@ -247,3 +251,7 @@ tap homebrew/services
 
 tap rcmdnk/file
 brew brew-file
+
+# Cask applications
+cask smart-converter
+cask sqlpropostgres

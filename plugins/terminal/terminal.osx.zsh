@@ -65,12 +65,13 @@ osx-ls-download-history() {
 
 if [[ -x "/usr/libexec/java_home" ]]; then
     # Determine java home
-    async_start_worker java_home_osx -n
-    async_register_callback java_home_osx _detect_java_home_osx_callback
-    async_job java_home_osx /usr/libexec/java_home
+    async_start_worker java_home_osx 2>/dev/null && {
+        async_register_callback java_home_osx _detect_java_home_osx_callback
+        async_job java_home_osx /usr/libexec/java_home
 
-    _detect_java_home_osx_callback() {
-        [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$3"
-        async_stop_worker java_home_osx
+        _detect_java_home_osx_callback() {
+            export JAVA_HOME="$3"
+            async_stop_worker java_home_osx
+        }
     }
 fi

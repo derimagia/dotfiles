@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+local directory_path symlinks=()
+directory_path="${1:-.}"
+symlinks=($directory_path/*(-@N))
+
+if [[ -n $symlinks ]]; then
+    ink -c green "Removing Symlinks: " ${(j:, :)symlinks}
+    rm $symlinks
+else
+    ink -c red "No symlinks found in directory: " $directory_path
+fi
+

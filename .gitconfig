@@ -67,3 +67,8 @@
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
+[user]
+	name = Dave Wikoff
+	email = dgsims@gmail.com
+[commit]
+	template = /Users/dave/.stCommitMsg

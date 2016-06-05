@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+
+
 # Color Arrays. Vital.
 typeset -Ag FX FG BG
 FX=(

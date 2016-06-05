@@ -1,6 +1,7 @@
+#!/usr/bin/env zsh
 emulate -L zsh
 
-local clearcache=false restarttmux=false readall=false command
+local clearcache=false restarttmux=false readall=false command autoload_functions
 
 while getopts tcr opt; do
     case $opt in
@@ -39,11 +40,12 @@ else
     print -l "Re-sourced .zshrc"
 
     # Reload functions that were autoloaded, @TODO: Find a better way to do this
-    typeset -a funs
-    funs=("${(@f)$(typeset -f + | grep -Ev '^(_|comp|VCS|vcs|prompt|pure|async|zplug|bash)')}")
+    autoload_functions=( $DOTFILES/**/autoload/* )
 
-    for f in $funs; do
+    local f
+    for f in $autoload_functions:t; do
         unfunction $f
+        autoload -Uz $f
     done
 
     source $HOME/.zshrc

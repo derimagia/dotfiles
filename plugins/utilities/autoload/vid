@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+vid="$1"
+
+# Start VLC
+# Interfaces https://wiki.videolan.org/Interfaces/
+vlc -I rc $vid #&!

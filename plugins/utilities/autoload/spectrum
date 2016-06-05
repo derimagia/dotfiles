@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+emulate -L zsh
 
 hr ' ' '-' ' '
 
