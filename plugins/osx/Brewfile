@@ -107,6 +107,7 @@ brew bfg
 brew binutils
 brew boost
 brew cairo
+brew cocoapods
 brew coreutils
 brew cowsay
 brew cscope
@@ -251,7 +252,3 @@ tap homebrew/services
 
 tap rcmdnk/file
 brew brew-file
-
-# Cask applications
-cask smart-converter
-cask sqlpropostgres

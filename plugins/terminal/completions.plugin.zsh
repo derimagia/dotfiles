@@ -35,7 +35,7 @@ zstyle ':completion:*:manuals*'        list-colors '=*=36'
 zstyle ':completion:*:options'         list-colors '=*=32' #'=^(-- *)=38;5;28'
 
 zstyle ':completion:*:functions' ignored-patterns '_*' # Remove complete/hidden functions
-zstyle '*' single-ignored show # Fall back to ignored
+zstyle '*' single-ignored menu # Fall back to ignored
 
 # Don't complete uninteresting users.
 zstyle ':completion:*:*:*:users' ignored-patterns '_*'
