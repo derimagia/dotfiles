@@ -1,3 +1,5 @@
+autoload -Uz colors && colors
+
 if [[ $TERM != dumb ]]; then
     export CLICOLOR=true
 

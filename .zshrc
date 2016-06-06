@@ -22,3 +22,9 @@ function load_files() {
 }
 
 load_files
+
+# Reorder fpath
+fpath=(
+    /usr/local/share/zsh/site-functions
+    $fpath
+)

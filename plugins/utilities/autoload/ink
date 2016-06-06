@@ -47,7 +47,7 @@ done
 
 $is_new_line && text_after="\n" || text_after=""
 
-ink_text="$FG[$ink_color]${ink_text}${FX[reset]}${text_after}"
+ink_text=${FG[$ink_color]}${ink_text}${FX[reset]}${text_after}
 
 case $tty in
     (2)
