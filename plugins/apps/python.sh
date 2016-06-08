@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 pip install -U \
-        pip setuptools \
-        virtualenv \
-        livestreamer \
-        pygments \
-        http-prompt
+    pip setuptools \
+    virtualenv \
+    livestreamer \
+    pygments \
+    http-prompt
 
 # Install Pygments Style
 if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]] && [[ =python3 ]]; then
