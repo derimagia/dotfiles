@@ -1,5 +1,6 @@
 {
     "require": {
-        "drush/drush": "dev-master"
+        "drush/drush": "~8",
+        "hirak/prestissimo": "^0.3"
     }
 }
