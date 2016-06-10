@@ -1,0 +1,183 @@
+# Cask applications
+# Please copy these lines to your Brewfile and use with `brew-file install`.
+
+# Main tap repository for caskroom/cask
+tap caskroom/cask
+
+# Apps installed by Cask in caskroom/cask
+cask install adium #/Applications/Adium.app
+cask install adobe-creative-cloud #/Applications/Adobe Creative Cloud
+#cask install adobe-creative-cloud #/Applications/Utilities/Adobe Creative Cloud
+cask install airdroid #/Applications/AirDroid.app
+cask install airflow #/Applications/Airflow.app
+cask install alfred #/Applications/Alfred 3.app
+cask install appcleaner #/Applications/AppCleaner.app
+cask install atom #/Applications/Atom.app
+cask install beamer #/Applications/Beamer.app
+cask install bitbar #/Applications/BitBar.app
+cask install cocoapods #/Applications/CocoaPods.app
+cask install cyberduck #/Applications/Cyberduck.app
+cask install dash #/Applications/Dash.app
+cask install diffmerge #/Applications/DiffMerge.app
+cask install dropbox #/Applications/Dropbox.app
+cask install electrum #/Applications/Electrum.app
+cask install fiddler #/Applications/Fiddler.app
+cask install firefox #/Applications/Firefox.app
+cask install gitup #/Applications/GitUp.app
+cask install google-chrome #/Applications/Google Chrome.app
+cask install hopper-disassembler #/Applications/Hopper Disassembler v3.app
+cask install imageoptim #/Applications/ImageOptim.app
+cask install jadengeller-helium #/Applications/Helium.app
+cask install macfusion #/Applications/Macfusion.app
+cask install macvim #/Applications/MacVim.app
+cask install mou #/Applications/Mou.app
+cask install mumble #/Applications/Mumble.app
+cask install onyx #/Applications/OnyX.app
+cask install paw #/Applications/Paw.app
+cask install phpstorm #/Applications/PhpStorm.app
+cask install postman #/Applications/Postman.app
+cask install psequel #/Applications/PSequel.app
+cask install python #/Applications/Python 2.7
+cask install sequel-pro #/Applications/Sequel Pro.app
+cask install slack #/Applications/Slack.app
+cask install sourcetree #/Applications/SourceTree.app
+cask install spectacle #/Applications/Spectacle.app
+cask install steam #/Applications/Steam.app
+cask install textual #/Applications/Textual.app
+cask install vagrant-manager #/Applications/Vagrant Manager.app
+cask install virtualbox #/Applications/VirtualBox.app
+cask install wireshark #/Applications/Wireshark.app
+cask install xquartz #/Applications/Utilities/XQuartz.app
+cask install xtrafinder #/Applications/XtraFinder.app
+cask install yakyak #/Applications/Yakyak.app
+
+# Cask is found, but no applications are found (could be fonts, system settins, or installed in other directory.)
+cask install 1password
+cask install aerial
+cask install alcatraz
+cask install android-studio
+cask install bettertouchtool
+cask install betterzipql
+cask install charles
+cask install evernote
+cask install gear-player
+cask install hosts
+cask install intellij-idea
+cask install java
+cask install launchrocket
+cask install osxfuse
+cask install provisionql
+cask install qlcolorcode
+cask install qlimagesize
+cask install qlmarkdown
+cask install qlprettypatch
+cask install qlstephen
+cask install quicklook-csv
+cask install quicklook-json
+cask install skype
+cask install sshfs
+cask install teamviewer
+cask install torbrowser
+cask install vagrant
+cask install visual-studio-code
+cask install vlc
+cask install webpquicklook
+
+# Apps installed directly instead of by Cask in caskroom/cask
+#cask install adobe-photoshop-cc #/Applications/Adobe Photoshop CC 2015
+#cask install docker #/Applications/Docker
+#cask install docker #/Applications/Docker.app
+
+# Casks in caskroom/fonts
+tap caskroom/fonts
+
+# Cask is found, but no applications are found.
+# (fonts, system settins, or installed in other directory.)
+cask install font-fira-code
+cask install font-roboto
+cask install font-source-code-pro
+
+# Casks in caskroom/versions
+tap caskroom/versions
+
+# Apps installed by Cask in caskroom/versions
+cask install airmail-beta #/Applications/AirMail Beta.app
+cask install firefoxdeveloperedition #/Applications/FirefoxDeveloperEdition.app
+cask install google-chrome-canary #/Applications/Google Chrome Canary.app
+cask install iterm2-beta #/Applications/iTerm.app
+
+# Cask is found, but no applications are found.
+# (fonts, system settins, or installed in other directory.)
+cask install java7
+
+# Apps installed from AppStore
+866773894 Quiver #/Applications/Quiver.app
+497799835 Xcode #/Applications/Xcode.app
+
+# Apps installed but no casks are available
+# (System applications or directory installed.)
+#/Applications/Adobe
+#/Applications/Adobe Extension Manager CS6
+#/Applications/Adobe Fireworks CS6
+#/Applications/App Store.app
+#/Applications/Automator.app
+#/Applications/Betwixt.app
+#/Applications/Calculator.app
+#/Applications/Calendar.app
+#/Applications/Chess.app
+#/Applications/Chrome Apps.localized
+#/Applications/Chromecast.app
+#/Applications/Contacts.app
+#/Applications/Dashboard.app
+#/Applications/Dictionary.app
+#/Applications/DVD Player.app
+#/Applications/FaceTime.app
+#/Applications/Font Book.app
+#/Applications/Game Center.app
+#/Applications/iBooks.app
+#/Applications/Image Capture.app
+#/Applications/iTunes.app
+#/Applications/Launchpad.app
+#/Applications/Mail.app
+#/Applications/Maps.app
+#/Applications/Messages.app
+#/Applications/Microsoft Messenger.app
+#/Applications/Mission Control.app
+#/Applications/Notes.app
+#/Applications/Photo Booth.app
+#/Applications/Photos.app
+#/Applications/Preview.app
+#/Applications/QuickTime Player.app
+#/Applications/Radium.app
+#/Applications/Reminders.app
+#/Applications/Remote Desktop Connection.app
+#/Applications/Safari.app
+#/Applications/Stickies.app
+#/Applications/Strims.app
+#/Applications/System Preferences.app
+#/Applications/TextEdit.app
+#/Applications/Time Machine.app
+#/Users/dave/Applications/Chrome Apps.localized
+#/Users/dave/Applications/Chrome Canary Apps.localized
+#/Applications/Utilities/Activity Monitor.app
+#/Applications/Utilities/Adobe AIR Application Installer.app
+#/Applications/Utilities/Adobe AIR Uninstaller.app
+#/Applications/Utilities/Adobe Application Manager
+#/Applications/Utilities/Adobe Installers
+#/Applications/Utilities/AirPort Utility.app
+#/Applications/Utilities/Audio MIDI Setup.app
+#/Applications/Utilities/Bluetooth File Exchange.app
+#/Applications/Utilities/Boot Camp Assistant.app
+#/Applications/Utilities/ColorSync Utility.app
+#/Applications/Utilities/Console.app
+#/Applications/Utilities/Digital Color Meter.app
+#/Applications/Utilities/Disk Utility.app
+#/Applications/Utilities/Feedback Assistant.app
+#/Applications/Utilities/Grab.app
+#/Applications/Utilities/Grapher.app
+#/Applications/Utilities/Keychain Access.app
+#/Applications/Utilities/Migration Assistant.app
+#/Applications/Utilities/Script Editor.app
+#/Applications/Utilities/System Information.app
+#/Applications/Utilities/Terminal.app
+#/Applications/Utilities/VoiceOver Utility.app

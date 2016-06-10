@@ -2,6 +2,7 @@
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias fs='stat -c "%s Bytes"' # File Size
 alias l='exa -l'
+alias ll='ls -lahpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic exit';
 alias mou="open /Applications/Mou.app" # Mou!

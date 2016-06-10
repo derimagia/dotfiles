@@ -38,6 +38,7 @@ cask jadengeller-helium
 cask java
 cask launchrocket
 cask macfusion
+cask macvim
 cask mou
 cask mumble
 cask onyx
@@ -47,6 +48,7 @@ cask phpstorm
 cask postman
 cask provisionql
 cask psequel
+cask python
 cask qlcolorcode
 cask qlimagesize
 cask qlmarkdown
@@ -61,15 +63,12 @@ cask sourcetree
 cask spectacle
 cask sshfs
 cask steam
-cask teamviewer
 cask textual
 cask torbrowser
 cask vagrant-manager
 cask vagrant
 cask virtualbox
-cask visual-studio-code
 cask vlc
-cask webpquicklook
 cask wireshark
 cask xquartz
 cask xtrafinder
@@ -85,7 +84,6 @@ cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
-cask java7
 
 tap codekitchen/dinghy
 brew dinghy
@@ -145,6 +143,8 @@ brew gobject-introspection
 brew gource
 brew grc
 brew harfbuzz
+brew heroku
+brew highlight
 brew hr
 brew htop-osx
 brew httpie
@@ -169,6 +169,7 @@ brew libtiff
 brew libtool
 brew libxml2
 brew libyaml
+brew lua
 brew macvim --with-override-system-vim
 brew mad
 brew mariadb
@@ -179,6 +180,7 @@ brew moreutils
 brew mpfr
 brew mtr
 brew multitail
+brew mycli
 brew netcat
 brew nmap
 brew node
@@ -194,7 +196,6 @@ brew pngcheck
 brew postgresql
 brew pup
 brew pv
-brew python
 brew python3
 brew ranger
 brew readline

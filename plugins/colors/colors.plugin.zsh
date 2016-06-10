@@ -33,13 +33,14 @@ if [[ $TERM != dumb ]]; then
         alias docker-machine='grc docker-machine'
     fi
 
-    alias ls='ls --color=auto -CAh --group-directories-first'
+    alias ls='ls --color=auto'
     alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 
     alias @ls='command ls'
+
 
     #export LESS_TERMCAP_DEBUG=1
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking

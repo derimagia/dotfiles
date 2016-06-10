@@ -1,4 +1,3 @@
-ZPLUG_HOME=$HOME/.zplug
 { [[ -d $ZPLUG_HOME ]] || git clone https://github.com/zplug/zplug $ZPLUG_HOME }; source $ZPLUG_HOME/init.zsh
 
 if [[ -f $ZPLUG_HOME/.cache ]]; then
