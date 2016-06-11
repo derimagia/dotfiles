@@ -3,49 +3,37 @@
 function _terminus() {
     local ret=1 cmd="$words[1]" state no_space=0
 
-    if [[ -n "${words[${#words}]}" ]]; then
-        no_space=1
-    fi
+    function _terminus_subcommands() {
+        # If the last word isn't completed (aka "cl" for "cli"), remove it
+        if [[ -n "${words[${#words}]}" ]]; then
+            words[${#words}]=()
+        fi
 
-    global_args=(
+        local jq_command
+        if [[ -z $words[2] ]]; then
+            jq_command='.subcommands'
+        else
+            jq_command='.subcommands | .[] | select(.name == "'$words[2]'") | .subcommands'
+        fi
+        jq_command+='| .[] | "\(.name):\(.description)"'
+
+        local terminus_options=(${(f)"$(terminus cli cmd-dump --format=json | jq -r $jq_command 2>/dev/null)"})
+
+        if [[ -n $terminus_options ]]; then
+            _describe -ot subcommands 'subcommands' terminus_options && ret=0
+        fi
+    }
+
+    local global_args=(
         '--colorize[Use color in output]'
         '--debug[Get debug output]'
         '--yes[Answer yes to all prompts]'
         '--format[Change the output type to JSON, bash, or silent]'
-        '*::subcommand:->subcommand'
+        ': :_terminus_subcommands'
+        '2: :_terminus_subcommands'
     )
 
     _arguments $global_args
-
-    case $state in
-        (subcommand)
-            words=(
-                $cmd
-                $words
-            )
-
-            # If the last word is a not a space thetermin we need to remove it because we need to get the full command list
-            # So 'terminus cl<tab>' will be sent as 'terminus' and then zsh will autocomplete it to 'terminus cli'
-            if (( $no_space )); then
-                words[${#words}]=()
-            fi
-
-            # Call "terminus cli completions" for it's input
-            subcommands=(`$cmd cli completions --line="$words" 2>&1`)
-            # Remove arguments we already have in our command
-            subcommands=(${subcommands:|org_words})
-
-            if [[ -n $subcommands ]]; then
-                _describe -t subcommands 'terminus subcommands' subcommands && ret=0
-            fi
-            ;;
-    esac
-
-    case "$orig_words[2]" in
-        (drush)
-            # Handle outside drush completion (ZSH Completions for example)
-            [[ $+commands[_drush] ]] && _drush && ret=0 ;;
-    esac
 
     return ret
 }
