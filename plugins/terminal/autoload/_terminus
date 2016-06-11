@@ -9,7 +9,17 @@ function _terminus() {
             words[${#words}]=()
         fi
 
-        local jq_command
+        # Check Terminus itself for subcommands for options
+        if [[ -n $words[3] ]]; then
+            # @TODO: Get the desc information out of cmd-dump like we do below
+            local terminus_options=($(terminus cli completions --line="$cmd $words[2] $words[3]" 2>&1))
+            if [[ -n $terminus_options ]]; then
+                _describe -o 'option' terminus_options && ret=0
+            fi
+            return
+        fi
+
+        local jq_command subcommand=0
         if [[ -z $words[2] ]]; then
             jq_command='.subcommands'
         else
@@ -17,11 +27,13 @@ function _terminus() {
         fi
         jq_command+='| .[] | "\(.name):\(.description)"'
 
-        local terminus_options=(${(f)"$(terminus cli cmd-dump --format=json | jq -r $jq_command 2>/dev/null)"})
+        local terminus_subcommands=(${(f)"$(terminus cli cmd-dump --format=json | jq -r $jq_command 2>/dev/null)"})
 
-        if [[ -n $terminus_options ]]; then
-            _describe -ot subcommands 'subcommands' terminus_options && ret=0
+        if [[ -n $terminus_subcommands ]]; then
+            _describe -t subcommands 'subcommands' terminus_subcommands && ret=0
         fi
+
+
     }
 
     local global_args=(
@@ -29,8 +41,7 @@ function _terminus() {
         '--debug[Get debug output]'
         '--yes[Answer yes to all prompts]'
         '--format[Change the output type to JSON, bash, or silent]'
-        ': :_terminus_subcommands'
-        '2: :_terminus_subcommands'
+        '*: :_terminus_subcommands'
     )
 
     _arguments $global_args
