@@ -34,7 +34,6 @@ if [[ $TERM != dumb ]]; then
     fi
 
     alias ls='ls --color=auto'
-    alias ccat='pygmentize -P style=base16_oceanicnext_dark -f console16m -g'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
