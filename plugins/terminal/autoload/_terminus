@@ -1,0 +1,53 @@
+#compdef terminus
+
+function _terminus() {
+    local ret=1 cmd="$words[1]" state no_space=0
+
+    if [[ -n "${words[${#words}]}" ]]; then
+        no_space=1
+    fi
+
+    global_args=(
+        '--colorize[Use color in output]'
+        '--debug[Get debug output]'
+        '--yes[Answer yes to all prompts]'
+        '--format[Change the output type to JSON, bash, or silent]'
+        '*::subcommand:->subcommand'
+    )
+
+    _arguments $global_args
+
+    case $state in
+        (subcommand)
+            words=(
+                $cmd
+                $words
+            )
+
+            # If the last word is a not a space thetermin we need to remove it because we need to get the full command list
+            # So 'terminus cl<tab>' will be sent as 'terminus' and then zsh will autocomplete it to 'terminus cli'
+            if (( $no_space )); then
+                words[${#words}]=()
+            fi
+
+            # Call "terminus cli completions" for it's input
+            subcommands=(`$cmd cli completions --line="$words" 2>&1`)
+            # Remove arguments we already have in our command
+            subcommands=(${subcommands:|org_words})
+
+            if [[ -n $subcommands ]]; then
+                _describe -t subcommands 'terminus subcommands' subcommands && ret=0
+            fi
+            ;;
+    esac
+
+    case "$orig_words[2]" in
+        (drush)
+            # Handle outside drush completion (ZSH Completions for example)
+            [[ $+commands[_drush] ]] && _drush && ret=0 ;;
+    esac
+
+    return ret
+}
+
+_terminus "$@"
