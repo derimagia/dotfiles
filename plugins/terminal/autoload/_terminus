@@ -1,7 +1,7 @@
 #compdef terminus
 
 function _terminus() {
-    local ret=1 cmd="$words[1]" state no_space=0
+    local ret=1 cmd="$words[1]" state
 
     function _terminus_subcommands() {
         # If the last word isn't completed (aka "cl" for "cli"), remove it
@@ -19,7 +19,7 @@ function _terminus() {
             return
         fi
 
-        local jq_command subcommand=0
+        local jq_command
         if [[ -z $words[2] ]]; then
             jq_command='.subcommands'
         else
@@ -36,7 +36,7 @@ function _terminus() {
 
     }
 
-    local global_args=(
+    local terminus_args=(
         '--colorize[Use color in output]'
         '--debug[Get debug output]'
         '--yes[Answer yes to all prompts]'
@@ -44,7 +44,7 @@ function _terminus() {
         '*: :_terminus_subcommands'
     )
 
-    _arguments $global_args
+    _arguments $terminus_args
 
     return ret
 }
