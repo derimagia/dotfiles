@@ -539,16 +539,6 @@ defaults write com.apple.terminal StringEncodings -array 4
 CFPreferencesAppSynchronize "com.apple.terminal"
 
 # ==============================================
-# iTerm2
-# ==============================================
-echo "Setting iTerm2 Preferences"
-
-# Preference Folder
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/plugins/apps/iTerm
-
-CFPreferencesAppSynchronize "com.googlecode.iterm2"
-
-# ==============================================
 # Time Machine                                                                #
 # ==============================================
 echo "Setting Time Machine Preferences"
@@ -665,6 +655,33 @@ defaults write com.binaryage.totalfinder TotalFinderCopyPathMenuEnabled -bool tr
 defaults write com.binaryage.totalfinder TotalFinderCutAndPasteShowContextMenuButtons -bool true
 
 CFPreferencesAppSynchronize "com.binaryage.totalfinder"
+
+# ==============================================
+# iTerm2
+# ==============================================
+echo "Setting iTerm2 Preferences"
+
+# Preference Folder
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/plugins/apps/iTerm
+
+CFPreferencesAppSynchronize "com.googlecode.iterm2"
+
+# ==============================================
+# SourceTree
+# ==============================================
+echo "Setting SourceTree Preferences"
+
+# Allow Force Push
+defaults write com.torusknot.SourceTreeNotMAS allowForcePush -bool true
+
+# Analytics
+defaults write com.torusknot.SourceTreeNotMAS analyticsHasAgreed -bool false
+
+# Don't ask to create bookmarks on opening repo
+defaults write com.torusknot.SourceTreeNotMAS createBookmarksOnOpenRepo -bool false
+
+CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
+
 
 # ==============================================
 # Kill affected applications
