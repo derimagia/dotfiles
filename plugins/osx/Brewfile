@@ -25,6 +25,7 @@ cask diffmerge
 cask dropbox
 cask electrum
 cask evernote
+cask exa
 cask fiddler
 cask firefox
 cask gear-player
@@ -68,7 +69,7 @@ cask torbrowser
 cask vagrant-manager
 cask vagrant
 cask virtualbox
-cask vlc
+cask visual-studio-code
 cask wireshark
 cask xquartz
 cask xtrafinder
@@ -113,6 +114,7 @@ brew curl
 brew dex2jar
 brew diff-so-fancy
 brew docbook
+brew dockviz
 brew dos2unix
 brew faac
 brew fasd
@@ -196,6 +198,7 @@ brew pngcheck
 brew postgresql
 brew pup
 brew pv
+brew python
 brew python3
 brew ranger
 brew readline
@@ -253,3 +256,7 @@ tap homebrew/services
 
 tap rcmdnk/file
 brew brew-file
+
+# App Store applications
+appstore 866773894 Quiver
+appstore 497799835 Xcode
