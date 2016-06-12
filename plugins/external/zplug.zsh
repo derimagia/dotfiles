@@ -31,6 +31,6 @@ zplug zsh-users/zsh-autosuggestions
 zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
 
 # Check in Background
-{zplug check || zplug install}&!
+zplug check || zplug install
 
 zplug load

@@ -5,10 +5,11 @@ pip install -U \
     virtualenv \
     livestreamer \
     pygments \
-    http-prompt
+    http-prompt \
+    pyobjc
 
 # Install Pygments Style
-if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]] && [[ =python3 ]]; then
+if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]] && (( $+commands[python3] )); then
     echo "Adding Pygments Color"
     pygmentspath=$(python3 -c "import pygments, inspect, os; print(os.path.dirname(os.path.abspath(inspect.getsourcefile(pygments))))")/styles
     cp $ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/base16-oceanicnext.dark.py $pygmentspath/base16_oceanicnext_dark.py

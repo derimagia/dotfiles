@@ -25,8 +25,5 @@ link_intellij() {
     done;
 }
 
-hr ' ' '-' ' '
 link_dotfiles
-hr ' ' '-' ' '
 link_intellij
-hr ' ' '-' ' '

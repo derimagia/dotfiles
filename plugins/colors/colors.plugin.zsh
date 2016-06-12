@@ -33,12 +33,21 @@ if [[ $TERM != dumb ]]; then
         alias docker-machine='grc docker-machine'
     fi
 
-    alias ls='ls --color=auto'
+    if (( $+commands[grc] )); then
+      alias ls='ls --color=auto'
+      alias @ls='command ls'
+    fi
+
+    if (( $+commands[grc] )); then
+      alias ls='ls --color=auto'
+      alias @ls='command ls'
+    fi
+    
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 
-    alias @ls='command ls'
+
 
 
     #export LESS_TERMCAP_DEBUG=1
