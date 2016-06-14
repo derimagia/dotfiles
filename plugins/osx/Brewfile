@@ -6,7 +6,6 @@ cask 1password
 cask adium
 cask adobe-creative-cloud
 cask aerial
-cask airdroid
 cask airflow
 cask alcatraz
 cask alfred
@@ -38,7 +37,7 @@ cask intellij-idea
 cask jadengeller-helium
 cask java
 cask launchrocket
-cask macvim
+cask mono-mdk
 cask mou
 cask mumble
 cask onyx
@@ -65,13 +64,13 @@ cask sshfs
 cask steam
 cask textual
 cask torbrowser
+cask totalfinder
 cask vagrant-manager
 cask vagrant
 cask virtualbox
 cask visual-studio-code
 cask wireshark
 cask xquartz
-cask xtrafinder
 cask yakyak
 
 tap caskroom/fonts
@@ -97,6 +96,7 @@ brew aircrack-ng
 brew android-platform-tools
 brew ansible
 brew apktool
+brew asciidoc
 brew autoconf
 brew automake
 brew awscli
@@ -139,6 +139,7 @@ brew gmp
 brew gnu-sed --with-default-names
 brew gnu-tar --with-default-names
 brew gnu-which --with-default-names
+brew gnutls
 brew go
 brew gobject-introspection
 brew gource
@@ -166,6 +167,7 @@ brew libmpc
 brew libpng
 brew libsass
 brew libssh2
+brew libtasn1
 brew libtiff
 brew libtool
 brew libxml2
@@ -183,6 +185,7 @@ brew mtr
 brew multitail
 brew mycli
 brew netcat
+brew nettle
 brew nmap
 brew node
 brew nspr
@@ -205,6 +208,7 @@ brew reattach-to-user-namespace
 brew redis
 brew ruby
 brew sassc
+brew screenfetch
 brew sdl2
 brew sdl2_image
 brew socat
@@ -216,6 +220,7 @@ brew ssh-copy-id
 brew stormssh
 brew syncthing-inotify
 brew syncthing
+brew task
 brew textql
 brew the_silver_searcher
 brew tig
@@ -224,6 +229,7 @@ brew tree
 brew unfs3
 brew unixodbc
 brew v8
+brew vit
 brew watch
 brew webkit2png
 brew webp

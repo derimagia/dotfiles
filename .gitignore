@@ -1,11 +1,11 @@
-.idea/
-.DS_Store/
+.idea
+.DS_Store
 
 .atom/.apm
 .atom/.node-gyp
 .atom/.storage
 .atom/blob-store
-.atom/compile-cache/
+.atom/compile-cache
 .atom/packages
 .atom/storage
 .atom/themes

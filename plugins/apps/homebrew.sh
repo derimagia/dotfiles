@@ -12,15 +12,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 
-# Check for Homebrew
-if test ! $(which brew)
-then
-    echo "Installing Homebrew."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install rcmdnk/file/brew-file
-fi
-
-
 brew file update --preupdate --no_appstore -C
 brew file cask_upgrade -C
 
