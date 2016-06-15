@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
-export
-
 emulate -L zsh
+autoload -Uz colors && colors
 
 typeset -a packagedeps deplist packages
 typeset -A dependencymap brewinfo
@@ -30,13 +29,13 @@ done
 
 packages=( "${(f)"$(brew list)"}" )
 for package in $packages; do
-    print -l -- "${FG[cyan]}${package}${FG[default]} - $FG[green]${brewinfo[$package]}$FG[default]"
+    print -l -- "${fg[cyan]}${package}${reset_color} - ${fg[green]}${brewinfo[$package]}${reset_color}"
 
     dependencies=( ${=dependencymap[$package]} )
 
     if [[ -n $dependencies ]]; then
         for dependency in $dependencies; do
-            print -l -- "➥ ${FG[yellow]}${dependency}${FG[default]}"
+            print -l -- "➥ ${fg[yellow]}${dependency}${reset_color}"
         done
     fi
 done

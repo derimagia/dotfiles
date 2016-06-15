@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 emulate -L zsh
 
-source $DOTFILES/plugins/colors/colors.vital.zsh
+autoload -Uz colors && colors
 
 local ink_text=() ink_color='' is_new_line=false ink_effects=()
 
@@ -43,12 +43,12 @@ fi
 ink_text+=($*)
 
 for ink_effect in $ink_effects; do
-    ink_text="${FX[$ink_effect]}${ink_text}${FX[reset]}"
+    ink_text="${fg[$ink_effect]}${ink_text}${reset_color}"
 done
 
 $is_new_line && text_after="\n" || text_after=""
 
-ink_text=${FG[$ink_color]}${ink_text}${FX[reset]}${text_after}
+ink_text=${fg[$ink_color]}${ink_text}${reset_color}${text_after}
 
 case $tty in
     (2)

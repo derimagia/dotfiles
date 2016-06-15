@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Autoload needed functions
-autoload -U add-zsh-hook compinit
+autoload -Uz add-zsh-hook compinit
 
 function load_files() {
     local -a autoload_files plugin_files plugin_file
