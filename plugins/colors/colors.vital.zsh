@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-
 # Color Arrays. Vital.
 typeset -Ag FX FG BG
+export FG BG FX
 FX=(
     reset     "$terminfo[sgr0]"
     bold      "$terminfo[bold]"
@@ -12,6 +12,7 @@ FX=(
     reverse   "$terminfo[rev]"   no-reverse   "$terminfo[rum]"
     standout  "$terminfo[smso]"  no-standout  "$terminfo[rmso]"
 )
+
 
 for color in {0..255}; do
     FG[$color]="[38;5;${color}m"

@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
-
 emulate -L zsh
+
+source $DOTFILES/plugins/colors/colors.vital.zsh
 
 local ink_text=() ink_color='' is_new_line=false ink_effects=()
 

@@ -15,8 +15,8 @@ zplug $DOTFILES/plugins, as:command, use:'**/bin/*', from:local
 
 zplug mafredri/zsh-async, use:"-" # Just download the repo
 zplug derimagia/base16-builder, use:output/shell/base16-oceanicnext.dark.sh
-zplug junegunn/fzf, use:shell/completion.zsh, if:"($+commands[fzf])"
-zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local, if:"($+commands[brew])"
+zplug junegunn/fzf, use:shell/completion.zsh, if:"(( $+commands[fzf] ))"
+zplug $HOMEBREW_PREFIX/etc/brew-wrap, from:local, if:"(( $+commands[brew] ))"
 zplug ogham/exa, from:gh-r, as:command
 zplug MarianoGappa/jira-cli, use:jira.sh
 

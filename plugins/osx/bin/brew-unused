@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+export
+
 emulate -L zsh
 
 typeset -a packagedeps deplist packages
@@ -28,13 +30,13 @@ done
 
 packages=( "${(f)"$(brew list)"}" )
 for package in $packages; do
-    print -l -- "${fg[cyan]}${package}${fg[default]} - $fg[green]${brewinfo[$package]}$fg[default]"
+    print -l -- "${FG[cyan]}${package}${FG[default]} - $FG[green]${brewinfo[$package]}$FG[default]"
 
     dependencies=( ${=dependencymap[$package]} )
 
     if [[ -n $dependencies ]]; then
         for dependency in $dependencies; do
-            print -l -- "➥ ${fg[yellow]}${dependency}${fg[default]}"
+            print -l -- "➥ ${FG[yellow]}${dependency}${FG[default]}"
         done
     fi
 done
