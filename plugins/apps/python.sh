@@ -5,8 +5,7 @@ pip install -U \
     virtualenv \
     livestreamer \
     pygments \
-    http-prompt \
-    pyobjc
+    http-prompt
 
 # Install Pygments Style
 if [[ -d "$ZPLUG_ROOT/repos/derimagia/base16-builder/output/pygments/" ]] && (( $+commands[python3] )); then
