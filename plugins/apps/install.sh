@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Get Distro
 if [[ -f /etc/lsb-release ]]; then
