@@ -146,6 +146,7 @@ brew gnutls
 brew go
 brew gobject-introspection
 brew gource
+brew gradle
 brew grc
 brew harfbuzz
 brew heroku
