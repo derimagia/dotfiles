@@ -1,24 +1,14 @@
 #!/bin/bash
 
-# Get Distro
-if [[ -f /etc/lsb-release ]]; then
-    . /etc/lsb-release
-    DISTRO=$DISTRIB_ID
+UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+# If Linux, try to determine specific distribution
+if [[ "$UNAME" == "linux" ]]; then
+    if [[ -f /etc/lsb-release ]]; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'// | tr "[:upper:]" "[:lower:]")
+    fi
 fi
 
-function is_linux() {
-    [[ $OSTYPE =~ 'linux' ]]
-}
-
-function is_osx() {
-    [[ $OSTYPE =~ 'darwin' ]]
-}
-
-function is_ubuntu() {
-    is_linux && [[ $DISTRO =~ 'Ubuntu' ]]
-}
-
-if is_osx && ! xcode-select --print-path &> /dev/null; then
+if [[ $OSTYPE == 'darwin' ]] && ! xcode-select --print-path &> /dev/null; then
     xcode-select --install &> /dev/null
 
     until xcode-select --print-path &> /dev/null; do
@@ -36,7 +26,7 @@ fi
 
 source ~/.dotfiles/.zshenv
 
-if is_osx; then
+if [[ $OSTYPE == 'darwin' ]]; then
     hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
 fi
 
@@ -44,12 +34,12 @@ fi
 PATH=$DOTFILES/plugins/utilities/bin/:$PATH
 $DOTFILES/plugins/apps/bin/dot-link
 
-if is_ubuntu; then
+if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh
     zsh_path=$(which zsh)
     chsh -s $zsh_path
     exec $zsh_path
-elif is_osx; then
+elif [[ $OSTYPE == 'darwin' ]]; then
     HOMEBREW_PREFIX=$(brew --prefix)
     # Install ZSH specifically
 
