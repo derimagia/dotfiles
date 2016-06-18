@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Get Distro
-if [ -f /etc/lsb-release ]; then
+if [[ -f /etc/lsb-release ]]; then
     . /etc/lsb-release
     DISTRO=$DISTRIB_ID
 fi
