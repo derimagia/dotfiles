@@ -24,12 +24,10 @@ done
 # Cleanup
 unset autoload_files plugin_files plugin_file
 
-if [[ -d /usr/local/share/zsh/site-functions ]]; then
-    # Reorder fpath
-    fpath=(
-        /usr/local/share/zsh/site-functions
-        $fpath
-    )
-fi
+# Reorder fpath
+fpath=(
+    /usr/local/share/zsh/site-functions
+    $fpath
+)
 
 #zprof | less
