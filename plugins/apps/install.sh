@@ -1,6 +1,24 @@
 #!/bin/sh
 
-if ! xcode-select --print-path &> /dev/null; then
+# Get Distro
+if [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    DISTRO=$DISTRIB_ID
+fi
+
+function is_linux() {
+    [[ $OSTYPE =~ 'linux' ]]
+}
+
+function is_osx() {
+    [[ $OSTYPE =~ 'darwin' ]]
+}
+
+function is_ubuntu() {
+    is_linux && [[ $DISTRO =~ 'Ubuntu' ]]
+}
+
+if is_osx && ! xcode-select --print-path &> /dev/null; then
     xcode-select --install &> /dev/null
 
     until xcode-select --print-path &> /dev/null; do
@@ -17,23 +35,34 @@ if [[ ! -d ~/.dotfiles ]]; then
 fi
 
 source ~/.dotfiles/.zshenv
-hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+
+if is_osx; then
+    hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+fi
 
 # Link dot files
 PATH=$DOTFILES/plugins/utilities/bin/:$PATH
 $DOTFILES/plugins/apps/bin/dot-link
 
-# Install ZSH specifically
-[[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
+if is_ubuntu; then
+    sudo apt-get install zsh
+    zsh_path=$(which zsh)
+    chsh -s $zsh_path
+    exec $zsh_path
+elif is_osx; then
+    HOMEBREW_PREFIX=$(brew --prefix)
+    # Install ZSH specifically
 
-# Default Shells
-HOMEBREW_PREFIX=$(brew --prefix)
-sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
-sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
+    [[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
 
-finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s  $HOMEBREW_PREFIX/bin/zsh
+    # Default Shells
+    sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
+    sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
 
-exec $HOMEBREW_PREFIX/bin/zsh
+    finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
-# Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
+    exec $HOMEBREW_PREFIX/bin/zsh
+    # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
+fi
+
 # Run "dot"
