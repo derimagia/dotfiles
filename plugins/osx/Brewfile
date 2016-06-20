@@ -191,7 +191,6 @@ brew mycli
 brew netcat
 brew nettle
 brew nmap
-brew node
 brew nspr
 brew oniguruma
 brew openssl
@@ -264,6 +263,9 @@ brew psysh
 brew wp-cli
 
 tap homebrew/services
+
+tap homebrew/versions
+brew node5
 
 tap rcmdnk/file
 brew brew-file
