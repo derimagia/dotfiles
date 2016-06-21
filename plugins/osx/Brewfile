@@ -99,6 +99,7 @@ brew aircrack-ng
 brew android-platform-tools
 brew ansible
 brew apktool
+brew aptly
 brew asciidoc
 brew autoconf
 brew automake
@@ -214,6 +215,7 @@ brew sassc
 brew screenfetch
 brew sdl2
 brew sdl2_image
+brew slackcat
 brew socat
 brew sox
 brew spark
@@ -252,13 +254,11 @@ brew gzip
 brew less
 brew rsync
 
-tap homebrew/homebrew-completions
-
 tap homebrew/php
 brew composer
 brew drupalconsole
 brew drush
-brew php70
+brew php71
 brew psysh
 brew wp-cli
 
@@ -269,7 +269,3 @@ brew node5
 
 tap rcmdnk/file
 brew brew-file
-
-# App Store applications
-appstore 866773894 Quiver
-appstore 497799835 Xcode

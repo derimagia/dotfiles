@@ -37,3 +37,5 @@ zle -N self-insert url-quote-magic
 
 # Load Fasd
 (( $+commands[fasd] )) && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+
+bindkey '^t' fuzzy-search-and-edit

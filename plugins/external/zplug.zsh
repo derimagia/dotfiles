@@ -27,7 +27,8 @@ zplug trapd00r/LS_COLORS
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
 zplug zsh-users/zsh-autosuggestions
-zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
+zplug seletskiy/zsh-fuzzy-search-and-edit
+#zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
 
 # Check in Background
 zplug check || zplug install
