@@ -62,6 +62,7 @@ cask sourcetree
 cask spectacle
 cask sshfs
 cask steam
+cask suspicious-package
 cask textual
 cask torbrowser
 cask totalfinder
@@ -70,6 +71,7 @@ cask vagrant
 cask virtualbox
 cask visual-studio-code
 cask vlc
+cask webpquicklook
 cask wireshark
 cask xquartz
 cask yakyak

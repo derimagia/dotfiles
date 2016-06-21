@@ -12,6 +12,8 @@ setopt MENU_COMPLETE # Automatically select menu
 bindkey "$terminfo[cuu1]" history-substring-search-up
 bindkey "$terminfo[cud1]" history-substring-search-down
 
+# Shift tab for backwards
+bindkey '^[[Z' reverse-menu-complete
 
 # History
 HISTFILE="$HOME/.zhistory"
