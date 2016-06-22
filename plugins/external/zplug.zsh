@@ -23,12 +23,12 @@ zplug MarianoGappa/jira-cli, use:jira.sh
 zplug sindresorhus/pure
 
 # Packages
-zplug trapd00r/LS_COLORS
+zplug trapd00r/LS_COLORS, use:'-' # Just download the repo
 zplug zsh-users/zsh-completions, use:src
 zplug zsh-users/zsh-history-substring-search
-zplug zsh-users/zsh-autosuggestions
+zplug zsh-users/zsh-autosuggestions, at:develop
 zplug seletskiy/zsh-fuzzy-search-and-edit
-#zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
+zplug derimagia/zsh-syntax-highlighting, nice:10 # Change back to zsdh-users/zsh-syntax-highlighting when it plays well with zsh-autosuggest
 
 # Check in Background
 zplug check || zplug install

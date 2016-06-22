@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+(alias; declare -f) | command which -a --tty-only --read-alias --read-functions --show-dot --show-tilde $@

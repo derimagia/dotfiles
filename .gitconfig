@@ -2,16 +2,27 @@
 	path = ~/.gitconfig.local
 [alias]
 	# Graphs/Charts
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	lg = log --graph
+	lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+
 	tree = !git lg --graph
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	gg =  grep --break --heading --line-number
 	count = !git shortlog -sn
 	amend = commit --amend -C HEAD
 	uncommit = reset --soft HEAD^
 	pup = !git pull && git submodule init && git submodule update && git submodule status
+
+	# Search all commits
+	grep-all = !"git rev-list --all | xargs git grep '$1'"
+
+	# Show Aliases
+	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
+
 	# Shortcuts
+	rl = reflog
 	co = checkout
 	st = status
 	all = add -A
