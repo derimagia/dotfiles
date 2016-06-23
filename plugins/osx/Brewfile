@@ -116,6 +116,7 @@ brew coreutils
 brew cowsay
 brew cscope
 brew curl
+brew dateutils
 brew dex2jar
 brew diff-so-fancy
 brew docbook
@@ -151,6 +152,7 @@ brew gobject-introspection
 brew gource
 brew gradle
 brew grc
+brew gti
 brew harfbuzz
 brew heroku
 brew highlight
@@ -217,6 +219,7 @@ brew sassc
 brew screenfetch
 brew sdl2
 brew sdl2_image
+brew sl
 brew slackcat
 brew socat
 brew sox

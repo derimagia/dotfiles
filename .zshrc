@@ -4,7 +4,7 @@ zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
 # Autoload needed functions
-autoload -Uz add-zsh-hook compinit
+autoload -Uz add-zsh-hook compinit zmv
 
 plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
 

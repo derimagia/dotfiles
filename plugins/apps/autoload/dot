@@ -11,22 +11,22 @@ function print_status() {
 local apps_directory=$DOTFILES/plugins/apps
 
 # Set OS X defaults
-#is_osx && print_status "Installing OSX Defaults..." && $apps_directory/osx.sh &!
+is_osx && print_status "Installing OSX Defaults..." && $apps_directory/osx.zsh &!
 
 # Install homebrew packages
-is_osx && print_status "Installing Homebrew Packages..." && $apps_directory/homebrew.sh
+is_osx && print_status "Installing Homebrew Packages..." && $apps_directory/homebrew.zsh
 
 # Linix Packages, right now only ubuntu..
-is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubuntu.sh
+is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubuntu.zsh
 
 # Install python packages
-{ (( $+commands[pip] )) && print_status "Installing Python Packages..." && $apps_directory/python.sh} || print_error "Python is not installed or failed. Skipping..."
+{ (( $+commands[pip] )) && print_status "Installing Python Packages..." && $apps_directory/python.zsh} || print_error "Python is not installed or failed. Skipping..."
 
 # Install node packages
-{ (( $+commands[node] )) && print_status "Installing Node Packages..." && $apps_directory/node.sh} || print_error "Node is not installed or failed. Skipping..."
+{ (( $+commands[node] )) && print_status "Installing Node Packages..." && $apps_directory/node.zsh} || print_error "Node is not installed or failed. Skipping..."
 
 # Install ruby packages
-{ (( $+commands[ruby] )) && print_status "Installing Ruby Packages..." && $apps_directory/ruby.sh} || print_error "Ruby is not installed or failed. Skipping..."
+{ (( $+commands[ruby] )) && print_status "Installing Ruby Packages..." && $apps_directory/ruby.zsh} || print_error "Ruby is not installed or failed. Skipping..."
 
 # Install vim packages
-{ (( $+commands[vim] )) && print_status "Installing VIM Packages..." && $apps_directory/vim.sh} || print_error "Vim is not installed or failed. Skipping..."
+{ (( $+commands[vim] )) && print_status "Installing VIM Packages..." && $apps_directory/vim.zsh} || print_error "Vim is not installed or failed. Skipping..."
