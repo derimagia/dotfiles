@@ -66,6 +66,7 @@ cask suspicious-package
 cask textual
 cask torbrowser
 cask totalfinder
+cask tower
 cask vagrant-manager
 cask vagrant
 cask virtualbox
