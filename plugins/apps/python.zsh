@@ -5,6 +5,7 @@ pip install -U \
     virtualenv \
     livestreamer \
     pygments \
+    tmuxp \
     http-prompt
 
 # Install Pygments Style

@@ -715,10 +715,4 @@ function killallApps() {
     echo "Note that some of these changes require a logout/restart to take effect."
 }
 
-printf "Restart the Affected Applications? (y/n): "
-read killallReply
-if [[ $killallReply =~ ^[Yy]$ ]]; then
-    killallApps
-fi
-
 exit 0

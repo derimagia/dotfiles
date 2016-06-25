@@ -5,6 +5,8 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /p
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'
 
+alias mas='reattach-to-user-namespace mas'
+
 # Quicklook
 ql() {
   nullify qlmanage -p "$@"

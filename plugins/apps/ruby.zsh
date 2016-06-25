@@ -3,6 +3,4 @@
 gem install \
     bundler \
     compass \
-    apiaryio \
-    tmuxinator \
     lolcat

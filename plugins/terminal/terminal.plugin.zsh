@@ -9,11 +9,9 @@ fi
 setopt COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS
 setopt MENU_COMPLETE # Automatically select menu
 
-bindkey "$terminfo[cuu1]" history-substring-search-up
-bindkey "$terminfo[cud1]" history-substring-search-down
-
-# Shift tab for backwards
-bindkey '^[[Z' reverse-menu-complete
+# Up/Down Arrows
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # History
 HISTFILE="$HOME/.zhistory"

@@ -1,6 +1,8 @@
 
 # tap repositories and their packages
 
+tap argon/mas
+
 tap caskroom/cask
 cask 1password
 cask adium
@@ -36,6 +38,7 @@ cask imageoptim
 cask intellij-idea
 cask jadengeller-helium
 cask java
+cask jetbrains-toolbox
 cask launchrocket
 cask mono-mdk
 cask mou
@@ -87,6 +90,8 @@ cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
+
+tap homebrew/bundle
 
 tap homebrew/completions
 brew brew-cask-completion
@@ -157,6 +162,7 @@ brew hub
 brew icdiff
 brew icu4c
 brew imagemagick --with-webp
+brew iozone
 brew isl
 brew jpeg
 brew jq
@@ -178,7 +184,6 @@ brew libyaml
 brew lua
 brew macvim --with-override-system-vim
 brew mariadb
-brew mas
 brew miller
 brew mongodb
 brew moreutils
@@ -204,6 +209,7 @@ brew pv
 brew python
 brew python3
 brew readline
+brew reattach-to-user-namespace
 brew redis
 brew ruby
 brew sassc
@@ -264,3 +270,6 @@ brew node5
 
 tap rcmdnk/file
 brew brew-file
+
+# App Store applications
+appstore No installed apps found

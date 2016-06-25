@@ -23,8 +23,8 @@ zstyle ':completion:*:warnings'     format $'\e[33m -- No matches found for %d -
 # Case insensitive search
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
-#zstyle -e ':completion:*:default'      list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:/${(s.:.)LS_COLORS}")' # Parial Matching
+#zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
+zstyle -e ':completion:*:default'      list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:/${(s.:.)LS_COLORS}")' # Parial Matching
 zstyle ':completion:*:commands'        list-colors '=*=32'
 zstyle ':completion:*:builtins'        list-colors '=*=34'
 zstyle ':completion:*:functions'       list-colors '=*=34'
@@ -75,3 +75,6 @@ zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
 
 # rm/cp/mv style.
 zstyle ':completion:*:(rm|mv|cp):*' ignore-line yes
+
+# Shift tab for backwards
+bindkey $terminfo[kcbt] reverse-menu-complete
