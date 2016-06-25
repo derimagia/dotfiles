@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+local repo reponame type='unknown' shallow=0 edit=0
+
+while getopts dse opt; do
+    case $opt in
+        (d)
+            type='drupal'
+        ;;
+        (s)
+            shallow=1
+        ;;
+        (e)
+            edit=1
+        ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+reponame=$1
+repo=$reponame
+
+# Drupal Module
+if [[ $type == 'drupal' ]]; then
+   repo="https://git.drupal.org/project/$repo.git"
+fi
+
+local cloneopts=(-u -p)
+
+if (( $shallow )); then
+  cloneopts+=(--shallow)
+fi
+
+ghq get $cloneopts $repo
+
+if (( $edit )); then
+    idea $(ghq list -p $reponame)
+else
+    ghq look $reponame
+fi
+

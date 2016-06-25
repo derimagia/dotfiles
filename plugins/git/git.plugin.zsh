@@ -1,8 +1,6 @@
 alias g="git"
 alias st='stree'
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # Git Root
-alias gg="ghq -p -u"
-
 
 # Git Rebase
 function rebase() {
@@ -26,16 +24,6 @@ function rebase() {
     if [[ $shouldStash -eq true ]]; then
         git stash pop >/dev/null
     fi
-}
-
-# Clone and CD
-function clone () {
-  ghq get -u -p $1 && ghq look $1
-}
-
-# Clone Drupal Project
-function dclone() {
-  clone "https://git.drupal.org/project/$1.git"
 }
 
 # Clone and Open Drupal Project

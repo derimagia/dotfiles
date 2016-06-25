@@ -80,9 +80,10 @@
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
-[commit]
-	template = /Users/dave/.stCommitMsg
 [rebase]
 	autoStash = true
 [pull]
 	rebase = true
+[ghq]
+	root = ~/dev/src
+	root = $GOPATH/src

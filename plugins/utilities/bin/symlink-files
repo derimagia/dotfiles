@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 emulate -L zsh
 
 autoload -Uz colors && colors
