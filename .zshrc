@@ -3,6 +3,14 @@
 zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
+# General Terminal Options
+# See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
+setopt \
+    COMPLETE_ALIASES MULTIOS PUSHD_TO_HOME AUTOCD EXTENDED_GLOB \
+    RC_EXPAND_PARAM BEEP INTERACTIVECOMMENTS MAGIC_EQUAL_SUBST \
+    HISTIGNORESPACE EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_DUPS \
+    KSHOPTIONPRINT # better "setopt" printing
+
 # Autoload needed functions
 autoload -Uz add-zsh-hook compinit zmv
 

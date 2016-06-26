@@ -1,8 +1,6 @@
 
 # tap repositories and their packages
 
-tap argon/mas
-
 tap caskroom/cask
 cask 1password
 cask adium
@@ -105,6 +103,7 @@ brew android-platform-tools
 brew ansible
 brew apktool
 brew aptly
+brew asciiquarium
 brew autoconf
 brew automake
 brew awscli
@@ -112,7 +111,11 @@ brew bash-completion
 brew bfg
 brew binutils
 brew boost
+brew boxes
 brew cairo
+brew ccat
+brew cloc
+brew cmatrix
 brew cocoapods
 brew coreutils
 brew cowsay
@@ -161,8 +164,10 @@ brew httpie
 brew hub
 brew icdiff
 brew icu4c
+brew iftop
 brew imagemagick --with-webp
 brew iozone
+brew ipcalc
 brew isl
 brew jpeg
 brew jq
@@ -182,8 +187,10 @@ brew libtool
 brew libxml2
 brew libyaml
 brew lua
+brew lynx
 brew macvim --with-override-system-vim
 brew mariadb
+brew mas
 brew miller
 brew mongodb
 brew moreutils
@@ -193,6 +200,7 @@ brew multitail
 brew mycli
 brew netcat
 brew nettle
+brew ngrep
 brew nmap
 brew nspr
 brew oniguruma
@@ -210,14 +218,18 @@ brew python
 brew python3
 brew readline
 brew reattach-to-user-namespace
+brew recode
 brew redis
+brew renameutils
 brew ruby
 brew sassc
 brew screenfetch
 brew sdl2
 brew sdl2_image
+brew shellcheck
 brew sl
 brew slackcat
+brew slurm
 brew socat
 brew spark
 brew spidermonkey

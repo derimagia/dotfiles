@@ -1,5 +1,7 @@
 # 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
 
+setopt MENU_COMPLETE # Automatically select menu
+
 ## Completions
 zstyle ':completion:*' verbose yes
 

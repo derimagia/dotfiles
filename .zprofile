@@ -28,6 +28,11 @@ path=(
     $path
 )
 
+manpath=(
+    "$HOMEBREW_PREFIX/share/man"
+    $manpath
+)
+
 if [[ ! -d "$TMPDIR" ]]; then
   export TMPDIR="/tmp/$USER"
   mkdir -p -m 700 "$TMPDIR"

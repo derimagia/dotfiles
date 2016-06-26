@@ -4,7 +4,7 @@ alias o="open"
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'
-
+alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
 
 # Quicklook

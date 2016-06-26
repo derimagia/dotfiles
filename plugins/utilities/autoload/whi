@@ -2,3 +2,15 @@
 emulate -L zsh
 
 (alias; declare -f) | command which -a --tty-only --read-alias --read-functions --show-dot --show-tilde $@
+local inspect="$1"
+
+hr '-'
+
+if [[ $+commands[$command] ]]; then
+    local path=${:==$inspect}
+    print $path
+    stat --printf '%N' =$inspect
+fi
+
+hr '-'
+
