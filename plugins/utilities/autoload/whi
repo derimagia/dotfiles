@@ -1,16 +1,50 @@
 #!/usr/bin/env zsh
 emulate -L zsh
 
-(alias; declare -f) | command which -a --tty-only --read-alias --read-functions --show-dot --show-tilde $@
-local inspect="$1"
 
-hr '-'
+function highlight_bash() {
+    $* | highlight -S bash -O ansi
+}
 
-if [[ $+commands[$command] ]]; then
-    local path=${:==$inspect}
-    print $path
-    stat --printf '%N' =$inspect
+local inspect="$1" matched_inspect=0 found_aliases
+found_aliases=$(alias $inspect)
+
+if [[ -n $found_aliases ]]; then
+    matched_inspect=1
+    hr '-'
+
+    ink -lc blue Aliases:
+    highlight_bash print $found_aliases
 fi
 
-hr '-'
+found_functions=$(declare -f $inspect)
 
+if [[ -n $found_functions ]]; then
+    matched_inspect=1
+    hr '-'
+
+    ink -lc blue Functions:
+    highlight_bash print $found_functions
+fi
+
+found_commands=( ${(p)$(command which --all --skip-alias $inspect 2>/dev/null)} )
+
+if [[ -n $found_commands ]]; then
+    matched_inspect=1
+    hr '-'
+    local command_main_path=${:-=$found_command}
+
+    ink -lc blue Commands:
+    for command_path in $found_commands; do
+        print_command=$(stat --printf '%N' $command_path)
+        highlight_bash print -l $print_command
+    done
+fi
+
+
+if (( $matched_inspect )); then
+    hr '-'
+else
+    ink -c red "Invalid Command/Alias/Function '$inspect'"
+    return 1
+fi
