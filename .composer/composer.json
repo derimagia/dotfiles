@@ -1,6 +1,7 @@
 {
     "require": {
         "drush/drush": "~8",
-        "hirak/prestissimo": "^0.3"
+        "hirak/prestissimo": "^0.3",
+        "pantheon-systems/terminus": "^0.11.2"
     }
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42e554d459695b7901561bbfd15165dc",
-    "content-hash": "62e1ee2dcfc94c064e6cdf360ef23e52",
+    "hash": "4fab66a08cda6e6872ba0c5555da7375",
+    "content-hash": "2a1cff1f90386333066cf3810d9ce9ab",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -595,40 +595,40 @@
         },
         {
             "name": "pantheon-systems/terminus",
-            "version": "0.11.1",
+            "version": "0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/terminus.git",
-                "reference": "7557cb2587ab03ebbef0289aad272bc8c359fc48"
+                "reference": "3bf5bf707466fa28567c0f332697bdbf4d482bd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/7557cb2587ab03ebbef0289aad272bc8c359fc48",
-                "reference": "7557cb2587ab03ebbef0289aad272bc8c359fc48",
+                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/3bf5bf707466fa28567c0f332697bdbf4d482bd7",
+                "reference": "3bf5bf707466fa28567c0f332697bdbf4d482bd7",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "6.1.*@stable",
-                "jlogsdon/cli": "~0.9.4",
-                "katzgrau/klogger": "1.2.*@stable",
+                "guzzlehttp/guzzle": "^6.1",
+                "katzgrau/klogger": "^1.2",
                 "php": ">=5.5.9",
-                "psy/psysh": "@stable",
-                "ramsey/array_column": "~1.1",
+                "psy/psysh": "^0.7",
+                "ramsey/array_column": "^1.1",
                 "rmccue/requests": "^1.6",
-                "symfony/finder": "~2.7|~3.0",
-                "symfony/yaml": "~2.1|~3.0",
-                "twig/twig": "1.*",
-                "vlucas/phpdotenv": "~2.1"
+                "symfony/finder": "~2.7|^3.0",
+                "symfony/yaml": "~2.1|^3.0",
+                "twig/twig": "^1.0",
+                "vlucas/phpdotenv": "^2.1",
+                "wp-cli/php-cli-tools": "~0.11.1"
             },
             "require-dev": {
-                "behat/behat": "3.0.*@stable",
-                "php-vcr/php-vcr": "~1.2",
-                "php-vcr/phpunit-testlistener-vcr": "*",
-                "phpunit/phpcov": "2.*",
-                "phpunit/phpunit": "4.*",
-                "satooshi/php-coveralls": "~1.0",
-                "sebastian/phpcpd": "*",
-                "squizlabs/php_codesniffer": "2.*"
+                "behat/behat": "^3.1",
+                "php-vcr/php-vcr": "^1.2",
+                "php-vcr/phpunit-testlistener-vcr": "@stable",
+                "phpunit/phpcov": "^2.0",
+                "phpunit/phpunit": "^4.0",
+                "satooshi/php-coveralls": "^1.0",
+                "sebastian/phpcpd": "^2.0",
+                "squizlabs/php_codesniffer": "^2.0"
             },
             "bin": [
                 "bin/terminus.bat",
@@ -658,7 +658,7 @@
                 "terminus",
                 "wordpress"
             ],
-            "time": "2016-03-30 23:16:53"
+            "time": "2016-06-03 23:54:20"
         },
         {
             "name": "pear/console_table",
@@ -1358,6 +1358,56 @@
                 "environment"
             ],
             "time": "2016-04-15 10:48:49"
+        },
+        {
+            "name": "wp-cli/php-cli-tools",
+            "version": "v0.11.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-cli/php-cli-tools.git",
+                "reference": "5311a4b99103c0505db015a334be4952654d6e21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/5311a4b99103c0505db015a334be4952654d6e21",
+                "reference": "5311a4b99103c0505db015a334be4952654d6e21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "cli": "lib/"
+                },
+                "files": [
+                    "lib/cli/cli.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Logsdon",
+                    "email": "jlogsdon@php.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Daniel Bachhuber",
+                    "email": "daniel@handbuilt.co",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Console utilities for PHP",
+            "homepage": "http://github.com/wp-cli/php-cli-tools",
+            "keywords": [
+                "cli",
+                "console"
+            ],
+            "time": "2016-02-08 14:34:01"
         }
     ],
     "packages-dev": [],
