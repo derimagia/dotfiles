@@ -61,6 +61,7 @@ cask skype
 cask slack
 cask sourcetree
 cask spectacle
+cask sqlpro-studio
 cask sshfs
 cask steam
 cask suspicious-package
@@ -91,6 +92,8 @@ cask iterm2-beta
 
 tap homebrew/bundle
 
+tap homebrew/command-not-found
+
 tap homebrew/completions
 brew brew-cask-completion
 brew docker-compose-completion
@@ -108,6 +111,7 @@ brew autoconf
 brew automake
 brew awscli
 brew bash-completion
+brew bdw-gc
 brew bfg
 brew binutils
 brew boost
@@ -159,6 +163,7 @@ brew gti
 brew heroku
 brew highlight
 brew hr
+brew html2text
 brew htop-osx
 brew httpie
 brew hub
@@ -187,7 +192,6 @@ brew libtool
 brew libxml2
 brew libyaml
 brew lua
-brew lynx
 brew macvim --with-override-system-vim
 brew mariadb
 brew mas
@@ -217,7 +221,7 @@ brew pv
 brew python
 brew python3
 brew readline
-brew reattach-to-user-namespace
+brew reattach-to-user-namespace --with-wrap-launchctl
 brew recode
 brew redis
 brew renameutils
@@ -236,6 +240,7 @@ brew spidermonkey
 brew sqlite
 brew ssh-copy-id
 brew stormssh
+brew surfraw
 brew syncthing-inotify
 brew syncthing
 brew task
@@ -252,6 +257,7 @@ brew watch
 brew webkit2png
 brew webp
 brew wget
+brew wrk
 brew x264
 brew xvid
 brew xz
@@ -282,6 +288,3 @@ brew node5
 
 tap rcmdnk/file
 brew brew-file
-
-# App Store applications
-appstore No installed apps found

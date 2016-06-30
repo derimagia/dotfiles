@@ -39,7 +39,7 @@ if [[ -n $command ]]; then
 else
     print -l "Re-sourced .zshrc"
 
-    # Reload functions that were autoloaded, @TODO: Find a better way to do this
+#    # Reload functions that were autoloaded, @TODO: Find a better way to do this
     autoload_functions=( $DOTFILES/**/autoload/* )
 
     local f
