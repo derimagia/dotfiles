@@ -54,6 +54,7 @@
 [core]
 	excludesfile = /Users/dave/.gitignore_global
 	attributesfile = ~/.gitattributes
+	autocrlf = input
 [diff]
 	compactionHeuristic = true
 [difftool "sourcetree"]

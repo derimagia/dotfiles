@@ -19,7 +19,7 @@ plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh
 # OSX Files
 [[ $SHELL_PLATFORM == "osx" ]] && plugin_files+=($DOTFILES/plugins/**/*.osx.zsh)
 
-# Add Zplug to the end. This will run compinit.
+# Add Zplugin to the end. This will run compinit.
 plugin_files+=($DOTFILES/plugins/external/zplug.zsh)
 
 autoload_files=($DOTFILES/plugins/**/autoload/*)

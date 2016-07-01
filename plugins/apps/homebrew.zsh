@@ -25,6 +25,6 @@ manfiles=(
 )
 
 # Link Man Files that aren't linked by default
-symlink-files "$gnufiles" "$HOMEBREW_PREFIX/bin"
-symlink-files "$manfiles" "$HOMEBREW_PREFIX/share/man/man1"
+symlink-files -q "$gnufiles" "$HOMEBREW_PREFIX/bin"
+symlink-files -q "$manfiles" "$HOMEBREW_PREFIX/share/man/man1"
 

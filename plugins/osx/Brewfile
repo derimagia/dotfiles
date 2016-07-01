@@ -240,6 +240,7 @@ brew spidermonkey
 brew sqlite
 brew ssh-copy-id
 brew stormssh
+brew stow
 brew surfraw
 brew syncthing-inotify
 brew syncthing

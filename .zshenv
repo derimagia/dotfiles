@@ -14,4 +14,7 @@ export SHELL_PLATFORM=${SHELL_PLATFORM:=${${OSTYPE//${:-*linux*}/linux}//${:-*da
 ZPLUG_HOME=$HOME/.zplug
 ZPLUG_REPOS=$ZPLUG_HOME/repos
 
+# ZPlugin
+ZPLG_HOME=$HOME/.zplugin
+
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc

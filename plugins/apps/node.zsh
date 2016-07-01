@@ -12,5 +12,4 @@ npm install -g \
     speed-test \
     spoof \
     castnow \
-    ctrace \
-    slack-cli
+    ctrace
