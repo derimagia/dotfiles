@@ -32,7 +32,6 @@ cask google-chrome
 cask hopper-disassembler
 cask hosts
 cask imageoptim
-cask intellij-idea
 cask jadengeller-helium
 cask java
 cask jetbrains-toolbox
@@ -44,7 +43,6 @@ cask mumble
 cask onyx
 cask osxfuse
 cask paw
-cask phpstorm
 cask postman
 cask provisionql
 cask psequel
