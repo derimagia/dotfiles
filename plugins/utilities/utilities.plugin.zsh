@@ -63,10 +63,6 @@ aliases() {
         fzf-tmux
 }
 
-escape() {
-    print -f "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-}
-
 ip() {
     dig +short myip.opendns.com @resolver1.opendns.com
 }
@@ -92,8 +88,9 @@ args() {
     print $# $*
 }
 
+
 # UTF-8-encode a string of Unicode symbols
-function escape() {
+escape() {
 	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u);
 	# print a newline unless we’re piping the output to another program
 	if [ -t 1 ]; then
@@ -117,4 +114,14 @@ codepoint() {
 	if [ -t 1 ]; then
 		echo ""; # newline
 	fi;
+}
+
+# Watch and print out fs changes. Defaults to current directory
+watchfs() {
+    watchargs=$*
+    if [[ -z $watchargs ]]; then
+        watchargs='.'
+    fi
+
+    sudo watchman-wait -m 0 $watchargs
 }

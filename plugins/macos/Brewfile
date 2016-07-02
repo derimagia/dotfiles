@@ -146,6 +146,7 @@ brew gettext
 brew ghq
 brew gifsicle
 brew git-extras
+brew git-fixup --force
 brew git-flow
 brew git
 brew glew
@@ -256,6 +257,7 @@ brew unixodbc
 brew v8
 brew vit
 brew watch
+brew watchman
 brew webkit2png
 brew webp
 brew wget
