@@ -36,6 +36,7 @@ cask intellij-idea
 cask jadengeller-helium
 cask java
 cask jetbrains-toolbox
+cask karabiner
 cask launchrocket
 cask mono-mdk
 cask mou
@@ -55,6 +56,7 @@ cask qlprettypatch
 cask qlstephen
 cask quicklook-csv
 cask quicklook-json
+cask seil
 cask sequel-pro
 cask skype
 cask slack

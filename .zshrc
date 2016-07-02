@@ -17,7 +17,7 @@ autoload -Uz add-zsh-hook compinit zmv
 plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
 
 # OSX Files
-[[ $SHELL_PLATFORM == "osx" ]] && plugin_files+=($DOTFILES/plugins/**/*.osx.zsh)
+[[ $SHELL_PLATFORM == "macos" ]] && plugin_files+=($DOTFILES/plugins/**/*.macos.zsh)
 
 # Add Zplugin to the end. This will run compinit.
 plugin_files+=($DOTFILES/plugins/external/zplug.zsh)
