@@ -88,3 +88,9 @@
 [ghq]
 	root = ~/dev/src
 	root = $GOPATH/src
+[rerere]
+	enabled = 1
+[merge]
+	conflictstyle = diff3
+[mergetool]
+	keepBackup = false
