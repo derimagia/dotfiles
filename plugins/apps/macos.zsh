@@ -48,14 +48,17 @@ defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
-# Disable press-and-hold for keys in favor of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
 # Don't restore windows when quitting or re-opening apps
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 # Set fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+# How long it takes to start repeating
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
@@ -521,7 +524,7 @@ CFPreferencesAppSynchronize "com.apple.Safari"
 echo "Setting Spotlight Preferences"
 
 # Hide Spotlight tray-icon (and subsequent helper)
-# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
@@ -663,6 +666,9 @@ echo "Setting iTerm2 Preferences"
 
 # Preference Folder
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/plugins/apps/iTerm
+
+# Experimental!
+defaults write com.googlecode.iterm2.plist ExperimentalOptimizationsEnabled -bool true
 
 CFPreferencesAppSynchronize "com.googlecode.iterm2"
 
