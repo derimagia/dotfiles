@@ -14,7 +14,7 @@ local apps_directory=$DOTFILES/plugins/apps
 #is_osx && print_status "Installing OSX Defaults..." && $apps_directory/osx.zsh
 
 # Install homebrew packages
-is_osx && print_status "Installing Homebrew Packages..." && $apps_directory/homebrew.zsh
+is_macos && print_status "Installing Homebrew Packages..." && $apps_directory/homebrew.zsh
 
 # Linix Packages, right now only ubuntu..
 is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubuntu.zsh
