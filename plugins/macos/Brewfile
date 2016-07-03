@@ -181,8 +181,10 @@ brew lame
 brew lastpass-cli --with-pinentry --with-doc
 brew libassuan
 brew libevent
+brew libewf
 brew libffi
 brew libgpg-error
+brew libmagic
 brew libmpc
 brew libpng
 brew libsass
@@ -193,6 +195,7 @@ brew libtool
 brew libxml2
 brew libyaml
 brew lua
+brew lua51
 brew macvim --with-override-system-vim
 brew mariadb
 brew mas
@@ -221,6 +224,7 @@ brew pup
 brew pv
 brew python
 brew python3
+brew radare2
 brew readline
 brew reattach-to-user-namespace --with-wrap-launchctl
 brew recode
@@ -264,6 +268,7 @@ brew wrk
 brew x264
 brew xvid
 brew xz
+brew yara
 brew youtube-dl
 brew z
 brew zsh
