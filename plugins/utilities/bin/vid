@@ -12,4 +12,5 @@ fi
 
 # Start VLC
 # Interfaces https://wiki.videolan.org/Interfaces/
-vlc $stream_url #&!
+vlc -q macosx --video-on-top --no-osd --no-video-deco --no-embedded-video --width=500 \
+    --open $stream_url &!

@@ -55,10 +55,10 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # How long it takes to start repeating
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
@@ -688,6 +688,14 @@ defaults write com.torusknot.SourceTreeNotMAS createBookmarksOnOpenRepo -bool fa
 
 CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
 
+# ==============================================
+# Karabiner
+# ==============================================
+local karabiner_cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
+if [[ -x karabiner_cli ]]; then
+    echo "Setting Karabiner Preferences"
+    $karabiner_cli set remap.fnletter_to_ctrlletter2 1
+fi
 
 # ==============================================
 # Kill affected applications
