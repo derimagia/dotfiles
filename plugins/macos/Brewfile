@@ -116,6 +116,7 @@ brew binutils
 brew boost
 brew boxes
 brew cairo
+brew carthage
 brew ccat
 brew cloc
 brew cmatrix

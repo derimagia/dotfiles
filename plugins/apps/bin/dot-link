@@ -20,9 +20,10 @@ link_intellij() {
     # Actual Source Files/Folders
     source_files=($DOTFILES/plugins/apps/idea/*)
 
-    for idea_pref_folder in ~/Library/Preferences/{PhpStorm,PyCharm,IntelliJ}*(N); do
+    for idea_pref_folder in ~/Library/Preferences/{IntelliJ,PhpStorm,PyCharm}*(N); do
         symlink-files "$source_files" "$idea_pref_folder"
-    done;
+        clean-symlinks "$idea_pref_folder"
+    done
 }
 
 link_dotfiles
