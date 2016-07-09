@@ -36,6 +36,7 @@ cask jadengeller-helium
 cask java
 cask jetbrains-toolbox
 cask karabiner
+cask kitematic
 cask launchrocket
 cask mono-mdk
 cask mou
@@ -64,6 +65,7 @@ cask sqlpro-studio
 cask sshfs
 cask steam
 cask suspicious-package
+cask taskpaper
 cask textual
 cask torbrowser
 cask totalfinder
@@ -84,7 +86,6 @@ cask font-roboto
 cask font-source-code-pro
 
 tap caskroom/versions
-cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
@@ -145,7 +146,7 @@ brew gettext
 brew ghq
 brew gifsicle
 brew git-extras
-brew git-fixup --force
+brew git-fixup
 brew git-flow
 brew git
 brew glew
@@ -210,6 +211,7 @@ brew netcat
 brew nettle
 brew ngrep
 brew nmap
+brew no-more-secrets
 brew nspr
 brew oniguruma
 brew openssl
@@ -222,6 +224,7 @@ brew pngcheck
 brew postgresql
 brew pup
 brew pv
+brew pwntools
 brew python
 brew python3
 brew radare2
