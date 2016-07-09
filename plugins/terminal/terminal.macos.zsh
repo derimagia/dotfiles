@@ -65,6 +65,22 @@ osx-ls-download-history() {
   done
 }
 
+osx-find-launchctl () {
+    LaunchctlPATHS=( \
+        ~/Library/LaunchAgents \
+        /Library/LaunchAgents \
+        /Library/LaunchDaemons \
+        /System/Library/LaunchAgents \
+        /System/Library/LaunchDaemons \
+    )
+
+    for curPATH in "${LaunchctlPATHS[@]}"
+    do
+        grep -r "$curPATH" -e "$1"
+    done
+    return 0;
+}
+
 if [[ -x "/usr/libexec/java_home" ]]; then
     # Determine java home
     async_start_worker java_home_osx 2>/dev/null && {
