@@ -1,6 +1,5 @@
 {
     "require": {
-        "drush/drush": "~8",
         "hirak/prestissimo": "^0.3",
         "pantheon-systems/terminus": "dev-master"
     }
