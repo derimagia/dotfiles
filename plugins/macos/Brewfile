@@ -149,6 +149,7 @@ brew gifsicle
 brew git-extras
 brew git-fixup
 brew git-flow
+brew git-ftp
 brew git
 brew glew
 brew glib
@@ -181,6 +182,7 @@ brew jpeg
 brew jq
 brew lame
 brew lastpass-cli --with-pinentry --with-doc
+brew lftp
 brew libassuan
 brew libevent
 brew libewf
