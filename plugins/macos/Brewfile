@@ -45,6 +45,7 @@ cask mumble
 cask onyx
 cask osxfuse
 cask paw
+cask polymail
 cask postman
 cask provisionql
 cask psequel
@@ -87,6 +88,7 @@ cask font-roboto
 cask font-source-code-pro
 
 tap caskroom/versions
+cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
@@ -255,7 +257,6 @@ brew stow
 brew surfraw
 brew syncthing-inotify
 brew syncthing
-brew task
 brew textql
 brew the_silver_searcher
 brew tig
@@ -264,7 +265,6 @@ brew tree
 brew unfs3
 brew unixodbc
 brew v8
-brew vit
 brew watch
 brew watchman
 brew webkit2png
@@ -298,7 +298,9 @@ brew wp-cli
 tap homebrew/services
 
 tap homebrew/versions
-brew node5
 
 tap rcmdnk/file
 brew brew-file
+
+# Other Homebrew packages
+brew gpg

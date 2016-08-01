@@ -8,6 +8,7 @@ alias mou="open /Applications/Mou.app" # Mou!
 alias tail='multitail';
 alias top='htop';
 alias editvar='vared';
+alias ffs='sudo $(fc -ln -1)'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
