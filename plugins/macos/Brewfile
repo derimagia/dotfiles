@@ -108,7 +108,6 @@ brew aircrack-ng
 brew android-platform-tools
 brew ansible
 brew apktool
-brew aptly
 brew asciiquarium
 brew autoconf
 brew automake
@@ -127,7 +126,6 @@ brew cmatrix
 brew cocoapods
 brew coreutils
 brew cowsay
-brew cscope
 brew curl
 brew dateutils
 brew dex2jar
@@ -243,13 +241,11 @@ brew sassc
 brew screenfetch
 brew sdl2
 brew sdl2_image
-brew shellcheck
 brew sl
 brew slackcat
 brew slurm
 brew socat
 brew spark
-brew spidermonkey
 brew sqlite
 brew ssh-copy-id
 brew stormssh
@@ -301,6 +297,3 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
-
-# Other Homebrew packages
-brew gpg
