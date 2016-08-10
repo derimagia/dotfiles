@@ -10,16 +10,18 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'mhartington/oceanic-next'
-Plug 'bling/vim-airline'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
 Plug 'junegunn/fzf.vim'
 Plug 'othree/yajs.vim'
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 syntax enable
 colorscheme OceanicNext
+set t_Co=256
 set background=dark
 
 set encoding=utf8
@@ -70,6 +72,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
 
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local

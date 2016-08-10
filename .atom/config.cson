@@ -2,10 +2,24 @@
   "atom-beautify":
     _analyticsUserId: "5dcfdbb3-8d59-41ec-b6e5-bb8885e1a057"
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "background-tips"
       "exception-reporting"
       "metrics"
+      "tree-view"
+      "nuclide"
     ]
     hideGitIgnoredFiles: false
     ignoredNames: [
@@ -16,9 +30,12 @@
       "tmp"
       "vendor"
     ]
+    packagesWithKeymapsDisabled: [
+      "wordpress-suite"
+    ]
     themes: [
-      "spacegray-dark-ui"
-      "oceanic-next"
+      "seti-ui"
+      "seti-syntax"
     ]
   drupal:
     fileTypesPhp: "module,install,inc,test"
@@ -26,8 +43,21 @@
     fontSize: 16
     invisibles: {}
     showIndentGuide: true
+    showInvisibles: true
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
   "highlight-line":
     enableUnderline: true
+  "js-hyperclick":
+    extensions: [
+      ".js"
+      ".json"
+      ".node"
+      ".jsx"
+      ".coffee"
+    ]
+  linter:
+    showErrorPanel: false
   "markdown-preview-plus": {}
   minimap:
     plugins:
@@ -35,8 +65,49 @@
       linterDecorationsZIndex: 0
       pigments: true
       pigmentsDecorationsZIndex: 0
+  nuclide:
+    connectionProfiles: [
+      {
+        deletable: true
+        displayTitle: "ECP"
+        params:
+          displayTitle: "ECP"
+          username: "cwood"
+          server: "dev.confluencecorp.com"
+          cwd: "/var/www/ecpmain/htdocs"
+          sshPort: "22"
+          authMethod: "PRIVATE_KEY"
+          pathToPrivateKey: "/Users/dave/.ssh/id_rsa"
+          remoteServerCommand: "echo"
+        saveable: true
+      }
+    ]
+    installRecommendedPackages: true
+    lastConnectionDetails:
+      lastOfficialRemoteServerCommand: "nuclide-start-server"
+      updatedConfig:
+        authMethod: "PRIVATE_KEY"
+        cwd: "/var/www/ecpmain/htdocs"
+        displayTitle: "ECP"
+        host: "dev.confluencecorp.com"
+        password: ""
+        pathToPrivateKey: "/Users/dave/.ssh/id_rsa"
+        remoteServerCommand: "echo"
+        sshPort: "22"
+        username: "cwood"
+    "nuclide-home":
+      showHome: false
+  "php-cs-fixer": {}
+  "php-integrator-base": {}
+  "php-integrator-navigation":
+    navigationRequireAltKey: false
+    navigationRequireMetaKey: true
+  "php-integrator-symbol-viewer":
+    defaultShowInherited: true
   "preview-plus":
     livePreview: true
+  "seti-ui":
+    compactView: true
   "spell-check":
     grammars: [
       "text.plain"
@@ -44,6 +115,6 @@
       "text.git-commit"
     ]
   "tool-bar":
-    visible: false
+    position: "Right"
   welcome:
     showOnStartup: false

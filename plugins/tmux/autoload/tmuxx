@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 is_ssh_running && return
 
@@ -15,5 +15,8 @@ if is_screen_or_tmux_running; then
         :
     fi
 else
-    tmux new -As base
+    local num_clients="$(tmux lsc -t base -F '#{session_attached}')"
+    if [[ $num_clients -le 0 ]]; then
+        tmux new -As base
+    fi
 fi

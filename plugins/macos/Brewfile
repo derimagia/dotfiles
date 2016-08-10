@@ -15,7 +15,6 @@ cask atom
 cask beamer
 cask bettertouchtool
 cask betterzipql
-cask betwixt
 cask bitbar
 cask charles
 cask cocoapods
@@ -32,6 +31,7 @@ cask gitup
 cask google-chrome
 cask hopper-disassembler
 cask hosts
+cask hyperterm
 cask imageoptim
 cask jadengeller-helium
 cask java
@@ -49,7 +49,6 @@ cask polymail
 cask postman
 cask provisionql
 cask psequel
-cask python
 cask qlcolorcode
 cask qlimagesize
 cask qlmarkdown
@@ -101,7 +100,6 @@ tap homebrew/completions
 brew brew-cask-completion
 brew docker-compose-completion
 brew docker-machine-completion
-brew tmuxinator-completion
 
 tap homebrew/core
 brew aircrack-ng
@@ -113,12 +111,10 @@ brew autoconf
 brew automake
 brew awscli
 brew bash-completion
-brew bdw-gc
 brew bfg
 brew binutils
 brew boost
 brew boxes
-brew cairo
 brew carthage
 brew ccat
 brew cloc
@@ -130,13 +126,11 @@ brew curl
 brew dateutils
 brew dex2jar
 brew diff-so-fancy
-brew docbook
 brew dockviz
 brew dos2unix
 brew fasd
 brew ffmpeg
 brew findutils --with-default-names
-brew fontconfig
 brew fortune
 brew freetype
 brew fzf
@@ -145,21 +139,16 @@ brew gcc
 brew gdbm
 brew gettext
 brew ghq
-brew gifsicle
 brew git-extras
 brew git-fixup
-brew git-flow
 brew git-ftp
 brew git
 brew glew
-brew glib
 brew gmp
 brew gnu-sed --with-default-names
 brew gnu-tar --with-default-names
 brew gnu-which --with-default-names
-brew gnutls
 brew go
-brew gobject-introspection
 brew gource
 brew gradle
 brew grc
@@ -200,7 +189,6 @@ brew libxml2
 brew libyaml
 brew lua
 brew lua51
-brew macvim --with-override-system-vim
 brew mariadb
 brew mas
 brew miller
@@ -211,16 +199,15 @@ brew mtr
 brew multitail
 brew mycli
 brew netcat
-brew nettle
 brew ngrep
 brew nmap
 brew no-more-secrets
-brew nspr
+brew node
 brew oniguruma
 brew openssl
+brew p7zip
 brew pcre
 brew phantomjs
-brew pinentry
 brew pixman
 brew pkg-config
 brew pngcheck
@@ -233,7 +220,6 @@ brew python3
 brew radare2
 brew readline
 brew reattach-to-user-namespace --with-wrap-launchctl
-brew recode
 brew redis
 brew renameutils
 brew ruby
@@ -297,3 +283,13 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
+
+# Cask applications
+cask python
+
+# App Store applications
+appstore 409203825 Numbers
+appstore 409201541 Pages
+appstore 866773894 Quiver
+appstore 557168941 Tweetbot
+appstore 497799835 Xcode
