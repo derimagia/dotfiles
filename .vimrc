@@ -40,6 +40,10 @@ filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
 
+set paste               " Paste from a window
+vmap <C-c> "+yi
+vmap <C-x> "+c
+
 " FZF
 set rtp+=/usr/local/opt/fzf/
 

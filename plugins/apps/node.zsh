@@ -12,4 +12,5 @@ npm install -g \
     speed-test \
     spoof \
     castnow \
-    ctrace
+    ctrace \
+    hpm
