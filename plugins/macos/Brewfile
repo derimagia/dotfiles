@@ -106,6 +106,7 @@ brew aircrack-ng
 brew android-platform-tools
 brew ansible
 brew apktool
+brew asciidoc
 brew asciiquarium
 brew autoconf
 brew automake
@@ -126,6 +127,7 @@ brew curl
 brew dateutils
 brew dex2jar
 brew diff-so-fancy
+brew docbook
 brew dockviz
 brew dos2unix
 brew fasd
@@ -283,9 +285,6 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
-
-# Cask applications
-cask python
 
 # App Store applications
 appstore 409203825 Numbers

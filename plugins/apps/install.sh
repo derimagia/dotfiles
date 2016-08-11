@@ -55,4 +55,13 @@ elif [[ $OSTYPE == 'darwin' ]]; then
     # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
 fi
 
-# Run "dot"
+function print_error() {
+    ink -l -c red "$@"
+}
+
+function print_status() {
+    ink -l -c blue "$@"
+}
+
+# Install xterm-256color-italic.terminfo
+ink -c blue "Installing xterm-256color-italic terminfo" && tic $DOTFILES/plugins/apps/terminal/xterm-256color-italic.terminfo

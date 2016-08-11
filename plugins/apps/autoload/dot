@@ -31,6 +31,8 @@ is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubun
 # Install vim packages
 { (( $+commands[vim] )) && print_status "Installing VIM Packages..." && $apps_directory/vim.zsh} || print_error "Vim is not installed or failed. Skipping..."
 
+print_status "Installing xterm-256color-italic terminfo" && tlc $DOTFILES/plugins/apps/term/xterm-256color-italic.terminfo
+
 # Vagrant plugins:
 # vagrant-auto_network
 # vagrant-cachier
