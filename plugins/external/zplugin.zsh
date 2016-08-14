@@ -13,6 +13,7 @@ compinit
 zplugin load mafredri/zsh-async
 zplugin load MarianoGappa/jira-cli
 zplugin load sindresorhus/pure
+zplugin load paulirish/git-open
 
 zplugin load zsh-users/zsh-completions
 zplugin load zsh-users/zsh-autosuggestions

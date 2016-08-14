@@ -9,6 +9,7 @@ alias tail='multitail';
 alias top='htop';
 alias editvar='vared';
 alias ffs='sudo $(fc -ln -1)'
+alias ssh='TERM=xterm ssh'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'

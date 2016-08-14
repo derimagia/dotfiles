@@ -1,5 +1,10 @@
-alias g='git'
-alias  git='hub'
+if (( $+commands[hub] )); then
+    alias g="hub"
+    alias git="hub"
+else
+    alias g="git"
+fi
+
 alias st='stree'
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # Git Root
 

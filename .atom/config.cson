@@ -19,7 +19,6 @@
       "exception-reporting"
       "metrics"
       "tree-view"
-      "nuclide"
     ]
     hideGitIgnoredFiles: false
     ignoredNames: [
