@@ -28,6 +28,7 @@ module.exports = {
     termCSS: `
 	     x-screen a { color: inherit; }
 	     ::-webkit-scrollbar { display: none; }
+             x-screen a.active { color: #9aedfe }
     `,
 
     // custom padding (css format, i.e.: `top right bottom left`)

@@ -115,6 +115,7 @@ brew bfg
 brew binutils
 brew boost
 brew boxes
+brew cairo
 brew carthage
 brew ccat
 brew cloc
@@ -132,6 +133,7 @@ brew dos2unix
 brew fasd
 brew ffmpeg
 brew findutils --with-default-names
+brew fontconfig
 brew fortune
 brew freetype
 brew fzf
@@ -145,11 +147,13 @@ brew git-fixup
 brew git-ftp
 brew git
 brew glew
+brew glib
 brew gmp
 brew gnu-sed --with-default-names
 brew gnu-tar --with-default-names
 brew gnu-which --with-default-names
 brew go
+brew gobject-introspection
 brew gource
 brew gradle
 brew grc
@@ -210,6 +214,7 @@ brew openssl
 brew p7zip
 brew pcre
 brew phantomjs
+brew pinentry
 brew pixman
 brew pkg-config
 brew pngcheck
@@ -221,7 +226,7 @@ brew python
 brew python3
 brew radare2
 brew readline
-brew reattach-to-user-namespace --with-wrap-launchctl
+brew reattach-to-user-namespace
 brew redis
 brew renameutils
 brew ruby
@@ -286,10 +291,3 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
-
-# App Store applications
-appstore 409203825 Numbers
-appstore 409201541 Pages
-appstore 866773894 Quiver
-appstore 557168941 Tweetbot
-appstore 497799835 Xcode
