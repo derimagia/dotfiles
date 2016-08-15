@@ -13,4 +13,15 @@ npm install -g \
     spoof \
     castnow \
     ctrace \
-    hpm
+    hpm-cli
+
+
+hpm install \
+    hyperterm-open-devtools \
+    hyperterm-tab-icons \
+    hyperterm-1password \
+    hyperterm-snazzy \
+    hyperterm-blink 
+    hyperlinks-iterm 
+
+

@@ -170,6 +170,7 @@ brew ipcalc
 brew isl
 brew jpeg
 brew jq
+brew keybase
 brew lame
 brew lastpass-cli --with-pinentry --with-doc
 brew lftp
@@ -274,6 +275,7 @@ tap homebrew/php
 brew composer
 brew drupalconsole
 brew drush
+brew php71-redis
 brew php71
 brew psysh
 brew wp-cli
