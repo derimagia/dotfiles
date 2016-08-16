@@ -18,7 +18,7 @@ zplugin load paulirish/git-open
 zplugin load zsh-users/zsh-completions
 zplugin load zsh-users/zsh-autosuggestions
 zplugin load zsh-users/zsh-history-substring-search
-zplugin load derimagia/zsh-syntax-highlighting
+zplugin load zsh-users/zsh-syntax-highlighting
 
 
 (( $+commands[brew] )) && zplugin snippet $HOMEBREW_PREFIX/etc/brew-wrap
