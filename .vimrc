@@ -26,6 +26,10 @@ set background=dark
 
 set encoding=utf8
 
+set clipboard=unnamed
+vmap <M-x> :!pbcopy<CR>  
+vmap <M-c> :w !pbcopy<CR><CR> 
+
 set nobackup            " don't create pointless backup files; Use VCS instead
 set cursorline          " highlight the current line
 set autoread            " watch or file changes
@@ -39,10 +43,6 @@ set scrolloff=5         " show at least 5 lines above/below
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
-
-set paste               " Paste from a window
-vmap <C-c> "+yi
-vmap <C-x> "+c
 
 " FZF
 set rtp+=/usr/local/opt/fzf/
@@ -61,8 +61,6 @@ set mouse=a
 set ttymouse=xterm2
 
 
-" clipboard
-set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
 
 " Keys
 map <C-n> :NERDTreeToggle<CR>

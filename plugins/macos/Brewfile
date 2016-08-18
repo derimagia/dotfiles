@@ -20,6 +20,7 @@ cask cocoapods
 cask cyberduck
 cask dash
 cask diffmerge
+cask discord
 cask dropbox
 cask electrum
 cask exa
@@ -60,7 +61,6 @@ cask sequel-pro
 cask skype
 cask slack
 cask sourcetree
-cask spectacle
 cask sqlpro-studio
 cask sshfs
 cask steam
@@ -123,6 +123,7 @@ brew cmatrix
 brew cocoapods
 brew coreutils
 brew cowsay
+brew cscope
 brew curl
 brew dateutils
 brew dex2jar
@@ -195,6 +196,7 @@ brew libxml2
 brew libyaml
 brew lua
 brew lua51
+brew macvim --with-override-system-vim
 brew mariadb
 brew mas
 brew miller

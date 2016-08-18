@@ -4,15 +4,19 @@
 	# Graphs/Charts
 	lg = log --graph
 	lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
-
 	tree = !git lg --graph
 
+	# Assume files
+	assume = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	gg =  grep --break --heading --line-number
+	gg = grep --break --heading --line-number
+	f = "!git ls-files | grep -i"
 	count = !git shortlog -sn
-	amend = commit --amend -C HEAD
-	uncommit = reset --soft HEAD^
 	pup = !git pull && git submodule init && git submodule update && git submodule status
 
 	# Search all commits
@@ -21,11 +25,16 @@
 	# Show Aliases
 	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
 
+        # Merging
+	ours = "!f() { git co --ours $@ && git add $@; }; f"
+	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
 	# Shortcuts
+	br = branch 
 	rl = reflog
 	co = checkout
-	st = status
-	all = add -A
+	st = status -s
+	all = add -
 [color]
 	diff = auto
 	status = auto
