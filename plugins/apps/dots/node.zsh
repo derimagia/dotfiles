@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 
 if (( ! $+commands[node] )); then
-  ink -l -c red "Node is not installed. Skipping Dot."
+  ink -l -c red -- "-- Node is not installed. Skipping Dot."
   return 1
 fi
 
+ink -l -c green -- "-- Installing npm Packages"
 npm install -g \
     grunt \
     gulp \
@@ -19,6 +20,8 @@ npm install -g \
     castnow \
     ctrace \
     hpm-cli
+
+ink -l -c green -- "-- Installing hpm Packages"
 
 # TODO: Update this when hpm-cli updates to support bulk
 hpm install hyperterm-open-devtools 2>/dev/null

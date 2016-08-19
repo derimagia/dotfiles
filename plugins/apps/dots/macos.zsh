@@ -18,7 +18,7 @@ END
 # ==============================================
 # Global and NSGlobalDomain
 # ==============================================
-echo "Setting NSGlobalDomain Preferences"
+ink -l -c green -- " Setting NSGlobalDomain Preferences"
 
 # Show the ~/Library directory
 chflags nohidden "${HOME}/Library"
@@ -124,7 +124,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # ==============================================
 # Finder
 # ==============================================
-echo "Setting Finder Preferences"
+ink -l -c green -- " Setting Finder Preferences"
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -210,7 +210,7 @@ CFPreferencesAppSynchronize "com.apple.finder"
 # ==============================================
 # Screen Saver
 # ==============================================
-echo "Setting Screen Saver Preferences"
+ink -l -c green -- " Setting Screen Saver Preferences"
 
 # Ask for password after 5 seconds
 defaults write com.apple.screensaver askForPassword -int 1
@@ -219,7 +219,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 5
 # ==============================================
 # Dock
 # ==============================================
-echo "Setting Dock Preferences"
+ink -l -c green -- " Setting Dock Preferences"
 
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 64
@@ -297,7 +297,7 @@ CFPreferencesAppSynchronize "com.apple.dock"
 # ==============================================
 # Screenshots and Screensaver
 # ==============================================
-echo "Setting Screenshot and Screensaver Preferences"
+ink -l -c green -- " Setting Screenshot and Screensaver Preferences"
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -313,7 +313,7 @@ CFPreferencesAppSynchronize "com.apple.screencapture"
 # ==============================================
 # Mouse and Keyboard
 # ==============================================
-echo "Setting Mouse and Keyboard Preferences"
+ink -l -c green -- " Setting Mouse and Keyboard Preferences"
 
 # Set scroll direction
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
@@ -333,7 +333,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseHorizontalSc
 # ==============================================
 # Trackpad
 # ==============================================
-echo "Setting Trackpad Preferences"
+ink -l -c green -- " Setting Trackpad Preferences"
 
 # Tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -367,7 +367,7 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
 # ==============================================
 # Activity Monitor
 # ==============================================
-echo "Setting Activity Monitor Preferences"
+ink -l -c green -- " Setting Activity Monitor Preferences"
 
 # Show main window on launch
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
@@ -390,7 +390,7 @@ CFPreferencesAppSynchronize "com.apple.ActivityMonitor"
 # ==============================================
 # Contacts (Address Book)
 # ==============================================
-echo "Setting Contacts Preferences"
+ink -l -c green -- " Setting Contacts Preferences"
 
 # Enable the debug menu in Address Book
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
@@ -409,7 +409,7 @@ CFPreferencesAppSynchronize "com.apple.AddressBook"
 # ==============================================
 # Calendar (iCal)
 # ==============================================
-echo "Setting Calendar Preferences"
+ink -l -c green -- " Setting Calendar Preferences"
 
 # Show week numbers (10.8 only)
 defaults write com.apple.iCal "Show Week Numbers" -bool true
@@ -428,7 +428,7 @@ CFPreferencesAppSynchronize "com.apple.iCal"
 # ==============================================
 # Disable CD & DVD actions
 # ==============================================
-echo "Setting CD & DVD Preferences"
+ink -l -c green -- " Setting CD & DVD Preferences"
 
 # Disable blank CD automatic action.
 defaults write com.apple.digihub com.apple.digihub.blank.cd.appeared -dict action 1
@@ -450,7 +450,7 @@ CFPreferencesAppSynchronize "com.apple.digihub"
 # ==============================================
 # Archive Utility
 # ==============================================
-echo "Setting Archive Utility Preferences"
+ink -l -c green -- " Setting Archive Utility Preferences"
 
 # Move archives to trash after extraction
 defaults write com.apple.archiveutility "dearchive-move-after" -string "~/.Trash"
@@ -463,7 +463,7 @@ CFPreferencesAppSynchronize "com.apple.archiveutility"
 # ==============================================
 # Xcode
 # ==============================================
-echo "Setting Xcode Preferences"
+ink -l -c green -- " Setting Xcode Preferences"
 
 # Show tab bar
 defaults write com.apple.dt.Xcode AlwaysShowTabBar -bool true
@@ -473,7 +473,7 @@ CFPreferencesAppSynchronize "com.apple.dt.Xcode"
 # ==============================================
 # Safari & WebKit                                                             #
 # ==============================================
-echo "Setting Safari Preferences"
+ink -l -c green -- " Setting Safari Preferences"
 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
@@ -518,7 +518,7 @@ CFPreferencesAppSynchronize "com.apple.Safari"
 # ==============================================
 # Spotlight                                                                   #
 # ==============================================
-echo "Setting Spotlight Preferences"
+ink -l -c green -- " Setting Spotlight Preferences"
 
 # Hide Spotlight tray-icon (and subsequent helper)
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
@@ -531,7 +531,7 @@ sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Vol
 # ==============================================
 # Terminal
 # ==============================================
-echo "Setting Terminal Preferences"
+ink -l -c green -- " Setting Terminal Preferences"
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
@@ -541,7 +541,7 @@ CFPreferencesAppSynchronize "com.apple.terminal"
 # ==============================================
 # Time Machine                                                                #
 # ==============================================
-echo "Setting Time Machine Preferences"
+ink -l -c green -- " Setting Time Machine Preferences"
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -554,7 +554,7 @@ CFPreferencesAppSynchronize "com.apple.TimeMachine"
 # ==============================================
 # Dashboard
 # ==============================================
-echo "Setting Dashboard Preferences"
+ink -l -c green -- " Setting Dashboard Preferences"
 
 # Enable Dashboard dev mode (allows keeping widgets on the desktop)
 defaults write com.apple.dashboard devmode -bool true
@@ -564,7 +564,7 @@ CFPreferencesAppSynchronize "com.apple.dashboard"
 # ==============================================
 # TextEdit
 # ==============================================
-echo "Setting TextEdit Preferences"
+ink -l -c green -- " Setting TextEdit Preferences"
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -574,7 +574,7 @@ CFPreferencesAppSynchronize "com.apple.TextEdit"
 # ==============================================
 # Disk Utility
 # ==============================================
-echo "Setting Disk Utility Preferences"
+ink -l -c green -- " Setting Disk Utility Preferences"
 
 # Enable the debug menu in Disk Utility
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
@@ -585,7 +585,7 @@ CFPreferencesAppSynchronize "com.apple.DiskUtility"
 # ==============================================
 # Mac App Store                                                               #
 # ==============================================
-echo "Setting Mac App Store Preferences"
+ink -l -c green -- " Setting Mac App Store Preferences"
 
 # Enable the WebKit Developer Tools in the Mac App Store
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
@@ -598,7 +598,7 @@ CFPreferencesAppSynchronize "com.apple.appstore"
 # ==============================================
 # Messages                                                                    #
 # ==============================================
-echo "Setting Messages Preferences"
+ink -l -c green -- " Setting Messages Preferences"
 
 # Disable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
@@ -614,7 +614,7 @@ CFPreferencesAppSynchronize "com.apple.messageshelper"
 # ==============================================
 # Alfred
 # ==============================================
-echo "Setting Alfred Preferences"
+ink -l -c green -- " Setting Alfred Preferences"
 
 # Sync Directory
 defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Dropbox/alfred'
@@ -624,7 +624,7 @@ CFPreferencesAppSynchronize "com.runningwithcrayons.Alfred-Preferences-3"
 # ==============================================
 # BetterTouchTool
 # ==============================================
-echo "Setting BetterTouchTool Preferences"
+ink -l -c green -- " Setting BetterTouchTool Preferences"
 
 # Sync Directory
 defaults write com.hegenberg.BetterTouchTool windowSnappingEnabled -bool true
@@ -637,7 +637,7 @@ CFPreferencesAppSynchronize "com.hegenberg.BetterTouchTool"
 # ==============================================
 # TotalFinder
 # ==============================================
-echo "Setting TotalFinder Preferences"
+ink -l -c green -- " Setting TotalFinder Preferences"
 
 # Color in Sidebar
 defaults write com.binaryage.totalfinder TotalFinderColorfulSidebarEnabled -bool true
@@ -659,7 +659,7 @@ CFPreferencesAppSynchronize "com.binaryage.totalfinder"
 # ==============================================
 # iTerm2
 # ==============================================
-echo "Setting iTerm2 Preferences"
+ink -l -c green -- " Setting iTerm2 Preferences"
 
 # Preference Folder
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/plugins/apps/iTerm
@@ -672,7 +672,7 @@ CFPreferencesAppSynchronize "com.googlecode.iterm2"
 # ==============================================
 # SourceTree
 # ==============================================
-echo "Setting SourceTree Preferences"
+ink -l -c green -- " Setting SourceTree Preferences"
 
 # Allow Force Push
 defaults write com.torusknot.SourceTreeNotMAS allowForcePush -bool true
@@ -690,7 +690,7 @@ CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
 # ==============================================
 local karabiner_cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 if [[ -x karabiner_cli ]]; then
-    echo "Setting Karabiner Preferences"
+    ink -l -c green -- " Setting Karabiner Preferences"
     $karabiner_cli set remap.fnletter_to_ctrlletter2 1
 fi
 
@@ -723,7 +723,7 @@ function killallApps() {
         fi
     done
 
-    echo "Note that some of these changes require a logout/restart to take effect."
+    ink -l -c green -- " Note that some of these changes require a logout/restart to take effect."
 }
 
 exit 0

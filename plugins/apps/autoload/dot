@@ -9,29 +9,30 @@ function include_dot() {
   subdotfile="$1"
   ink -l -c blue "$2"
   source $dots_directory/$subdotfile.zsh
+  (( $+commands[hr] )) && hr ' ' '-=' ' '
 }
 
 
 # Set OS X defaults
-#is_osx && include_dot osx "Installing OSX Defaults..."
+# is_macos && include_dot osx "Running MacOS Defaults dot..."
 
 # Install homebrew packages
-is_macos && include_dot homebrew "Installing Homebrew Packages..."
+is_macos && include_dot homebrew "Running Homebrew dot"
 
 # Linix Packages, right now only ubuntu..
-is_linux && include_dot ubuntu "Installing Ubuntu Packages..."
+is_linux && include_dot ubuntu "Running Ubuntu dot"
 
 # Install python packages
-include_dot python "Installing Python Packages..."
+include_dot python "Running Python dot"
 
 # Install node packages
-include_dot node "Installing Node Packages..."
+include_dot node "Running Node dot"
 
 # Install ruby packages
-include_dot ruby "Installing Ruby Packages..."
+include_dot ruby "Running Ruby dot"
 
 # Install vim packages
-include_dot vim "Installing VIM Packages..."
+include_dot vim "Running VIM dot"
 
 # Vagrant plugins:
 # vagrant-auto_network

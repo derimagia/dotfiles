@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if (( ! $+commands[gem] )); then
-  ink -l -c red "Gem is not installed. Skipping dot."
+  ink -l -c red -- "-- Gem is not installed. Skipping dot."
   return 1
 fi
 

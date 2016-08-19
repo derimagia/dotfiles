@@ -5,10 +5,10 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
-ink -l -c green "Installing/Upgrading Brews..."
+ink -l -c green -- "-- Installing/Upgrading Brews"
 brew file update --preupdate --no_appstore -C
 
-ink -l -c green "Installing/Upgrading Casks..."
+ink -l -c green -- "-- Installing/Upgrading Casks"
 brew file cask_upgrade -C
 
 
