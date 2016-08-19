@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+if (( ! $+commands[node] )); then
+  ink -l -c red "Node is not installed. Skipping Dot."
+  return 1
+fi
+
 npm install -g \
     grunt \
     gulp \
@@ -21,7 +26,5 @@ hpm install \
     hyperterm-tab-icons \
     hyperterm-1password \
     hyperterm-snazzy \
-    hyperterm-blink 
-    hyperlinks-iterm 
-
-
+    hyperterm-blink
+    hyperlinks-iterm

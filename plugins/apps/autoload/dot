@@ -1,35 +1,37 @@
 #!/usr/bin/env zsh
 
-function print_error() {
-    ink -l -c red "$@"
-}
-
 function print_status() {
     ink -l -c blue "$@"
 }
 
-local apps_directory=$DOTFILES/plugins/apps
+function include_dot() {
+  local dots_directory=$DOTFILES/plugins/apps/dots
+  subdotfile="$1"
+  ink -l -c blue "$2"
+  source $dots_directory/$subdotfile.zsh
+}
+
 
 # Set OS X defaults
-#is_osx && print_status "Installing OSX Defaults..." && $apps_directory/osx.zsh
+#is_osx && include_dot osx "Installing OSX Defaults..."
 
 # Install homebrew packages
-is_macos && print_status "Installing Homebrew Packages..." && $apps_directory/homebrew.zsh
+is_macos && include_dot homebrew "Installing Homebrew Packages..."
 
 # Linix Packages, right now only ubuntu..
-is_linux && print_status "Installing Ubuntu Packages..." && $apps_directory/ubuntu.zsh
+is_linux && include_dot ubuntu "Installing Ubuntu Packages..."
 
 # Install python packages
-{ (( $+commands[pip] )) && print_status "Installing Python Packages..." && $apps_directory/python.zsh} || print_error "Python is not installed or failed. Skipping..."
+include_dot python "Installing Python Packages..."
 
 # Install node packages
-{ (( $+commands[node] )) && print_status "Installing Node Packages..." && $apps_directory/node.zsh} || print_error "Node is not installed or failed. Skipping..."
+include_dot node "Installing Node Packages..."
 
 # Install ruby packages
-{ (( $+commands[ruby] )) && print_status "Installing Ruby Packages..." && $apps_directory/ruby.zsh} || print_error "Ruby is not installed or failed. Skipping..."
+include_dot ruby "Installing Ruby Packages..."
 
 # Install vim packages
-{ (( $+commands[vim] )) && print_status "Installing VIM Packages..." && $apps_directory/vim.zsh} || print_error "Vim is not installed or failed. Skipping..."
+include_dot vim "Installing VIM Packages..."
 
 # Vagrant plugins:
 # vagrant-auto_network

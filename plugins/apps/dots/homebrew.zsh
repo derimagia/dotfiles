@@ -1,18 +1,14 @@
 #!/usr/bin/env zsh
 
-# Ask for the administrator password upfront
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 #
 # Homebrew
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
-
+ink -l -c green "Installing/Upgrading Brews..."
 brew file update --preupdate --no_appstore -C
+
+ink -l -c green "Installing/Upgrading Casks..."
 brew file cask_upgrade -C
 
 

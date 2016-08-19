@@ -34,7 +34,7 @@
 	rl = reflog
 	co = checkout
 	st = status -s
-	all = add -
+	all = add -A
 [color]
 	diff = auto
 	status = auto
