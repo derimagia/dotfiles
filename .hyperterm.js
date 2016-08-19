@@ -75,7 +75,8 @@ module.exports = {
     "hyperterm-1password",
     "hyperterm-snazzy",
     "hyperterm-blink",
-    "hyperlinks-iterm"
+    "hyperlinks-iterm",
+    " "
   ],
 
   // in development, you can create a directory under
