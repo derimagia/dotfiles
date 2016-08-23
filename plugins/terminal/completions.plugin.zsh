@@ -75,8 +75,5 @@ zstyle ':completion:*:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:*:kill:*:processes'        list-colors '=(#b) #([0-9]#)* (*[a-z])*=32=31'
 zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
 
-# rm/cp/mv style.
-zstyle ':completion:*:(rm|mv|cp):*' ignore-line yes
-
 # Shift tab for backwards
 bindkey $terminfo[kcbt] reverse-menu-complete

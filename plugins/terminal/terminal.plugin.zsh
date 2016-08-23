@@ -2,7 +2,7 @@
 if [[ -n "$TMUX" ]]; then # If TMUX
     export TERM=screen-256color
 else
-    export TERM=xterm-256color-italic
+    export TERM=xterm-256color
 fi
 
 

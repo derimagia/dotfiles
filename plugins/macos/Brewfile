@@ -145,10 +145,10 @@ brew gcc
 brew gdbm
 brew gettext
 brew ghq
-brew git
 brew git-extras
 brew git-fixup
 brew git-ftp
+brew git
 brew glew
 brew glib
 brew gmp
@@ -248,8 +248,8 @@ brew ssh-copy-id
 brew stormssh
 brew stow
 brew surfraw
-brew syncthing
 brew syncthing-inotify
+brew syncthing
 brew textql
 brew the_silver_searcher
 brew tig
@@ -284,8 +284,9 @@ tap homebrew/php
 brew composer
 brew drupalconsole
 brew drush
-brew php71
 brew php71-redis
+brew php71-xdebug
+brew php71
 brew psysh
 brew wp-cli
 
