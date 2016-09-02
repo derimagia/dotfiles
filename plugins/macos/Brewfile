@@ -16,7 +16,6 @@ cask bettertouchtool
 cask betterzipql
 cask bitbar
 cask charles
-cask cocoapods
 cask cyberduck
 cask dash
 cask diffmerge
@@ -145,10 +144,10 @@ brew gcc
 brew gdbm
 brew gettext
 brew ghq
+brew git
 brew git-extras
 brew git-fixup
 brew git-ftp
-brew git
 brew glew
 brew glib
 brew gmp
@@ -229,6 +228,7 @@ brew pwntools
 brew python
 brew python3
 brew radare2
+brew rancher-compose
 brew readline
 brew reattach-to-user-namespace --with-wrap-launchctl
 brew redis
@@ -248,8 +248,8 @@ brew ssh-copy-id
 brew stormssh
 brew stow
 brew surfraw
-brew syncthing-inotify
 brew syncthing
+brew syncthing-inotify
 brew textql
 brew the_silver_searcher
 brew tig
@@ -284,9 +284,9 @@ tap homebrew/php
 brew composer
 brew drupalconsole
 brew drush
+brew php71
 brew php71-redis
 brew php71-xdebug
-brew php71
 brew psysh
 brew wp-cli
 
