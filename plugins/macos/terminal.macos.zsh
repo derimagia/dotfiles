@@ -1,3 +1,6 @@
+# Brew-wrap
+source $HOMEBREW_PREFIX/etc/brew-wrap
+
 export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 alias o="open"

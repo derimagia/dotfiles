@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Async
-[[ -f $ZPLUG_REPOS/mafredri/zsh-async/async.plugin.zsh ]] && source $ZPLUG_REPOS/mafredri/zsh-async/async.plugin.zsh
+$(antibody bundle mafredri/zsh-async)
 
 # General functions that should be loaded first
 is_linux() { [[ $SHELL_PLATFORM == 'linux' || $SHELL_PLATFORM == 'bsd' ]]; }

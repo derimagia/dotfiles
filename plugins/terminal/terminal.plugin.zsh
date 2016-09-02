@@ -5,11 +5,6 @@ else
     export TERM=xterm-256color
 fi
 
-
-# Up/Down Arrows
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # History
 HISTFILE="$HOME/.zhistory"
 HISTSIZE=100000

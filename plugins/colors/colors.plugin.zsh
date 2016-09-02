@@ -12,9 +12,9 @@ if [[ $TERM != dumb ]]; then
         paste:underline
     )
 
-    # Dircolors
-    (( $+commands[dircolors] )) && [[ -d $ZPLUG_REPOS/trapd00r/LS_COLORS ]] && \
-        eval "$(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)"
+#    # Dircolors
+#    (( $+commands[dircolors] )) && [[ -d $ZPLUG_REPOS/trapd00r/LS_COLORS ]] && \
+#        eval "$(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)"
 
     if (( $+commands[grc] )) ; then
         alias cl='grc -es --colour=auto'

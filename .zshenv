@@ -10,11 +10,4 @@ export COMPOSER_HOME=$DOTFILES/.composer
 # Sets SHELL_PLATFORM to simplified OSTYPE ('linux' or 'macos'). Default is full $OSTYPE
 export SHELL_PLATFORM=${SHELL_PLATFORM:=${${OSTYPE//${:-*linux*}/linux}//${:-*darwin*}/macos}}\
 
-# Zplug
-ZPLUG_HOME=$HOME/.zplug
-ZPLUG_REPOS=$ZPLUG_HOME/repos
-
-# ZPlugin
-ZPLG_HOME=$HOME/.zplugin
-
 [[ -f "$HOME/.localrc" ]] && source $HOME/.localrc
