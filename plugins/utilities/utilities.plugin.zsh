@@ -8,7 +8,9 @@ alias mou="open /Applications/Mou.app" # Mou!
 alias tail='multitail';
 alias top='htop';
 alias editvar='vared';
+alias i="idea"
 alias ffs='sudo $(fc -ln -1)'
+
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
@@ -28,8 +30,17 @@ alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
 
 # Create a new directory and enter it
-take(){
+take() {
     mkdir "$1" && cd "$1"
+}
+
+# Edit
+idea() {
+  local openpath="$1"
+  if [[ -z "$openpath" ]]; then
+	  openpath=$PWD
+  fi
+  command idea $openpath
 }
 
 # z is the new j? I guess?
