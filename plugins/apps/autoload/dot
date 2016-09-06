@@ -12,6 +12,11 @@ function include_dot() {
   (( $+commands[hr] )) && hr ' ' '-=' ' '
 }
 
+if [[ -n "$1" ]]; then
+  # Just run the one dot we passed in
+  include_dot $1 "Running $1 dot"
+  return  
+fi
 
 # Set OS X defaults
 # is_macos && include_dot osx "Running MacOS Defaults dot..."
