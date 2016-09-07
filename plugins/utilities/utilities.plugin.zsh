@@ -28,6 +28,7 @@ alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
 alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 
 alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
+alias html2text='w3m -dump -T text/html'
 
 # Create a new directory and enter it
 take() {
