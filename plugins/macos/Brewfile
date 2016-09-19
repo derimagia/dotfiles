@@ -56,7 +56,6 @@ cask qlstephen
 cask quicklook-csv
 cask quicklook-json
 cask rcdefaultapp
-cask seil
 cask sequel-pro
 cask skype
 cask slack
@@ -216,11 +215,13 @@ brew openssl
 brew p7zip
 brew pcre
 brew phantomjs
+brew pidcat
 brew pinentry
 brew pixman
 brew pkg-config
 brew pngcheck
 brew postgresql
+brew protobuf
 brew pup
 brew pv
 brew pwntools

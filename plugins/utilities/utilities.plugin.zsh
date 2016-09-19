@@ -10,7 +10,7 @@ alias top='htop';
 alias editvar='vared';
 alias i="idea"
 alias ffs='sudo $(fc -ln -1)'
-
+alias ag='ag -f --hidden'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
