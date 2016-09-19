@@ -5,7 +5,6 @@ alias ll='ls -lahpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic exit';
 alias mou="open /Applications/Mou.app" # Mou!
-alias tail='multitail';
 alias top='htop';
 alias editvar='vared';
 alias i="idea"
