@@ -134,6 +134,7 @@ brew dos2unix
 brew doxygen
 brew fasd
 brew ffmpeg
+brew figlet
 brew findutils --with-default-names
 brew fontconfig
 brew fortune
