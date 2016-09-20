@@ -131,6 +131,7 @@ brew diff-so-fancy
 brew docbook
 brew dockviz
 brew dos2unix
+brew doxygen
 brew fasd
 brew ffmpeg
 brew findutils --with-default-names
@@ -177,7 +178,6 @@ brew jq
 brew keybase
 brew lame
 brew lastpass-cli --with-pinentry --with-doc
-brew lftp
 brew libassuan
 brew libevent
 brew libewf
@@ -299,3 +299,6 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
+
+# Other Homebrew packages
+brew lftp

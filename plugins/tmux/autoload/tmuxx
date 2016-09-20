@@ -15,7 +15,7 @@ if is_screen_or_tmux_running; then
         :
     fi
 else
-    local num_clients="$(tmux lsc -t base -F '#{session_attached}')"
+    local num_clients="$(tmux lsc -t base -F '#{session_attached}' 2>/dev/null)"
     if [[ $num_clients -le 0 ]]; then
         tmux new -As base
     fi
