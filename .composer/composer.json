@@ -2,6 +2,7 @@
     "require": {
         "hirak/prestissimo": "^0.3",
         "pantheon-systems/terminus": "dev-master",
-        "drush/drush": "~8"
-    }
+        "drush/drush": "dev-master"
+    },
+    "minimum-stability": "dev"
 }
