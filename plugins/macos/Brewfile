@@ -3,7 +3,6 @@
 
 tap caskroom/cask
 cask 1password
-cask adium
 cask aerial
 cask airflow
 cask alcatraz
