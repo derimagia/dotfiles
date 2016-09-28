@@ -19,8 +19,8 @@ hr ' ' '-' ' '
 print -l '256 Colors\n'
 
 for C in {0..255}; do
-    tput setab $C
-    echo -n "$C"
+    tput setaf $C
+    echo -n " $(tput setaf $C | cat -A) "
 done
 tput sgr0
 

@@ -1,6 +1,6 @@
 # Setting Terminal
 if [[ -n "$TMUX" ]]; then # If TMUX
-    export TERM=screen-256color
+    export TERM=xterm-256color
 else
     export TERM=xterm-256color
 fi
