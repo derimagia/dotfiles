@@ -8,6 +8,9 @@ alias mou="open /Applications/Mou.app" # Mou!
 alias top='htop';
 alias editvar='vared';
 alias i="idea"
+alias v="vim"
+alias d="drush"
+alias dr="docker"
 alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
 alias ccat='ccat --bg=dark'
