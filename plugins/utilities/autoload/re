@@ -20,9 +20,7 @@ shift $(( OPTIND - 1 ))
 command="$@"
 
 if $clearcache; then
-    zplug clear
-    zplug clean --force
-    zplug check || zplug install
+    rm -f $DOTFILES_CACHE_DIR/{antibody-plugins.sh,zcompdump,zcompdump.zwc}
     print -l "Cleared Caches"
 fi
 

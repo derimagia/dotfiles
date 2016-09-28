@@ -13,8 +13,8 @@ if [[ $TERM != dumb ]]; then
     )
 
 #    # Dircolors
-#    (( $+commands[dircolors] )) && [[ -d $ZPLUG_REPOS/trapd00r/LS_COLORS ]] && \
-#        eval "$(dircolors -b $ZPLUG_REPOS/trapd00r/LS_COLORS/LS_COLORS)"
+    (( $+commands[dircolors] )) && \
+        eval "$(dircolors -b $DOTFILES/plugins/colors/LS_COLORS)"
 
     if (( $+commands[grc] )) ; then
         alias cl='grc -es --colour=auto'

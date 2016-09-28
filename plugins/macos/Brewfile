@@ -40,10 +40,9 @@ cask launchrocket
 cask mono-mdk
 cask mou
 cask mumble
-cask onyx
 cask osxfuse
 cask paw
-cask polymail
+cask plex-media-server
 cask postman
 cask provisionql
 cask psequel
@@ -62,6 +61,7 @@ cask sourcetree
 cask sqlpro-studio
 cask sshfs
 cask steam
+cask stremio
 cask suspicious-package
 cask taskpaper
 cask textual
@@ -76,7 +76,6 @@ cask vlc
 cask webpquicklook
 cask wireshark
 cask xquartz
-cask yakyak
 
 tap caskroom/fonts
 cask font-fira-code
@@ -119,11 +118,12 @@ brew carthage
 brew ccat
 brew cloc
 brew cmatrix
-brew cocoapods
+brew cocoapods --devel
 brew coreutils
 brew cowsay
 brew cscope
 brew curl
+brew dark-mode
 brew dateutils
 brew dex2jar
 brew diff-so-fancy
@@ -165,6 +165,7 @@ brew highlight
 brew hr
 brew htop-osx
 brew httpie
+brew httpstat
 brew hub
 brew icdiff
 brew icu4c
@@ -299,6 +300,3 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
-
-# Other Homebrew packages
-brew lftp

@@ -10,14 +10,15 @@ alias editvar='vared';
 alias i="idea"
 alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
+alias ccat='ccat --bg=dark'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
 
 # Suffix Aliases
 alias -s Dockerfile="docker build - < "
-alias -s htm='"$BROWSER"'
-alias -s html='"$BROWSER"'
+alias -s htm="$BROWSER"
+alias -s html="$BROWSER"
 alias -s py=python
 alias -s jar="java -jar"
 alias -s war="java -jar"
@@ -31,7 +32,7 @@ alias html2text='w3m -dump -T text/html'
 
 # Create a new directory and enter it
 take() {
-    mkdir "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1"
 }
 
 # Edit

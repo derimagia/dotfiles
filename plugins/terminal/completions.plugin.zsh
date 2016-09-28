@@ -44,7 +44,6 @@ zstyle ':completion:*:*:*:users' ignored-patterns '_*'
 
 # Hostnames completion.
 zstyle -e ':completion:*:hosts' hosts 'reply=(
-    ${${${${(f)"$(<~/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}
     ${${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*[*?]*}%\#*}% *}
     ${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}}
   )'
