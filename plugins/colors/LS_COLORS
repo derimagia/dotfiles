@@ -48,9 +48,9 @@
 BLK                   38;5;68
 CAPABILITY            38;5;17
 CHR                   38;5;113;1
-DIR                   34
+DIR                   38;1;34
 DOOR                  38;5;127
-EXEC                  38;5;166;1
+EXEC                  38;1;34;1;2
 FIFO                  38;5;126
 FILE                  38;5;253
 LINK                  target
@@ -104,7 +104,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .tex                  38;1;33;4;1
 .textile              38;1;33;4;1
 
-# key-value, non-relational data
+# key-value, non-relational data, service config
 .json                 38;1;32;1
 .msg                  38;1;32;1
 .pgn                  38;1;32;1
@@ -113,6 +113,10 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .yml                  38;1;32;1
 .rdata                38;1;32;1
 .csv                  38;1;32;1
+*Dockerfile           38;1;32;1
+*Vagrantfile          38;1;32;1
+*Vagrantfile.local    38;1;32;1
+*Procfile             38;1;32;1
 
 # binary
 .cbr                  38;1;36;1
@@ -161,21 +165,23 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .zlogin               38;1;36
 .zlogout              38;1;36
 .zshenv               38;1;36
-
+.htaccess             38;1;36
+.env                  38;1;36
+*robots.txt           38;1;36
 
 # vcs
 .git                  38;5;197
 .gitignore            38;1;30;1
+.dockerignore         38;1;30;1
 .gitignore_global     38;1;30;1
 .hgignore_global      38;1;30;1
 .gitattributes        38;1;30;1
 .gitmodules           38;1;30;1
 
-# code
+# code/script
 .awk                  38;1;34;1
 .bash                 38;1;34;1
 .bat                  38;1;34;1
-.BAT                  38;1;34;1
 .sed                  38;1;34;1
 .sh                   38;1;34;1
 .zsh                  38;1;34;1
@@ -399,6 +405,8 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .Xauthority           38;5;244
 .DS_Store             38;5;244
 .CFUserTextEncoding   38;5;244
+.padl                 38;5;244
+.rnd                  38;5;244
 
 # tmp error files
 .err                  38;1;31
