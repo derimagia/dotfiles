@@ -2,16 +2,15 @@
 	path = ~/.gitconfig.local
 [alias]
 	# Graphs/Charts
-	lg = log --graph
-	lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
-	tree = !git lg --graph
+	st = status --short --branch
+	lg = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ar %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
 
 	# Assume files
 	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
 	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
-	
+
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	gg = grep --break --heading --line-number
@@ -25,12 +24,12 @@
 	# Show Aliases
 	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
 
-        # Merging
+    # Merging
 	ours = "!f() { git co --ours $@ && git add $@; }; f"
 	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
 
 	# Shortcuts
-	br = branch 
+	br = branch
 	rl = reflog
 	co = checkout
 	st = status -s

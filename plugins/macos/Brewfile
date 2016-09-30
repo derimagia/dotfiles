@@ -39,11 +39,8 @@ cask kitematic
 cask launchrocket
 cask mono-mdk
 cask mou
-cask mumble
 cask osxfuse
 cask paw
-cask plex-media-server
-cask postman
 cask provisionql
 cask psequel
 cask qlcolorcode
@@ -83,7 +80,6 @@ cask font-roboto
 cask font-source-code-pro
 
 tap caskroom/versions
-cask airmail-beta
 cask firefoxdeveloperedition
 cask google-chrome-canary
 cask iterm2-beta
@@ -138,6 +134,7 @@ brew findutils --with-default-names
 brew fontconfig
 brew fortune
 brew freetype
+brew fswatch
 brew fzf
 brew gawk
 brew gcc
@@ -196,6 +193,7 @@ brew libxml2
 brew libyaml
 brew lua
 brew lua51
+brew mackup
 brew macvim --with-override-system-vim
 brew mariadb
 brew mas
