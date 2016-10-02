@@ -1,5 +1,8 @@
-[include]
-	path = ~/.gitconfig.local
+[core]
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
+	autocrlf = input
+	pager = diff-highlight | diff-so-fancy | less -rFX
 [alias]
 	# Graphs/Charts
 	st = status --short --branch
@@ -59,15 +62,11 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[core]
-	excludesfile = /Users/dave/.gitignore_global
-	attributesfile = ~/.gitattributes
-	autocrlf = input
 [diff]
 	compactionHeuristic = true
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
@@ -87,7 +86,6 @@
 [push]
 	default = current
 [pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
 	log = diff-so-fancy | less --tabs=4 -RFX
 [rebase]
@@ -104,4 +102,6 @@
 [mergetool]
 	keepBackup = false
 [interactive]
-	diffFilter = diff-so-fancy --patch-mode | less --tabs=4 -RFX
+	diffFilter = diff-so-fancy --patch-mode | less --tabs=4 -rFX
+[include]
+	path = ~/.gitconfig.local
