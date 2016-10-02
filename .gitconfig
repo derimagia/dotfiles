@@ -2,7 +2,7 @@
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
 	autocrlf = input
-	pager = diff-highlight | diff-so-fancy | less -RFX
+	pager = diff-so-fancy | less -RFX
 [alias]
 	# Graphs/Charts
 	st = status --short --branch
