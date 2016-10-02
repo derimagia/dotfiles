@@ -17,15 +17,22 @@ if [[ $TERM != dumb ]]; then
         eval "$(dircolors -b $DOTFILES/plugins/colors/LS_COLORS)"
 
     if (( $+commands[grc] )) ; then
-        alias cl='grc -es --colour=auto'
+        # Need to run it through stdbuf because of https://github.com/garabik/grc/issues/25
+        alias cl='stdbuf -oL grc -es --colour=auto'
         alias configure='cl ./configure'
         alias diff='cl diff'
         alias make='cl make'
         alias gcc='cl gcc'
         alias g++='cl g++'
         alias as='cl as'
+        alias ps='cl ps'
+        alias php'cl php'
+        alias dig='cl dig'
         alias gas='cl gas'
+        alias mount='cl mount'
         alias ld='cl ld'
+        # Need to force conf.mtr since we run mtr as sudo
+        alias mtr='sudo grc -es --colour=auto mtr'
         alias netstat='cl netstat'
         alias ping='cl ping'
         alias traceroute='cl traceroute'
@@ -46,8 +53,6 @@ if [[ $TERM != dumb ]]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-
-
 
 
     #export LESS_TERMCAP_DEBUG=1

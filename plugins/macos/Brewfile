@@ -39,6 +39,7 @@ cask kitematic
 cask launchrocket
 cask mono-mdk
 cask mou
+cask onyx
 cask osxfuse
 cask paw
 cask provisionql
