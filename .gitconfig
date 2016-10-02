@@ -2,11 +2,14 @@
 	excludesfile = ~/.gitignore_global
 	attributesfile = ~/.gitattributes
 	autocrlf = input
-	pager = diff-highlight | diff-so-fancy | less -rFX
+	pager = diff-highlight | diff-so-fancy | less -RFX
 [alias]
 	# Graphs/Charts
 	st = status --short --branch
 	lg = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ar %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+
+	# Another diff option
+	df = diff --color-words
 
 	# Assume files
 	assume = update-index --assume-unchanged
@@ -102,6 +105,6 @@
 [mergetool]
 	keepBackup = false
 [interactive]
-	diffFilter = diff-so-fancy --patch-mode | less --tabs=4 -rFX
+	diffFilter = diff-so-fancy --patch-mode | less -RFX
 [include]
 	path = ~/.gitconfig.local
