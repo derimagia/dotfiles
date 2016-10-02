@@ -102,3 +102,5 @@
 	conflictstyle = diff3
 [mergetool]
 	keepBackup = false
+[interactive]
+	diffFilter = diff-so-fancy | less --tabs=4 -RFX
