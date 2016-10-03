@@ -13,10 +13,11 @@ if [[ $TERM != dumb ]]; then
     )
 
 #    # Dircolors
-    (( $+commands[dircolors] )) && \
+    if (( $+commands[dircolors] )); then
         eval "$(dircolors -b $DOTFILES/plugins/colors/LS_COLORS)"
+    fi
 
-    if (( $+commands[grc] )) ; then
+    if (( $+commands[grc] )); then
         # Need to run it through stdbuf because of https://github.com/garabik/grc/issues/25
         alias cl='stdbuf -oL grc -es --colour=auto'
         alias configure='cl ./configure'
@@ -40,20 +41,11 @@ if [[ $TERM != dumb ]]; then
         alias docker-machine='grc docker-machine'
     fi
 
-    if (( $+commands[grc] )); then
-      alias ls='ls --color=auto'
-      alias @ls='command ls'
-    fi
-
-    if (( $+commands[grc] )); then
-      alias ls='ls --color=auto'
-      alias @ls='command ls'
-    fi
-
+    alias ls='ls --color=auto'
+    alias @ls='command ls'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-
 
     #export LESS_TERMCAP_DEBUG=1
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
