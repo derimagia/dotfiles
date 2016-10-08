@@ -30,7 +30,7 @@
 	# Show Aliases
 	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
 
-    # Merging
+	# Merging
 	ours = "!f() { git co --ours $@ && git add $@; }; f"
 	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
 

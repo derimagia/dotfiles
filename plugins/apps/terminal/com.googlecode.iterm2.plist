@@ -10745,9 +10745,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 383 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>401 303 918 495 0 0 1440 877 </string>
+	<string>401 395 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>12 194 1154 675 0 0 1440 877 </string>
+	<string>155 4 1130 873 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -12499,7 +12499,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-29T05:49:57Z</date>
+	<date>2016-10-06T02:49:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

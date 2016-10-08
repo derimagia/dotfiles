@@ -3,6 +3,7 @@
 
 tap caskroom/cask
 cask 1password
+cask adobe-reader
 cask aerial
 cask airflow
 cask alcatraz
