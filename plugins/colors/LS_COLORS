@@ -395,6 +395,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .pid                  38;5;248
 .state                38;5;248
 *lockfile             38;5;248
+.lock                 38;5;248
 .dump                 38;5;241
 .stackdump            38;5;241
 .zcompdump            38;5;241
