@@ -34,7 +34,7 @@ ask_for_confirmation() {
     read -q "REPLY"
 }
 
-execute() {
+execute_info() {
     success=$(eval "$1")
     if $success; then
         print_success "$2"
@@ -64,11 +64,11 @@ print_success() {
 
 main() {
     local filesToSymlink=($1)
-    local targetFolder="$2"
+    local targetFolder="${2%/}"
 
     # sourceFile can be a file or a directory
     for sourceFile in ${(z)filesToSymlink}; do
-        targetFile="$targetFolder/${sourceFile:t}"
+        targetFile="${targetFolder}/${sourceFile:t}"
 
         proposedLink="'$targetFile' → '$sourceFile'"
         linkCommand="ln -fsn ${(qq)sourceFile} ${(qq)targetFile}"
@@ -82,7 +82,7 @@ main() {
                 if answer_is_yes; then
                     # ln can't remove directories so remove it if needed
                     [[ -d  "$targetFile" ]] && rm -rf $targetFile
-                    execute $linkCommand $proposedLink
+                    execute_info $linkCommand $proposedLink
                 else
                     print_error $proposedLink
                 fi
@@ -92,7 +92,7 @@ main() {
                 fi
             fi
         else
-            execute $linkCommand $proposedLink
+            execute_info $linkCommand $proposedLink
         fi
     done
 }

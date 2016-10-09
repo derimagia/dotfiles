@@ -662,7 +662,7 @@ CFPreferencesAppSynchronize "com.binaryage.totalfinder"
 ink -l -c green -- " Setting iTerm2 Preferences"
 
 # Preference Folder
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.dotfiles/plugins/apps/iTerm
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string $DOTFILES/plugins/apps/terminal
 
 # Experimental!
 defaults write com.googlecode.iterm2.plist ExperimentalOptimizationsEnabled -bool true

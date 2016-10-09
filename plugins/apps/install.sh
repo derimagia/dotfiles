@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DOTFILES=${DOTFILES-$HOME/.dotfiles/}
+
 UNAME=$(uname | tr "[:upper:]" "[:lower:]")
 # If Linux, try to determine specific distribution
 if [[ "$UNAME" == "linux" ]]; then
@@ -20,11 +22,11 @@ if [[ $OSTYPE == 'darwin' ]] && ! xcode-select --print-path &> /dev/null; then
     sudo xcodebuild -license
 fi
 
-if [[ ! -d ~/.dotfiles ]]; then
-    git clone https://github.com/derimagia/dotfiles.git ~/.dotfiles
+if [[ ! -d $DOTFILES ]]; then
+    git clone https://github.com/derimagia/dotfiles.git $DOTFILES
 fi
 
-source ~/.dotfiles/.zshenv
+source $DOTFILES/.zshenv
 
 if [[ $OSTYPE == 'darwin' ]]; then
     hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
@@ -32,7 +34,7 @@ fi
 
 # Link dot files
 PATH=$DOTFILES/plugins/utilities/bin/:$PATH
-$DOTFILES/plugins/apps/bin/dot-link
+$DOTFILES/plugins/apps/dots/link.zsh
 
 if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh

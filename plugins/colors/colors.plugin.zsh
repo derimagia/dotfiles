@@ -38,6 +38,7 @@ if [[ $TERM != dumb ]]; then
         alias ping='cl ping'
         alias traceroute='cl traceroute'
         alias docker='grc docker'
+        alias docker-compose='grc docker-compose'
         alias docker-machine='grc docker-machine'
     fi
 
