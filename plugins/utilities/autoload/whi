@@ -1,49 +1,123 @@
 #!/usr/bin/env zsh
 emulate -L zsh
+autoload -Uz colors && colors
+
+local color_mode="auto"
+
+COLS="$(tput cols)"
+if (( COLS <= 0 )); then
+    COLS="${COLUMNS:-80}"
+fi
+
+while getopts c: opt; do
+    case $opt in
+        (c)
+            if [[ $OPTARG == 1 ]]; then
+              color_mode=1
+            elif [[ $OPTARG == 0 ]]; then
+              color_mode=0
+            fi
+            ;;
+    esac
+    shift $(( OPTIND - 1 ))
+done
+
+if [[ $color_mode == "auto" ]]; then
+  if [[ -t 1 ]] && (($(tput colors))); then
+    color_mode=1
+  else
+    color_mode=0
+  fi
+fi
 
 
-function highlight_bash() {
-    $* | highlight -S bash -O ansi
+function boxes_enabled() {
+    return !$+commands[boxes]
 }
+
+function color_enabled() {
+    return !$color_mode
+}
+
+function process_highlight() {
+    if color_enabled; then
+      highlight -O ansi $*
+    else
+      cat
+    fi
+}
+
+function process_output() {
+    # @TODO: Look into better wrapping
+    local width="$((( $COLS - 20 )))"
+
+    if boxes_enabled; then
+       fold -w $width -s | boxes -d simple -p a1 | process_highlight $*
+    else
+       process_highlight $*
+    fi
+}
+
+
+if ! color_enabled; then
+  unset fg
+  unset color_reset
+fi
 
 local inspect="$1" matched_inspect=0 found_aliases
 found_aliases=$(alias $inspect)
 
 if [[ -n $found_aliases ]]; then
     matched_inspect=1
-    hr '-'
+    hr ' ' '-' ' '
 
-    ink -lc blue Aliases:
-    highlight_bash print $found_aliases
+    print -l "${fg[blue]}Aliases:${reset_color}"
+    print -- $found_aliases | process_output -S bash
 fi
 
 found_functions=$(declare -f $inspect)
 
 if [[ -n $found_functions ]]; then
     matched_inspect=1
-    hr '-'
+    hr ' ' '-' ' '
 
-    ink -lc blue Functions:
-    highlight_bash print $found_functions
+    print -l "${fg[blue]}Functions:${reset_color}"
+    print -- $found_functions | process_output -S bash
 fi
 
 found_commands=( ${(p)$(command which --all --skip-alias $inspect 2>/dev/null)} )
 
 if [[ -n $found_commands ]]; then
     matched_inspect=1
-    hr '-'
+    hr ' ' '-' ' '
     local command_main_path=${:-=$found_command}
 
-    ink -lc blue Commands:
+    print -l "${fg[blue]}Commands:${reset_color}"
+
     for command_path in $found_commands; do
-        print_command=$(stat --printf '%N' $command_path)
-        highlight_bash print -l $print_command
+        file_type_output=$(file -b $command_path | tr -d "\n" | tr "\t" " ")
+
+        local file_type="unknown"
+        case "$file_type_output" in
+            *executable*) file_type="binary" ;| # default for executable right above text
+            *text*) file_type="text" ;| # default for text
+            *"Bourne-Again shell"* | *"sh script"*) file_type="bash" ;;
+            *python*) file_type="python" ;;
+            *ruby*) file_type="ruby" ;;
+            *php*) file_type="php" ;;
+        esac
+
+        print -l "'${fg[green]}${command_path:a}${reset_color}' → '${fg[green]}${command_path:A}${reset_color}' ${fg[cyan]}($file_type_output - [$file_type])${reset_color}"
+
+        if [[ -f $command_path ]] && [[ $file_type != "unknown" ]] && [[ $file_type != "binary" ]]; then
+            <$command_path | process_output -S bash
+        fi
     done
 fi
 
 
 if (( $matched_inspect )); then
-    hr '-'
+    hr ' ' '-' ' '
 else
     ink -c red "Invalid Command/Alias/Function '$inspect'"
     return 1
