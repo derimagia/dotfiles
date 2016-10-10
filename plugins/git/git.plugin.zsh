@@ -1,5 +1,4 @@
 if (( $+commands[hub] )); then
-    alias g="hub"
     alias git="hub"
 fi
 
@@ -7,25 +6,25 @@ alias g="git"
 alias gup='gitup'
 
 # Open a module in idea
-function dmod() {
+dmod() {
   clone -d $1 && idea .
 }
 
 # Clone using Drupal
-function dclone() {
+dclone() {
   clone -d $1
 }
 
+# Open dotfiles
+dopen() {
+  idea $DOTFILES
+}
+
 # Go to project folders
-function c() {
+c() {
   if [ $# -eq 0 ]; then
     cd $(ghq list --full-path | fzf-tmux)
   else
     cd $(ghq list --full-path | fgrep $1 | fzf-tmux --select-1)
   fi
-}
-
-# Open dotfiles
-function dopen() {
-  idea $DOTFILES
 }

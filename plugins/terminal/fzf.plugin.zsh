@@ -1,4 +1,5 @@
 
+
 if (( $+commands[fasd] )); then
     __fzfcmd() {
       [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
@@ -31,7 +32,7 @@ if (( $+commands[fasd] )); then
 
     fasd_cache="$DOTFILES_CACHE_DIR/fasd-init.sh"
 
-    if [ $commands[fasd] -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    if [[ ! -s "$fasd_cache" ]]; then
         fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
     fi
 

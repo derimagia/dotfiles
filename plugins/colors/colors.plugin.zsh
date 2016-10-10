@@ -14,7 +14,14 @@ if [[ $TERM != dumb ]]; then
 
 #    # Dircolors
     if (( $+commands[dircolors] )); then
-        eval "$(dircolors -b $DOTFILES/plugins/colors/LS_COLORS)"
+        dircolors_cache="$DOTFILES_CACHE_DIR/dircolors-init.sh"
+
+        if [[  ! -s "$dircolors_cache" ]]; then
+            dircolors -b $DOTFILES/plugins/colors/LS_COLORS >| "$dircolors_cache"
+        fi
+
+        source "$dircolors_cache"
+        unset dircolors_cache
     fi
 
     if (( $+commands[grc] )); then
