@@ -57,11 +57,11 @@ elif [[ $OSTYPE == 'darwin' ]]; then
     # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
 fi
 
-function print_error() {
+print_error() {
     ink -l -c red "$@"
 }
 
-function print_status() {
+print_status() {
     ink -l -c blue "$@"
 }
 

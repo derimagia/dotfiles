@@ -32,7 +32,7 @@ fi
 
 
 function boxes_enabled() {
-    return !$+commands[boxes]
+    (( $+commands[boxes] ))
 }
 
 function color_enabled() {

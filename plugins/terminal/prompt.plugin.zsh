@@ -25,7 +25,7 @@ _rprompt() {
 
     _drush_rprompt
 
-    if is_tmux_runnning; then
+    if [[ ! -z "$TMUX" ]]; then
         tmux_pane=$(tmux display -p "#D" | tr -d %)
 
         _send_to_tmux() {

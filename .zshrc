@@ -14,7 +14,6 @@ setopt \
 # Autoload needed functions
 autoload -Uz add-zsh-hook compinit zmv
 
-
 # Make sure we have antibody
 if (( ! $+commands[antibody] )); then
     curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s

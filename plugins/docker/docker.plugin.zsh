@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
+
+alias d="drush"
+alias dr="docker"
+alias drc="docker-compose"
 alias dl='docker ps -l -q'
 alias dps='docker ps'
 alias di='docker images'

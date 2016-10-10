@@ -2,18 +2,16 @@
 
 is_ssh_running && return
 
-if is_screen_or_tmux_running; then
-    if is_tmux_runnning; then
-        echo ' _____ __  __ _   ___  __ '
-        echo '|_   _|  \/  | | | \ \/ / '
-        echo '  | | | |\/| | | | |\  /  '
-        echo '  | | | |  | | |_| |/  \  '
-        echo '  |_| |_|  |_|\___//_/\_\ '
-        export DISPLAY="$TMUX"
-    elif is_screen_running; then
-        # For GNU screen
-        :
-    fi
+if [ ! -z "$TMUX" ]; then
+    echo ' _____ __  __ _   ___  __ '
+    echo '|_   _|  \/  | | | \ \/ / '
+    echo '  | | | |\/| | | | |\  /  '
+    echo '  | | | |  | | |_| |/  \  '
+    echo '  |_| |_|  |_|\___//_/\_\ '
+    export DISPLAY="$TMUX"
+elif [ ! -z "$STY" ]; then
+    # For GNU screen
+    :
 else
     local num_clients="$(tmux lsc -t base -F '#{session_attached}' 2>/dev/null)"
     if [[ $num_clients -le 0 ]]; then

@@ -1,6 +1,8 @@
 # Brew-wrap
 source $HOMEBREW_PREFIX/etc/brew-wrap
 
+fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+
 export BROWSER="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
 
 alias o="open"

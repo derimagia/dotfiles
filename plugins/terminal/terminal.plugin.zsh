@@ -24,7 +24,3 @@ bindkey $terminfo[kf5] _zle_re
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
-
-# Load Fasd
-(( $+commands[fasd] )) && eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-

@@ -1,13 +1,10 @@
 if (( $+commands[hub] )); then
     alias g="hub"
     alias git="hub"
-else
-    alias g="git"
 fi
 
+alias g="git"
 alias gup='gitup'
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # Git Root
-
 
 # Open a module in idea
 function dmod() {
