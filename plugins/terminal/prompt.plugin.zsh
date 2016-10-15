@@ -1,5 +1,7 @@
 setopt transient_rprompt
 
+zle -N clear-screen prompt_pure_clear_screen
+
 _rprompt() {
     local last_status=$?
     local local_drush_prompt
@@ -35,6 +37,7 @@ _rprompt() {
         _send_to_tmux DRUSH_SITE $DRUSH_SITE
         _send_to_tmux TERMINUS_SITE $TERMINUS_SITE
         _send_to_tmux TERMINUS_ENV $TERMINUS_ENV
+
 
         tmux refresh-client -S
     fi

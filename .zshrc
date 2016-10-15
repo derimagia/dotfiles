@@ -45,3 +45,5 @@ compinit -C -d "$DOTFILES_CACHE_DIR/zcompdump"
 zcompile "$DOTFILES_CACHE_DIR/zcompdump" &!
 
 #zprof | less
+# Hook for desk activation
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true

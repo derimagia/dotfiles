@@ -24,3 +24,6 @@ bindkey $terminfo[kf5] _zle_re
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
+
+# Hook for desk activation
+[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
