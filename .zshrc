@@ -19,8 +19,8 @@ autoload -Uz add-zsh-hook compinit zmv
 
 # Load all files
 () {
+    local plugin_file plugin_files autoload_files
     plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
-
     # Autoload files
     autoload_files=($DOTFILES/plugins/**/autoload/*)
     fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}

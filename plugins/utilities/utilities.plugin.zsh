@@ -5,7 +5,6 @@ alias ll='ls -lahpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic true';
 alias mou="open /Applications/Mou.app" # Mou!
-alias top='htop';
 alias editvar='vared';
 alias i="idea"
 alias v="vim"
@@ -18,7 +17,6 @@ alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
 
 # Suffix Aliases
-alias -s Dockerfile="docker build - < "
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
 alias -s py=python
@@ -28,8 +26,6 @@ alias -s war="java -jar"
 # Url functions
 alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
 alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
-
-alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
 alias html2text='w3m -dump -T text/html'
 
 # Create a new directory and enter it
