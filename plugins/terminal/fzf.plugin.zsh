@@ -1,20 +1,8 @@
+if (( $+commands[fzf] )); then
+    export FZF_DEFAULT_OPTS="--inline-info"
 
-
-if (( $+commands[fasd] )); then
     __fzfcmd() {
       [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
-    }
-
-    fzf-history-widget() {
-      local selected num
-      selected=( $(fc -l 1 | $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index --toggle-sort=ctrl-r ${=FZF_CTRL_R_OPTS} -q "${LBUFFER//$/\\$}") )
-      if [ -n "$selected" ]; then
-        num=$selected[1]
-        if [ -n "$num" ]; then
-          zle vi-fetch-history -n $num
-        fi
-      fi
-      zle redisplay
     }
 
     _fzf_compgen_path() {
@@ -26,16 +14,12 @@ if (( $+commands[fasd] )); then
           -name .git -prune -o -name .svn -prune -o -type d \
           -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
     }
+fi
 
-    zle -N fzf-history-widget
-    bindkey '^R' fzf-history-widget
-
-    fasd_cache="$DOTFILES_CACHE_DIR/fasd-init.sh"
-
-    if [[ ! -s "$fasd_cache" ]]; then
-        fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
+if (( $+commands[fasd] )); then
+    if [[ ! -s $TMPPREFIX/fasd-init.sh ]]; then
+        fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
     fi
 
-    source "$fasd_cache"
-    unset fasd_cache
+    source $TMPPREFIX/fasd-init.sh
 fi

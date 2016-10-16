@@ -3,7 +3,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 alias fs='stat -c "%s Bytes"' # File Size
 alias ll='ls -lahpA'
 alias map="xargs -n1"
-alias dottime='time zsh -ic exit';
+alias dottime='time zsh -ic true';
 alias mou="open /Applications/Mou.app" # Mou!
 alias top='htop';
 alias editvar='vared';
@@ -103,6 +103,15 @@ args() {
     print $# $*
 }
 
+manzsh() {
+  man zshbuiltins | less -XF -p "^ *$@"
+}
+
+manopt() {
+  local program="$1"
+  shift
+  man $program | less -XF -p "^ *$@"
+}
 
 # UTF-8-encode a string of Unicode symbols
 escape() {

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-zmodload zsh/zprof
+#zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
 # General Terminal Options
@@ -14,36 +14,29 @@ setopt \
 # Autoload needed functions
 autoload -Uz add-zsh-hook compinit zmv
 
-plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
+# Local
+[[ -f $HOME/.localrc ]] && source $HOME/.localrc
 
-# OSX Files
-[[ $SHELL_PLATFORM == "macos" ]] && plugin_files+=($DOTFILES/plugins/**/*.macos.zsh)
+# Load all files
+() {
+    plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
 
-plugin_files+=($DOTFILES/plugins/external/antibody.zsh)
+    # Autoload files
+    autoload_files=($DOTFILES/plugins/**/autoload/*)
+    fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
 
-# Autoload files
-autoload_files=($DOTFILES/plugins/**/autoload/*)
-fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
+    for plugin_file in $plugin_files; do
+        source $plugin_file
+    done
 
-# Add bin to path
-path=($DOTFILES/plugins/**/bin/(N) $path)
+    # Add bin to path
+    path=(
+        $DOTFILES/plugins/**/bin/(N)
+        $path
+    )
+}
 
-for plugin_file in $plugin_files; do
-    source $plugin_file
-done
-
-# Cleanup
-unset autoload_files plugin_files plugin_file
-
-# Reorder fpath
-fpath=(
-    /usr/local/share/zsh/site-functions
-    $fpath
-)
-
-compinit -C -d "$DOTFILES_CACHE_DIR/zcompdump"
-zcompile "$DOTFILES_CACHE_DIR/zcompdump" &!
+compinit -C -d "$TMPPREFIX/zcompdump"
+zcompile "$TMPPREFIX/zcompdump" &!
 
 #zprof | less
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true

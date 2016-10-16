@@ -20,7 +20,7 @@ shift $(( OPTIND - 1 ))
 command="$@"
 
 if $clearcache; then
-    rm -f $DOTFILES_CACHE_DIR/{*.sh,zcompdump,zcompdump.zwc}
+    rm -rf $TMPPREFIX
     print -l "Cleared Caches"
 fi
 

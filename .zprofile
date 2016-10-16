@@ -1,12 +1,8 @@
-export MANPAGER="less -X"
-export FZF_DEFAULT_OPTS="--inline-info"
-
+export MANPAGER='less -X'
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 export LANG='en_US.UTF-8'
-export MANPATH
-export PATH
 export BROWSER=$PAGER
 
 bindkey -e
@@ -19,26 +15,12 @@ if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
-path=(
-    "$HOME/bin"
-    "$GOPATH/bin"
-    "$COMPOSER_HOME/vendor/bin"
-    "$HOMEBREW_PREFIX/sbin"
-    "$HOMEBREW_PREFIX/bin"
-    $path
-)
-
-manpath=(
-    "$HOMEBREW_PREFIX/share/man"
-    $manpath
-)
-
 if [[ ! -d "$TMPDIR" ]]; then
   export TMPDIR="/tmp/$USER"
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
+export TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi

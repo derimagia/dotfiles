@@ -1,9 +1,4 @@
-# Setting Terminal
-if [[ -n "$TMUX" ]]; then # If TMUX
-    export TERM=xterm-256color
-else
-    export TERM=xterm-256color
-fi
+export TERM=xterm-256color
 
 # History
 HISTFILE="$HOME/.zhistory"

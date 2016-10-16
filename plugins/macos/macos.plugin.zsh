@@ -1,7 +1,6 @@
-# Brew-wrap
-source $HOMEBREW_PREFIX/etc/brew-wrap
+[[ $SHELL_PLATFORM == "macos" ]] || return
 
-fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+# Brew-wrap
 
 export BROWSER="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
 
@@ -98,3 +97,10 @@ if [[ -x "/usr/libexec/java_home" ]]; then
         }
     }
 fi
+
+
+# Fix Help
+unalias run-help 2>/dev/null
+autoload run-help
+HELPDIR=$HOMEBREW_PREFIX/share/zsh/help
+alias help=run-help

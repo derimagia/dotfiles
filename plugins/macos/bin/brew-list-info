@@ -7,7 +7,7 @@ local desc
 local -a brew_deps=() dep_list=() packages=()
 local -A dependencymap brew_descs
 
-function getDescription() {
+function brew_get_description() {
     if (( $+commands[jq] )) && [[ -z $brew_descs ]]; then
         brew_descs=( ${(z)"$(brew info --json=v1 --installed | jq -j '. [] | .name, " ", @sh "\(.desc)", " "')"} )
     fi
@@ -33,7 +33,7 @@ done
 
 packages=( "${(f)"$(brew list)"}" )
 for package in $packages; do
-    getDescription $package && desc=$REPLY
+    brew_get_description $package && desc=$REPLY
     print -l -- "${fg[cyan]}${package}${reset_color} - ${fg[green]}$desc${reset_color}"
 
     dependencies=( ${=dependencymap[$package]} )

@@ -4,3 +4,4 @@ zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-syntax-highlighting
 paulirish/git-open kind:path
+psprint/history-search-multi-word

@@ -38,6 +38,7 @@
       "seti-ui"
       "seti-syntax"
     ]
+    useCustomTitleBar: true
   drupal:
     fileTypesPhp: "module,install,inc,test"
   editor:
@@ -62,5 +63,7 @@
       "source.gfm"
       "text.git-commit"
     ]
+  "tree-view":
+    showOnRightSide: true
   welcome:
     showOnStartup: false

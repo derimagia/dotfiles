@@ -3,6 +3,8 @@ autoload -Uz colors && colors
 if [[ $TERM != dumb ]]; then
     export CLICOLOR=true
 
+    GREP_OPTIONS='--color=always'
+
     zle_highlight+=(
         default:none
         region:standout
@@ -14,14 +16,11 @@ if [[ $TERM != dumb ]]; then
 
 #    # Dircolors
     if (( $+commands[dircolors] )); then
-        dircolors_cache="$DOTFILES_CACHE_DIR/dircolors-init.sh"
-
-        if [[  ! -s "$dircolors_cache" ]]; then
-            dircolors -b $DOTFILES/plugins/colors/LS_COLORS >| "$dircolors_cache"
+        if [[ ! -s $TMPPREFIX/dircolors-init.sh ]]; then
+            dircolors -b $DOTFILES/plugins/colors/LS_COLORS >| $TMPPREFIX/dircolors-init.sh
         fi
 
-        source "$dircolors_cache"
-        unset dircolors_cache
+        source $TMPPREFIX/dircolors-init.sh
     fi
 
     if (( $+commands[grc] )); then
@@ -39,7 +38,6 @@ if [[ $TERM != dumb ]]; then
         alias gas='cl gas'
         alias mount='cl mount'
         alias ld='cl ld'
-        # Need to force conf.mtr since we run mtr as sudo
         alias mtr='sudo grc -es --colour=auto mtr'
         alias netstat='cl netstat'
         alias ping='cl ping'
@@ -50,10 +48,6 @@ if [[ $TERM != dumb ]]; then
     fi
 
     alias ls='ls --color=auto'
-    alias @ls='command ls'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 
     #export LESS_TERMCAP_DEBUG=1
     export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
@@ -98,6 +92,4 @@ if [[ $TERM != dumb ]]; then
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='underline,bold'
 
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-else
-    export CLICOLOR=false
 fi
