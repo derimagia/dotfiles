@@ -3,6 +3,18 @@
 #zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
+typeset -gU fpath path manpath
+
+if [[ ! -d "$TMPDIR" ]]; then
+  export TMPDIR="/tmp/$USER"
+  mkdir -p -m 700 "$TMPDIR"
+fi
+
+export TMPPREFIX="${TMPDIR%/}/zsh"
+if [[ ! -d "$TMPPREFIX" ]]; then
+  mkdir -p "$TMPPREFIX"
+fi
+
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
 setopt \
@@ -20,7 +32,12 @@ autoload -Uz add-zsh-hook compinit zmv
 # Load all files
 () {
     local plugin_file plugin_files autoload_files
-    plugin_files=($DOTFILES/plugins/**/*.vital.zsh $DOTFILES/plugins/**/*.plugin.zsh)
+    plugin_files=(
+        $DOTFILES/plugins/**/*.vital.zsh
+        $DOTFILES/plugins/**/*.plugin.zsh
+        $DOTFILES/plugins/**/*.post-plugin.zsh
+    )
+
     # Autoload files
     autoload_files=($DOTFILES/plugins/**/autoload/*)
     fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
@@ -30,8 +47,9 @@ autoload -Uz add-zsh-hook compinit zmv
     done
 
     # Add bin to path
+    local plugin_binary_paths=($DOTFILES/plugins/**/bin/(N))
     path=(
-        $DOTFILES/plugins/**/bin/(N)
+        ${plugin_binary_paths%/}
         $path
     )
 }
