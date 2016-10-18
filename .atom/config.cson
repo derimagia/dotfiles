@@ -1,6 +1,8 @@
 "*":
   "atom-beautify":
     _analyticsUserId: "5dcfdbb3-8d59-41ec-b6e5-bb8885e1a057"
+    general:
+      _analyticsUserId: "623490a8-7bae-42f6-9a06-4490f513dd73"
   core:
     customFileTypes:
       "source.ini": [

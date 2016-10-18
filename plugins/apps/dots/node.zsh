@@ -19,6 +19,9 @@ npm install -g \
     spoof \
     castnow \
     ctrace \
+    yarn \
+    electron \
+    babel-cli \
     hpm-cli
 
 ink -l -c green -- "-- Installing hpm Packages"

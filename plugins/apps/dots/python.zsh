@@ -16,6 +16,7 @@ pip install -U \
     livestreamer \
     pygments \
     tmuxp \
+    doge \
     http-prompt
 
 local pygmentspath=$(python -c "import pygments, inspect, os; print(os.path.dirname(os.path.abspath(inspect.getsourcefile(pygments))))")/styles

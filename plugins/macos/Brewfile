@@ -51,6 +51,7 @@ cask qlstephen
 cask quicklook-csv
 cask quicklook-json
 cask rcdefaultapp
+cask seil
 cask sequel-pro
 cask skype
 cask slack
@@ -201,6 +202,7 @@ brew mackup
 brew macvim --with-override-system-vim
 brew mariadb
 brew mas
+brew masscan
 brew miller
 brew mongodb
 brew moreutils

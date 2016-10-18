@@ -332,7 +332,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .pfm                  38;1;35
 .ttf                  38;1;35
 .otf                  38;1;35
-.PFA                  38;1;35
+.icns                 38;1;35
 .pfa                  38;1;35
 
 # archives
@@ -346,6 +346,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .tgz                  38;1;36
 .xz                   38;1;36
 .zip                  38;1;36
+.asar                 38;1;36
 
 # packaged apps
 .apk                  38;1;36;1
