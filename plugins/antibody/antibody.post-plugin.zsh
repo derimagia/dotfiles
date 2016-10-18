@@ -6,3 +6,7 @@ if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]]; then
 fi
 
 source $TMPPREFIX/antibody-plugins.sh
+
+# This needs to run after sourcing syntax-highlighting.
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
