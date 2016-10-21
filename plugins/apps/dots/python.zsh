@@ -13,7 +13,6 @@ fi
 pip install -U \
     pip setuptools \
     virtualenv \
-    livestreamer \
     pygments \
     tmuxp \
     doge \

@@ -196,6 +196,7 @@ brew libtiff
 brew libtool
 brew libxml2
 brew libyaml
+brew livestreamer
 brew lua
 brew lua51
 brew mackup
