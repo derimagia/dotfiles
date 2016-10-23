@@ -1,10 +1,11 @@
-[[ $SHELL_PLATFORM == "macos" ]] || return
+[[ $OSTYPE =~ darwin ]] || return
 
 # Brew-wrap
 
 export BROWSER="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
 
 alias o="open"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'

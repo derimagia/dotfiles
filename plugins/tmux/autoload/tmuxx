@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-is_ssh_running && return
+[[ ! -z "$SSH_CONNECTION" ]] && return
 
 if [ ! -z "$TMUX" ]; then
     echo ' _____ __  __ _   ___  __ '

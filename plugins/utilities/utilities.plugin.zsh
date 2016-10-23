@@ -1,12 +1,10 @@
 # Aliases
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias fs='stat -c "%s Bytes"' # File Size
 alias ll='ls -lahpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic true';
 alias mou="open /Applications/Mou.app" # Mou!
-alias editvar='vared';
-alias i="idea"
+alias editvar='vared'
 alias v="vim"
 alias dk='desk .'
 alias ffs='sudo $(fc -ln -1)'
@@ -31,15 +29,6 @@ alias html2text='w3m -dump -T text/html'
 # Create a new directory and enter it
 take() {
     mkdir -p "$1" && cd "$1"
-}
-
-# Edit
-idea() {
-  local openpath="$1"
-  if [[ -z "$openpath" ]]; then
-	  openpath=$PWD
-  fi
-  command idea $openpath
 }
 
 # z is the new j? I guess?

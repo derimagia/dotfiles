@@ -37,8 +37,6 @@ cask karabiner
 cask kitematic
 cask launchrocket
 cask mono-mdk
-cask mou
-cask onyx
 cask osxfuse
 cask paw
 cask provisionql
@@ -51,7 +49,6 @@ cask qlstephen
 cask quicklook-csv
 cask quicklook-json
 cask rcdefaultapp
-cask seil
 cask sequel-pro
 cask skype
 cask slack
@@ -121,7 +118,7 @@ brew cocoapods
 brew coreutils
 brew cowsay
 brew cscope
-brew curl
+brew curl --with-libssh2
 brew dark-mode
 brew dateutils
 brew desk
@@ -159,7 +156,7 @@ brew go
 brew gobject-introspection
 brew gource
 brew gradle
-brew grc
+brew grc --HEAD
 brew gti
 brew heroku
 brew highlight
@@ -266,6 +263,7 @@ brew tmux
 brew tree
 brew unfs3
 brew unixodbc
+brew utf8proc
 brew v8
 brew vala
 brew valabind

@@ -1,4 +1,4 @@
-[[ $SHELL_PLATFORM == "macos" ]] || return
+[[ $OSTYPE =~ darwin ]] || return
 
 if [[ -f $HOMEBREW_PREFIX/etc/brew-wrap ]]; then
     source $HOMEBREW_PREFIX/etc/brew-wrap
@@ -18,12 +18,14 @@ fpath=(
 path=(
     $HOMEBREW_PREFIX/sbin
     $HOMEBREW_PREFIX/bin
+    $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
     $path
 )
 
 manpath=(
     $HOMEBREW_PREFIX/share/man
+    $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
+    /usr/local/opt/findutils/share/man
     $manpath
 )
-
 

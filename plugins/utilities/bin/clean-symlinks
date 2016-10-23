@@ -2,9 +2,10 @@
 emulate -L zsh
 
 local directory_path symlinks=()
-directory_path="${1:-.}"
+directory_path="${1:-$PWD}"
 symlinks=($directory_path/*(-@N))
 
+print -l $symlinks
 if [[ -n $symlinks ]]; then
     ink -c green "Removing Symlinks: " ${(j:, :)symlinks}
     rm $symlinks
