@@ -1,14 +1,2 @@
 .idea
 .DS_Store
-
-.vim/.netrwhist
-
-.atom/.apm
-.atom/.node-gyp
-.atom/.storage
-.atom/blob-store
-.atom/compile-cache
-.atom/packages
-.atom/storage
-.atom/themes
-.console/sites/

@@ -1,0 +1,64 @@
+#!/usr/bin/env zsh
+
+function print_status() {
+    ink -l -c blue "$@"
+}
+
+function include_dot() {
+  local subdot="$1"
+  local dot_file=($DOTFILES/plugins/**/dots/$subdot*(N.))
+
+  local dot_name="${dot_file:t:r}"
+  if [[ -f $dot_file ]]; then
+      ink -l -c blue "Running $dot_name dot"
+
+      $dot_file
+      local exit_code=$?
+      if (( $exit_code == 34 )); then
+        ink -l -c red "$dot_name is not compatible with this system."
+      elif (( $exit_code != 0 )); then
+        ink -l -c red "Error while executing $dot_name"
+        exit 1
+      fi
+  else
+      ink -l -c red "Error while loading dot $1"
+  fi
+
+  (( $+commands[hr] )) && hr ' ' '-=' ' '
+}
+
+if [[ -n "$1" ]]; then
+  # Just run the one dot we passed in
+  include_dot $1
+  return
+fi
+
+# Install linker
+# include_dot link
+
+# Set OS X defaults
+# include_dot macos "Running MacOS Defaults dot..."
+
+# Install homebrew packages
+include_dot homebrew
+
+# Linix Packages, right now only ubuntu..
+include_dot ubuntu
+
+# Install python packages
+include_dot python
+
+# Install node packages
+include_dot node
+
+# Install ruby packages
+include_dot ruby
+
+# Install vim packages
+include_dot vim
+
+# Vagrant plugins:
+# vagrant-auto_network
+# vagrant-cachier
+# vagrant-hostsupdater
+# vagrant-share

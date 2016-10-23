@@ -1,0 +1,4 @@
+.htaccess
+auth.json
+vendor
+cache
