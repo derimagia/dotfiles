@@ -2,6 +2,9 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
+PLUGIN_DIR="${0:h}/../"
+PLUGIN_DIR=${PLUGIN_DIR:a}
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -664,7 +667,7 @@ CFPreferencesAppSynchronize "com.binaryage.totalfinder"
 ink -l -c green -- " Setting iTerm2 Preferences"
 
 # Preference Folder
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string $DOTFILES/plugins/apps/terminal
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string $PLUGIN_DIR/etc
 
 # Experimental!
 defaults write com.googlecode.iterm2.plist ExperimentalOptimizationsEnabled -bool true
