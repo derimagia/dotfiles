@@ -1,7 +1,7 @@
 {
     "require": {
         "hirak/prestissimo": "^0.3",
-        "pantheon-systems/terminus": "dev-master"
+        "consolidation/cgr": "^1.3"
     },
     "minimum-stability": "dev"
 }

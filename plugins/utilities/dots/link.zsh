@@ -13,7 +13,6 @@ files=(${dotfiles_all:|excluded})
 # Exclude excluded and add back global gitignore
 dotfiles_source=($DOTFILES/plugins/git/.gitignore ${dotfiles_all:|excluded})
 
-print -l $dotfiles_source
 symlink-files "$dotfiles_source" "$HOME"
 clean-symlinks "$HOME"
 
