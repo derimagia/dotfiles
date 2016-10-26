@@ -33,3 +33,5 @@ hpm install hyperterm-1password 2>/dev/null
 hpm install hyperterm-snazzy 2>/dev/null
 hpm install hyperterm-blink 2>/dev/null
 hpm install hyperlinks-iterm 2>/dev/null
+
+exit 0

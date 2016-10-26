@@ -2,7 +2,7 @@
 
 vim +PlugInstall +qall
 
-if is_macos; then
+if [[ $OSTYPE =~ darwin ]]; then
   function download_font() {
     local font_dir="$HOME/Library/Fonts"
     local font_name='FuraMono-Regular.otf'
