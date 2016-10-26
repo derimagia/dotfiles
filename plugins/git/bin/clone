@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 emulate -L zsh
 
-local repo reponame type='unknown' shallow=0 edit=0
+local repo reponame type='unknown' shallow=0 print=0
 
-while getopts dse opt; do
+while getopts dsp opt; do
     case $opt in
         (d)
             type='drupal'
@@ -11,8 +11,8 @@ while getopts dse opt; do
         (s)
             shallow=1
         ;;
-        (e)
-            edit=1
+        (p)
+            print=1
         ;;
     esac
 done
@@ -34,8 +34,8 @@ fi
 
 ghq get $cloneopts $repo
 
-if (( $edit )); then
-    idea $(ghq list -p $reponame)
+if (( $print )); then
+    ghq list -p $reponame
 else
     ghq look $reponame
 fi

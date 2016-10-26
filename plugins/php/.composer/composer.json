@@ -1,6 +1,6 @@
 {
     "require": {
-        "hirak/prestissimo": "^0.3",
+        "hirak/prestissimo": "^0.3.4",
         "consolidation/cgr": "^1.3"
     },
     "minimum-stability": "dev"
