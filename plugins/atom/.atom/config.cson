@@ -65,7 +65,6 @@
       "source.gfm"
       "text.git-commit"
     ]
-  "tree-view":
-    showOnRightSide: true
+  "tree-view": {}
   welcome:
     showOnStartup: false

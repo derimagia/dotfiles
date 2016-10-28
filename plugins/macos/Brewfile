@@ -35,7 +35,6 @@ cask java
 cask jetbrains-toolbox
 cask karabiner
 cask kitematic
-cask launchrocket
 cask mono-mdk
 cask osxfuse
 cask paw
@@ -307,3 +306,10 @@ tap homebrew/versions
 
 tap rcmdnk/file
 brew brew-file
+
+# App Store applications
+appstore 409203825 Numbers (4.0)
+appstore 409201541 Pages (6.0)
+appstore 866773894 Quiver (3.0.3)
+appstore 557168941 Tweetbot (2.4.4)
+appstore 497799835 Xcode (8.0)
