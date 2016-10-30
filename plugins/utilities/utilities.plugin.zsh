@@ -1,6 +1,9 @@
 # Aliases
 alias fs='stat -c "%s Bytes"' # File Size
-alias ll='ls -lahpA'
+
+# l script +
+# human readable dates, add "/" to directory, show almost all (aka not "." and "..)
+alias l='l -hpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic true';
 alias mou="open /Applications/Mou.app" # Mou!
