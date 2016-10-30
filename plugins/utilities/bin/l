@@ -74,7 +74,6 @@ if [ "$color_when" ]; then
     # Turn off the confusing different background colors
     # as we'll highlight the mode bits instead. Also change the
     # main colors to match the default one on linux (coreutils).
-    LSCOLORS="ExGxcxdxCxegedCxCxExEx"; export LSCOLORS
   else
     color_opt='--color='
     color_never="--color=never"
