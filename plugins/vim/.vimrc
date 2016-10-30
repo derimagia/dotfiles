@@ -27,8 +27,10 @@ set background=dark
 set encoding=utf8
 
 set clipboard=unnamed
-vmap <M-x> :!pbcopy<CR>  
-vmap <M-c> :w !pbcopy<CR><CR> 
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 
 set nobackup            " don't create pointless backup files; Use VCS instead
 set cursorline          " highlight the current line

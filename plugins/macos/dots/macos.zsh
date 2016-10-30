@@ -622,7 +622,7 @@ CFPreferencesAppSynchronize "com.apple.messageshelper"
 ink -l -c green -- " Setting Alfred Preferences"
 
 # Sync Directory
-defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Dropbox/alfred'
+defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Library/Mobile Documents/com~apple~CloudDocs/Alfred'
 
 CFPreferencesAppSynchronize "com.runningwithcrayons.Alfred-Preferences-3"
 

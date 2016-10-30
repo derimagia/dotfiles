@@ -1,7 +1,5 @@
 [[ $OSTYPE =~ darwin ]] || return
 
-# Brew-wrap
-
 export BROWSER="'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
 
 alias o="open"
@@ -11,6 +9,7 @@ alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulato
 alias cask='brew cask'
 alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
+alias brew-bundle="brew bundle --global"
 
 # Quicklook
 ql() {
@@ -84,6 +83,10 @@ osx-find-launchctl () {
         grep -r "$curPATH" -e "$1"
     done
     return 0;
+}
+
+brew-dump() {
+    brew-bundle dump --force
 }
 
 if [[ -x "/usr/libexec/java_home" ]]; then
