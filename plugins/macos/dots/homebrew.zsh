@@ -17,7 +17,7 @@ ink -l -c green -- "-- Installing/Upgrading Casks"
 brew file cask_upgrade -C
 
 ink -l -c green -- "-- Updating Brewfile"
-brew file init
+brew file init -y
 
 
 
