@@ -1,9 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-if (( ! $+commands[gem] )); then
-  ink -l -c red -- "-- Gem is not installed. Skipping dot."
-  return 1
-fi
+(( $+commands[gem] )) || exit 34
 
 gem install \
     bundler \
