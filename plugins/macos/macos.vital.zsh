@@ -2,6 +2,7 @@
 
 export HOMEBREW_PREFIX=/usr/local
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_BREWFILE=$DOTFILES/plugins/macos/.Brewfile
 
 # Add these in the vital file since we want them before our own paths
 fpath=(
