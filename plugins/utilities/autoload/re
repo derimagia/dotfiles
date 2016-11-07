@@ -22,6 +22,7 @@ command="$@"
 if $clearcache; then
     rm -rf $TMPPREFIX
     print -l "Cleared Caches"
+    return
 fi
 
 if $restarttmux && [[ -n $TMUX ]] ; then

@@ -1,4 +1,5 @@
 sindresorhus/pure
+tarrasch/zsh-bd
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 paulirish/git-open kind:path

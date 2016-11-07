@@ -29,22 +29,23 @@ autoload -Uz add-zsh-hook compinit zmv
 # Local
 [[ -f $HOME/.localrc ]] && source $HOME/.localrc
 
+
 # Load all files
 () {
     local plugin_file plugin_files autoload_files
     plugin_files=(
         $DOTFILES/plugins/**/*.vital.zsh
         $DOTFILES/plugins/**/*.plugin.zsh
-        $DOTFILES/plugins/**/*.post-plugin.zsh
     )
 
     # Autoload files
     autoload_files=($DOTFILES/plugins/**/autoload/*)
-    fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
 
     for plugin_file in $plugin_files; do
         source $plugin_file
     done
+
+    fpath=($autoload_files:h $fpath) && autoload -Uz ${autoload_files:t}
 
     # Add bin to path
     local plugin_binary_paths=($DOTFILES/plugins/**/bin/(N))
@@ -52,10 +53,20 @@ autoload -Uz add-zsh-hook compinit zmv
         ${plugin_binary_paths%/}
         $path
     )
+
+    compinit -C -d "$TMPPREFIX/zcompdump"
+    zcompile "$TMPPREFIX/zcompdump" &!
+
+    # Post Plugin is done after compinit.
+    plugin_files=(
+        $DOTFILES/plugins/**/*.post-plugin.zsh
+    )
+
+    for plugin_file in $plugin_files; do
+        source $plugin_file
+    done
 }
 
-compinit -C -d "$TMPPREFIX/zcompdump"
-zcompile "$TMPPREFIX/zcompdump" &!
 
 #zprof | less
 

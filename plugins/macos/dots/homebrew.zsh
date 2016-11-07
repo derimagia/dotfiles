@@ -11,13 +11,13 @@ cd $DOTFILES
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 ink -l -c green -- "-- Installing/Upgrading Brews"
-brew file update --preupdate -F bundle -C
+brew file update --preupdate -C
 
 ink -l -c green -- "-- Installing/Upgrading Casks"
 brew file cask_upgrade -C
 
 ink -l -c green -- "-- Updating Brewfile"
-brew file init -y
+brew file init -F bundle -y
 
 
 

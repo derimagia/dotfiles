@@ -14,7 +14,7 @@
 #                       Don't error for ls without --group-dir or --no-group
 #    V0.3, 21 Oct 2009, Handle older ls' which pepper output with reset codes
 #
-#    V1.2, 12 Oct 2016
+#    V1.3, 30 Oct 2016
 #      http://github.com/pixelb/scripts/commits/master/scripts/l
 
 # apply thousands separator to file sizes
@@ -74,6 +74,7 @@ if [ "$color_when" ]; then
     # Turn off the confusing different background colors
     # as we'll highlight the mode bits instead. Also change the
     # main colors to match the default one on linux (coreutils).
+    LSCOLORS="ExGxcxdxCxegedCxCxExEx"; export LSCOLORS
   else
     color_opt='--color='
     color_never="--color=never"
@@ -93,13 +94,18 @@ if [ "$color_when" ]; then
     # as it defaults to blinking.  We could do all this in ~/.dir_colors
     # but so this script is more general, we do it here.
 
+    # Ensure LS_COLORS is delimited with ':' to simplify the following regexes.
+    # Otherwise we'd have to consider using word boundaries (\b, \<, [[:<:]]),
+    # but those are non portable.
+    LS_COLORS=":$LS_COLORS:"; export LS_COLORS
+
     # Newer ls use "mh" to represent the color for multi hardlinked
     # files so handle the backwards incompatibility with "hl"
-#    if   dircolors | grep -F "mh=" >/dev/null; then
-#      hl_no_color="s/hl[^:]*:/mh=:/; s/mh[^:]*:/mh=:/"
-#    elif dircolors | grep -F "hl=" >/dev/null; then
-#      hl_no_color="s/mh[^:]*:/hl=:/; s/hl[^:]*:/hl=:/"
-#    fi
+    if   dircolors | grep -F ":mh=" >/dev/null; then
+      hl_no_color="s/:hl=[^:]*:/:mh=:/; s/:mh=[^:]*:/:mh=:/"
+    elif dircolors | grep -F "hl=" >/dev/null; then
+      hl_no_color="s/:mh=[^:]*:/:hl=:/; s/:hl=[^:]*:/:hl=:/"
+    fi
 
     # The extra quoting (wrapping in "") is required for
     # speed in bash where it inefficiently tries to glob
@@ -107,24 +113,18 @@ if [ "$color_when" ]; then
     # noticeably slow in directories with many files.
     eval "`
       echo LS_COLORS=\'\"$LS_COLORS\"\'\; |
-
       sed \"
         $hl_no_color
-        s/su[^:]*:/su=:/
-        s/sg[^:]*:/sg=:/
-        s/ow[^:]*:/ow=:/
-        s/st[^:]*:/st=:/
-        s/tw[^:]*:/tw=:/
-
-        s/ca[^:]*:/ca=:/
-
-        s/mi=[^:]\{1,\}:/mi=$LS_HLI:/
+        s/:su=[^:]*:/:su=:/
+        s/:sg=[^:]*:/:sg=:/
+        s/:ow=[^:]*:/:ow=:/
+        s/:st=[^:]*:/:st=:/
+        s/:tw=[^:]*:/:tw=:/
+        s/:ca=[^:]*:/:ca=:/
+        s/:mi=[^:]\{1,\}:/:mi=$LS_HLI:/
       \"
-
       echo 'export LS_COLORS'
     `"
-
-    echo $LS_COLORS > ~/.dotfiles/plugins/colors/LS_COLORS2
   fi
 fi
 # Get locale total string to match on
