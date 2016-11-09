@@ -13,8 +13,5 @@ elif [ ! -z "$STY" ]; then
     # For GNU screen
     :
 else
-    local num_clients="$(tmux lsc -t base -F '#{session_attached}' 2>/dev/null)"
-    if [[ $num_clients -le 0 ]]; then
-        tmux new -As base
-    fi
+    tmux new -As base
 fi
