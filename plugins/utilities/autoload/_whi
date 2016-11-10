@@ -1,0 +1,4 @@
+#compdef whi
+
+service=which
+_which "$@"
