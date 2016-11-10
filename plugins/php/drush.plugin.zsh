@@ -247,3 +247,16 @@ cddl-fast() {
   fi
 }
 
+# Fast version of drush site-set
+drush-site-set() {
+    local aliasname="$1"
+    local filename="${TMPDIR:-/tmp}/drush-env-${USER}/drush-drupal-site-$$"
+
+    mkdir -p ${filename:h}
+
+    if [[ -z $aliasname ]]; then
+        rm -f $filename
+    else
+        echo $aliasname > $filename
+    fi
+}
