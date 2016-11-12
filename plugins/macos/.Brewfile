@@ -54,7 +54,6 @@ cask 'skype'
 cask 'slack'
 cask 'sourcetree'
 cask 'sqlpro-studio'
-cask 'sshfs'
 cask 'steam'
 cask 'stremio'
 cask 'suspicious-package'
@@ -121,6 +120,7 @@ brew 'cocoapods'
 brew 'coreutils'
 brew 'cowsay'
 brew 'cscope'
+brew 'ctags'
 brew 'curl'
 brew 'dark-mode'
 brew 'dateutils'
@@ -219,7 +219,9 @@ brew 'no-more-secrets'
 brew 'node'
 brew 'oniguruma'
 brew 'openssl'
+brew 'openssl@1.1'
 brew 'p7zip'
+brew 'parallel'
 brew 'pcre'
 brew 'phantomjs'
 brew 'pidcat'
@@ -295,6 +297,9 @@ brew 'less'
 brew 'openssh'
 brew 'rsync'
 
+tap 'homebrew/fuse'
+brew 'sshfs'
+
 tap 'homebrew/nginx'
 
 tap 'homebrew/php'
@@ -313,17 +318,3 @@ tap 'homebrew/versions'
 
 tap 'rcmdnk/file'
 brew 'brew-file'
-
-# App Store applications
-#appstore '409203825 Numbers (4.0.5)'
-#appstore '409201541 Pages (6.0.5)'
-#appstore '866773894 Quiver (3.0.3)'
-#appstore '557168941 Tweetbot (2.4.4)'
-#appstore '497799835 Xcode (8.1)'
-
-# Other commands
-#mas 'Quiver (3.0.3)', id: 866773894
-#mas 'Tweetbot (2.4.4)', id: 557168941
-#mas 'Pages (6.0)', id: 409201541
-#mas 'Xcode (8.0)', id: 497799835
-#mas 'Numbers (4.0)', id: 409203825
