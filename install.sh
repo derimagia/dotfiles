@@ -65,4 +65,5 @@ print_status() {
 }
 
 # Install xterm-256color-italic.terminfo
-ink -t 2 -c blue "Installing xterm-256color italic terminfo" && { infocmp -1 xterm-256color ; echo "\tsitm=\\E[3m,\n\tritm=\\E[23m,"; } > $DOTFILES/plugins/terminal/etc/xterm-256color.terminfo && tic $DOTFILES/plugins/terminal/etc/xterm-256color.terminfo
+ink -t 2 -c blue "Installing xterm-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/xterm-256color.terminfo
+ink -t 2 -c blue "Installing screen-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/creen-256color.terminfos

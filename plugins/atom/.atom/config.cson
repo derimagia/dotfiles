@@ -33,9 +33,12 @@
       "tmp"
       "vendor"
     ]
+    openEmptyEditorOnStart: true
     packagesWithKeymapsDisabled: [
       "wordpress-suite"
     ]
+    projectHome: "~/dev/projects"
+    restorePreviousWindowsOnStart: false
     themes: [
       "seti-ui"
       "seti-syntax"
