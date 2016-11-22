@@ -23,17 +23,12 @@ while getopts c: opt; do
 done
 
 if [[ $color_mode == "auto" ]]; then
-  if [[ -t 1 ]] && (($(tput colors))); then
-    color_mode=1
-  else
-    color_mode=0
-  fi
+    if [[ -t 1 ]] && (($(tput colors))); then
+        color_mode=1
+    else
+        color_mode=0
+    fi
 fi
-
-
-function boxes_enabled() {
-    (( $+commands[boxes] ))
-}
 
 function color_enabled() {
     return !$color_mode
@@ -41,21 +36,17 @@ function color_enabled() {
 
 function process_highlight() {
     if color_enabled; then
-      highlight -O ansi $*
+        highlight -O ansi $*
     else
-      cat
+        cat
     fi
 }
 
 function process_output() {
     # @TODO: Look into better wrapping
+    print -l
     local width="$((( $COLS - 20 )))"
-
-    if boxes_enabled; then
-       fold -w $width -s | boxes -d simple -p a1 | process_highlight $*
-    else
-       process_highlight $*
-    fi
+    process_highlight $*
 }
 
 
@@ -90,6 +81,7 @@ found_commands=( ${(p)$(command which --all --skip-alias $inspect 2>/dev/null)} 
 if [[ -n $found_commands ]]; then
     matched_inspect=1
     hr ' ' '-' ' '
+
     local command_main_path=${:-=$found_command}
 
     print -l "${fg[blue]}Commands:${reset_color}"

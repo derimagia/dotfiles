@@ -15,6 +15,7 @@ path=(
     $HOMEBREW_PREFIX/sbin
     $HOMEBREW_PREFIX/bin
     $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
+    /usr/libexec
     $path
 )
 

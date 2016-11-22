@@ -3,7 +3,7 @@ regexp=(?:\s|^)(REPOSITORY|TAG|IMAGE ID|CREATED|SIZE)(?:\s|$)
 colours=default,underline
 =====
 # REPO, TAG
-regexp=^([a-z]+\/?[^\s]+)\s+([^\s]+)
+regexp=^([a-z]+\/?[^\s]+)\s+([^\s]+)\s+(\w+)
 colours=default,bold white,cyan,bold black
 =====
 # images without name
@@ -25,3 +25,7 @@ colours=yellow
 # Size 'G'
 regexp=\s\d*[\.,]?\d*\sGB?
 colours=red
+======
+# Date Ago
+regexp=(?:\s{2}|^)(?:\w+\s)+ago
+colours=cyan

@@ -1,4 +1,4 @@
-export MANPAGER='less -X'
+export MANPAGER='less -FX'
 export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
