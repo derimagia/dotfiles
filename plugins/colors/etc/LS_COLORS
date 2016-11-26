@@ -66,8 +66,10 @@ SOCK                  38;5;197
 STICKY                38;5;232;48;5;30
 STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 
-
 *LS_COLORS 48;5;89;38;5;197;1;3;4;7 # $self :-)
+
+# plain
+.txt                  38;1;37;1
 
 # windows
 *.msi                 38;5;039
@@ -75,6 +77,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 
 # documents
 *README               38;1;33;4;1
+*README.txt           38;1;33;4;1
 *TODO                 38;1;33;4;1
 *LICENSE              38;1;33;4;1
 *COPYING              38;1;33;4;1
@@ -91,9 +94,6 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 *history              38;1;33
 *Makefile             38;1;33;1
 *MANIFEST             38;1;33;1
-
-# plain
-.txt                  38;1;37;1
 
 # markup
 .etx                  38;1;33;4;1
@@ -118,6 +118,8 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 *Vagrantfile          38;1;32;1
 *Vagrantfile.local    38;1;32;1
 *Procfile             38;1;32;1
+*Gemfile              38;1;32;1
+*requirements.txt     38;1;32;1
 
 # binary
 .cbr                  38;1;36;1
@@ -246,7 +248,11 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .jsm                  38;1;34
 .jsp                  38;1;34
 .php                  38;1;34;1
-.rb                  38;1;34;1
+.module               38;1;34;1
+.inc                  38;1;34;1
+.test                 38;1;34;1
+.install              38;1;34;1
+.rb                   38;1;34;1
 .ctp                  38;1;34;1
 .twig                 38;1;34;1
 .vb                   38;1;34;1

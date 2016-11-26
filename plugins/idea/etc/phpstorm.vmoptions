@@ -3,3 +3,4 @@
 -XX:MaxPermSize=1024m
 -XX:ReservedCodeCacheSize=240m
 -XX:+UseCompressedOops
+-Dide.no.platform.update=true
