@@ -7,24 +7,30 @@ alias gup='gitup'
 
 # Open a module in idea
 dmod() {
-  clone -d $1 && idea .
+    clone -d $1 && idea .
 }
 
 # Clone using Drupal
 dclone() {
-  clone -d $1
+    clone -d $1
 }
 
 # Open dotfiles
 dopen() {
-  idea $DOTFILES
+    idea $DOTFILES
 }
 
 # Go to project folders
 c() {
-  if [ $# -eq 0 ]; then
-    cd $(ghq list --full-path | fzf-tmux)
-  else
-    cd $(ghq list --full-path | fgrep $1 | fzf-tmux --select-1)
-  fi
+    local gitlist=($(ghq list --full-path))
+    local projectfiles=($(command ls -1 $PROJECTS_DIR))
+    projectfiles=($PROJECTS_DIR/$projectfiles[@])
+
+    local fulllist=($gitlist $projectfiles)
+
+    if [ $# -eq 0 ]; then
+        cd $(print -l $fulllist | fzf-tmux)
+    else
+        cd $(print -l $fulllist | fgrep $1 | fzf-tmux --select-1)
+    fi
 }

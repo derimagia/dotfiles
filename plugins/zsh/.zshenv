@@ -4,3 +4,4 @@ export DOTFILES=$HOME/.dotfiles
 export SHELL_PLATFORM=${SHELL_PLATFORM:=${${OSTYPE//${:-*linux*}/linux}//${:-*darwin*}/macos}}
 
 export LOCATE_PATH=/var/db/locate.database
+export PROJECTS_DIR=$HOME/projects
