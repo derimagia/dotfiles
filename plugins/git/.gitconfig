@@ -67,6 +67,7 @@
 	untracked = cyan
 [diff]
 	compactionHeuristic = true
+	indentHeuristic = true
 [difftool "sourcetree"]
 	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
