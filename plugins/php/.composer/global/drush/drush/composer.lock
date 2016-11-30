@@ -296,18 +296,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "9e697cff37e30a2db529802da3e5f93dfac802f4"
+                "reference": "1c91f8b43b81fa78c9ce34df7e7f0708d70c2086"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/9e697cff37e30a2db529802da3e5f93dfac802f4",
-                "reference": "9e697cff37e30a2db529802da3e5f93dfac802f4",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/1c91f8b43b81fa78c9ce34df7e7f0708d70c2086",
+                "reference": "1c91f8b43b81fa78c9ce34df7e7f0708d70c2086",
                 "shasum": ""
             },
             "require": {
                 "consolidation/annotated-command": "~2",
-                "consolidation/output-formatters": "~2",
-                "consolidation/robo": "dev-master",
+                "consolidation/output-formatters": "~3",
+                "consolidation/robo": "~1",
                 "league/container": "~2",
                 "pear/console_table": "~1.3.0",
                 "php": ">=5.6.0",

@@ -726,37 +726,32 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/terminus.git",
-                "reference": "414d6dd5d8b065c4f1871b71446ef5b62e80c0e8"
+                "reference": "bf2246950f47a4fa3cf1f9960e2e0f0c162351d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/414d6dd5d8b065c4f1871b71446ef5b62e80c0e8",
-                "reference": "414d6dd5d8b065c4f1871b71446ef5b62e80c0e8",
+                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/bf2246950f47a4fa3cf1f9960e2e0f0c162351d5",
+                "reference": "bf2246950f47a4fa3cf1f9960e2e0f0c162351d5",
                 "shasum": ""
             },
             "require": {
-                "consolidation/robo": "^1.0.0-RC3",
+                "consolidation/robo": "^1.0.5",
                 "guzzlehttp/guzzle": "^6.2",
-                "katzgrau/klogger": "^1.2",
                 "php": ">=5.5.9",
                 "psy/psysh": "^0.7",
-                "ramsey/array_column": "^1.1",
-                "rmccue/requests": "^1.6",
                 "symfony/finder": "~2.7|^3.1",
                 "symfony/yaml": "~2.1|^3.1",
-                "twig/twig": "^1.0",
-                "vlucas/phpdotenv": "^2.3",
-                "wp-cli/php-cli-tools": "~0.11.1"
+                "vlucas/phpdotenv": "^2.4"
             },
             "require-dev": {
-                "behat/behat": "^3.1",
-                "php-vcr/php-vcr": "^1.2",
+                "behat/behat": "^3.2.2",
+                "php-vcr/php-vcr": "^1.3",
                 "php-vcr/phpunit-testlistener-vcr": "@stable",
                 "phpunit/phpcov": "^2.0",
                 "phpunit/phpunit": "^4.0",
                 "satooshi/php-coveralls": "^1.0",
                 "sebastian/phpcpd": "^2.0",
-                "squizlabs/php_codesniffer": "^2.0"
+                "squizlabs/php_codesniffer": "^2.7"
             },
             "bin": [
                 "bin/terminus.bat",
@@ -770,10 +765,6 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Terminus\\": [
-                        "php/",
-                        "php/Terminus/"
-                    ],
                     "Pantheon\\Terminus\\": "src/"
                 }
             },
@@ -790,7 +781,7 @@
                 "terminus",
                 "wordpress"
             ],
-            "time": "2016-11-04 20:20:49"
+            "time": "2016-11-29 19:09:08"
         },
         {
             "name": "phpdocumentor/reflection-common",

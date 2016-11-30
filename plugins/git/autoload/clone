@@ -34,9 +34,12 @@ fi
 
 ghq get $cloneopts $repo
 
+dir=$(ghq list -p $reponame)
+
 if (( $print )); then
-    ghq list -p $reponame
+    print $dir
 else
-    ghq look $reponame
+    cd "$dir"
 fi
+
 
