@@ -69,10 +69,10 @@
 	compactionHeuristic = true
 	indentHeuristic = true
 [difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/Meld.app/Contents/MacOS/Meld --diff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = /Applications/Meld.app/Contents/MacOS/Meld --auto-merge -o=\"$MERGED\" \"$LOCAL\" \"$BASE\" $REMOTE\"
 	trustExitCode = true
 	keepBackup = false
 # rewrites of repo paths

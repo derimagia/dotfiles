@@ -4,6 +4,7 @@ fi
 
 alias g="git"
 alias gup='gitup'
+alias diffg="git diff --color-words --no-index"
 
 # Open a module in idea
 dmod() {
