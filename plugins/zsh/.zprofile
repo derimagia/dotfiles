@@ -5,8 +5,6 @@ export PAGER='less'
 export LANG='en_US.UTF-8'
 export BROWSER=$PAGER
 
-bindkey -e
-
 if [[ -x /usr/libexec/path_helper ]]; then
     path=()
     manpath=()

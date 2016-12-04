@@ -29,6 +29,7 @@ autoload -Uz add-zsh-hook compinit zmv
 # Local
 [[ -f $HOME/.localrc ]] && source $HOME/.localrc
 
+bindkey -e
 
 # Load all files
 () {

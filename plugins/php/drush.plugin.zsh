@@ -1,90 +1,9 @@
-#
-# Example bash aliases to improve your Drush experience with bash.
-# Use `drush init` to copy this file to your home directory, rename and
-# customize it to suit, and source it from your ~/.bashrc file.
-#
-# Creates aliases to common Drush commands that work in a global context:
-#
-#       dr               - drush
-#       ddd              - drush drupal-directory
-#       dl               - drush pm-download
-#       ev               - drush php-eval
-#       sa               - drush site-alias
-#       sa               - drush site-alias --local-only (show local site aliases)
-#       st               - drush core-status
-#       use              - drush site-set
-#
-# Aliases for Drush commands that work on the current drupal site:
-#
-#       cc               - drush cache-clear
-#       cr               - drush cache-rebuild
-#       cca              - drush cache-clear all
-#       dis              - drush pm-disable
-#       en               - drush pm-enable
-#       i                - drush pm-info
-#       pml              - drush pm-list
-#       rf               - drush pm-refresh
-#       unin             - drush pm-uninstall
-#       up               - drush pm-update
-#       upc              - drush pm-updatecode
-#       updb             - drush updatedb
-#       q                - drush sql-query
-#
-# Provides several common shell commands to work better with Drush:
-#
-#       ddd @dev         - print the path to the root directory of @dev
-#       cdd @dev         - change the current working directory to @dev
-#       lsd @dev         - ls root folder of @dev
-#       lsd %files       - ls "files" directory of current site
-#       lsd @dev:%devel  - ls devel module directory in @dev
-#       @dev st          - drush @dev core-status
-#       dssh @live       - ssh to the remote server @live points at
-#       gitd @live pull  - run `git pull` on the drupal root of @live
-#
-# Drush site alias expansion is also done for the cpd command:
-#
-#       cpd -R @site1:%files @site2:%files
-#
-# Note that the 'cpd' alias only works for local sites.  Use
-# `drush rsync` or gitd` to move files between remote sites.
-#
-# Aliases are also possible for the following standard
-# commands. Uncomment their definitions below as desired.
-#
-#       cd                - cddl [*]
-#       ls                - lsd
-#       cp                - cpd
-#       ssh               - dssh
-#       git               - gitd
-#
-# These standard commands behave exactly the same as they always
-# do, unless a Drush site specification such as @dev or @live:%files
-# is used in one of the arguments.
-
 # Aliases for common Drush commands that work in a global context.
-alias dr='drush'
-alias ddd='drush drupal-directory'
-alias dl='drush pm-download'
 alias ev='drush php-eval'
-alias sa='drush site-alias'
-alias lsa='drush site-alias --local-only'
-alias st='drush core-status'
+alias lsa='drush site-alias'
 alias use='drush site-set'
-
-# Aliases for Drush commands that work on the current drupal site
-alias cc='drush cache-clear'
-alias cr='drush cache-rebuild'
-alias cca='drush cache-clear all'
-alias dis='drush pm-disable'
-alias en='drush pm-enable'
-alias pmi='drush pm-info'
-alias pml='drush pm-list'
-alias rf='drush pm-refresh'
-alias unin='drush pm-uninstall'
-alias up='drush pm-update'
-alias upc='drush pm-updatecode'
-alias updb='drush updatedb'
 alias q='drush sql-query'
+
 
 # Overrides for standard shell commands. Uncomment to enable.  Alias
 # cd='cdd' if you want to be able to use cd @remote to ssh to a
@@ -184,7 +103,11 @@ gitd() {
       )
     fi
   else
-    command git "$@"
+    if (( $+commands[hub] )); then
+        hub "$@"
+    else
+        command git "$@"
+    fi
   fi
 }
 

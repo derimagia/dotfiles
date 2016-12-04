@@ -137,3 +137,8 @@ watchfs() {
 
     sudo watchman-wait -m 0 $watchargs
 }
+
+lsofopen() {
+    local ignore=(Google Dropbox Slack Mail)
+    lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
+}

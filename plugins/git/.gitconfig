@@ -45,34 +45,24 @@
 	status = auto
 	branch = auto
 	ui = always
-[color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-[color "diff-highlight"]
-	oldNormal = green bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
 [color "branch"]
-	current = yellow reverse
 	local = yellow
-	remote = green
 [color "status"]
-	added = yellow
-	changed = green
 	untracked = cyan
 [diff]
 	compactionHeuristic = true
 	indentHeuristic = true
-[difftool "sourcetree"]
-	cmd = /Applications/Meld.app/Contents/MacOS/Meld --diff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Meld.app/Contents/MacOS/Meld --auto-merge -o=\"$MERGED\" \"$LOCAL\" \"$BASE\" $REMOTE\"
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = /Applications/Meld.app/Contents/MacOS/Meld \"$LOCAL\" \"$PWD/$REMOTE\"
+	trustExitCode = true
+[merge]
+	tool = meld
+	prompt = false
+[mergetool "meld"]
+	cmd = /Applications/Meld.app/Contents/MacOS/Meld -o=\"$MERGED\" \"$LOCAL\" \"$BASE\" $REMOTE\"
 	trustExitCode = true
 	keepBackup = false
 # rewrites of repo paths
@@ -98,7 +88,7 @@
 	rebase = true
 [ghq]
 	root = ~/dev/src
-	root = $GOPATH/src
+	root = ~/dev/go/src
 [rerere]
 	enabled = 1
 [merge]

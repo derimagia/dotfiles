@@ -1,4 +1,5 @@
 .htaccess
 auth.json
-vendor
-cache
+vendor/
+cache/
+global/
