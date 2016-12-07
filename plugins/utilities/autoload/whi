@@ -36,7 +36,7 @@ function color_enabled() {
 
 function process_highlight() {
     if color_enabled; then
-        highlight -O ansi $*
+        vimcat $*
     else
         cat
     fi
@@ -102,7 +102,7 @@ if [[ -n $found_commands ]]; then
         print -l "'${fg[green]}${command_path:a}${reset_color}' → '${fg[green]}${command_path:A}${reset_color}' ${fg[cyan]}($file_type_output - [$file_type])${reset_color}"
 
         if [[ -f $command_path ]] && [[ $file_type != "unknown" ]] && [[ $file_type != "binary" ]]; then
-            <$command_path | process_output -S bash
+            <$command_path | process_output
         fi
     done
 fi

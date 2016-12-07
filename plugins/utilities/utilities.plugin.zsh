@@ -12,7 +12,7 @@ alias v="vim"
 alias dk='desk .'
 alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
-alias ccat='ccat --bg=dark'
+alias ccat='vimcat'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
@@ -20,6 +20,10 @@ alias -g P='2>&1 | $PAGER'
 # Suffix Aliases
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
+alias -s yaml="ccat"
+alias -s yml="ccat"
+alias -s json="ccat"
+alias -s xml="ccat"
 alias -s py=python
 alias -s jar="java -jar"
 alias -s war="java -jar"
