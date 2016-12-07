@@ -101,7 +101,6 @@ tap homebrew/core
 brew aircrack-ng
 brew android-platform-tools
 brew ansible
-brew apktool
 brew asciidoc
 brew asciiquarium
 brew autoconf
@@ -114,7 +113,6 @@ brew binutils
 brew boost
 brew boxes
 brew cairo
-brew carthage
 brew cloc
 brew cmake
 brew cmatrix
@@ -126,7 +124,6 @@ brew ctags
 brew curl
 brew dateutils
 brew desk
-brew dex2jar
 brew diff-so-fancy
 brew docbook
 brew docbook-xsl
@@ -174,7 +171,6 @@ brew htop-osx
 brew httpie
 brew httpstat
 brew hub
-brew icdiff
 brew icu4c
 brew iftop
 brew imagemagick --with-webp
@@ -183,11 +179,9 @@ brew ipcalc
 brew isl
 brew jpeg
 brew jq
-brew keybase
 brew lame
 brew lastpass-cli --with-pinentry --with-doc
 brew libassuan
-brew libatomic_ops
 brew libevent
 brew libewf
 brew libffi
@@ -197,7 +191,6 @@ brew libmpc
 brew libpng
 brew libsass
 brew libssh2
-brew libtasn1
 brew libtiff
 brew libtool
 brew libxml2
@@ -216,7 +209,6 @@ brew mpfr
 brew mtr
 brew multitail
 brew mycli
-brew neofetch
 brew netcat
 brew ngrep
 brew nmap
@@ -243,7 +235,6 @@ brew pv
 brew python
 brew python3
 brew radare2
-brew rancher-compose
 brew ranger
 brew readline
 brew reattach-to-user-namespace --with-wrap-launchctl
@@ -251,7 +242,6 @@ brew redis
 brew renameutils
 brew ruby
 brew sassc
-brew screenfetch
 brew screenresolution
 brew sdl2
 brew sdl2_image
@@ -260,7 +250,6 @@ brew slackcat
 brew slurm
 brew socat
 brew spark
-brew sphinx-doc
 brew sqlite
 brew ssh-copy-id
 brew stormssh
@@ -277,7 +266,6 @@ brew tree
 brew unfs3
 brew unison
 brew unixodbc
-brew utf8proc
 brew v8
 brew vala
 brew valabind
