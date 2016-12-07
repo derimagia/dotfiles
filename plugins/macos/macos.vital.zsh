@@ -6,8 +6,8 @@ export HOMEBREW_BREWFILE=$DOTFILES/plugins/macos/.Brewfile
 
 # Add these in the vital file since we want them before our own paths
 fpath=(
-    $HOMEBREW_PREFIX/share/zsh/site-functions
     $HOMEBREW_PREFIX/share/zsh-completions
+    $HOMEBREW_PREFIX/share/zsh/site-functions
     $fpath
 )
 

@@ -1,3 +1,5 @@
+[[ $OSTYPE =~ darwin ]] || return
+
 if [[ -o login ]]; then
     if [ "$TERM" != "screen" -a "$ITERM_SHELL_INTEGRATION_INSTALLED" = "" ]; then
         export ITERM_SHELL_INTEGRATION_INSTALLED=Yes

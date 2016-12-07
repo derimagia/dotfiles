@@ -59,12 +59,19 @@
 	cmd = /Applications/Meld.app/Contents/MacOS/Meld \"$LOCAL\" \"$PWD/$REMOTE\"
 	trustExitCode = true
 [merge]
-	tool = meld
 	prompt = false
+	tool = meld
 [mergetool "meld"]
-	cmd = /Applications/Meld.app/Contents/MacOS/Meld -o=\"$MERGED\" \"$LOCAL\" \"$BASE\" $REMOTE\"
 	trustExitCode = true
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 	keepBackup = false
+# Sourcetree wants this set.
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 # rewrites of repo paths
 [url "git@github.com:"]
 	insteadOf = "gh:"

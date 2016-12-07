@@ -9,7 +9,6 @@ alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulato
 alias cask='brew cask'
 alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
-alias brew-bundle="brew bundle --global"
 
 # Quicklook
 ql() {

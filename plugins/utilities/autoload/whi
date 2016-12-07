@@ -36,7 +36,11 @@ function color_enabled() {
 
 function process_highlight() {
     if color_enabled; then
-        vimcat $*
+        if [[ -n $1 ]]; then
+            vimcat -c "set syntax=$1"
+        else
+            vimcat
+        fi
     else
         cat
     fi
@@ -63,7 +67,7 @@ if [[ -n $found_aliases ]]; then
     hr ' ' '-' ' '
 
     print -l "${fg[blue]}Aliases:${reset_color}"
-    print -- $found_aliases | process_output -S bash
+    print -- $found_aliases | process_output zsh
 fi
 
 found_functions=$(declare -f $inspect)
@@ -73,7 +77,7 @@ if [[ -n $found_functions ]]; then
     hr ' ' '-' ' '
 
     print -l "${fg[blue]}Functions:${reset_color}"
-    print -- $found_functions | process_output -S bash
+    print -- $found_functions | process_output zsh
 fi
 
 found_commands=( ${(p)$(command which --all --skip-alias $inspect 2>/dev/null)} )
@@ -93,7 +97,7 @@ if [[ -n $found_commands ]]; then
         case "$file_type_output" in
             *executable*) file_type="binary" ;| # default for executable right above text
             *text*) file_type="text" ;| # default for text
-            *"Bourne-Again shell"* | *"sh script"*) file_type="bash" ;;
+            *"Bourne-Again shell"* | *"sh script"*| *"shell script"*) file_type="bash" ;;
             *python*) file_type="python" ;;
             *ruby*) file_type="ruby" ;;
             *php*) file_type="php" ;;
@@ -104,6 +108,7 @@ if [[ -n $found_commands ]]; then
         if [[ -f $command_path ]] && [[ $file_type != "unknown" ]] && [[ $file_type != "binary" ]]; then
             <$command_path | process_output
         fi
+        print -l
     done
 fi
 
