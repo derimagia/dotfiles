@@ -67,6 +67,7 @@ cask totalfinder
 cask tower
 cask vagrant-manager
 cask vagrant
+cask vimr
 cask virtualbox
 cask visual-studio-code
 cask vlc
@@ -191,8 +192,11 @@ brew libmpc
 brew libpng
 brew libsass
 brew libssh2
+brew libtermkey
 brew libtiff
 brew libtool
+brew libuv
+brew libvterm
 brew libxml2
 brew libyaml
 brew livestreamer
@@ -206,6 +210,7 @@ brew miller
 brew mongodb
 brew moreutils --without-parallel
 brew mpfr
+brew msgpack
 brew mtr
 brew multitail
 brew mycli
@@ -264,6 +269,7 @@ brew tig
 brew tmux
 brew tree
 brew unfs3
+brew unibilium
 brew unison
 brew unixodbc
 brew v8
@@ -312,6 +318,9 @@ brew wp-cli
 tap homebrew/services
 
 tap homebrew/versions
+
+tap neovim/neovim
+brew neovim
 
 tap rcmdnk/file
 brew brew-file

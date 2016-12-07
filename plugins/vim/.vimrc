@@ -60,7 +60,10 @@ set showmatch           " show matching bracket
 " mouse with iterm2
 set ttyfast
 set mouse=a
-set ttymouse=xterm2
+
+if !has('nvim')
+    set ttymouse=xterm2
+endif
 
 
 
