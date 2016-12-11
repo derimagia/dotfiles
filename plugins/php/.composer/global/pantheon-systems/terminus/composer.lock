@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3ecde4088f215d545c4300857da2a49",
-    "content-hash": "f06629c3bc99b6ba6256e700d2cbcdeb",
+    "hash": "43249be23c66d9ca94510f005bf6ac6c",
+    "content-hash": "c9c621e1441801a0bb999cd94a91fd9a",
     "packages": [
         {
             "name": "consolidation/annotated-command",
@@ -722,36 +722,40 @@
         },
         {
             "name": "pantheon-systems/terminus",
-            "version": "dev-master",
+            "version": "0.13.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/terminus.git",
-                "reference": "bf2246950f47a4fa3cf1f9960e2e0f0c162351d5"
+                "reference": "a246d233d16fdb89b1cf7165dff8d218d418f698"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/bf2246950f47a4fa3cf1f9960e2e0f0c162351d5",
-                "reference": "bf2246950f47a4fa3cf1f9960e2e0f0c162351d5",
+                "url": "https://api.github.com/repos/pantheon-systems/terminus/zipball/a246d233d16fdb89b1cf7165dff8d218d418f698",
+                "reference": "a246d233d16fdb89b1cf7165dff8d218d418f698",
                 "shasum": ""
             },
             "require": {
-                "consolidation/robo": "^1.0.5",
                 "guzzlehttp/guzzle": "^6.2",
+                "katzgrau/klogger": "^1.2",
                 "php": ">=5.5.9",
                 "psy/psysh": "^0.7",
+                "ramsey/array_column": "^1.1",
+                "rmccue/requests": "^1.6",
                 "symfony/finder": "~2.7|^3.1",
                 "symfony/yaml": "~2.1|^3.1",
-                "vlucas/phpdotenv": "^2.4"
+                "twig/twig": "^1.0",
+                "vlucas/phpdotenv": "^2.3",
+                "wp-cli/php-cli-tools": "~0.11.1"
             },
             "require-dev": {
-                "behat/behat": "^3.2.2",
-                "php-vcr/php-vcr": "^1.3",
+                "behat/behat": "^3.1",
+                "php-vcr/php-vcr": "^1.2",
                 "php-vcr/phpunit-testlistener-vcr": "@stable",
                 "phpunit/phpcov": "^2.0",
                 "phpunit/phpunit": "^4.0",
                 "satooshi/php-coveralls": "^1.0",
                 "sebastian/phpcpd": "^2.0",
-                "squizlabs/php_codesniffer": "^2.7"
+                "squizlabs/php_codesniffer": "^2.0"
             },
             "bin": [
                 "bin/terminus.bat",
@@ -760,11 +764,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "0.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
+                    "Terminus\\": [
+                        "php/",
+                        "php/Terminus/"
+                    ],
                     "Pantheon\\Terminus\\": "src/"
                 }
             },
@@ -773,7 +781,7 @@
                 "MIT"
             ],
             "description": "A command line interface for Pantheon",
-            "homepage": "https://pantheon.io",
+            "homepage": "http://getpantheon.com",
             "keywords": [
                 "cli",
                 "drupal",
@@ -781,7 +789,7 @@
                 "terminus",
                 "wordpress"
             ],
-            "time": "2016-11-29 19:09:08"
+            "time": "2016-11-07 20:17:39"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2024,9 +2032,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pantheon-systems/terminus": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

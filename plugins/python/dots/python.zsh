@@ -18,6 +18,9 @@ pip install -U \
     doge \
     http-prompt
 
+pip3 install -U
+    git-repo
+
 pygmentspath=$(python -c "import pygments, inspect, os; print(os.path.dirname(os.path.abspath(inspect.getsourcefile(pygments))))")/styles
 if [[ ! -f "$pygmentspath/base16_oceanicnext_dark.py" ]]; then
   ink -l -c magenta -- "-- Adding Pygments Color"

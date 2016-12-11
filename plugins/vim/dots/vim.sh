@@ -26,7 +26,7 @@ fi
 # nvim
 ink -c green "Symlinking neovim files."
 
-mkdir ~/.config
+mkdir -p ~/.config
 [[ -d $HOME/.config/nvim ]] || ln -s $dot_path/.vim $HOME/.config/nvim
 [[ -f $HOME/.config/nvim/init.vim ]] || ln -s $dot_path/.vimrc $HOME/.config/nvim/init.vim
 

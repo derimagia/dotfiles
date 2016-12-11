@@ -103,11 +103,7 @@ gitd() {
       )
     fi
   else
-    if (( $+commands[hub] )); then
-        hub "$@"
-    else
-        command git "$@"
-    fi
+    command git "$@"
   fi
 }
 

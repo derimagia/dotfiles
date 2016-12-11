@@ -99,10 +99,8 @@ brew docker-compose-completion
 brew docker-machine-completion
 
 tap homebrew/core
-brew aircrack-ng
 brew android-platform-tools
 brew ansible
-brew asciidoc
 brew asciiquarium
 brew autoconf
 brew automake
@@ -131,7 +129,6 @@ brew docbook-xsl
 brew dockviz
 brew dos2unix
 brew doxygen
-brew emscripten
 brew fasd
 brew ffmpeg
 brew figlet
@@ -207,7 +204,6 @@ brew macvim --with-override-system-vim
 brew mariadb
 brew mas
 brew miller
-brew mongodb
 brew moreutils --without-parallel
 brew mpfr
 brew msgpack
@@ -260,7 +256,6 @@ brew ssh-copy-id
 brew stormssh
 brew stow
 brew surfraw
-brew swig
 brew syncthing
 brew syncthing-inotify
 brew textql
@@ -268,7 +263,6 @@ brew the_silver_searcher
 brew tig
 brew tmux
 brew tree
-brew unfs3
 brew unibilium
 brew unison
 brew unixodbc
@@ -288,8 +282,8 @@ brew xmlstarlet
 brew xvid
 brew xz
 brew yara
+brew yarn
 brew youtube-dl
-brew yuicompressor
 brew zsh
 brew zsh-completions
 
@@ -307,13 +301,9 @@ brew sshfs
 
 tap homebrew/php
 brew composer
-brew drupalconsole
-brew drush
 brew php71
 brew php71-redis
 brew php71-xdebug
-brew psysh
-brew wp-cli
 
 tap homebrew/services
 

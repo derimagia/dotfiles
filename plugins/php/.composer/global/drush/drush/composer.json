@@ -1,6 +1,6 @@
 {
     "minimum-stability": "dev",
     "require": {
-        "drush/drush": "dev-master"
+        "drush/drush": "^8.1.8"
     }
 }

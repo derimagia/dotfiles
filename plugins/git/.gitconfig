@@ -10,13 +10,8 @@
 
 	# Another diff option
 	df = diff --color-words
-
-	# Assume files
-	assume = update-index --assume-unchanged
-	unassume = update-index --no-assume-unchanged
-	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
-
+            
+	alias = !"command git alias"
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	gg = grep --break --heading --line-number
@@ -26,9 +21,6 @@
 
 	# Search all commits
 	grep-all = !"git rev-list --all | xargs git grep '$1'"
-
-	# Show Aliases
-	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
 
 	# Merging
 	ours = "!f() { git co --ours $@ && git add $@; }; f"

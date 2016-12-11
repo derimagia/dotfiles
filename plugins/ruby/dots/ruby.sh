@@ -4,5 +4,4 @@
 
 gem install \
     bundler \
-    compass \
     lolcat
