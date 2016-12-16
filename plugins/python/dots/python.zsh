@@ -18,7 +18,8 @@ pip install -U \
     doge \
     http-prompt
 
-pip3 install -U
+pip3 install -U \
+    pip
     git-repo
 
 pygmentspath=$(python -c "import pygments, inspect, os; print(os.path.dirname(os.path.abspath(inspect.getsourcefile(pygments))))")/styles
