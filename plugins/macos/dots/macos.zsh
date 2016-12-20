@@ -69,11 +69,11 @@ sudo systemsetup -setrestartfreeze on
 sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Menu bar: hide the Time Machine, Volume, and User icons
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-	defaults write "${domain}" dontAutoLoad -array \
-		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-		"/System/Library/CoreServices/Menu Extras/User.menu"
-done
+#for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+#	defaults write "${domain}" dontAutoLoad -array \
+#		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+#		"/System/Library/CoreServices/Menu Extras/User.menu"
+#done
 
 defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Displays.menu" \
@@ -526,7 +526,7 @@ CFPreferencesAppSynchronize "com.apple.Safari"
 ink -l -c green -- " Setting Spotlight Preferences"
 
 # Hide Spotlight tray-icon (and subsequent helper)
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.

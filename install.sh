@@ -2,9 +2,9 @@
 
 export DOTFILES=${DOTFILES-$HOME/.dotfiles/}
 
-UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
 # If Linux, try to determine specific distribution
-if [[ "$UNAME" == "linux" ]]; then
+if [[ "$OSTYPE" == "linux" ]]; then
     if [[ -f /etc/lsb-release ]]; then
         DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'// | tr "[:upper:]" "[:lower:]")
     fi
