@@ -1,6 +1,5 @@
 {
-    "minimum-stability": "dev",
+    "minimum-stability": "RC",
     "require": {
-        "pantheon-systems/terminus": "^0.13"
     }
 }

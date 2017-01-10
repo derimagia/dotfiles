@@ -1,14 +1,16 @@
 #!/usr/bin/env zsh
 
+local dot_file=($DOTFILES/plugins/**/dots/$subdot*(N.))
+local dot_name="${dot_file:t:r}"
+
 function print_status() {
     ink -l -c blue "$@"
 }
 
 function include_dot() {
   local subdot="$1"
-  local dot_file=($DOTFILES/plugins/**/dots/$subdot*(N.))
 
-  local dot_name="${dot_file:t:r}"
+
   if [[ -f $dot_file ]]; then
       ink -l -c blue "Running $dot_name dot"
 
@@ -26,6 +28,11 @@ function include_dot() {
 
   (( $+commands[hr] )) && hr ' ' '-=' ' '
 }
+
+if [[ $1 == "-l" ]] || [[ $1 == "--list" ]]; then
+    print -l ${dot_file:t:r}
+    return
+fi
 
 if [[ -n "$1" ]]; then
   # Just run the one dot we passed in

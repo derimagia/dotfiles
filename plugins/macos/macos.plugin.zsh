@@ -10,6 +10,15 @@ alias cask='brew cask'
 alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
 
+brew() {
+    command brew $@
+    case "$1" in
+        instal|install|reinstall|tap|pip|gem|rm|remove|uninstall|untap)
+            command brew file init -F bundle -y >/dev/null 2>&1 &!
+         ;;
+    esac
+}
+
 # Quicklook
 ql() {
   nullify qlmanage -p "$@"
