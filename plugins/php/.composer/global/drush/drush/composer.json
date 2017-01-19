@@ -1,6 +1,0 @@
-{
-    "minimum-stability": "dev",
-    "require": {
-        "drush/drush": "^8.1.8"
-    }
-}

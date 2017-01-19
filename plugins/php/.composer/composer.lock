@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "579f7e38310587a964eae669e536683e",
     "content-hash": "5799647f46df930c57d6232b92a2f0fb",
     "packages": [
         {
@@ -13,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/cgr.git",
-                "reference": "860d6aff55b15dfbae307a030c4d06cf69711486"
+                "reference": "d464b640fdfa2fcd300b5de4a3bb502ced727da6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/cgr/zipball/860d6aff55b15dfbae307a030c4d06cf69711486",
-                "reference": "860d6aff55b15dfbae307a030c4d06cf69711486",
+                "url": "https://api.github.com/repos/consolidation/cgr/zipball/d464b640fdfa2fcd300b5de4a3bb502ced727da6",
+                "reference": "d464b640fdfa2fcd300b5de4a3bb502ced727da6",
                 "shasum": ""
             },
             "require": {
@@ -58,20 +57,20 @@
                 "composer",
                 "package"
             ],
-            "time": "2016-10-21 15:07:02"
+            "time": "2016-12-28 03:49:53"
         },
         {
             "name": "hirak/prestissimo",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hirak/prestissimo.git",
-                "reference": "3a9facbf4e1130f81eacf5a16a256186a3047dff"
+                "reference": "abfc45c609b049c488f894251d2ea4a4e4bfa01e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hirak/prestissimo/zipball/3a9facbf4e1130f81eacf5a16a256186a3047dff",
-                "reference": "3a9facbf4e1130f81eacf5a16a256186a3047dff",
+                "url": "https://api.github.com/repos/hirak/prestissimo/zipball/abfc45c609b049c488f894251d2ea4a4e4bfa01e",
+                "reference": "abfc45c609b049c488f894251d2ea4a4e4bfa01e",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +108,7 @@
                 "parallel",
                 "speedup"
             ],
-            "time": "2016-07-21 23:47:17"
+            "time": "2016-11-24T11:22:00+00:00"
         }
     ],
     "packages-dev": [],
