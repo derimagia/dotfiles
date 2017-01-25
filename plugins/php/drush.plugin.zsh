@@ -13,7 +13,6 @@ alias cd='cddl-fast'
 alias ls='lsd --color=auto'
 alias cp='cpd'
 alias ssh='dssh'
-alias git='gitd'
 
 # We extend the cd command to allow convenient
 # shorthand notations, such as:
@@ -83,27 +82,6 @@ cdd() {
     fi
   else
     builtin cd "$s"
-  fi
-}
-
-# Allow `git @site gitcommand` as a shortcut for `cd @site; git gitcommand`.
-# Also works on remote sites, though.
-gitd() {
-  s="$1"
-  if [[ -n "$s" ]] && [[ ${s:0:1} == "@" ]] || [[ ${s:0:1} == "%" ]]; then
-    d="$(drush drupal-directory $s 2>/dev/null)"
-    rh="$(drush sa ${s%%:*} --fields=remote-host --format=list)"
-    if [[ -n "$rh" ]]; then
-      drush ${s%%:*} ssh "cd '$d' ; git ${@:2}"
-    else
-      echo cd "$d" \; git "${@:2}"
-      (
-        cd "$d"
-        command git "${@:2}"
-      )
-    fi
-  else
-    command git "$@"
   fi
 }
 
