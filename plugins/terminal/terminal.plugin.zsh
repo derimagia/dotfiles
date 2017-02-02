@@ -23,7 +23,7 @@ zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
 
 # Hook for desk activation
-[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"i
+[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
 
 # If we get more complicated than this much more, move it out to other plugins.
 # Having issues with tmux-server getting this variables
