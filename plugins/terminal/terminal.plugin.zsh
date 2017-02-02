@@ -23,8 +23,9 @@ zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
 
 # Hook for desk activation
-[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
+[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"i
 
 # If we get more complicated than this much more, move it out to other plugins.
-[[ -n "$PROJECT_PATH" ]] && cd $PROJECT_PATH
-[[ -n "$DRUSH_ALIAS" ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?
+# Having issues with tmux-server getting this variables
+# [[ -n "$PROJECT_PATH" ]] && cd $PROJECT_PATH
+# [[ -n "$DRUSH_ALIAS" ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?
