@@ -10524,7 +10524,7 @@
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
-	<true/>
+	<false/>
 	<key>DimOnlyText</key>
 	<true/>
 	<key>DisableFullscreenTransparency</key>
@@ -10532,6 +10532,8 @@
 	<key>DisableToolbar</key>
 	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
+	<key>EnableProxyIcon</key>
 	<true/>
 	<key>EnableRendezvous</key>
 	<true/>
@@ -10739,14 +10741,18 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>751 678 400 129 0 0 1920 1177 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>2570 445 620 392 1920 -54 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 136 599 459 0 0 1920 1177 </string>
+	<string>269 136 606 469 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>320 531 796 473 0 0 1920 1177 </string>
+	<string>-1426 312 937 464 -1920 -81 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2075 419 592 584 1920 -54 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 132 1130 677 0 0 1920 1177 </string>
+	<string>226 155 1130 677 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11676,7 +11682,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-02T17:34:05Z</date>
+	<date>2017-02-03T17:34:14Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -11686,7 +11692,7 @@
 	<key>Show Toolbelt</key>
 	<false/>
 	<key>ShowBookmarkName</key>
-	<false/>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowPaneTitles</key>
@@ -11755,7 +11761,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20170131-nightly</string>
+	<string>3.0.20170203-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

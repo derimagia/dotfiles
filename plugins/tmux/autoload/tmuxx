@@ -13,5 +13,5 @@ elif [ ! -z "$STY" ]; then
     # For GNU screen
     :
 else
-    tmux new -As base
+    tmux -CC new -As ${1:-base}
 fi

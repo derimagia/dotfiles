@@ -23,4 +23,12 @@ zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
 
 # Hook for desk activation
-[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
+if [[ -n "$DESK_ENV" ]]; then
+    source "$DESK_ENV"
+    if [[ -z $DESK_INIT ]]; then
+        # @TODO Make this only happen once, is there a better way to do this?
+        export DESK_INIT=1
+        [[ -n $PROJECT_PATH ]] && cd $PROJECT_PATH
+        [[ -n $DRUSH_ALIAS ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?ss
+    fi
+fi

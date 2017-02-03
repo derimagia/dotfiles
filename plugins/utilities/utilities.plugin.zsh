@@ -13,6 +13,7 @@ alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
 alias ccat='vimcat'
 alias mmv='noglob zmv -W'
+alias dk='desk .'
 
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
