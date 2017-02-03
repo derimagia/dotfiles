@@ -1,5 +1,8 @@
 # derimagia does dotfiles
 
+# Mac settings needed to transfer
+* Use Fn Keys as standard keys
+
 ## TODO
 
 * Add command to dump variable
