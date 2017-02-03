@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+desk .
+
+[[ -n "$PROJECT_PATH" ]] && cd $PROJECT_PATH
+[[ -n "$DRUSH_ALIAS" ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?

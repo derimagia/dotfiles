@@ -6,9 +6,9 @@ alias fs='stat -c "%s Bytes"' # File Size
 alias l='l -hpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic true';
+alias cddot="cd $DOTFILES"
 alias editvar='vared'
 alias v="vim"
-alias dk='desk .'
 alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
 alias ccat='vimcat'
@@ -24,7 +24,7 @@ alias -s yaml="ccat"
 alias -s yml="ccat"
 alias -s json="jq ."
 alias -s xml="ccat"
-alias -s py=python
+alias -s py="python"
 alias -s jar="java -jar"
 alias -s war="java -jar"
 
@@ -52,6 +52,7 @@ z() {
         cd "$directory"
     else
         ink -c red -t 2 'No Directory found'
+        return 1
     fi
 }
 
@@ -92,7 +93,12 @@ nullify() {
 }
 
 args() {
-    print $# $*
+    ink -c blue '$#'
+    print -l $#
+    ink -c blue '$*'
+    print -l $*
+    ink -c blue '$@'
+    print -l $@
 }
 
 manzsh() {
@@ -143,6 +149,7 @@ watchfs() {
 }
 
 lsofopen() {
-    local ignore=(Google Dropbox Slack Mail)
+    # 2BUA8C4S2 = 1password
+    local ignore=(Google Dropbox Slack Mail 2BUA8C4S2)
     lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
 }

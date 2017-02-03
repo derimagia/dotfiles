@@ -1,159 +1,53 @@
 # Aliases for common Drush commands that work in a global context.
 alias ev='drush php-eval'
 alias lsa='drush site-alias'
-alias use='drush site-set'
-alias q='drush sql-query'
+alias dq='drush sql-query'
 
+# Lets you cd into local sites (doesn't work with vagrant)
+cdd() {
+    local l="$1"
+    local first=${l:0:1}
 
-# Overrides for standard shell commands. Uncomment to enable.  Alias
-# cd='cdd' if you want to be able to use cd @remote to ssh to a
-# remote site.
+    if [[ -z $1 ]] || [[ $first != "@" && $first != "%" ]]; then
+        builtin cd $*
+        return
+    fi
 
-alias cd='cddl-fast'
-alias ls='lsd --color=auto'
-alias cp='cpd'
-alias ssh='dssh'
-
-# We extend the cd command to allow convenient
-# shorthand notations, such as:
-#   cd @site1
-#   cd %modules
-#   cd %devel
-#   cd @site2:%files
-# You must use 'cddl' instead of 'cd' if you are not using
-# the optional 'cd' alias from above.
-# This is the "local-only" version of the function;
-# see the cdd function, below, for an expanded implementation
-# that will ssh to the remote server when a remote site
-# specification is used.
-cddl() {
-  fastcddl "$1"
-  use @self
-}
-
-# Use this instead of 'cddl' if you have a very large number
-# of alias files, and the 'cddl' is getting too slow as a result.
-# This does not automatically set your prompt to the site that
-# you 'cd' to, as 'cddl' does.
-fastcddl() {
-  s="$1"
-  if [[ -z "$s" ]]; then
-    builtin cd
-  elif [[ "${s:0:1}" == "@" ]] || [[ "${s:0:1}" == "%" ]]; then
     d="$(drush drupal-directory $1 --local-only 2>/dev/null)"
     if [[ $? == 0 ]]; then
-      echo "cd $d";
-      builtin cd "$d";
+        builtin cd "$d";
+        return
+    fi
+
+    if drush site-alias $1 >/dev/null 2>&1; then
+	    echo "Cannot cd to remote site $s" >&2
     else
-      t="$(drush site-alias $1 >/dev/null 2>/dev/null)"
-      if [[ $? == 0 ]]; then
-        echo "Cannot cd to remote site $s"
-      else
-        echo "Cannot cd to $s"
-      fi
+	    echo "Cannot cd to $s" >&2
     fi
-  else
-    builtin cd "$s";
-  fi
 }
 
-# Works just like the `cddl` shell alias above, with one additional
-# feature: `cdd @remote-site` works like `ssh @remote-site`,
-# whereas cd above will fail unless the site alias is local.  If
-# you prefer this behavior, you can add `alias cd='cdd'` to your .bashrc
-cdd() {
-  s="$1"
-  if [[ -z "$s" ]]; then
-    builtin cd
-  elif [[ "${s:0:1}" == "@" ]] || [[ "${s:0:1}" == "%" ]]; then
-    d="$(drush drupal-directory $s 2>/dev/null)"
-    rh="$(drush sa ${s%%:*} --fields=remote-host --format=list)"
-    if [[ -z "$rh" ]]; then
-      echo "cd $d"
-      builtin cd "$d"
-    else
-      if [[ -n "$d" ]]; then
-        c="cd \"$d\" \; bash"
-        drush -s ${s%%:*} ssh --tty
-        drush ${s%%:*} ssh --tty
-      else
-        drush ssh ${s%%:*}
-      fi
-    fi
-  else
-    builtin cd "$s"
-  fi
-}
+# @TODO: This needs work. =/
+drush-site-set() {
+	local aliasname="$1"
+	local filename="${TMPDIR:-/tmp}/drush-env-${USER}/drush-drupal-site-$$"
 
-# Get a directory listing on @site or @site:%files, etc, for local or remote sites.
-lsd() {
-  p=()
-  r=
-  for a in "$@" ; do
-    if [[ ${a:0:1} == "@" ]] || [[ ${a:0:1} == "%" ]]; then
-      p=($p "$(drush drupal-directory $a 2>/dev/null)")
-      if [[ ${a:0:1} == "@" ]]; then
-        rh="$(drush sa ${a%:*} --fields=remote-host --format=list)"
-        if [[ -n "$rh" ]]; then
-          r=${a%:*}
-        fi
-      fi
-    elif [[ -n "$a" ]]; then
-      p=($p $a)
-    fi
-  done
-  if [[ -n "$r" ]]; then
-    drush $r ssh 'ls "${p[@]}"'
-  else
-    command ls "${p[@]}"
-  fi
-}
+	mkdir -p ${filename:h}
 
-# Copy files from or to @site or @site:%files, etc; local sites only.
-cpd() {
-  p=()
-  for a in "$@" ; do
-    if [[ ${a:0:1} == "@" ]] || [[ ${a:0:1} == "%" ]]; then
-      p=($p "$(drush drupal-directory $a --local-only 2>/dev/null)")
-    elif [[ -n "$a" ]]; then
-      p=($p $a)
-    fi
-  done
-  command cp "${p[@]}"
+	if [[ -z $aliasname ]]; then
+		rm -f $filename
+	else
+		echo $aliasname > $filename
+	fi
 }
 
 # This alias allows `dssh @site` to work like `drush @site ssh`.
 # Ssh commands, such as `dssh @site ls /tmp`, are also supported.
 dssh() {
-  d="$1"
-  if [[ ${d:0:1} == "@" ]]
-  then
-    drush "$d" ssh "${@:2}"
-  else
-    command ssh "$@"
-  fi
-}
-
-cddl-fast() {
-  local l="$1"
-  local location=${l:0:1}
-  if [[ $first == "@" ]] || [[ $first == "%" ]]; then
-    cddl $*
-  else
-    builtin cd $*
-  fi
-}
-
-# Fast version of drush site-set
-drush-site-set() {
-    local aliasname="$1"
-    local filename="${TMPDIR:-/tmp}/drush-env-${USER}/drush-drupal-site-$$"
-
-    mkdir -p ${filename:h}
-
-    if [[ -z $aliasname ]]; then
-        rm -f $filename
-    else
-        echo $aliasname > $filename
+    d="$1"
+    if [[ ${d:0:1} == "@" ]]; then
+	   drush "$d" ssh "${@:2}"
+	   return
     fi
+
+    command ssh "$@"
 }

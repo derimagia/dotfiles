@@ -1,4 +1,5 @@
 alias i="idea"
+alias doti="i $DOTFILES"
 
 # Edit
 idea() {
@@ -7,9 +8,4 @@ idea() {
         openpath="$PWD"
     fi
     command idea $openpath
-}
-
-
-doti() {
-    i ~/.dotfiles
 }

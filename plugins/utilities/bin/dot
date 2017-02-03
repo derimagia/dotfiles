@@ -47,10 +47,10 @@ fi
 # include_dot macos "Running MacOS Defaults dot..."
 
 # Install homebrew packages
-include_dot homebrew
+[[ $OSTYPE =~ darwin ]] && include_dot homebrew
 
 # Linix Packages, right now only ubuntu..
-include_dot ubuntu
+[[ $OSTYPE =~ linux ]] && include_dot ubuntu
 
 # Install python packages
 include_dot python
