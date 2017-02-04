@@ -16,11 +16,6 @@ brew file update --preupdate -C
 ink -l -c green -- "-- Installing/Upgrading Casks"
 brew file cask_upgrade -C
 
-ink -l -c green -- "-- Updating Brewfile"
-brew file init -F bundle -y
-
-
-
 gnufiles=(
     $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*
 )
