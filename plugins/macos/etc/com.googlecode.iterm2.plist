@@ -10742,17 +10742,17 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>751 678 400 129 0 0 1920 1177 </string>
+	<string>2680 642 400 129 1920 -54 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>2570 445 620 392 1920 -54 1920 1057 </string>
+	<string>2570 444 620 392 1920 -54 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 136 606 469 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1426 312 937 464 -1920 -81 1920 1057 </string>
+	<string>495 578 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>2075 419 592 584 1920 -54 1920 1057 </string>
+	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 155 1130 677 0 0 1920 1177 </string>
+	<string>490 166 1130 677 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11609,7 +11609,7 @@
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>503890031.947164</real>
 	<key>OnlyWhenMoreTabs</key>
-	<true/>
+	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
@@ -11660,7 +11660,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/mg-mc-dwikoff/.dotfiles/plugins/macos/etc</string>
+	<string>/Users/dave/.dotfiles/plugins/macos/etc</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -11678,11 +11678,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/nightly.xml?shard=52</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=52</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-03T17:34:14Z</date>
+	<date>2017-02-10T15:21:57Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -11722,7 +11722,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<true/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1486057344</real>
+	<real>1486514176</real>
 	<key>URLHandlersByGuid</key>
 	<dict>
 		<key>ssh</key>
@@ -11761,7 +11761,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20170203-nightly</string>
+	<string>3.0.14</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

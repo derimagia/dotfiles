@@ -19,7 +19,7 @@ pip install -U \
     http-prompt
 
 pip3 install -U \
-    pip
+    pip \
     git-repo
 
 pygmentspath=$(python -c "import pygments, inspect, os; print(os.path.dirname(os.path.abspath(inspect.getsourcefile(pygments))))")/styles

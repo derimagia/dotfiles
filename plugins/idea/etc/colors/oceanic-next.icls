@@ -1,9 +1,9 @@
 <scheme name="Oceanic Next" version="142" parent_scheme="Darcula">
-  <option name="FONT_SCALE" value="1.0" />
   <option name="LINE_SPACING" value="1.4" />
   <option name="EDITOR_FONT_SIZE" value="14" />
   <option name="CONSOLE_FONT_NAME" value="Fira Code" />
   <option name="CONSOLE_FONT_SIZE" value="12" />
+  <option name="CONSOLE_LIGATURES" value="true" />
   <option name="EDITOR_FONT_NAME" value="Fira Code" />
   <colors>
     <option name="ADDED_LINES_COLOR" value="343d46" />
@@ -227,7 +227,7 @@
     </option>
     <option name="CUSTOM_STRING_ATTRIBUTES" baseAttributes="DEFAULT_STRING" />
     <option name="CUSTOM_VALID_STRING_ESCAPE_ATTRIBUTES" baseAttributes="DEFAULT_VALID_STRING_ESCAPE" />
-    <option name="Class" baseAttributes="CLASS_NAME_ATTRIBUTES" />
+    <option name="Class" baseAttributes="DEFAULT_CLASS_REFERENCE" />
     <option name="Clojure Atom">
       <value>
         <option name="FOREGROUND" value="c594c5" />
@@ -2969,7 +2969,6 @@
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.FOOTNOTE" baseAttributes="DEFAULT_BRACKETS" />
     <option name="MARKDOWN_NAVIGATOR.HEADER_TEXT">
       <value>
         <option name="FOREGROUND" value="6699cc" />
@@ -5442,7 +5441,6 @@
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.HTML_BLOCK" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR" />
     <option name="MARKDOWN_NAVIGATOR.HTML_ENTITY_ABBREVIATED_TEXT">
       <value>
         <option name="FOREGROUND" value="f99157" />
@@ -5721,7 +5719,6 @@
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.LINE_BREAK_SPACES" baseAttributes="DEFAULT_INVALID_STRING_ESCAPE" />
     <option name="MARKDOWN_NAVIGATOR.ORDERED_LIST">
       <value>
         <option name="FOREGROUND" value="ec5f67" />
@@ -5801,7 +5798,6 @@
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.REFERENCE" baseAttributes="MARKDOWN_NAVIGATOR.FOOTNOTE" />
     <option name="MARKDOWN_NAVIGATOR.REFERENCE_IMAGE">
       <value>
         <option name="FOREGROUND" value="6699cc" />
@@ -19960,7 +19956,6 @@
         <option name="FONT_TYPE" value="1" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.VERBATIM" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR" />
     <option name="MARKDOWN_NAVIGATOR.WIKI_LINK">
       <value>
         <option name="FOREGROUND" value="c594c5" />
@@ -19984,7 +19979,6 @@
         <option name="FONT_TYPE" value="1" />
       </value>
     </option>
-    <option name="MARKDOWN_NAVIGATOR.WIKI_LINK_TEXT" baseAttributes="MARKDOWN_NAVIGATOR.WIKI_LINK_REF" />
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="fac863" />
@@ -20209,7 +20203,7 @@
     <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING" />
     <option name="REGEXP.BRACES" baseAttributes="DEFAULT_BRACES" />
     <option name="REGEXP.BRACKETS" baseAttributes="DEFAULT_BRACKETS" />
-    <option name="REGEXP.CHAR_CLASS" baseAttributes="DEFAULT_ENTITY" />
+    <option name="REGEXP.CHAR_CLASS" baseAttributes="DEFAULT_VALID_STRING_ESCAPE" />
     <option name="REGEXP.ESC_CHARACTER" baseAttributes="DEFAULT_VALID_STRING_ESCAPE" />
     <option name="REGEXP.META" baseAttributes="DEFAULT_KEYWORD" />
     <option name="REGEXP.PARENTHS" baseAttributes="DEFAULT_PARENTHS" />

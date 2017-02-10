@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'junegunn/fzf.vim'
 Plug 'othree/yajs.vim'
+Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 call plug#end()
 
