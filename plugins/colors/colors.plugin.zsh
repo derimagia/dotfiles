@@ -19,7 +19,6 @@ if (( $+commands[grc] )); then
     alias ps='cl ps'
     alias php'cl php'
     alias dig='cl dig'
-    alias gas='cl gas'
     alias mount='cl mount'
     alias ld='cl ld'
     alias mtr='sudo grc -es --colour=auto mtr'

@@ -10,11 +10,11 @@ cd $DOTFILES
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
-ink -l -c green -- "-- Installing/Upgrading Brews"
-brew file update --preupdate -C
+ink -l -c green -- "-- Installing/Upgrading Brews from file"
+brew file -F bundle -C -- update
 
-ink -l -c green -- "-- Installing/Upgrading Casks"
-brew file cask_upgrade -C
+ink -l -c green -- "-- Upgrading Casks"
+brew file -F bundle -C -- cask_upgrade
 
 gnufiles=(
     $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*
