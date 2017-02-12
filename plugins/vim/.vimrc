@@ -62,6 +62,9 @@ set showmatch           " show matching bracket
 set ttyfast
 set mouse=a
 
+" bind w!! to "save with sudo" just in case 
+cmap w!! w !sudo tee > /dev/null %
+
 if !has('nvim')
     set ttymouse=xterm2
 endif
