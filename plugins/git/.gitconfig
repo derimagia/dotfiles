@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/dave/.gitignore
+	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	autocrlf = input
 	pager = diff-so-fancy | less -RFX
@@ -10,7 +10,7 @@
 
 	# Another diff option
 	df = diff --color-words
-            
+
 	alias = !"command git alias"
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -23,8 +23,8 @@
 	grep-all = !"git rev-list --all | xargs git grep '$1'"
 
 	# Merging
-	ours = "!f() { git co --ours $@ && git add $@; }; f"
-	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
 	# Shortcuts
 	br = branch
@@ -60,7 +60,7 @@
 # Sourcetree wants this set.
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
