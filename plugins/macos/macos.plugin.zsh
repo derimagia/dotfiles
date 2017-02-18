@@ -9,6 +9,7 @@ alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulato
 alias cask='brew cask'
 alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
 brew() {
     command brew $@
