@@ -1,6 +1,4 @@
 dsearch() {
-
-
     data=$(curl -s https://raw.githubusercontent.com/derimagia/drupalhound/master/data/project_module-7.x-released.txt)
     for arg in $*; do
         data=$(echo $data | grep "$arg")

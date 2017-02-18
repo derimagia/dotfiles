@@ -87,9 +87,6 @@ cask 'firefoxdeveloperedition'
 cask 'google-chrome-canary'
 cask 'iterm2-nightly'
 
-tap 'homebrew/boneyard'
-brew 'lftp'
-
 tap 'homebrew/bundle'
 
 tap 'homebrew/command-not-found'
@@ -184,11 +181,13 @@ brew 'jpeg'
 brew 'jq'
 brew 'lame'
 brew 'lastpass-cli', args: ['with-pinentry']
+brew 'lftp'
 brew 'libassuan'
 brew 'libevent'
 brew 'libewf'
 brew 'libffi'
 brew 'libgpg-error'
+brew 'libidn'
 brew 'libmagic'
 brew 'libmpc'
 brew 'libpng'

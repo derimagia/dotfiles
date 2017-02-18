@@ -4,7 +4,7 @@
 DOTFILES=${DOTFILES-$HOME/.dotfiles/}
 
 # finds all .dotfiles in this folder
-excluded=($(git --git-dir=$DOTFILES/.git check-ignore *(D)) .git .gitignore .DS_Store .editorconfig)
+excluded=($(git --git-dir=$DOTFILES/.git check-ignore *(D)) .git .gitignore .DS_Store .editorconfig .Brewfile)
 excluded=($DOTFILES/**/$^excluded[@](N))
 
 dotfiles_all=($DOTFILES/plugins/*/.*)

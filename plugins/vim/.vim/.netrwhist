@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/dave'
-let g:netrw_dirhist_2='/Users/dave/.dlv'
-let g:netrw_dirhist_3='/Users/dave/.dotfiles/.vim/plugged'
-let g:netrw_dirhist_4='/Users/dave/.dotfiles/plugins/terminal'
-let g:netrw_dirhist_5='/usr/local/Cellar/php71/7.1.0-beta.1_2/php'

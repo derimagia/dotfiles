@@ -66,4 +66,4 @@ print_status() {
 
 # Install xterm-256color-italic.terminfo
 ink -t 2 -c blue "Installing xterm-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/xterm-256color.terminfo
-ink -t 2 -c blue "Installing screen-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/creen-256color.terminfos
+ink -t 2 -c blue "Installing screen-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/screen-256color.terminfo

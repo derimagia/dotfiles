@@ -2,7 +2,8 @@
 
 dot_path=$(realpath "$(dirname $0)/../")
 
-vim +PlugInstall +qall
+
+[[ -f ~/.vim/autoload/plug.vim ]] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 if [[ $OSTYPE =~ darwin ]]; then
   function download_font() {
@@ -26,12 +27,11 @@ fi
 # nvim
 ink -c green "Symlinking neovim files."
 
-# mkdir -p ~/.config
-# [[ -d $HOME/.config/nvim ]] || ln -s $dot_path/.vim $HOME/.config/nvim
-# [[ -f $HOME/.config/nvim/init.vim ]] || ln -s $dot_path/.vimrc $HOME/.config/nvim/init.vim
+mkdir -p ~/.config
+[[ -d ~/.config/nvim ]] || ln -s $dot_path/.vim ~/.config/nvim
+[[ -f ~/.config/nvim/init.vim ]] || ln -s $dot_path/.vimrc ~/.config/nvim/init.vim
 
-nvim +PlugInstall +qall
-
+vim +PlugInstall +qall
 
 
 

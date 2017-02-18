@@ -2,6 +2,7 @@
 alias ev='drush php-eval'
 alias lsa='drush site-alias'
 alias dq='drush sql-query'
+alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
 
 # Lets you cd into local sites (doesn't work with vagrant)
 cdd() {
