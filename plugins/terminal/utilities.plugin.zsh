@@ -180,3 +180,20 @@ dataurl() {
 	fi
 	echo "data:${mimeType};base64,$(base64 -w 0 "$1")"
 }
+
+# Reads a link until  can't anymore.
+readtrail () {
+    local the_path="$1"
+    [[ -L $the_path ]] || return
+
+    # If there's no link we're at the top
+    if [[ -z $the_link ]]; then
+        echo $the_path
+    fi
+
+    local the_link=${the_path:A}
+    if [[ "$the_path" != "$the_link" ]]; then
+        echo $the_link
+        readtrail $the_link
+    fi
+}
