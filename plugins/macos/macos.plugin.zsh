@@ -12,8 +12,13 @@ alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
+# brew that auto runs brew file
 brew() {
     command brew $@
+
+    # Shift one argument if it's cask
+    [[ $1 == "cask" ]] && shift
+
     case "$1" in
         instal|install|reinstall|tap|pip|gem|rm|remove|uninstall|untap)
             command brew file init -F bundle -y >/dev/null 2>&1 &!
@@ -21,64 +26,69 @@ brew() {
     esac
 }
 
-# Quicklook
+# quicklook
 ql() {
   nullify qlmanage -p "$@"
 }
 
+# dash
 dash() {
   open "dash://$*"
 }
 
-# Switches Java Home
+# switches Java Home
 jhome () {
-  export JAVA_HOME=`/usr/libexec/java_home $@`
-  echo "JAVA_HOME:" $JAVA_HOME
-  echo "java -version:"
-  java -version
+    export JAVA_HOME=`/usr/libexec/java_home $@`
+    echo "JAVA_HOME:" $JAVA_HOME
+    echo "java -version:"
+    java -version
 }
 
+# dash man
 mand() {
-  open "dash://manpages:$1" 2>/dev/null
+    open "dash://manpages:$1" 2>/dev/null
 }
 
-# Finder Directory
+# finder Directory
 osx-pfd() {
-  osascript 2>/dev/null <<EOF
-  tell application "Finder"
-    return POSIX path of (target of first window as text)
-  end tell
+    osascript 2>/dev/null <<EOF
+    tell application "Finder"
+        return POSIX path of (target of first window as text)
+    end tell
 EOF
 }
 
 # Finder Selection
 osx-pds() {
-  osascript 2>&1 <<EOF
-  tell application "Finder" to set the_selection to selection
-  if the_selection is not {}
-    repeat with an_item in the_selection
-      log POSIX path of (an_item as text)
-    end repeat
-  end if
+    osascript 2>&1 <<EOF
+    tell application "Finder" to set the_selection to selection
+    if the_selection is not {}
+        repeat with an_item in the_selection
+            log POSIX path of (an_item as text)
+        end repeat
+    end if
 EOF
 }
 
+# remove mac metadata from folder
 osx-rm-dir-metadata() {
-  find "${@:-$PWD}" \( \
-  -type f -name '.DS_Store' -o \
-  -type d -name '__MACOSX' \
-  \) -print0 | xargs -0 rm -rf
+    find "${@:-$PWD}" \( \
+    -type f -name '.DS_Store' -o \
+    -type d -name '__MACOSX' \
+    \) -print0 | xargs -0 rm -rf
 }
 
+# print download history
 osx-ls-download-history() {
-  local db
-  for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
-    if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then
-      sqlite3 "$db" 'SELECT LSQuarantineDataURLString FROM LSQuarantineEvent'
-    fi
-  done
+    local db
+    for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
+        if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then
+            sqlite3 "$db" 'SELECT LSQuarantineDataURLString FROM LSQuarantineEvent'
+        fi
+    done
 }
 
+# find all launchctl scripts
 osx-find-launchctl () {
     LaunchctlPATHS=( \
         ~/Library/LaunchAgents \
@@ -88,15 +98,9 @@ osx-find-launchctl () {
         /System/Library/LaunchDaemons \
     )
 
-    for curPATH in "${LaunchctlPATHS[@]}"
-    do
-        grep -r "$curPATH" -e "$1"
+    for curPATH in "${LaunchctlPATHS[@]}"; do
+        grep -i -r "$curPATH" -e "$1"
     done
-    return 0;
-}
-
-brew-dump() {
-    brew-bundle dump --force
 }
 
 if [[ -x "/usr/libexec/java_home" ]]; then
@@ -111,7 +115,6 @@ if [[ -x "/usr/libexec/java_home" ]]; then
         }
     }
 fi
-
 
 # Fix Help
 unalias run-help 2>/dev/null

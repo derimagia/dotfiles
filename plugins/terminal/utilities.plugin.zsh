@@ -1,9 +1,5 @@
 # Aliases
 alias fs='stat -c "%s Bytes"' # File Size
-
-# l script +
-# human readable dates, add "/" to directory, show almost all (aka not "." and "..)
-alias l='l -hpA'
 alias map="xargs -n1"
 alias dottime='time zsh -ic true';
 alias cddot="cd $DOTFILES"
@@ -15,6 +11,7 @@ alias ccat='vimcat'
 alias mmv='noglob zmv -W'
 alias dk='desk .'
 
+# Global Aliases
 alias -g G="| grep -i --"
 alias -g P='2>&1 | $PAGER'
 
@@ -57,6 +54,7 @@ z() {
     fi
 }
 
+# use fasd to select file
 f() {
     fasd -f "$1" | fzf-tmux --select-1 | awk '{print $2}'
 }
@@ -66,16 +64,19 @@ digga() {
     dig +nocmd "$1" any +multiline +noall +answer
 }
 
+# print out aliases and search using it
 aliases() {
     alias | grep -E ${1-.} | \
         ccat | \
         fzf-tmux
 }
 
+# get external ip
 ip() {
     dig +short myip.opendns.com @resolver1.opendns.com
 }
 
+# copy with progress
 cpp() {
     rsync -WavP --human-readable --progress $1 $2
 }
@@ -93,6 +94,7 @@ nullify() {
     "$@" >/dev/null 2>&1
 }
 
+# print out arguments for zsh
 args() {
     ink -c blue '$#'
     print -l $#
@@ -102,10 +104,12 @@ args() {
     print -l $@
 }
 
+# man zshbuiltins
 manzsh() {
   man zshbuiltins | less -XF -p "^ *$@"
 }
 
+# man a specific option
 manopt() {
   local program="$1"
   shift
@@ -121,7 +125,7 @@ escape() {
 	fi;
 }
 
-# Decode \x{ABCD}-style Unicode escape sequences
+# decode \x{ABCD}-style Unicode escape sequences
 unidecode() {
 	perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
 	# print a newline unless we’re piping the output to another program
@@ -130,7 +134,7 @@ unidecode() {
 	fi;
 }
 
-# Get a character’s Unicode code point
+# get a character’s Unicode code point
 codepoint() {
 	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
 	# print a newline unless we’re piping the output to another program
@@ -139,7 +143,7 @@ codepoint() {
 	fi;
 }
 
-# Watch and print out fs changes. Defaults to current directory
+# Wwatch and print out fs changes. Defaults to current directory
 watchfs() {
     watchargs=$*
     if [[ -z $watchargs ]]; then
@@ -149,14 +153,14 @@ watchfs() {
     sudo watchman-wait -m 0 $watchargs
 }
 
-# Print opened connections, filtered by known applications.
+# print opened connections, filtered by known applications.
 lsofopen() {
     # 2BUA8C4S2 = 1password
     local ignore=(Google Dropbox Slack Mail 2BUA8C4S2)
     lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
 }
 
-# Scan incoming traffic.
+# scan incoming traffic.
 sniff() {
 	local device='en0'
 	local port=80
@@ -171,7 +175,7 @@ sniff() {
 	sudo ngrep -d ${device} -t '^(GET|POST) ' "tcp and port ${port}"
 }
 
-# Create a data URL from a file
+# create a data URL from a file
 dataurl() {
 	local mimeType=`file -b --mime-type "$1"`
 
@@ -181,7 +185,7 @@ dataurl() {
 	echo "data:${mimeType};base64,$(base64 -w 0 "$1")"
 }
 
-# Reads a link until  can't anymore.
+# reads a link until  can't anymore.
 readtrail () {
     local the_path="$1"
     [[ -L $the_path ]] || return
