@@ -1,0 +1,4 @@
+#compdef app
+
+_path_files -/ -W /Applications
+_path_files -/ -W ~/Applications

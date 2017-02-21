@@ -7,6 +7,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'
+alias app='open -a'
 alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"

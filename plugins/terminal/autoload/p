@@ -1,0 +1,14 @@
+emulate zsh -L
+
+getopts c:i:p: opt
+
+shift $(( OPTIND - 1 ))
+
+LOCATION=${PROJECTS_DIR}/$1
+case "$opt" in
+    'a') atom $LOCATION;;
+    'c') code $LOCATION;;
+    'i') idea $LOCATION;;
+    'p') echo $LOCATION;;
+       *) cd $LOCATION;;
+esac

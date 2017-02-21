@@ -1,0 +1,8 @@
+#compdef p
+
+_arguments '-i[Open in IntelliJ]' \
+            '-i[Open in Code]' \
+            '-a[Open in Atom]' \
+            '-e[Echo file]'
+
+_path_files -/ -W $PROJECTS_DIR
