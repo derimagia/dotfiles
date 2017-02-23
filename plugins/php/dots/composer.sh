@@ -2,7 +2,9 @@
 
 composer global update
 
-(( $+commands[cgr] )) || composer global require hirak/cgr
+composer global config minimum-stability dev
+
+(( $+commands[cgr] )) || composer global require consolidation/cgr
 
 composer global require hirak/prestissimo
 
