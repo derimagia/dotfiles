@@ -162,27 +162,27 @@ lsofopen() {
 
 # scan incoming traffic.
 sniff() {
-	local device='en0'
-	local port=80
+    local device='en0'
+    local port=80
 
-	case "$#" in
-		1) device="$1";;
-		2) device="$1"
-		   port="$2";;
-		*) ;;
-	esac
+    case "$#" in
+        1) device="$1";;
+        2) device="$1"
+           port="$2";;
+        *) ;;
+    esac
 
-	sudo ngrep -d ${device} -t '^(GET|POST) ' "tcp and port ${port}"
+    sudo ngrep -d ${device} -t '^(GET|POST) ' "tcp and port ${port}"
 }
 
 # create a data URL from a file
 dataurl() {
-	local mimeType=`file -b --mime-type "$1"`
+    local mimeType=`file -b --mime-type "$1"`
 
-	if [[ $mimeType == text/* ]]; then
-		mimeType="${mimeType};charset=utf-8"
-	fi
-	echo "data:${mimeType};base64,$(base64 -w 0 "$1")"
+    if [[ $mimeType == text/* ]]; then
+        mimeType="${mimeType};charset=utf-8"
+    fi
+    echo "data:${mimeType};base64,$(base64 -w 0 "$1")"
 }
 
 # reads a link until  can't anymore.
