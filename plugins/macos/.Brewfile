@@ -327,6 +327,7 @@ tap 'rcmdnk/file'
 brew 'brew-file'
 
 # App Store applications
+#appstore '409183694 Keynote (7.0.5)'
 #appstore '409203825 Numbers (4.0.5)'
 #appstore '409201541 Pages (6.0.5)'
 #appstore '866773894 Quiver (3.0.3)'
