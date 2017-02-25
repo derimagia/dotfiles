@@ -87,7 +87,7 @@ cask 'font-source-code-pro'
 tap 'caskroom/versions'
 cask 'firefoxdeveloperedition'
 cask 'google-chrome-canary'
-cask 'iterm2-nightly'
+cask 'iterm2-beta'
 
 tap 'homebrew/bundle'
 
@@ -327,6 +327,9 @@ tap 'rcmdnk/file'
 brew 'brew-file'
 
 # App Store applications
+#appstore '682658836 GarageBand (10.1.6)'
+#appstore '408981434 iMovie (10.1.4)'
+#appstore '409183694 Keynote (7.0.5)'
 #appstore '409183694 Keynote (7.0.5)'
 #appstore '409203825 Numbers (4.0.5)'
 #appstore '409201541 Pages (6.0.5)'
