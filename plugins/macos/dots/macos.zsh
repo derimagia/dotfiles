@@ -719,6 +719,8 @@ CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
 # ==============================================
 # Karabiner
 # ==============================================
+ink -l -c green -- " Setting Karabiner Preferences"
+
 local karabiner_cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 if [[ -x karabiner_cli ]]; then
     ink -l -c green -- " Setting Karabiner Preferences"
@@ -731,6 +733,15 @@ if [[ ! -f ~/Library/Fonts/FuraMono-Regular.otf ]]; then
   wget -O ~/Library/Fonts/FuraMono-Regular.otf \
     'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20for%20Powerline%20Nerd%20Font%20Complete.otf'
 fi
+
+
+# ==============================================
+# ForkLift
+# ==============================================
+ink -l -c green -- " Setting Forklift Preferences"
+
+# Set as default reader
+defaults write -g NSFileViewer -string com.binarynights.ForkLift-3
 
 # ==============================================
 # Kill affected applications
