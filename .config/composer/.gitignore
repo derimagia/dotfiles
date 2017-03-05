@@ -1,0 +1,5 @@
+.htaccess
+auth.json
+vendor/
+cache/
+global/

@@ -3,7 +3,7 @@ if [[ -z "$TERM" ]]; then
 fi
 
 # History
-HISTFILE="$HOME/.zhistory"
+HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 

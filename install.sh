@@ -52,6 +52,9 @@ elif [[ $OSTYPE == 'darwin' ]]; then
 
     finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
+    #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
+    echo 'export ZDOTDIR="$HOME/.config/zsh"' >> sudo tee /etc/zshenv
+
     exec $HOMEBREW_PREFIX/bin/zsh
     # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
 fi
@@ -63,7 +66,3 @@ print_error() {
 print_status() {
     ink -l -c blue "$@"
 }
-
-# Install xterm-256color-italic.terminfo
-ink -t 2 -c blue "Installing xterm-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/xterm-256color.terminfo
-ink -t 2 -c blue "Installing screen-256color terminfo" && tic $DOTFILES/plugins/terminal/etc/screen-256color.terminfo

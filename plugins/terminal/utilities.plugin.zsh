@@ -5,11 +5,18 @@ alias dottime='time zsh -ic true';
 alias cddot="cd $DOTFILES"
 alias editvar='vared'
 alias v="vim"
+alias vim="nvim"
 alias ffs='sudo $(fc -ln -1)'
 alias ag='ag -f --hidden'
 alias ccat='vimcat'
 alias mmv='noglob zmv -W'
 alias dk='desk .'
+alias s='find . -iname'
+
+# Tmux
+alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias ta='tmux attach -d'
+alias tnew='tmux new -s'
 
 # Global Aliases
 alias -g G="| grep -i --"

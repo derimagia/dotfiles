@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 emulate -L zsh
 autoload -Uz colors && colors
 
@@ -80,7 +81,7 @@ if [[ -n $found_functions ]]; then
     print -- $found_functions | process_output zsh
 fi
 
-found_commands=( ${(p)$(command which --all --skip-alias $inspect 2>/dev/null)} )
+found_commands=( ${(p)$(command which $inspect --all --skip-alias 2>/dev/null)} )
 
 if [[ -n $found_commands ]]; then
     matched_inspect=1
