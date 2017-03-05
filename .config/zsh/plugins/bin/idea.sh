@@ -3,9 +3,9 @@
 [[ $OSTYPE =~ darwin ]] || exit 34
 
 # Actual Source Files/Folders
-source_files=($DOTFILES/plugins/idea/etc/*)
+source_files=($XDG_CONFIG_HOME/idea/colors)
 
-for idea_pref_folder in ~/Library/Preferences/{IntelliJ,PhpStorm,PyCharm,DataGrip}*(N); do
+for idea_pref_folder in ~/Library/Preferences/{IntelliJ,PhpStorm,RubyMine,PyCharm,DataGrip}*(N); do
     symlink-files "$source_files" "$idea_pref_folder"
     clean-symlinks "$idea_pref_folder"
 done

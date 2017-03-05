@@ -23,6 +23,36 @@ CFPreferencesAppSynchronize('$1')
 END
 }
 
+# ==============================================
+# environment.plist
+# ==============================================
+ink -l -c green -- " Setting up environment.plist"
+
+local environment_plist=~/Library/LaunchAgents/environment.plist
+cat > $environment_plist <<-AGENT
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>environment.plist</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>sh</string>
+    <string>-c</string>
+    <string>
+    launchctl setenv XDG_CONFIG_HOME "$XDG_CONFIG_HOME"
+    launchctl setenv XDG_DATA_HOME "$XDG_DATA_HOME"
+    launchctl setenv XDG_CACHE_HOME "$XDG_CACHE_HOME"
+    </string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
+AGENT
+launchctl unload $environment_plist
+launchctl load $environment_plist
 
 # ==============================================
 # Global and NSGlobalDomain

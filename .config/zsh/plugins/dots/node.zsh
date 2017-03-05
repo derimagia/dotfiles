@@ -17,6 +17,7 @@ npm install -g \
     speed-test \
     spoof \
     ctrace \
+    git-open \
     babel-cli
 
 

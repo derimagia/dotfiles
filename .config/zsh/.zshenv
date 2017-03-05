@@ -1,21 +1,18 @@
 # See https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
 
-export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 if [[ $OSTYPE =~ darwin ]]; then
   export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/Library/Caches}
   export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/Library}
 else
-  export XDG_CACHE_HOME=$HOME/.cache
-  export XDG_DATA_HOME=$HOME/.local/share
+  export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+  export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 fi
 
-# Set paths for third party apps that don't set it automatically.
-# COMPOSER_HOME for example, doesn't need to be set.
 export ANDROID_SDK_HOME="$XDG_DATA_HOME/android"
 export ADB_VENDOR_KEYS="$ANDROID_SDK_HOME/.android"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
-export ATOM_HOME="$XDG_CONFIG_HOME/.atom"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_CREDENTIAL_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"

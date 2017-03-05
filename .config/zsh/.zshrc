@@ -19,7 +19,7 @@ setopt \
 autoload -Uz add-zsh-hook compinit zmv
 
 # Local
-[[ -f $ZDOTHOME/.zlocalrc ]] && source $ZDOTHOME/.zlocalrc
+[[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
 
 bindkey -e
 
@@ -27,12 +27,12 @@ bindkey -e
 () {
     local plugin_file plugin_files autoload_files
     plugin_files=(
-        $DOTFILES/plugins/**/*.vital.zsh
-        $DOTFILES/plugins/**/*.plugin.zsh
+        $ZDOTDIR/plugins/*.vital.zsh
+        $ZDOTDIR/plugins/*.plugin.zsh
     )
 
     # Autoload files
-    autoload_files=($DOTFILES/plugins/**/autoload/*)
+    autoload_files=($ZDOTDIR/plugins/autoload/*)
 
     for plugin_file in $plugin_files; do
         source $plugin_file
@@ -41,28 +41,28 @@ bindkey -e
     fpath=($autoload_files:h $fpath) && autoload -Uz ${autoload_files:t}
 
     # Add bin to path
-    local plugin_binary_paths=($DOTFILES/plugins/**/bin/(N))
+    local plugin_binary_paths=($ZDOTDIR/plugins/bin/(N))
     path=(
         ${plugin_binary_paths%/}
         $path
     )
 
-    compinit -C -d "$TMPPREFIX/zcompdump"
-    zcompile "$TMPPREFIX/zcompdump" &!
-
     # Post Plugin is done after compinit.
     plugin_files=(
-        $DOTFILES/plugins/**/*.post-plugin.zsh
+        $ZDOTDIR/plugins/*.post-plugin.zsh
     )
 
     for plugin_file in $plugin_files; do
         source $plugin_file
     done
+
+    compinit -C -d "$TMPPREFIX/zcompdump"
+    zcompile "$TMPPREFIX/zcompdump" &!
 }
 
 # Clean dead files, hopefully this can eventually be removed.
 {
-   cd $HOME && rm -rf .ansibe .ansible_galaxy .gitignore_global .hgignore_global .DS_Store
+   cd $HOME && rm -rf .ansibe .ansible_galaxy .gitignore_global .hgignore_global .DS_Store .bash_history
 }&!
 
 #zprof | less

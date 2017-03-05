@@ -6,7 +6,7 @@ function print_status() {
 
 function include_dot() {
   local subdot="$1"
-  local dot_file=($DOTFILES/plugins/**/dots/$subdot*(N.))
+  local dot_file=($ZDOTDIR/plugins/dots/$subdot*(N.))
   local dot_name="${dot_file:t:r}"
 
 
@@ -29,7 +29,7 @@ function include_dot() {
 }
 
 if [[ $1 == "-l" ]] || [[ $1 == "--list" ]]; then
-    local dot_files=($DOTFILES/plugins/**/dots/*(N.))
+    local dot_files=($ZDOTDIR/plugins/dots/*(N.))
     print -l ${dot_files:t:r}
     return
 fi
