@@ -53,7 +53,7 @@ elif [[ $OSTYPE == 'darwin' ]]; then
     finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
     #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-    echo 'export ZDOTDIR="$HOME/.config/zsh"' >> sudo tee /etc/zshenv
+    echo 'export ZDOTDIR="$HOME/.config/zsh"' | sudo tee /etc/zshenv
 
     exec $HOMEBREW_PREFIX/bin/zsh
     # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock

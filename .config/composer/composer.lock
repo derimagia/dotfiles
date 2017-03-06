@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5799647f46df930c57d6232b92a2f0fb",
+    "content-hash": "da963981bcb237b66d9edf02b18a2fde",
     "packages": [
         {
             "name": "consolidation/cgr",
-            "version": "dev-master",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/cgr.git",
-                "reference": "d464b640fdfa2fcd300b5de4a3bb502ced727da6"
+                "reference": "5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/cgr/zipball/d464b640fdfa2fcd300b5de4a3bb502ced727da6",
-                "reference": "d464b640fdfa2fcd300b5de4a3bb502ced727da6",
+                "url": "https://api.github.com/repos/consolidation/cgr/zipball/5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d",
+                "reference": "5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "composer",
                 "package"
             ],
-            "time": "2016-12-28 03:49:53"
+            "time": "2016-12-22T00:41:33+00:00"
         },
         {
             "name": "hirak/prestissimo",

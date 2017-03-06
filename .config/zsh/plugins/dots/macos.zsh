@@ -51,7 +51,7 @@ cat > $environment_plist <<-AGENT
 </dict>
 </plist>
 AGENT
-launchctl unload $environment_plist
+launchctl unload $environment_plist 2>/dev/null
 launchctl load $environment_plist
 
 # ==============================================

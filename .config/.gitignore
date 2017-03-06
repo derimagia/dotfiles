@@ -3,6 +3,7 @@ zsh/.zlocalrc
 aws/credentials
 slackcat/
 jira/
+git/config_local
 
 # Update files for configstore (node module)
 configstore/update-*.json
