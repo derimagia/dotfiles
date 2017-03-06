@@ -14,7 +14,7 @@ if has('nvim')
     colorscheme OceanicNext
 else
     if empty(glob("$XDG_CACHE_HOME/vim"))
-      execute '!mkdir -p $XDG_CACHE_HOME/vim'
+      execute 'silent !mkdir -p $XDG_CACHE_HOME/vim'
     endif
 
     set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
