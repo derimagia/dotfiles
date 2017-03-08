@@ -62,7 +62,7 @@ bindkey -e
 
 # Clean dead files, hopefully this can eventually be removed.
 {
-   cd $HOME && rm -rf .ansibe .ansible_galaxy .gitignore_global .hgignore_global .DS_Store .bash_history
+    rm -rf ~/.ansibe ~/.ansible_galaxy ~/.gitignore_global ~/.hgignore_global ~/.DS_Store ~/.bash_history
 }&!
 
 #zprof | less
