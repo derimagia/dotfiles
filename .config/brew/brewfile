@@ -225,7 +225,7 @@ brew 'python'
 brew 'python3'
 brew 'radare2'
 brew 'readline'
-brew 'reattach-to-user-namespace', args: ['with-wrap-launchctl']
+brew 'reattach-to-user-namespace'
 brew 'redis'
 brew 'renameutils'
 brew 'ruby'

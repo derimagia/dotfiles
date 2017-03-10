@@ -78,7 +78,7 @@ sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 50
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
@@ -369,6 +369,15 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseVerticalScroll -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseMomentumScroll -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseHorizontalScroll -int 1
+
+# ==============================================
+# Siri
+# ==============================================
+ink -l -c green -- " Disabling Siri"
+
+defaults write com.apple.Siri StatusMenuVisible -bool false
+defaults write com.apple.Siri UserHasDeclinedEnable -bool true
+defaults write com.apple.Siri Disabled -bool true
 
 # ==============================================
 # Trackpad
