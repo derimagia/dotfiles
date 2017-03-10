@@ -12,7 +12,7 @@ npm install -g \
     bower \
     yo \
     coffee-script \
-    bless \
+    fkill-cli \
     tldr \
     speed-test \
     spoof \

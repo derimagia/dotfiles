@@ -163,6 +163,7 @@ brew 'imagemagick', args: ['with-webp']
 brew 'ipcalc'
 brew 'isl'
 brew 'jemalloc'
+brew 'jid'
 brew 'jpeg'
 brew 'jq'
 brew 'kubernetes-cli'
