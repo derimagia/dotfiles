@@ -36,14 +36,6 @@ dash() {
   open "dash://$*"
 }
 
-# switches Java Home
-jhome () {
-    export JAVA_HOME=`/usr/libexec/java_home $@`
-    echo "JAVA_HOME:" $JAVA_HOME
-    echo "java -version:"
-    java -version
-}
-
 # dash man
 mand() {
     open "dash://manpages:$1" 2>/dev/null
@@ -120,4 +112,3 @@ fi
 unalias run-help 2>/dev/null
 autoload run-help
 HELPDIR=$HOMEBREW_PREFIX/share/zsh/help
-alias help=run-help

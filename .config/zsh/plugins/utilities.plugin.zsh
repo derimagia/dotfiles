@@ -11,11 +11,17 @@ alias mmv='noglob zmv -W'
 alias dk='desk .'
 alias s='find . -iname'
 alias i="idea"
+alias help=run-help
 
 # tmux
 alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias ta='tmux attach -d'
 alias tnew='tmux new -s'
+
+# dotfile
+alias cddot="cd $DOTFILES"
+alias dottime='time zsh -ic true';
+alias doti="i $DOTFILES"
 
 # git
 alias g="git"

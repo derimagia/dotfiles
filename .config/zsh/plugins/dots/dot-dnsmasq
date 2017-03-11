@@ -1,3 +1,15 @@
+#!/usr/bin/env zsh
+
+(( $+commands[dnsmasq] )) || exit 34
+
+
+ink -c green "Setting up dnsmasq config"
+ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf $HOMEBREW_PREFIX/etc/dnsmasq.conf
+
+sudo -v
+
+ink -c green "Setting up .dev resolver"
+sudo mkdir -p /etc/resolver
 sudo tee /etc/resolver/dev >/dev/null <<EOF
 nameserver 127.0.0.1
 EOF
