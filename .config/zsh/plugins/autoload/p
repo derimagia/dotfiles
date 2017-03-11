@@ -1,8 +1,24 @@
+#!/usr/bin/env zsh
+
 emulate zsh -L
 
 getopts c:i:p: opt
 
 shift $(( OPTIND - 1 ))
+
+list_projects() {
+    local gitlist=($(ghq list --full-path))
+    local projectfiles=($(command ls -1 $PROJECTS_DIR))
+    projectfiles=($PROJECTS_DIR/$projectfiles[@])
+
+    local fulllist=($gitlist $projectfiles)
+
+    if [ $# -eq 0 ]; then
+        cd $(print -l $fulllist | fzf-tmux)
+    else
+        cd $(print -l $fulllist | fgrep $1 | fzf-tmux --select-1)
+    fi
+}
 
 LOCATION=${PROJECTS_DIR}/$1
 case "$opt" in
@@ -10,5 +26,5 @@ case "$opt" in
     'c') code $LOCATION;;
     'i') idea $LOCATION;;
     'p') echo $LOCATION;;
-       *) cd $LOCATION;;
+       *) list_projects;;
 esac

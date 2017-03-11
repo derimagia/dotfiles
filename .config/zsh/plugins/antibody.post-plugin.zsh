@@ -1,7 +1,6 @@
 if [[ ! -f $TMPPREFIX/antibody-plugins.sh ]]; then
     antibody bundle > $TMPPREFIX/antibody-plugins.sh <<-PLUGINS
 sindresorhus/pure
-tarrasch/zsh-bd
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 psprint/history-search-multi-word

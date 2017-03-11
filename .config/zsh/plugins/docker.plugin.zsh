@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-alias -s Dockerfile="docker build - < "
-
 alias dr="docker"
 alias dr-run="docker run -it --rm"
 alias drc="docker-compose"

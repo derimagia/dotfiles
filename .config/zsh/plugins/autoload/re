@@ -39,7 +39,7 @@ else
     print -l "Re-sourced .zshrc"
 
     # Reload functions that were autoloaded, @TODO: Find a better way to do this
-    autoload_functions=( $ZDOTDIR/autoload/* )
+    autoload_functions=( $ZDOTDIR/plugins/autoload/* )
 
     local f
     for f in $autoload_functions:t; do
@@ -47,5 +47,6 @@ else
         autoload -Uz $f
     done
 
-    source $HOME/.zshrc
+    source $ZDOTDIR/.zshenv
+    source $ZDOTDIR/.zshrc
 fi

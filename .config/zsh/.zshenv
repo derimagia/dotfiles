@@ -54,3 +54,6 @@ export TMPDIR=$XDG_CACHE_HOME
 # export LOCATE_PATH=/var/db/locate.database
 export PROJECTS_DIR=$HOME/projects
 
+if [[ -z "$TERM" ]]; then
+    export TERM=xterm-256color
+fi

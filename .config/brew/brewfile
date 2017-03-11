@@ -125,7 +125,7 @@ brew 'doxygen'
 brew 'fasd'
 brew 'ffmpeg'
 brew 'figlet'
-brew 'findutils'
+brew 'findutils', args: ['with-default-names']
 brew 'fontconfig'
 brew 'fortune'
 brew 'freetype'

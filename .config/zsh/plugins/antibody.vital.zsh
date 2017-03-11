@@ -2,7 +2,9 @@
 
 # Make sure we have antibody
 if (( ! $+commands[antibody] )); then
-    curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
+    ink -c red "Install Antibody"
+    # curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
+    return
 fi
 
 if [[ ! -s $TMPPREFIX/antibody-plugins-vital.sh ]]; then

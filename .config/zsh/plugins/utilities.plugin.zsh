@@ -1,8 +1,6 @@
 # Aliases
 alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
-alias dottime='time zsh -ic true';
-alias cddot="cd $DOTFILES"
 alias editvar='vared'
 alias v="vim"
 alias vim="nvim"
@@ -12,11 +10,18 @@ alias ccat='vimcat'
 alias mmv='noglob zmv -W'
 alias dk='desk .'
 alias s='find . -iname'
+alias i="idea"
 
-# Tmux
+# tmux
 alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias ta='tmux attach -d'
 alias tnew='tmux new -s'
+
+# git
+alias g="git"
+alias gup='gitup'
+alias diffg="git diff --color-words --no-index"
+alias dclone="clone -d"
 
 # Global Aliases
 alias -g G="| grep -i --"
@@ -32,6 +37,7 @@ alias -s xml="ccat"
 alias -s py="python"
 alias -s jar="java -jar"
 alias -s war="java -jar"
+alias -s Dockerfile="docker build - < "
 
 # Url functions
 alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
@@ -192,7 +198,7 @@ dataurl() {
     echo "data:${mimeType};base64,$(base64 -w 0 "$1")"
 }
 
-# reads a link until  can't anymore.
+# reads a link until it can't anymore.
 readtrail () {
     local the_path="$1"
     [[ -L $the_path ]] || return

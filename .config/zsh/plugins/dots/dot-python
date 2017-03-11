@@ -1,14 +1,6 @@
 #!/usr/bin/env zsh
 
-if (( ! $+commands[python] )); then
-  ink -l -c red -- "-- Python is not installed. Skipping dot."
-  return 1
-fi
-
-if (( ! $+commands[pip] )); then
-  ink -l -c red -- "-- Pip is not installed. Skipping dot."
-  return 1
-fi
+(( $+commands[pip] )) || return 34
 
 pip install -U \
     pip setuptools \
