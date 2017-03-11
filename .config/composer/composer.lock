@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "consolidation/cgr",
-            "version": "2.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/cgr.git",
-                "reference": "5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d"
+                "reference": "52f6fab65c7d17f6a58de1cd47c17001fb74a855"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/cgr/zipball/5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d",
-                "reference": "5fb0d1e7c9c389b7f1c0284410a4bb7d3c63a98d",
+                "url": "https://api.github.com/repos/consolidation/cgr/zipball/52f6fab65c7d17f6a58de1cd47c17001fb74a855",
+                "reference": "52f6fab65c7d17f6a58de1cd47c17001fb74a855",
                 "shasum": ""
             },
             "require": {
@@ -34,7 +34,7 @@
             "type": "project",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -57,7 +57,7 @@
                 "composer",
                 "package"
             ],
-            "time": "2016-12-22T00:41:33+00:00"
+            "time": "2017-02-25 03:25:02"
         },
         {
             "name": "hirak/prestissimo",
