@@ -27,6 +27,7 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
 export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
@@ -57,3 +58,5 @@ export PROJECTS_DIR=$HOME/projects
 if [[ -z "$TERM" ]]; then
     export TERM=xterm-256color
 fi
+
+

@@ -111,8 +111,11 @@ done
 shift $(( OPTIND - 1 ))
 
 if [[ $mode == "run" ]] {
-    include_dots $*
+    if (($#)) {
+        include_dots $*
+    } else {
+        default_dots
+    }
 } elif [[ $mode == "create" ]] {
     create_dot $*
 }
-
