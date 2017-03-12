@@ -26,7 +26,7 @@ END
 # ==============================================
 # environment.plist
 # ==============================================
-ink -l -c green -- " Setting up environment.plist"
+ink -l -c green -- "[MacOS] Setting up environment.plist"
 
 local environment_plist=~/Library/LaunchAgents/environment.plist
 cat > $environment_plist <<-AGENT

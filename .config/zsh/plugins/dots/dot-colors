@@ -2,4 +2,5 @@
 
 (( $+commands[grc] )) || exit 34
 
+ink -c green "[colors] Symlinking grc config"
 symlink-files $XDG_CONFIG_HOME/grc/grc.conf /usr/local/etc/

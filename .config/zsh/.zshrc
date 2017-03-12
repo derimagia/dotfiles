@@ -27,7 +27,7 @@ SAVEHIST=100000
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
 # Local
-[[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
+[[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
 
 # Add bin to path
 path=(
@@ -47,7 +47,7 @@ path=(
     local compiled_file="$TMPPREFIX/zcompdump.zwc"
 
     for plugin_file in $plugin_files; do
-        source $plugin_file
+        . $plugin_file
     done
 
     # Autoload files

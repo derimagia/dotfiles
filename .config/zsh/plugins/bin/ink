@@ -12,16 +12,16 @@ while getopts c:luibt: opt; do
             ;;
         (l)
             is_new_line=true
-        ;;
+            ;;
         (i)
             ink_effects+=(italic)
-        ;;
+            ;;
         (b)
             ink_effects+=(bold)
             ;;
         (u)
             ink_effects+=(underline)
-        ;;
+            ;;
         (t)
             if [[ $OPTARG != <-> ]]; then
                 print -- "$OPTARG: must be an integer" >&2

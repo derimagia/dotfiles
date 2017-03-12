@@ -2,6 +2,8 @@
 
 (( $+commands[pip] )) || return 34
 
+ink -l -c green "[python] installing python packages"
+
 pip install -U \
     pip setuptools \
     virtualenv \

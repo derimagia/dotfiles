@@ -2,10 +2,10 @@
 
 (( $+commands[node] )) || exit 34
 
-ink -l -c green -- "-- Configuring NPM"
+ink -l -c green -- "[node] Configuring NPM"
 npm --global config set cache $XDG_CACHE_HOME/npm
 
-ink -l -c green -- "-- Installing npm Packages"
+ink -l -c green -- "[node] Installing npm Packages"
 npm install -g \
     grunt \
     gulp \

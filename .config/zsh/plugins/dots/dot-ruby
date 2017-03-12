@@ -2,6 +2,8 @@
 
 (( $+commands[gem] )) || exit 34
 
+ink -l -c green "[ruby] installing gems"
+
 gem install \
     bundler \
     lolcat

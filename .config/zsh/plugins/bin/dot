@@ -1,71 +1,118 @@
 #!/usr/bin/env zsh
+emulate -L zsh
 
-function print_status() {
-    ink -l -c blue "$@"
+dot_parent_dir="$ZDOTDIR/plugins/dots"
+dot_file_prefix="$dot_parent_dir/dot-"
+dot_files=($dot_file_prefix*(N.))
+dots_list=$(print -l ${dot_files:t:r} | cut -d"-" -f 2)
+
+# Gets the file of a dot name
+function include_dot_file() {
+    local darg="$1"
+    dot_file=(${dot_file_prefix}${darg}*(N.))
+    file_name="${dot_file:t:r}"
+    dot_name="${file_name#dot-}"
 }
 
+# Run a specific dot
 function include_dot() {
-  local subdot="$1"
-  local dot_file=($ZDOTDIR/plugins/dots/dot-$subdot*(N.))
-  local file_name="${dot_file:t:r}"
-  local dot_name=${file_name#dot-}
+    include_dot_file "$1"
 
-  if [[ -f $dot_file ]]; then
-      ink -l -c blue "Running $dot_name dot"
+    if [[ ! -f $dot_file ]] {
+        ink -l -c red "Error while loading dot $require_dot_arg"
+    }
 
-      $dot_file
-      local exit_code=$?
-      if (( $exit_code == 34 )); then
+    ink -l -c blue "Running $dot_name dot"
+
+    $dot_file
+
+    local exit_code=$?
+    # Magic exit code for not compatible ones.
+    if (( $exit_code == 34 )) {
         ink -l -c red "$dot_name is not compatible with this system."
-      elif (( $exit_code != 0 )); then
+    } elif (( $exit_code != 0 )) {
         ink -l -c red "Error while executing $dot_name"
         exit 1
-      fi
-  else
-      ink -l -c red "Error while loading dot $1"
-  fi
+    }
 
-  (( $+commands[hr] )) && hr ' ' '-=' ' '
+    (( $+commands[hr] )) && hr ' ' '-=' ' '
 }
 
-if [[ $1 == "-l" ]] || [[ $1 == "--list" ]]; then
-    local dot_files=($ZDOTDIR/plugins/dots/*(N.))
-    print -l ${dot_files:t:r} | cut -d"-" -f 2
-    return
-fi
+# Include multiple dots
+function include_dots() {
+    # @TODO: async?
+    while (($#)); do
+        include_dot $1
+        shift
+    done
+}
 
-if [[ -n "$1" ]]; then
-  # Just run the one dot we passed in
-  include_dot $1
-  return
-fi
+# Create a dot as a template.
+function create_dot() {
+    local darg=$1
+    include_dot_file $darg
 
-# Install linker
-# include_dot link
+    if [[ -n $dot_name ]]; then
+        ink -l -c red "Cannot create dot, already exists: $dot_name"
+        exit 1
+    fi
 
-# Set OS X defaults
-# include_dot macos "Running MacOS Defaults dot..."
+    local dot_file="${dot_file_prefix}${darg}"
+    touch $dot_file
+    chmod +x $dot_file
+    ink -l -c green "Dot created: '$darg' at '$dot_file'"
+}
 
-# Install homebrew packages
-[[ $OSTYPE =~ darwin ]] && include_dot homebrew
+# Run the default dots.
+function default_dots() {
+    # Install linker
+    # include_dot link
 
-# Linix Packages, right now only ubuntu..
-[[ $OSTYPE =~ linux ]] && include_dot ubuntu
+    # Set OS X defaults
+    # include_dot macos "Running MacOS Defaults dot..."
 
-# Install python packages
-include_dot python
+    # Install homebrew packages
+    [[ $OSTYPE =~ darwin ]] && include_dot homebrew
 
-# Install node packages
-include_dot node
+    # Linix Packages, right now only ubuntu..
+    [[ $OSTYPE =~ linux ]] && include_dot ubuntu
 
-# Install ruby packages
-include_dot ruby
+    # Install python packages
+    include_dot python
 
-# Install vim packages
-include_dot vim
+    # Install node packages
+    include_dot node
 
-# Vagrant plugins:
-# vagrant-auto_network
-# vagrant-cachier
-# vagrant-hostsupdater
-# vagrant-share
+    # Install ruby packages
+    include_dot ruby
+
+    # Install vim packages
+    include_dot vim
+
+    # Vagrant plugins:
+    # vagrant-auto_network
+    # vagrant-cachier
+    # vagrant-hostsupdater
+    # vagrant-share
+}
+
+local mode="run"
+while getopts cl opt; do
+  case $opt in
+        (l)
+            print -l $dots_list
+            return
+            ;;
+        (c)
+            mode="create"
+            ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+if [[ $mode == "run" ]] {
+    include_dots $*
+} elif [[ $mode == "create" ]] {
+    create_dot $*
+}
+

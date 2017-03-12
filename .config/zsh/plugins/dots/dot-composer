@@ -4,13 +4,17 @@ composer global update
 
 composer global config minimum-stability dev
 
+ink -l -c green "[composer] Installing cgr"
+
 (( $+commands[cgr] )) || composer global require consolidation/cgr
 
+ink -l -c green "[composer] Installing hirak/prestissimo"
 composer global require hirak/prestissimo
 
+ink -l -c green "[composer] Installing composer packages"
 (( $+commands[drush] )) || cgr --stability dev drush/drush:dev-master
 (( $+commands[terminus] )) || cgr --stability dev pantheon-systems/terminus:dev-master
 (( $+commands[phpmd] )) || cgr phpmd/phpmd
 
-# Update cgr files
+ink -l -c green "[composer] Updating composer packages"
 cgr update

@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
 # @TODO: Change this to XDG_CONFIG_HOME
+ink -l -c green "[link] symlinking config directory"
 symlink-files $DOTFILES/.config ~
 clean-symlinks ~

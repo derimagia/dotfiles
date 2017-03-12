@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if [[ ! -L ~/.vscode ]] {
+    ink -l -c green "[vscode] Linking vscode config dir"
+    # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
+    ln -sT $XDG_CONFIG_HOME/vscode ~/.vscode
+}

@@ -10,10 +10,10 @@ cd $DOTFILES
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
-ink -l -c green -- "-- Installing/Upgrading Brews from file"
+ink -l -c green -- "[brew] Installing/Upgrading Brews from file"
 brew file -F bundle -C -- update
 
-ink -l -c green -- "-- Upgrading Casks"
+ink -l -c green -- "[brew] Upgrading Casks"
 brew file -F bundle -C -- cask_upgrade
 
 gnufiles=(
@@ -24,6 +24,7 @@ manfiles=(
     $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*
 )
 
+ink -l -c green "[brew] Symlinking gnu man files"
 # Link Man Files that aren't linked by default
 symlink-files -q "$gnufiles" "$HOMEBREW_PREFIX/bin"
 symlink-files -q "$manfiles" "$HOMEBREW_PREFIX/share/man/man1"
