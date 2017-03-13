@@ -22,6 +22,7 @@ alias tnew='tmux new -s'
 alias cddot="cd $DOTFILES"
 alias dottime='time zsh -ic true';
 alias doti="i $DOTFILES"
+alias dotc="code $DOTFILES"
 
 # git
 alias g="git"
