@@ -2,7 +2,7 @@
 	autocrlf = input
 	pager = diff-so-fancy | less -RFX
 	# I don't think the below is required but sourcetree needs it.
-	excludesfile = /Users/dave/.config/git/ignore
+	excludesfile = ignore
 [alias]
 	# Graphs/Charts
 	st = status --short --branch
@@ -96,4 +96,4 @@
 [interactive]
 	diffFilter = diff-so-fancy --patch-mode | less -RFX
 [include]
-	path = ~/.config/git/config_local
+	path = config_local
