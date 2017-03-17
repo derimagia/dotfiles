@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/cgr.git",
-                "reference": "52f6fab65c7d17f6a58de1cd47c17001fb74a855"
+                "reference": "2211ff2df10d7af4c5ed975f5a5ba306ff3fde76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/cgr/zipball/52f6fab65c7d17f6a58de1cd47c17001fb74a855",
-                "reference": "52f6fab65c7d17f6a58de1cd47c17001fb74a855",
+                "url": "https://api.github.com/repos/consolidation/cgr/zipball/2211ff2df10d7af4c5ed975f5a5ba306ff3fde76",
+                "reference": "2211ff2df10d7af4c5ed975f5a5ba306ff3fde76",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "composer",
                 "package"
             ],
-            "time": "2017-02-25 03:25:02"
+            "time": "2017-03-14 00:04:39"
         },
         {
             "name": "hirak/prestissimo",

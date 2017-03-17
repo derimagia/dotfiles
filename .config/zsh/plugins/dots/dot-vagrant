@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+(( $+commands[vagrant])) || exit 34
+
+sudo -v
+
+sudo tee /etc/sudoers.d/vagrant <<-XML
+# Vagrant sudoers config
+Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/local/bin/tee -a /etc/exports
+Cmnd_Alias VAGRANT_NFSD = /sbin/nfsd restart
+Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /usr/local/bin/sed -E -e /*/ d -ibak /etc/exports
+Cmnd_Alias VAGRANT_HOSTS_ADD = /bin/sh -c echo "*" >> /etc/hosts
+Cmnd_Alias VAGRANT_HOSTS_REMOVE = /usr/local/bin/sed -i -e /*/ d /etc/hosts
+%admin ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD, VAGRANT_EXPORTS_REMOVE, VAGRANT_HOSTS_ADD, VAGRANT_HOSTS_REMOVE
+XML

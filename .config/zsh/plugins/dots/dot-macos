@@ -62,7 +62,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
 
 # How long it takes to start repeating
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 40
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
