@@ -198,6 +198,8 @@ brew 'lua@5.1'
 brew 'macvim', args: ['with-override-system-vim']
 brew 'mariadb'
 brew 'mas'
+brew 'mcrypt'
+brew 'mhash'
 brew 'miller'
 brew 'moreutils', args: ['without-parallel']
 brew 'mpfr'
@@ -296,6 +298,7 @@ brew 'sshfs'
 tap 'homebrew/php'
 brew 'composer'
 brew 'php71'
+brew 'php71-mcrypt'
 brew 'php71-redis'
 brew 'php71-xdebug'
 
