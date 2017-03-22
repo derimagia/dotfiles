@@ -41,7 +41,6 @@
 [color "status"]
 	untracked = cyan
 [diff]
-	compactionHeuristic = true
 	indentHeuristic = true
 	tool = meld
 [difftool]
