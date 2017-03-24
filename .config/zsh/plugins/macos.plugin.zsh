@@ -91,7 +91,7 @@ osx-find-launchctl () {
     )
 
     for curPATH in "${LaunchctlPATHS[@]}"; do
-        grep -i -r "$curPATH" -e "$1"
+        sudo grep -i -r "$curPATH" -e "$1"
     done
 }
 
