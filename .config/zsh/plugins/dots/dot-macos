@@ -655,7 +655,9 @@ CFPreferencesAppSynchronize "com.apple.messageshelper"
 ink -l -c green -- " Setting Alfred Preferences"
 
 # Sync Directory
-defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Library/Mobile Documents/com~apple~CloudDocs/Alfred'
+defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Dropbox/Apps/Alfred'
+# Allow ~/Dropbox/Apps to be used. See https://www.alfredapp.com/help/troubleshooting/dropbox-apps-folder/
+defaults write com.runningwithcrayons.Alfred-Preferences-3 dropbox.allowappsfolder -bool TRUE
 
 CFPreferencesAppSynchronize "com.runningwithcrayons.Alfred-Preferences-3"
 
@@ -741,6 +743,17 @@ if [[ ! -f ~/Library/Fonts/FuraMono-Regular.otf ]]; then
     'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20for%20Powerline%20Nerd%20Font%20Complete.otf'
 fi
 
+# ==============================================
+# Dash
+# ==============================================
+ink -l -c green -- " Setting Dash Preferences"
+
+defaults write com.kapeli.dashdoc snippetSQLPath -string '~/Dropbox/Apps/Dash/Snippets.dash'
+defaults write com.kapeli.dashdoc syncFolderPath -string '~/Dropbox/Apps/Dash'
+defaults write com.kapeli.dashdoc showInDock -int 1
+defaults write com.kapeli.dashdoc shouldStartAtLogin -int 1
+
+CFPreferencesAppSynchronize "com.kapeli.dashdoc"
 
 # ==============================================
 # ForkLift
