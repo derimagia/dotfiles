@@ -763,7 +763,20 @@ ink -l -c green -- " Setting Forklift Preferences"
 # Set as default reader
 defaults write -g NSFileViewer -string com.binarynights.ForkLift-3
 
+CFPreferencesAppSynchronize "com.binarynights.ForkLift-3"
+
 # ==============================================
+# cDock
+# ==============================================
+ink -l -c green -- " Setting cDock Preferences"
+if [[ ! -d ~/"Library/Application Support/cDock/themes/Material" ]]; then
+    ln -sT ~/"Library/Application Support/cDock/themes/Material" ~/Dropbox/Apps/cDock/Material
+fi
+
+defaults write org.w0lf.cDock cd_theme -string "Material"
+
+CFPreferencesAppSynchronize "org.w0lf.cDock"
+
 # Kill affected applications
 # ==============================================
 
