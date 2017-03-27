@@ -23,6 +23,8 @@ alias cddot="cd $DOTFILES"
 alias dottime='time zsh -ic true';
 alias doti="i $DOTFILES"
 alias dotc="code $DOTFILES"
+alias brewc="code $HOMEBREW_PREFIX/etc"
+alias brewi="i $HOMEBREW_PREFIX/etc"
 
 # git
 alias g="git"
@@ -138,29 +140,29 @@ manopt() {
 
 # UTF-8-encode a string of Unicode symbols
 escape() {
-	printf "\\\x%s" $(print "$@" | xxd -p -c1 -u);
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
+    printf "\\\x%s" $(print "$@" | xxd -p -c1 -u);
+    # print a newline unless we’re piping the output to another program
+    if [ -t 1 ]; then
+        echo ""; # newline
+    fi;
 }
 
 # decode \x{ABCD}-style Unicode escape sequences
 unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
+    perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
+    # print a newline unless we’re piping the output to another program
+    if [ -t 1 ]; then
+        echo ""; # newline
+    fi;
 }
 
 # get a character’s Unicode code point
 codepoint() {
-	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
+    perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
+    # print a newline unless we’re piping the output to another program
+    if [ -t 1 ]; then
+        echo ""; # newline
+    fi;
 }
 
 # Wwatch and print out fs changes. Defaults to current directory
