@@ -1,15 +1,16 @@
 " Plugins -------------------------------------------------------------
 
-if has('nvim')
+if has('nvim') || has('gui_vimr')
     call plug#begin("$XDG_DATA_HOME/nvim/plugged")
     Plug 'bling/vim-airline'
     Plug 'airblade/vim-gitgutter'
     Plug 'mhartington/oceanic-next'
+    Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'scrooloose/nerdtree'
     Plug 'junegunn/fzf.vim'
     Plug 'othree/yajs.vim'
+    Plug 'tpope/vim-sleuth'
     call plug#end()
 
     let g:airline_powerline_fonts = 1
@@ -83,7 +84,7 @@ set ttyfast
 set mouse=a
 
 " Keys
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 command! -nargs=1 Locate call fzf#run(
       \ {'source': 'locate <q-args>', 'sink': 'e', 'options': '-m'})
 
