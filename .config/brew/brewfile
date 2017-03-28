@@ -89,7 +89,6 @@ tap 'homebrew/command-not-found'
 tap 'homebrew/completions'
 
 tap 'homebrew/core'
-brew 'android-platform-tools'
 brew 'ansible'
 brew 'asciiquarium'
 brew 'autoconf'
@@ -265,7 +264,7 @@ brew 'unrar'
 brew 'v8'
 brew 'vala'
 brew 'valabind'
-brew 'vimpager'
+brew 'vimpager', args: ['HEAD']
 brew 'w3m'
 brew 'watch'
 brew 'watchman'
@@ -313,6 +312,9 @@ brew 'neovim'
 
 tap 'rcmdnk/file'
 brew 'brew-file'
+
+# Other Homebrew packages
+brew 'android-platform-tools'
 
 # App Store applications
 #appstore '409183694 Keynote (7.0.5)'
