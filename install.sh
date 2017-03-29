@@ -1,5 +1,13 @@
 #!/bin/bash
 
+print_error() {
+    ink -l -c red "$@"
+}
+
+print_status() {
+    ink -l -c blue "$@"
+}
+
 export DOTFILES=${DOTFILES-$HOME/.dotfiles/}
 
 OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
@@ -26,15 +34,17 @@ if [[ ! -d $DOTFILES ]]; then
     git clone https://github.com/derimagia/dotfiles.git $DOTFILES
 fi
 
-source $DOTFILES/.zshenv
+# Set temp zdotdir
+source $DOTFILES/config/zsh/.zshenv
+export ZDOTDIR="$DOTFILES/config/zsh"
 
 if [[ $OSTYPE == 'darwin' ]]; then
     hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
 fi
 
 # Link dot files
-PATH=$DOTFILES/plugins/utilities/bin/:$PATH
-$DOTFILES/plugins/utilities/dots/link.zsh
+PATH=$ZDOTDIR/plugins/bin/:$PATH
+$ZDOTDIR/plugins/dots/dot-link
 
 if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh
@@ -52,17 +62,11 @@ elif [[ $OSTYPE == 'darwin' ]]; then
 
     finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
+    print_status "Adding ZDOTDIR to /etc/zshenv"
     #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-    echo 'export ZDOTDIR="$HOME/.config/zsh"' | sudo tee /etc/zshenv
+    sudo sed -i '/export ZDOTDIR/ d' /etc/zshenv       
+    echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
 
     exec $HOMEBREW_PREFIX/bin/zsh
     # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
 fi
-
-print_error() {
-    ink -l -c red "$@"
-}
-
-print_status() {
-    ink -l -c blue "$@"
-}
