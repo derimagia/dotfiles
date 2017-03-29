@@ -33,14 +33,15 @@ noremap <Right> <NOP>
 call plug#begin("$XDG_DATA_HOME/nvim/plugged")
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'bling/vim-airline'
+    Plug 'bling/vim-bufferline'
     Plug 'airblade/vim-gitgutter'
     Plug 'mhartington/oceanic-next'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/fzf.vim'
     Plug 'othree/yajs.vim'
     Plug 'tpope/vim-sleuth'
+    Plug 'ryanoasis/vim-devicons'   
 call plug#end()
 
 colorscheme OceanicNext
