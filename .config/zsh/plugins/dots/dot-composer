@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+(( $+commands[composer] )) || exit 34
+
 composer global update
 
 composer global config minimum-stability dev

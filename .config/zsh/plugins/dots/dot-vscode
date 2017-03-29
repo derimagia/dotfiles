@@ -1,7 +1,12 @@
 #!/usr/bin/env zsh
 
-if [[ ! -L ~/.vscode ]] {
-    ink -l -c green "[vscode] Linking vscode config dir"
-    # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
-    ln -sT $XDG_CONFIG_HOME/vscode ~/.vscode
+# Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
+[[ -d ~/Dropbox/Apps/VSCode ]] || exit 34
+
+mkdir -p ~/.vscode
+
+if [[ ! -L ~/.vscode/extensions ]] {
+    ink -l -c green "[vscode] Linking vscode extension dir"
+    ln -sT ~/Dropbox/Apps/VSCode/extensions ~/.vscode/extensions
 }
+

@@ -10,6 +10,7 @@ set number              " line numbers
 set showmatch           " show matching brackets
 set scrolloff=5
 set mouse=a
+set grepprg=rg\ --vimgrep
 
 " Clear out search on <C-L>
 nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -52,6 +53,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|idea|DS_Store)$'
 
 " NerdTree
 let g:NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
 
 " AirLine
 let g:airline_powerline_fonts = 1

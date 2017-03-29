@@ -1,11 +1,8 @@
 hub
 zsh/.zlocalrc
 aws/credentials
-slackcat/
-jira/
 git/config_local
 tmux/plugins
 # Update files for configstore (node module)
 configstore/update-*.json
 psysh/update_check.json
-vscode/extensions
