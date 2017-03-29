@@ -11,16 +11,17 @@ set showmatch           " show matching brackets
 set scrolloff=5
 set mouse=a
 
+" Clear out search on <C-L>
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
 " Keys
-" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-command! -nargs=1 Locate call fzf#run(
-      \ {'source': 'locate <q-args>', 'sink': 'e', 'options': '-m'})
-
 " Mapping - Clipboard
 set clipboard+=unnamedplus
+vmap <C-c> "+yi
 
 " Mapping - Remove up/down/left/right
 noremap <Up> <NOP>
@@ -28,11 +29,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" FZF
-set rtp+=/usr/local/opt/fzf/
-
 " Plugins
 call plug#begin("$XDG_DATA_HOME/nvim/plugged")
+    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'bling/vim-airline'
     Plug 'airblade/vim-gitgutter'
     Plug 'mhartington/oceanic-next'
@@ -44,6 +43,14 @@ call plug#begin("$XDG_DATA_HOME/nvim/plugged")
     Plug 'tpope/vim-sleuth'
 call plug#end()
 
-let g:NERDTreeShowHidden=1
-let g:airline_powerline_fonts = 1
 colorscheme OceanicNext
+
+" CtrlP Settings
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|idea|DS_Store)$'
+
+" NerdTree
+let g:NERDTreeShowHidden = 1
+
+" AirLine
+let g:airline_powerline_fonts = 1
