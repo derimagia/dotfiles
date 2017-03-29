@@ -4,8 +4,6 @@ autoload -Uz colors && colors
 
 export CLICOLOR=true
 
-GREP_OPTIONS='--color=always'
-
 if (( $+commands[grc] )); then
     # Need to run it through stdbuf because of https://github.com/garabik/grc/issues/25
     alias cl_stdbuf='stdbuf -oL grc -es --colour=auto'
@@ -34,15 +32,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
-#export LESS_TERMCAP_DEBUG=1
-export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$fg[cyan]          # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_so=$fg[red]           # begin standout-mode - info box
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
 
 zle_highlight+=(
     default:none
