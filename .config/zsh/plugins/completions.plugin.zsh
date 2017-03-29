@@ -2,7 +2,10 @@
 
 setopt MENU_COMPLETE # Automatically select menu
 
-## Completions
+# Cache
+zstyle ':completion:*' cache-path "$TMPPREFIX/zcompcache"
+
+# Completions
 zstyle ':completion:*' verbose yes
 
 # Turn on menu selection when selections do not fit on screen

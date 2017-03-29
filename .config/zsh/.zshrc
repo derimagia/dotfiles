@@ -53,7 +53,6 @@ path=(
     # Autoload files
     local autoload_files=($ZDOTDIR/plugins/autoload/*)
     fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
-
     compinit -C -d "$TMPPREFIX/zcompdump"
     zcompile $compiled_file "$TMPPREFIX/zcompdump" &!
 }
