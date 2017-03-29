@@ -1,3 +1,12 @@
+if empty(glob("$XDG_CACHE_HOME/vim"))
+  execute 'silent !mkdir -p $XDG_CACHE_HOME/vim/{undo,swap,backup}'
+endif
+
+set undodir=$XDG_CACHE_HOME/vim/undo
+set directory=$XDG_CACHE_HOME/vim/swap
+set backupdir=$XDG_CACHE_HOME/vim/backup
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+
 " Autoload doesn't load for vimpager right now so load it.
 if !exists('plug#begin')
     source $XDG_DATA_HOME/nvim/site/autoload/plug.vim
