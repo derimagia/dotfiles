@@ -3,8 +3,10 @@
 #zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
+# make path, fpath, manpath linked and unique
 typeset -gU fpath path manpath
 
+# Set up TMPPREFIX
 export TMPPREFIX="$XDG_CACHE_HOME/zsh"; [[ -d "$TMPPREFIX" ]] || mkdir -p $TMPPREFIX
 
 # General Terminal Options
@@ -18,15 +20,16 @@ setopt \
 # Autoload needed functions
 autoload -Uz add-zsh-hook compinit zmv
 
+# Reset key bindings
 bindkey -e
 
-# zsh options
+# ZSH Options
 HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
-# Local
+# Local rc file
 [[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
 
 # Add bin to path
@@ -37,8 +40,7 @@ path=(
 
 # Load all files
 () {
-    local plugin_file
-    local plugin_files=(
+    local plugin_file plugin_files=(
         $ZDOTDIR/plugins/*.vital.zsh
         $ZDOTDIR/plugins/*.plugin.zsh
         $ZDOTDIR/plugins/*.post-plugin.zsh
@@ -46,13 +48,11 @@ path=(
 
     local compiled_file="$TMPPREFIX/zcompdump.zwc"
 
-    for plugin_file in $plugin_files; do
-        . $plugin_file
-    done
+    for plugin_file ($plugin_files) . $plugin_file
 
     # Autoload files
     local autoload_files=($ZDOTDIR/plugins/autoload/*)
-    fpath=($autoload_files:h $fpath) && autoload -Uz ${autoload_files:t}
+    fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
 
     compinit -C -d "$TMPPREFIX/zcompdump"
     zcompile $compiled_file "$TMPPREFIX/zcompdump" &!
@@ -64,15 +64,15 @@ path=(
 }&!
 
 # Hook for desk activation
-if [[ -n "$DESK_ENV" ]]; then
+if [[ -n "$DESK_ENV" ]] {
     source "$DESK_ENV"
-    if [[ -z $DESK_INIT ]]; then
+    if [[ -z $DESK_INIT ]] {
         # @TODO Make this only happen once, is there a better way to do this?
         export DESK_INIT=1
         [[ -n $PROJECT_PATH ]] && cd $PROJECT_PATH
         [[ -n $DRUSH_ALIAS ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?ss
-    fi
-fi
+    }
+}
 
 #zprof | less
 
