@@ -1,0 +1,63 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+local repo reponame type='unknown' shallow=0 print=0
+
+while getopts dsp opt; do
+    case $opt in
+        (d)
+            type='drupal'
+        ;;
+        (s)
+            shallow=1
+        ;;
+        (p)
+            print=1
+        ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+local cloneopts=(-u)
+reponame=$1
+repo=$reponame
+
+# Drupal Module
+if [[ $type == 'drupal' ]] {
+  repo="https://git.drupal.org/project/$repo.git"
+  cloneopts+=(-p)
+}
+
+# Get Host
+# extract the protocol
+proto="$(echo $repo | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+# remove the protocol
+url="$(echo ${repo/$proto/})"
+# extract the user (if any)
+user="$(echo $url | grep @ | cut -d@ -f1)"
+# extract the host
+host="$(echo ${url/$user@/} | cut -d/ -f1)"
+
+# Default host is github
+if [[ $host == $repo ]] {
+  host="github.com"
+}
+
+# Clone any known repos as ssh.
+case $host {
+  *github.com*|*gitlab.com*|*bitbucket.org*|*git.drupal.org*) cloneopts+=(-p) ;;
+}
+
+if (( $shallow )) {
+  cloneopts+=(--shallow)
+}
+
+ghq get $cloneopts $repo
+
+if (( $print )) {
+  ghq list -p $reponame
+} else {
+  ghq look $reponame
+}
+
+
