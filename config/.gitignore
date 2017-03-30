@@ -3,6 +3,7 @@ zsh/.zlocalrc
 aws/credentials
 git/config_local
 tmux/plugins
+nvim/.netrwhist
 # Update files for configstore (node module)
 configstore/update-*.json
 psysh/update_check.json
