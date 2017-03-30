@@ -25,7 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 " --- General Theme / Coloring
 Plug 'mhartington/oceanic-next'
 Plug 'ryanoasis/vim-devicons' " Needs to be after nerdtree
-Plug 'lilydjwg/colorizer'
+Plug 'ap/vim-css-color'
 
 " --- Git
 Plug 'airblade/vim-gitgutter'
@@ -55,7 +55,7 @@ set rnu                   " relative numbers on by default"
 set showmatch
 set scrolloff=5
 set mouse=a
-set grepprg=rg\ --vimgrep
+set grepprg="rg --vimgrep"
 set magic                 " Use 'magic' patterns (extended regular expressions).
 set gdefault              " Use 'g' flag by default with :s/foo/bar/.
 set smartcase
@@ -118,3 +118,8 @@ let g:deoplete#enable_at_startup = 1
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden = 0
 let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
+
+" ale settings
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
