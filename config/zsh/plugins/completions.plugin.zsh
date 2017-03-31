@@ -52,7 +52,8 @@ zstyle -e ':completion:*:hosts' hosts 'reply=(
   )'
 zstyle ':completion:*:*:*:hosts' ignored-patterns 'ip6*' 'localhost*'
 
-zstyle ':completion:*'    completer   _complete \
+zstyle ':completion:*'    completer   _expand_alias \
+                                      _complete \
                                       _ignored \
                                       _approximate
 
