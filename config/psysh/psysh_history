@@ -1,0 +1,2 @@
+$api->get_record('571aa6d4804ef17c34342b9e');
+$api->get_record('571aa71f804ef17c3434dacb');
