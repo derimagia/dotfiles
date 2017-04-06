@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'dahu/SearchParty'
+Plug 'terryma/vim-multiple-cursors'
 
 " --- Status Line
 Plug 'bling/vim-airline'
@@ -44,7 +45,7 @@ Plug 'technosophos/drupal-snippets'
 " --- Languages
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'm2mdas/phpcomplete-extended'
+" Plug 'm2mdas/phpcomplete-extended'
 
 call plug#end()
 
