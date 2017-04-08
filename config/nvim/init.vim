@@ -116,9 +116,9 @@ let g:startify_session_dir="$XDG_CONFIG_HOME/nvim/sessions"
 let g:deoplete#enable_at_startup = 1
 
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden = 0
-let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
+let g:NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
 
 " ale settings
 let g:ale_lint_on_save = 1
