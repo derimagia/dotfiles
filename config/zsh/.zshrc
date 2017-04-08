@@ -59,7 +59,7 @@ path=(
 
 {
     # Clean dead files, hopefully this can eventually be removed.
-    rm -rf ~/.ansibe ~/.ansible_galaxy ~/.gitignore_global ~/.hgignore_global ~/.DS_Store ~/.bash_history
+    rm -rf ~/.ansible ~/.ansible_galaxy ~/.gitignore_global ~/.hgignore_global ~/.DS_Store ~/.bash_history
 }&!
 
 # Hook for desk activation
