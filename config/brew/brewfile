@@ -70,7 +70,6 @@ cask 'virtualbox'
 cask 'visual-studio-code'
 cask 'webpquicklook'
 cask 'wireshark'
-cask 'wmail'
 cask 'xquartz'
 
 tap 'caskroom/fonts'
@@ -222,6 +221,7 @@ brew 'nmap'
 brew 'no-more-secrets'
 brew 'node'
 brew 'noti'
+brew 'nvm'
 brew 'oniguruma'
 brew 'openssh'
 brew 'openssl'
@@ -316,6 +316,9 @@ brew 'brew-file'
 
 # Other Homebrew packages
 brew 'android-platform-tools'
+
+# Cask applications
+cask 'wmail'
 
 # App Store applications
 #appstore '409183694 Keynote (7.1)'

@@ -8,3 +8,4 @@ nvim/.netrwhist
 configstore/update-*.json
 psysh/update_check.json
 psych/psych_history 
+npm/npmrc
