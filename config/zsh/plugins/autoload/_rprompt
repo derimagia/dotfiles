@@ -1,7 +1,9 @@
 emulate zsh -L
 
 local last_status=$?
-local local_drush_prompt
+local drush_prompt
+local desk_prompt
+local -a rprompt
 
 _drush_rprompt() {
     local f="${TMPDIR:-/tmp/}/drush-env-${USER}/drush-drupal-site-$$"
@@ -15,14 +17,19 @@ _drush_rprompt() {
     case "$DRUSH_SITE" in
         *.live|*.prod) local ENV_COLOR="%{$FG[red]%}" ;;
         *.stage|*.test) local ENV_COLOR="%{$FG[yellow]%}" ;;
-        *.local) local ENV_COLOR="%{$FG[green]%}" ;;
+        *.local|*.dev) local ENV_COLOR="%{$FG[green]%}" ;;
         *) local ENV_COLOR="%{$FG[blue]%}" ;;
     esac
 
-    [[ -n "$DRUSH_SITE" ]] && local_drush_prompt="${ENV_COLOR}${DRUSH_SITE}%{${FX[reset]}%}"
+    [[ -n "$DRUSH_SITE" ]] && drush_prompt="${ENV_COLOR}${DRUSH_SITE}%{${FX[reset]}%}"
+}
+
+_desk_prompt() {
+    [[ -n "$DESK_NAME" ]] && desk_prompt="%{${FG[cyan]}%}${DESK_NAME}${FX[reset]}"
 }
 
 _drush_rprompt
+_desk_prompt
 
 if [[ ! -z "$TMUX" ]]; then
     tmux_pane=$(tmux display -p "#D" | tr -d %)
@@ -39,4 +46,9 @@ if [[ ! -z "$TMUX" ]]; then
     tmux refresh-client -S
 fi
 
-RPROMPT="$local_drush_prompt"
+rprompt=(
+    $drush_prompt
+    $desk_prompt
+)
+
+RPROMPT="${(j: - :)rprompt}"
