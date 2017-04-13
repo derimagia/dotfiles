@@ -10757,11 +10757,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 499 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1024 408 918 416 0 0 1920 1057 </string>
+	<string>418 404 1018 447 0 0 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 130 1130 877 0 0 1920 1057 </string>
+	<string>228 73 1130 877 0 0 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11695,7 +11695,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-04-02T06:43:21Z</date>
+	<date>2017-04-13T03:19:43Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -11725,6 +11725,10 @@
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabViewType</key>
+	<integer>0</integer>
+	<key>TerminalMargin</key>
+	<integer>0</integer>
+	<key>TerminalVMargin</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
 	<false/>
@@ -11780,7 +11784,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.beta.2</string>
+	<string>3.1.beta.3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>7</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
