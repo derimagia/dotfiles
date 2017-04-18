@@ -120,9 +120,13 @@ nullify() {
 # print out arguments for zsh
 args() {
     ink -c blue '$#'
-    print -l $#
+    print -l $#"\n"
+    ink -c blue '"$*"'
+    print -l "$*""\n"
+    ink -c blue '"$@"'
+    print -l "$@""\n"
     ink -c blue '$*'
-    print -l $*
+    print -l $*"\n"
     ink -c blue '$@'
     print -l $@
 }
