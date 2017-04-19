@@ -23,7 +23,8 @@ alias cddot="cd $DOTFILES"
 alias dottime='time zsh -ic true';
 alias doti="i $DOTFILES"
 alias dotc="code $DOTFILES"
-alias confv="vimr --cwd $DOTFILES/.config"
+alias confc="code $XDG_CONFIG_HOME"
+alias confcd="cd $XDG_CONFIG_HOME"
 alias brewc="code $HOMEBREW_PREFIX/etc"
 alias brewi="i $HOMEBREW_PREFIX/etc"
 

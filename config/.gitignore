@@ -1,11 +1,16 @@
 hub
 zsh/.zlocalrc
 aws/credentials
+deis/config.json
+helm/
+kube/
 git/config_local
 tmux/plugins
+# npmrc has secrets in it
+npm/npmrc 
 nvim/.netrwhist
 # Update files for configstore (node module)
 configstore/update-*.json
 psysh/update_check.json
 psych/psych_history 
-npm/npmrc
+zsh/.zcompdump

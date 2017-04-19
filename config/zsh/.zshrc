@@ -29,9 +29,6 @@ HISTSIZE=100000
 SAVEHIST=100000
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
-# Local rc file
-[[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
-
 # Add bin to path
 path=(
     $ZDOTDIR/plugins/bin
@@ -61,6 +58,9 @@ path=(
     # Clean dead files, hopefully this can eventually be removed.
     rm -rf ~/.ansible ~/.ansible_galaxy ~/.gitignore_global ~/.hgignore_global ~/.DS_Store ~/.bash_history
 }&!
+
+# Local rc file
+[[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
 
 # Hook for desk activation
 if [[ -n "$DESK_ENV" ]] {
