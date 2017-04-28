@@ -94,7 +94,7 @@ nnoremap <leader>r :call NumberToggle()<cr>
 
 " Mapping - Clipboard
 set clipboard+=unnamedplus
-vmap <C-c "+yi
+vmap <C-c> "+yi
 colorscheme OceanicNext
 
 " CtrlP Settings
