@@ -304,7 +304,6 @@ tap 'homebrew/fuse'
 
 tap 'homebrew/php'
 brew 'composer'
-brew 'php55'
 brew 'php71'
 brew 'php71-mcrypt'
 brew 'php71-opcache'
@@ -324,15 +323,13 @@ brew 'brew-file'
 # Other Homebrew packages
 brew 'android-platform-tools'
 
-# Cask applications
-cask 'wmail'
-
 # App Store applications
-#appstore '409183694 Keynote (7.1)'
-#appstore '409203825 Numbers (4.1)'
-#appstore '409201541 Pages (6.1)'
+#appstore '409183694 Keynote (7.1.1)'
+#appstore '409203825 Numbers (4.1.1)'
+#appstore '409201541 Pages (6.1.1)'
 #appstore '866773894 Quiver (3.0.6)'
 #appstore '507257563 Sip (4.5.2)'
 #appstore '896450579 Textual (6.0.10)'
 #appstore '585829637 Todoist (6.3.20)'
-#appstore '557168941 Tweetbot (2.4.6)'
+#appstore '557168941 Tweetbot (2.5)'
+#appstore '497799835 Xcode (8.3.2)'
