@@ -304,8 +304,10 @@ tap 'homebrew/fuse'
 
 tap 'homebrew/php'
 brew 'composer'
+brew 'php55'
 brew 'php71'
 brew 'php71-mcrypt'
+brew 'php71-opcache'
 brew 'php71-redis'
 brew 'php71-xdebug'
 
