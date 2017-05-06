@@ -60,7 +60,6 @@ set grepprg="rg --vimgrep"
 set magic                 " Use 'magic' patterns (extended regular expressions).
 set gdefault              " Use 'g' flag by default with :s/foo/bar/.
 set smartcase
-set esckeys
 set noerrorbells
 set nojoinspaces
 set expandtab
