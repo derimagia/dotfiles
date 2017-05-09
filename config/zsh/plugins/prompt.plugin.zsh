@@ -1,6 +1,4 @@
-# misc paths
-
-PURE_pprompt_SYMBOL=λ
+PURE_PROMPT_SYMBOL=λ
 
 # _pprompt_section <color> <content>
 _pprompt_section() {
@@ -9,7 +7,7 @@ _pprompt_section() {
     [[ -n $2 ]] && content="$2"    || content=""
 
     # Hacky, but pure doesn't have a way to add to the prompt so just alter the username variable.
-    prompt_pure_username="  %{%B$color%}$content%{%b%f%} $prompt_pure_username"
+    prompt_pure_username="$prompt_pure_username  %{%B$color%}$content%{%b%f%}"
 }
 
 _pprompt_drush() {
@@ -36,7 +34,7 @@ _pprompt_desk() {
     [[ -n "$DESK_NAME" ]] && _pprompt_section 'cyan' $DESK_NAME
 }
 
-node_version="system"
+node_version=""
 _pprompt_node() {
     (( $+functions[nvm] )) || return
 
@@ -50,9 +48,7 @@ _pprompt_node() {
         }
     }
 
-    [[ $node_version == "system" || $node_version == "node" ]] && return
-
-    _pprompt_section 'green' "⬢  $node_version"
+    [[ -n $node_version ]] && _pprompt_section 'green' "⬢  $node_version"
 }
 
 docker_errcode=1
@@ -70,7 +66,7 @@ _pprompt_docker() {
 
     [[ -f Dockerfile || -f docker-compose.yml || -f docker-compose.yaml ]] || return
 
-    (( $docker_errcode )) || _pprompt_section 'cyan' "🐳  v$docker_version"
+    (( $docker_errcode )) || _pprompt_section '' "🐳"
 }
 
 _pprompt() {
@@ -86,7 +82,7 @@ _pprompt() {
     _pprompt_drush
     _pprompt_desk
     _pprompt_docker
-    _pprompt_node
+    # _prompt_node
 }
 
 add-zsh-hook precmd _pprompt
