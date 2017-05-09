@@ -9,7 +9,7 @@ _pprompt_section() {
     [[ -n $2 ]] && content="$2"    || content=""
 
     # Hacky, but pure doesn't have a way to add to the prompt so just alter the username variable.
-    prompt_pure_username="%{%B$color%}$content%{%b%f%} $prompt_pure_username"
+    prompt_pure_username="  %{%B$color%}$content%{%b%f%} $prompt_pure_username"
 }
 
 _pprompt_drush() {
@@ -42,16 +42,17 @@ _pprompt_node() {
 
     async_start_worker node_version 2>/dev/null && {
         async_register_callback node_version _detect_node_version_callback
-        async_job node_version nvm current
+        async_job node_version node --version
 
         _detect_node_version_callback() {
             node_version=$3
+            async_stop_worker node_version
         }
     }
 
     [[ $node_version == "system" || $node_version == "node" ]] && return
 
-    _pprompt_section 'green' "⬢  v$node_version"
+    _pprompt_section 'green' "⬢  $node_version"
 }
 
 docker_errcode=1
@@ -63,6 +64,7 @@ _pprompt_docker() {
         _detect_docker_version_callback() {
             docker_errcode=$2
             docker_version=$3
+            async_stop_worker docker_version
         }
     }
 
