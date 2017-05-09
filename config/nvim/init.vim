@@ -3,8 +3,23 @@ if !exists('plug#begin')
     source $XDG_DATA_HOME/nvim/site/autoload/plug.vim
 endif
 
-call plug#begin("$XDG_DATA_HOME/nvim/plugged")
+set t_Co=256
+set background=dark
+set encoding=utf8
+set rnu                   " relative numbers on by default"
+set showmatch
+set scrolloff=5
+set mouse=a
+set grepprg="rg --vimgrep"
+set magic                 " Use 'magic' patterns (extended regular expressions).
+set gdefault              " Use 'g' flag by default with :s/foo/bar/.
+set smartcase
+set noerrorbells
+set nojoinspaces
+set expandtab
+set tabstop=2
 
+call plug#begin("$XDG_DATA_HOME/nvim/plugged")
 " --- Library
 Plug 'Shougo/vimproc.vim', {'do' : 'make'} " unite
 Plug 'MarcWeber/vim-addon-mw-utils' " vim-snipmate
@@ -48,22 +63,6 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'm2mdas/phpcomplete-extended'
 
 call plug#end()
-
-set t_Co=256
-set background=dark
-set encoding=utf8
-set rnu                   " relative numbers on by default"
-set showmatch
-set scrolloff=5
-set mouse=a
-set grepprg="rg --vimgrep"
-set magic                 " Use 'magic' patterns (extended regular expressions).
-set gdefault              " Use 'g' flag by default with :s/foo/bar/.
-set smartcase
-set noerrorbells
-set nojoinspaces
-set expandtab
-set tabstop=2
 
 " Keys
 let mapleader = "\<Space>"

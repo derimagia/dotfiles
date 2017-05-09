@@ -13,5 +13,3 @@ source $TMPPREFIX/antibody-plugins.sh
 # This needs to run after sourcing syntax-highlighting.
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-(( $+functions[prompt_pure_preexec] )) && zle -N clear-screen prompt_pure_clear_screen

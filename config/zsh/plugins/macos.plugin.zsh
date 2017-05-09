@@ -8,10 +8,10 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /p
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'
 alias app='open -a'
-alias mansearch='apropos' # I got to learn the name
 alias mas='reattach-to-user-namespace mas'
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 alias wifi-ssid="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr(\$0, index(\$0, \$2))}'"
+
 
 # brew that auto runs brew file
 brew() {
@@ -113,3 +113,7 @@ fi
 unalias run-help 2>/dev/null
 autoload run-help
 HELPDIR=$HOMEBREW_PREFIX/share/zsh/help
+
+# iterm2 integration
+[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://iterm2.com/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
+source $TMPPREFIX/iterm2.zsh

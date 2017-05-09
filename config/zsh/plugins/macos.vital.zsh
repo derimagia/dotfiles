@@ -2,7 +2,7 @@
 
 export HOMEBREW_PREFIX=/usr/local
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brew/brewfile
+export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brew/brewfile"
 
 # Add these in the vital file since we want them before our own paths
 fpath=(

@@ -29,12 +29,6 @@ HISTSIZE=100000
 SAVEHIST=100000
 DISABLE_UNTRACKED_FILES_DIRTY=true
 
-# Add bin to path
-path=(
-    $ZDOTDIR/plugins/bin
-    $path
-)
-
 # Load all files
 () {
     local plugin_file plugin_files=(
