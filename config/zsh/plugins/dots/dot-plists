@@ -2,68 +2,32 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-local log_directory=~/Library/Logs
-local plist binary_path
-# environment.plist
-ink -l -c green -- "[plist] Setting up environment.plist"
-plist=~/Library/LaunchAgents/environment.plist
-cat > $plist <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key>
-  <string>environment</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>sh</string>
-    <string>-c</string>
-    <string>
-    launchctl setenv XDG_CONFIG_HOME "$XDG_CONFIG_HOME"
-    launchctl setenv XDG_DATA_HOME "$XDG_DATA_HOME"
-    launchctl setenv XDG_CACHE_HOME "$XDG_CACHE_HOME"
-    </string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-</dict>
-</plist>
-XML
-launchctl unload $plist 2>/dev/null; launchctl load $plist
+local plist_dir=~/.dotfiles/etc/plists
 
-# updatedb
-ink -l -c green -- "[plist] Setting up updatedb.plist"
-plist=~/Library/LaunchAgents/updatedb.plist
-binary_path=$commands[locatedb]
-cat > $plist <<-XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-<key>Label</key>
-<string>updatedb</string>
-<key>ProgramArguments</key>
-<array>
-  <string>$binary_path</string>
-</array>
-<key>LowPriorityIO</key>
-<true/>
-<key>Nice</key>
-<integer>5</integer>
-<key>StandardErrorPath</key>
-<string>$log_directory/updatedb/updatedb.log</string>
-<key>StartCalendarInterval</key>
-<array>
-  <dict>
-    <key>Hour</key>
-    <integer>3</integer>
-    <key>Minute</key>
-    <integer>15</integer>
-    <key>Weekday</key>
-    <integer>6</integer>
-  </dict>
-</array>
-</dict>
-</plist>
-XML
-launchctl unload $plist 2>/dev/null; launchctl load $plist
+# User LaunchAgents
+for file in $plist_dir/LaunchAgents/*; do
+    filename=${file:t}
+    service_location=~/Library/LaunchAgents/$filename
+
+    ink -l -c green -- "[plist] Setting up $filename"
+
+    chown $USER $service_location
+    chmod 600 $service_location
+    cp $file $service_location
+    launchctl unload $service_location 2>/dev/null
+    launchctl load $service_location
+done
+
+# Root LaunchAgents
+for file in $plist_dir/LaunchAgentsRoot/*; do
+    filename=${file:t}
+    service_location=/Library/LaunchAgents/$filename
+
+    ink -l -c yellow -- "[plist] Setting up $filename"
+
+    sudo cp $file $service_location
+    sudo chown root $service_location
+    sudo chmod 600 $service_location
+    sudo launchctl unload $service_location 2>/dev/null
+    sudo launchctl load $service_location
+done
