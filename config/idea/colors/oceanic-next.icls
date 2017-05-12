@@ -20147,7 +20147,11 @@
       </value>
     </option>
     <option name="PHP_CONSTANT" baseAttributes="DEFAULT_CONSTANT" />
-    <option name="PHP_EXEC_COMMAND_ID" baseAttributes="DEFAULT_STRING" />
+    <option name="PHP_EXEC_COMMAND_ID">
+      <value>
+        <option name="FOREGROUND" value="99c794" />
+      </value>
+    </option>
     <option name="PHP_HEREDOC_ID">
       <value>
         <option name="FOREGROUND" value="5fb3b3" />
@@ -20444,6 +20448,12 @@
       <value>
         <option name="BACKGROUND" value="1c461c" />
         <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="SQL_EXTERNAL_TOOL">
+      <value>
+        <option name="FONT_TYPE" value="2" />
+        <option name="EFFECT_COLOR" value="32424a" />
       </value>
     </option>
     <option name="SQL_SYNTETIC_ENTITY">

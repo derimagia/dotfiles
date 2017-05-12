@@ -4,7 +4,7 @@
 <dict>
     <key>Label</key>
     <string>sh.npc.docker-socat</string>
-    <key>Enabled</key>
+    <key>Disabled</key>
     <false/>
     <key>RunAtLoad</key>
     <true/>
