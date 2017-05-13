@@ -736,13 +736,6 @@ if [[ -x karabiner_cli ]]; then
     $karabiner_cli set remap.fnletter_to_ctrlletter2 1
 fi
 
-if [[ ! -f ~/Library/Fonts/FuraMono-Regular.otf ]]; then
-  # commit c232226d395b6c067a4c9ccd65a6193ac3d7ffef, don't use in url to be notified if it changes
-  ink -l -c green -- " Downloading FuraMono Regular"
-  wget -O ~/Library/Fonts/FuraMono-Regular.otf \
-    'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20for%20Powerline%20Nerd%20Font%20Complete.otf'
-fi
-
 # ==============================================
 # Dash
 # ==============================================

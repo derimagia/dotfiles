@@ -123,11 +123,6 @@ gz() {
     gzip -c "$1" | wc -c
 }
 
-# direct it all to /dev/null
-nullify() {
-    "$@" >/dev/null 2>&1
-}
-
 # print out arguments for zsh
 args() {
     ink -c blue '$#'
@@ -192,7 +187,7 @@ watchfs() {
 }
 
 # print opened connections, filtered by known applications.
-lsofopen() {
+ports() {
     # 2BUA8C4S2 = 1password
     local ignore=(Google Dropbox Slack Mail 2BUA8C4S2)
     lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
