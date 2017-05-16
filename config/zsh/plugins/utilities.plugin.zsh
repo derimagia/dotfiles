@@ -190,7 +190,7 @@ watchfs() {
 ports() {
     # 2BUA8C4S2 = 1password
     local ignore=(Google Dropbox Slack Mail 2BUA8C4S2)
-    lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
+    sudo lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
 }
 
 # scan incoming traffic.
