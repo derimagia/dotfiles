@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+# reads a link until it can't anymore.
+
+local the_path="$1"
+[[ -L $the_path ]] || return
+
+# If there's no link we're at the top
+if [[ -z $the_link ]]; then
+    echo $the_path
+fi
+
+local the_link=${the_path:A}
+if [[ "$the_path" != "$the_link" ]]; then
+    echo $the_link
+    readtrail $the_link
+fi

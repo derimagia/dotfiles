@@ -25,4 +25,3 @@ manpath=(
     /usr/local/opt/findutils/share/man
     $manpath
 )
-

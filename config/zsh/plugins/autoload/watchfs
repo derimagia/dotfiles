@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+# Watch and print out fs changes. Defaults to current directory
+local watchargs=$*
+if [[ -z $watchargs ]]; then
+    watchargs='.'
+fi
+
+sudo watchman-wait -m 0 $watchargs

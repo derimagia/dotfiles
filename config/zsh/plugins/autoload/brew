@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+command brew $@
+
+# Shift one argument if it's cask
+[[ $1 == "cask" ]] && shift
+
+case "$1" in
+    instal|install|reinstall|tap|pip|gem|rm|remove|uninstall|untap)
+        command brew file init -F bundle -y >/dev/null 2>&1 &!
+        ;;
+esac

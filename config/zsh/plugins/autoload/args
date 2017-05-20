@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# print out arguments for zsh
+
+ink -c blue '$#'
+print -l $#"\n"
+ink -c blue '"$*"'
+print -l "$*""\n"
+ink -c blue '"$@"'
+print -l "$@""\n"
+ink -c blue '$*'
+print -l $*"\n"
+ink -c blue '$@'
+print -l $@

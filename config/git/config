@@ -82,8 +82,8 @@
 [pull]
 	rebase = true
 [ghq]
-	root = ~/dev/src
-	root = ~/dev/go/src
+	root = ~/src
+	root = ~/go/src
 [rerere]
 	enabled = 1
 [merge]

@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# This alias allows `dssh @site` to work like `drush @site ssh`.
+# Ssh commands, such as `dssh @site ls /tmp`, are also supported.
+
+d="$1"
+if [[ ${d:0:1} == "@" ]]; then
+    drush "$d" ssh "${@:2}"
+    return
+fi
+
+command ssh "$@"

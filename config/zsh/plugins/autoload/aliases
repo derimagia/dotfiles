@@ -1,0 +1,5 @@
+# print out aliases and search using it
+
+alias | grep -E ${1-.} | \
+    ccat | \
+    fzf-tmux

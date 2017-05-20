@@ -12,25 +12,7 @@ alias mas='reattach-to-user-namespace mas'
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 alias wifi-ssid="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr(\$0, index(\$0, \$2))}'"
 alias docker-screen="screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty"
-
-# brew that auto runs brew file
-brew() {
-    command brew $@
-
-    # Shift one argument if it's cask
-    [[ $1 == "cask" ]] && shift
-
-    case "$1" in
-        instal|install|reinstall|tap|pip|gem|rm|remove|uninstall|untap)
-            command brew file init -F bundle -y >/dev/null 2>&1 &!
-         ;;
-    esac
-}
-
-# quicklook
-ql() {
-  nullify qlmanage -p "$@"
-}
+alias ql='qlmanage -p'
 
 # dash
 dash() {
@@ -39,7 +21,7 @@ dash() {
 
 # dash man
 mand() {
-    open "dash://manpages:$1" 2>/dev/null
+    dash "manpages:$1" 2>/dev/null
 }
 
 # finder Directory
@@ -113,6 +95,7 @@ fi
 unalias run-help 2>/dev/null
 autoload run-help
 HELPDIR=$HOMEBREW_PREFIX/share/zsh/help
+alias help=run-help
 
 # iterm2 integration
 [[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://iterm2.com/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh

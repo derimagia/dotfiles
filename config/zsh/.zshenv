@@ -72,13 +72,15 @@ export FZF_DEFAULT_OPTS="--reverse --inline-info"
 # Go
 typeset -TUx GOPATH gopath
 gopath=(
-    $XDG_DATA_HOME/go
+    $HOME/go
 )
 
 # paths
 path=(
     $ZDOTDIR/plugins/bin
-    $path
+    $ZDOTDIR/plugins/dots
+    $COMPOSER_HOME/vendor/bin
     $gopath/bin
+    $path
 )
 

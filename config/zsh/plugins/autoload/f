@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# use fasd to select file
+
+fasd -f "$1" | fzf-tmux --select-1 | awk '{print $2}'
