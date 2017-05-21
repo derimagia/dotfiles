@@ -11,9 +11,9 @@ for file in $plist_dir/LaunchAgents/*; do
 
     ink -l -c green -- "[plist] Setting up $filename"
 
-    chown $USER $service_location
-    chmod 600 $service_location
     cp $file $service_location
+    chown $USER $service_location
+    chmod 644 $service_location
     launchctl unload $service_location 2>/dev/null
     launchctl load $service_location
 done
@@ -27,7 +27,7 @@ for file in $plist_dir/LaunchAgentsRoot/*; do
 
     sudo cp $file $service_location
     sudo chown root $service_location
-    sudo chmod 600 $service_location
+    sudo chmod 644 $service_location
     sudo launchctl unload $service_location 2>/dev/null
     sudo launchctl load $service_location
 done

@@ -7,7 +7,11 @@ zmodload -F zsh/stat b:zstat
 typeset -gU fpath path manpath
 
 # Set up TMPPREFIX
-export TMPPREFIX="$XDG_CACHE_HOME/zsh"; [[ -d "$TMPPREFIX" ]] || mkdir -p $TMPPREFIX
+export TMPPREFIX="$XDG_CACHE_HOME/zsh"
+
+# Create $TMPPREFIX, Cached autoload functions
+mkdir -p $TMPPREFIX/autoload
+fpath+=($TMPPREFIX/autoload)
 
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -17,8 +21,8 @@ setopt \
     EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_IGNORE_DUPS \
     KSH_OPTION_PRINT TRANSIENT_RPROMPT
 
-# Autoload needed functions
-autoload -Uz add-zsh-hook compinit zmv
+# Autoload needed functions, bashcompinit is only needed for kubectl, hopefully we can remove
+autoload -Uz add-zsh-hook compinit zmv zrecompile bashcompinit
 
 # Reset key bindings
 bindkey -e
@@ -32,26 +36,20 @@ DISABLE_UNTRACKED_FILES_DIRTY=true
 # Load all files
 () {
     local plugin_file plugin_files=(
-        $ZDOTDIR/plugins/*.vital.zsh
-        $ZDOTDIR/plugins/*.plugin.zsh
-        $ZDOTDIR/plugins/*.post-plugin.zsh
+        $ZDOTDIR/*.vital.zsh
+        $ZDOTDIR/*.plugin.zsh
+        $ZDOTDIR/*.post-plugin.zsh
     )
 
-    local compiled_file="$TMPPREFIX/zcompdump.zwc"
-
-    for plugin_file ($plugin_files) . $plugin_file
+    for plugin_file ($plugin_files) source $plugin_file
 
     # Autoload files
-    local autoload_files=($ZDOTDIR/plugins/autoload/*)
-    fpath+=($autoload_files:h) && autoload -Uz ${autoload_files:t}
-    compinit -C -d "$TMPPREFIX/zcompdump"
-    zcompile $compiled_file "$TMPPREFIX/zcompdump" &!
-}
+    local autoload_files=($ZDOTDIR/autoload/*)
+    fpath+=($autoload_files:h) && autoload -U ${autoload_files:t}
 
-{
-    # Clean dead files, hopefully this can eventually be removed.
-    rm -rf ~/.ansible ~/.ansible_galaxy ~/.gitignore_global ~/.hgignore_global ~/.DS_Store ~/.bash_history
-}&!
+    zrecompile -qp -- $TMPPREFIX/zcompdump.zwc $TMPPREFIX/zcompdump
+    compinit -C -d $TMPPREFIX/zcompdump
+}
 
 # Local rc file
 [[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
@@ -67,5 +65,5 @@ if [[ -n "$DESK_ENV" ]] {
     }
 }
 
-#zprof | less
+# zprof | less
 

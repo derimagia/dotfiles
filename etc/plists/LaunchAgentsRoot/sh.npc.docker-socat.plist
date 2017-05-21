@@ -12,6 +12,7 @@
     <array>
         <string>/usr/local/bin/socat</string>
         <string>-d</string>
+        <string>-v</string>
         <string>TCP-LISTEN:2376,range=127.0.0.1/32,reuseaddr,fork</string>
         <string>UNIX:/var/run/docker.sock</string>
     </array>

@@ -91,3 +91,14 @@ add-zsh-hook precmd _pprompt
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
+
+
+[[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd
+export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
+
+if [[ ! -s $TMPPREFIX/fasd-init.sh ]] {
+    fasd --init \
+        zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
+}
+
+source $TMPPREFIX/fasd-init.sh

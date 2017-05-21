@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 emulate -L zsh
 
-dot_parent_dir="$ZDOTDIR/plugins/dots"
+dot_parent_dir="$ZDOTDIR/dots"
 dot_file_prefix="$dot_parent_dir/dot-"
 dot_files=($dot_file_prefix*(N.))
 dots_list=$(print -l ${dot_files:t:r} | cut -d"-" -f 2)

@@ -80,3 +80,8 @@ zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
 
 # Shift tab for backwards
 bindkey $terminfo[kcbt] reverse-menu-complete
+
+# Save script to load completions for kubectl
+if (( $+commands[kubectl] )) {
+    [[ -s $TMPPREFIX/autoload/_kubectl ]] || kubectl completion zsh >| $TMPPREFIX/autoload/_kubectl
+}

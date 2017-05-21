@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+(( $+commands[pip] )) || return 34
+
+ink -l -c green "[python] installing python packages"
+
+pip install -U \
+    pip setuptools \
+    virtualenv \
+    pygments \
+    tmuxp \
+    doge \
+    http-prompt
+
+pip3 install -U \
+    pip \
+    git-repo

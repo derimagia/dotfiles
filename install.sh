@@ -43,8 +43,8 @@ if [[ $OSTYPE == 'darwin' ]]; then
 fi
 
 # Link dot files
-PATH=$ZDOTDIR/plugins/bin/:$PATH
-$ZDOTDIR/plugins/dots/dot-link
+PATH=$ZDOTDIR/bin/:$PATH
+$ZDOTDIR/dots/dot-link
 
 if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh
@@ -64,7 +64,7 @@ elif [[ $OSTYPE == 'darwin' ]]; then
 
     print_status "Adding ZDOTDIR to /etc/zshenv"
     #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-    sudo sed -i '/export ZDOTDIR/ d' /etc/zshenv       
+    sudo sed -i '/export ZDOTDIR/ d' /etc/zshenv
     echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
 
     exec $HOMEBREW_PREFIX/bin/zsh

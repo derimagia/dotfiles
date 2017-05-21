@@ -30,23 +30,20 @@ if $restarttmux && [[ -n $TMUX ]] ; then
     { tmux kill-server  && tmuxx && print -l "Restarted Tmux" }&!
 fi
 
+
 if [[ -n $command ]]; then
     if $readall; then
         command+=" | cat -A"
     fi
     zsh -ic "$command; exit"
-else
-    print -l "Re-sourced .zshrc"
-
-    # Reload functions that were autoloaded, @TODO: Find a better way to do this
-    autoload_functions=( $ZDOTDIR/plugins/autoload/* )
-
-    local f
-    for f in $autoload_functions:t; do
-        unfunction $f
-        autoload -Uz $f
-    done
-
-    source $ZDOTDIR/.zshenv
-    source $ZDOTDIR/.zshrc
+    return
 fi
+
+# Reload functions that were autoloaded, @TODO: Find a better way to do this
+autoload_functions=( $ZDOTDIR/plugins/autoload/* )
+unfunction -m '*'
+
+print -l "Re-sourced .zshrc"
+
+source $ZDOTDIR/.zshenv
+source $ZDOTDIR/.zshrc
