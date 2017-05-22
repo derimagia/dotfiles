@@ -52,16 +52,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/deoplete.nvim'
 
-" --- Snippets
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'technosophos/drupal-snippets'
-
 " --- Languages
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-" Plug 'm2mdas/phpcomplete-extended'
-
 call plug#end()
 
 " Keys
@@ -122,3 +115,7 @@ let g:NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
+
+" vimpager
+let g:vimpager = {}
+let g:vimpager.passthrough = 0
