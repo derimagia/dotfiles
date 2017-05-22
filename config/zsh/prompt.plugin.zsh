@@ -81,7 +81,7 @@ _pprompt() {
 
     _pprompt_drush
     _pprompt_desk
-    # _pprompt_docker
+    _pprompt_docker
     # _prompt_node
 }
 

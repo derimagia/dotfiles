@@ -5,29 +5,33 @@
 local plist_dir=~/.dotfiles/etc/plists
 
 # User LaunchAgents
-for file in $plist_dir/LaunchAgents/*; do
+for file in $plist_dir/LaunchAgents/*(N.); do
     filename=${file:t}
+    service_name=${filename:r}
     service_location=~/Library/LaunchAgents/$filename
 
-    ink -l -c green -- "[plist] Setting up $filename"
+    ink -l -c green -- "[plist] Setting up $service_name"
 
-    cp $file $service_location
+    [[ -f $service_location ]] && launchctl unload $service_location
+    # Replace $HOME
+    cat $file | sed "s|\$HOME|$HOME|g" > $service_location
     chown $USER $service_location
     chmod 644 $service_location
-    launchctl unload $service_location 2>/dev/null
     launchctl load $service_location
 done
 
 # Root LaunchAgents
-for file in $plist_dir/LaunchAgentsRoot/*; do
+for file in $plist_dir/LaunchAgentsRoot/*(N.); do
     filename=${file:t}
     service_location=/Library/LaunchAgents/$filename
+    service_name=${filename:r}
 
-    ink -l -c yellow -- "[plist] Setting up $filename"
+    ink -l -c green -- "[plist-root] Setting up $service_name"
 
-    sudo cp $file $service_location
+    [[ -f $service_location ]] && sudo launchctl unload $service_location
+    # Replace $HOME
+    cat $file | sed "s|\$HOME|$HOME|g" | sudo tee $service_location >/dev/null
     sudo chown root $service_location
     sudo chmod 644 $service_location
-    sudo launchctl unload $service_location 2>/dev/null
     sudo launchctl load $service_location
 done

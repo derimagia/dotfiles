@@ -2,8 +2,6 @@
 
 autoload -Uz colors && colors
 
-export CLICOLOR=true
-
 if (( $+commands[grc] )); then
     # Need to run it through stdbuf because of https://github.com/garabik/grc/issues/25
     alias cl_stdbuf='stdbuf -oL grc -es --colour=auto'
