@@ -9,9 +9,8 @@ typeset -gU fpath path manpath
 # Set up TMPPREFIX
 export TMPPREFIX="$XDG_CACHE_HOME/zsh"
 
-# Create $TMPPREFIX, Cached autoload functions
-mkdir -p $TMPPREFIX/autoload
-fpath+=($TMPPREFIX/autoload)
+# Create $TMPPREFIX
+mkdir -p $TMPPREFIX
 
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -31,7 +30,6 @@ bindkey -e
 HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
-DISABLE_UNTRACKED_FILES_DIRTY=true
 
 # Load all files
 () {
