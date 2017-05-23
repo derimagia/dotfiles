@@ -48,6 +48,8 @@ _pprompt_node() {
         }
     }
 
+    [[ -f package.json ]] || return
+
     [[ -n $node_version ]] && _pprompt_section 'green' "⬢  $node_version"
 }
 
@@ -82,7 +84,7 @@ _pprompt() {
     _pprompt_drush
     _pprompt_desk
     _pprompt_docker
-    # _prompt_node
+    # _pprompt_node
 }
 
 add-zsh-hook precmd _pprompt
