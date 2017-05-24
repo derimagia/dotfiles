@@ -9,9 +9,9 @@
         <string>sh</string>
         <string>-c</string>
         <string>
-            launchctl setenv XDG_CONFIG_HOME "~/.config";
-            launchctl setenv XDG_DATA_HOME "~/Library";
-            launchctl setenv XDG_CACHE_HOME "~/Library/Caches"
+            launchctl setenv XDG_CONFIG_HOME "$HOME/.config";
+            launchctl setenv XDG_DATA_HOME "$HOME/Library";
+            launchctl setenv XDG_CACHE_HOME "$HOME/Library/Caches"
         </string>
     </array>
     <key>RunAtLoad</key>
