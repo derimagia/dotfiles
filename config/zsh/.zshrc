@@ -21,7 +21,7 @@ setopt \
     KSH_OPTION_PRINT TRANSIENT_RPROMPT
 
 # Autoload needed functions, bashcompinit is only needed for kubectl, hopefully we can remove
-autoload -Uz add-zsh-hook compinit zmv zrecompile bashcompinit
+autoload -Uz add-zsh-hook compinit zmv zrecompile bashcompinit promptinit
 
 # Reset key bindings
 bindkey -e
@@ -31,26 +31,36 @@ HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 
+# bracketed-paste-url-magic is a simplier version of bracketed-paste-magic
+autoload -Uz bracketed-paste-url-magic url-quote-magic
+zle -N bracketed-paste bracketed-paste-url-magic
+zle -N self-insert url-quote-magic
+
+# fasd
+[[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd; _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
+[[ -s $TMPPREFIX/fasd-init.sh ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
+source $TMPPREFIX/fasd-init.sh
+
 # Load all files
 () {
-    local plugin_file plugin_files=(
-        $ZDOTDIR/*.vital.zsh
-        $ZDOTDIR/*.plugin.zsh
-        $ZDOTDIR/*.post-plugin.zsh
-    )
-
-    for plugin_file ($plugin_files) source $plugin_file
-
     # Autoload files
     local autoload_files=($ZDOTDIR/autoload/*)
     fpath+=($autoload_files:h) && autoload -U ${autoload_files:t}
 
-    zrecompile -qp -- $TMPPREFIX/zcompdump.zwc $TMPPREFIX/zcompdump
-    compinit -C -d $TMPPREFIX/zcompdump
+    local plugin_file plugin_files=(
+        $ZDOTDIR/*.plugin.zsh
+        $ZDOTDIR/prompt.zsh
+        $ZDOTDIR/antibody.zsh
+    )
+
+    for plugin_file ($plugin_files) source $plugin_file
 }
 
+zrecompile -qp -- $TMPPREFIX/zcompdump.zwc $TMPPREFIX/zcompdump
+compinit -C -d $TMPPREFIX/zcompdump
+
 # Local rc file
-[[ -f $ZDOTDIR/.zlocalrc ]] && . $ZDOTDIR/.zlocalrc
+[[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
 
 # Hook for desk activation
 if [[ -n "$DESK_ENV" ]] {
@@ -59,7 +69,7 @@ if [[ -n "$DESK_ENV" ]] {
         # @TODO Make this only happen once, is there a better way to do this?
         export DESK_INIT=1
         [[ -n $PROJECT_PATH ]] && cd $PROJECT_PATH
-        [[ -n $DRUSH_ALIAS ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?ss
+        [[ -n $DRUSH_ALIAS ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?
     }
 }
 

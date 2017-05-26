@@ -25,7 +25,7 @@ mand() {
 }
 
 # finder Directory
-osx-pfd() {
+pfd() {
     osascript 2>/dev/null <<EOF
     tell application "Finder"
         return POSIX path of (target of first window as text)
@@ -34,7 +34,7 @@ EOF
 }
 
 # Finder Selection
-osx-pds() {
+pds() {
     osascript 2>&1 <<EOF
     tell application "Finder" to set the_selection to selection
     if the_selection is not {}
@@ -43,14 +43,6 @@ osx-pds() {
         end repeat
     end if
 EOF
-}
-
-# remove mac metadata from folder
-osx-rm-dir-metadata() {
-    find "${@:-$PWD}" \( \
-    -type f -name '.DS_Store' -o \
-    -type d -name '__MACOSX' \
-    \) -print0 | xargs -0 rm -rf
 }
 
 # print download history
@@ -77,19 +69,6 @@ osx-find-launchctl () {
         sudo grep -i -r "$curPATH" -e "$1"
     done
 }
-
-if [[ -x "/usr/libexec/java_home" ]]; then
-    # Determine java home
-    async_start_worker java_home_osx 2>/dev/null && {
-        async_register_callback java_home_osx _detect_java_home_osx_callback
-        async_job java_home_osx /usr/libexec/java_home
-
-        _detect_java_home_osx_callback() {
-            export JAVA_HOME="$3"
-            async_stop_worker java_home_osx
-        }
-    }
-fi
 
 # Fix Help
 unalias run-help 2>/dev/null

@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-if [[ ! -L $DOTFILES/config ]]; then
-  # @TODO: Change this to XDG_CONFIG_HOME
-  ink -l -c green "[link] symlinking config directory"
-  ln -sT $DOTFILES/config ~/.config
-fi
-clean-symlinks ~

@@ -44,7 +44,10 @@ fi
 
 # Link dot files
 PATH=$ZDOTDIR/bin/:$PATH
-$ZDOTDIR/dots/dot-link
+
+print_status "Symlinking config"
+[[ -d $HOME/.config ]] || ln -sT $DOTFILES/config $HOME/.config
+
 
 if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh
@@ -53,6 +56,7 @@ if [[ $DISTRO == 'ubuntu' ]]; then
     exec $zsh_path
 elif [[ $OSTYPE == 'darwin' ]]; then
     HOMEBREW_PREFIX=$(brew --prefix)
+
     # Install ZSH specifically
     [[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
 

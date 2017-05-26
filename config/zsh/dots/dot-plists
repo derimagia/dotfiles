@@ -2,7 +2,7 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-local plist_dir=~/.dotfiles/etc/plists
+local plist_dir=$DOTFILES/etc/plists
 
 # User LaunchAgents
 for file in $plist_dir/LaunchAgents/*(N.); do
