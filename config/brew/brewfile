@@ -14,6 +14,7 @@ cask 'captain'
 cask 'cdock'
 cask 'charles'
 cask 'colorpicker-skalacolor'
+cask 'console'
 cask 'dash'
 cask 'default-folder-x'
 cask 'dropbox'
@@ -39,6 +40,7 @@ cask 'knockknock'
 cask 'launchrocket'
 cask 'licecap'
 cask 'lunchy'
+cask 'macfusion'
 cask 'meld'
 cask 'mono-mdk'
 cask 'mysimbl'
@@ -88,12 +90,6 @@ cask 'docker-edge'
 cask 'firefoxdeveloperedition'
 cask 'google-chrome-canary'
 cask 'iterm2-beta'
-
-tap 'homebrew/bundle'
-
-tap 'homebrew/command-not-found'
-
-tap 'homebrew/completions'
 
 tap 'homebrew/core'
 brew 'ansible'
@@ -309,10 +305,6 @@ brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
 
-tap 'homebrew/dupes'
-
-tap 'homebrew/fuse'
-
 tap 'homebrew/php'
 brew 'composer'
 brew 'php71'
@@ -323,8 +315,6 @@ brew 'php71-redis'
 brew 'php71-xdebug'
 
 tap 'homebrew/services'
-
-tap 'homebrew/versions'
 
 tap 'neovim/neovim'
 brew 'neovim'

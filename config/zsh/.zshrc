@@ -41,10 +41,6 @@ zle -N self-insert url-quote-magic
 export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
 source $TMPPREFIX/fasd-init.sh
 
-setup_cache() {
-
-}
-
 # Load all files
 () {
     emulate zsh -L
