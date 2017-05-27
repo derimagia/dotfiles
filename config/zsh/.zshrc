@@ -25,6 +25,8 @@ autoload -Uz add-zsh-hook compinit zmv zrecompile bashcompinit promptinit
 
 # Reset key bindings
 bindkey -e
+bindkey '^U' backward-kill-line
+bindkey '^X^_' redo
 
 # ZSH Options
 HISTFILE="$XDG_DATA_HOME/zsh/history"
