@@ -71,10 +71,7 @@ osx-find-launchctl () {
 }
 
 # Fix Help
-unalias run-help 2>/dev/null
-autoload run-help
-HELPDIR=$HOMEBREW_PREFIX/share/zsh/help
-alias help=run-help
+unalias run-help; autoload run-help
 
 # iterm2 integration
 [[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://iterm2.com/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh

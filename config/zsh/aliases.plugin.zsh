@@ -11,6 +11,8 @@ alias dk='desk .'
 alias s='find . -iname'
 alias cpp='rsync -WavP --human-readable --progress' # Copy with progress
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # Get external ip
+alias help=run-help
+alias l=exa
 
 # tmux
 alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
@@ -70,4 +72,3 @@ alias ev='drush php-eval'
 alias lsa='drush site-alias'
 alias dq='drush sql-query'
 alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
-
