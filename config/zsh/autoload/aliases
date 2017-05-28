@@ -1,5 +1,5 @@
+#!/usr/bin/env zsh
+
 # print out aliases and search using it
 
-alias | grep -E ${1-.} | \
-    ccat | \
-    fzf-tmux
+alias | grep -E ${1-.} | vimcat | fzf-tmux

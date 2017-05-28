@@ -1,7 +1,12 @@
 #!/usr/bin/env zsh
 
 # print opened connections, filtered by known applications.
+# TODO: Just filter by the process, not the entire string
 
 # 2BUA8C4S2 = 1password
-local ignore=(Google Dropbox Slack Mail 2BUA8C4S2)
-sudo lsof -nPi TCP | grep -v "^${(j:\|:)ignore}"
+local ignore=(
+    Google Dropbox Slack Mail 2BUA8C4S2
+    apsd awacsd CalendarA 'Code\\x20H'
+    nfsd rpcbind rpc.statd rpc.lockd rpc.rquot
+)
+sudo lsof -nP -i4TCP | grep -v "^${(j:\|:)ignore}"

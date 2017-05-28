@@ -10719,14 +10719,19 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>345 624 735 382 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>531 201 1016 512 0 0 1920 1057 </string>
+	<string>2224 -23 796 473 1920 -175 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2019 118 592 584 1920 -175 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 130 1120 723 0 0 1920 1057 </string>
+	<string>2075 -82 1120 723 1920 -175 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11651,6 +11656,10 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>1</integer>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -11709,7 +11718,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/dave/.dotfiles/config/iterm</string>
+	<string>/Users/dave/.config/iterm</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>

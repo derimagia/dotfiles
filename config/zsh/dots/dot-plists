@@ -12,7 +12,6 @@ for file in $plist_dir/LaunchAgents/*(N.); do
 
     ink -l -c green -- "[plist] Setting up $service_name"
 
-    [[ -f $service_location ]] && launchctl unload $service_location
     # Replace $HOME
     cat $file | sed "s|\$HOME|$HOME|g" > $service_location
     chown $USER $service_location
@@ -28,7 +27,6 @@ for file in $plist_dir/LaunchAgentsRoot/*(N.); do
 
     ink -l -c green -- "[plist-root] Setting up $service_name"
 
-    [[ -f $service_location ]] && sudo launchctl unload $service_location
     # Replace $HOME
     cat $file | sed "s|\$HOME|$HOME|g" | sudo tee $service_location >/dev/null
     sudo chown root $service_location
