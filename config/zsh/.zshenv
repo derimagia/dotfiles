@@ -87,9 +87,9 @@ path=(
 
 # Mac Only
 if [[ $OSTYPE =~ darwin ]]; then
-    export HOMEBREW_PREFIX=/usr/local
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brew/brewfile"
+    export HOMEBREW_PREFIX=/usr/local # hardcoded for now, brew --prefix does it and should be "fast", but there's no point in it
+    export HOMEBREW_NO_ANALYTICS=1 # I don't really mind for privacy's sake, I just haven't looked at the code for it.
+    export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brew/brewfile
 
     # Add these in the vital file since we want them before our own paths
     fpath=(

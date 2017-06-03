@@ -25,12 +25,6 @@ if $clearcache; then
     return
 fi
 
-if $restarttmux && [[ -n $TMUX ]] ; then
-    # Doesn't work since it kills this session...
-    { tmux kill-server  && tmuxx && print -l "Restarted Tmux" }&!
-fi
-
-
 if [[ -n $command ]]; then
     if $readall; then
         command+=" | cat -A"
@@ -39,11 +33,4 @@ if [[ -n $command ]]; then
     return
 fi
 
-# Reload functions that were autoloaded, @TODO: Find a better way to do this
-autoload_functions=( $ZDOTDIR/plugins/autoload/* )
-unfunction -m '*'
-
-print -l "Re-sourced .zshrc"
-
-source $ZDOTDIR/.zshenv
-source $ZDOTDIR/.zshrc
+exec zsh -i

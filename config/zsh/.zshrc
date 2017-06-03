@@ -69,9 +69,10 @@ bindkey '^U' backward-kill-line
 bindkey '^X^_' redo
 bindkey '^[[A' history-substring-search-up  # Sourcing after syntax-highlighting.
 bindkey '^[[B' history-substring-search-down
+bindkey '^ ' expand-all-aliases
 
-zrecompile -qp -- $TMPPREFIX/zcompdump.zwc $TMPPREFIX/zcompdump
 compinit -C -d $TMPPREFIX/zcompdump
+zrecompile -qp -- $TMPPREFIX/zcompdump
 
 # Local rc file
 [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
@@ -90,4 +91,3 @@ if [[ -n "$DESK_ENV" ]] {
 }
 
 # zprof | less
-

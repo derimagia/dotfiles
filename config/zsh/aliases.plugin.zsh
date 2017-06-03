@@ -1,3 +1,22 @@
+# Global Aliases
+alias -g G='| grep -i --'
+alias -g P='2>&1 | $PAGER'
+
+# Suffix Aliases
+alias -s htm="$BROWSER"
+alias -s html="$BROWSER"
+alias -s yaml='ccat'
+alias -s yml='ccat'
+alias -s json='jq .'
+alias -s xml='ccat'
+alias -s py='python'
+alias -s jar='java -jar'
+alias -s war='java -jar'
+alias -s Dockerfile='docker build - < '
+alias -s md='ql'
+alias -s csv='ql'
+
+
 alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
 alias editvar='vared'
@@ -29,8 +48,9 @@ alias confcd="cd $XDG_CONFIG_HOME"
 alias brewc="code $HOMEBREW_PREFIX/etc"
 alias zshc="code $ZDOTHOME"
 
-# files
+# files and directories
 alias rename='noglob zmv -W'
+alias take='() { mkdir -p "$1" && cd "$1" }'
 
 # network
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # external ip
@@ -48,7 +68,7 @@ alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docke
 
 # git
 alias g='git'
-alias gup='gitup'
+alias gup='() { cd "$1" && gitup }'
 alias diffg='git diff --color-words --no-index'
 alias dclone='clone -d'
 
@@ -64,20 +84,6 @@ alias lsa='drush site-alias'
 alias dq='drush sql-query'
 alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
 
-# Global al
-alias -g G='| grep -i --'
-alias -g P='2>&1 | $PAGER'
-
-# Suffix Aliases
-alias -s htm="$BROWSER"
-alias -s html="$BROWSER"
-alias -s yaml='ccat'
-alias -s yml='ccat'
-alias -s json='jq .'
-alias -s xml='ccat'
-alias -s py='python'
-alias -s jar='java -jar'
-alias -s war='java -jar'
-alias -s Dockerfile='docker build - < '
-alias -s md='ql'
-alias -s csv='ql'
+# meta
+alias list-aliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
+alias list-functions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'

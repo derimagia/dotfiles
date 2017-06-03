@@ -80,3 +80,11 @@ zstyle ':completion:*:*:killall:*:processes-names' list-colors '=*=32'
 
 # Shift tab for backwards
 bindkey $terminfo[kcbt] reverse-menu-complete
+
+# Allow ctrl+space to expand aliases/words
+expand-all-aliases() {
+   zle _expand_alias
+   zle expand-word
+}
+zle -N expand-all-aliases
+

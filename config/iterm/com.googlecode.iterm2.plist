@@ -10727,7 +10727,7 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>345 624 735 382 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>2224 -23 796 473 1920 -175 1440 877 </string>
+	<string>2224 21 796 473 1920 -175 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>2019 118 592 584 1920 -175 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -11664,6 +11664,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>448ABDAA-7B9D-4426-AA72-50E18A8503FB</string>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>517454219.377083</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -11756,7 +11758,7 @@
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.23194861778846154</real>
+	<real>0.14294370993589745</real>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>SwitchPaneModifier</key>
