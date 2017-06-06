@@ -1,4 +1,5 @@
 aws/credentials
+composer
 configstore/update-*.json
 deis/config.json
 git/config_local

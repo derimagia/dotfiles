@@ -1,4 +1,4 @@
-" Autoload doesn't load for vimpager right now so load it.
+" Autoload doesn't load for vimpager right now so load it.j
 if !exists('plug#begin')
     source $XDG_DATA_HOME/nvim/site/autoload/plug.vim
 endif
@@ -120,6 +120,6 @@ let g:vimpager = {}
 let g:vimpager.passthrough = 0
 
 " fix cursor on exit
-if has('nvim')
-  au VimLeave * call nvim_cursor_set_shape("vertical-bar")
+if has("autocmd")
+  au VimLeave * set guicursor=a:ver25-blinkon1-blinkoff1
 endif
