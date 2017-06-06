@@ -63,8 +63,7 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-nnoremap ; :    " Use ; for commands.
-nnoremap Q @q   " Use Q to execute default register.
+nnoremap <Leader>c :set hlsearch!<CR>
 nnoremap <Leader>w :w<CR>
 
 " Search and Replace
@@ -97,7 +96,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
 " AirLine
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
 " Startify
@@ -119,3 +118,8 @@ let g:ale_lint_on_enter = 0
 " vimpager
 let g:vimpager = {}
 let g:vimpager.passthrough = 0
+
+" fix cursor on exit
+if has('nvim')
+  au VimLeave * call nvim_cursor_set_shape("vertical-bar")
+endif
