@@ -3,8 +3,53 @@
 #zmodload zsh/zprof
 zmodload -F zsh/stat b:zstat
 
+# Go
+typeset -TUx GOPATH gopath
+
 # make path, fpath, manpath linked and unique
 typeset -gU fpath path manpath
+
+gopath=(
+    $HOME/go
+)
+
+# Mac Only
+if [[ $OSTYPE =~ darwin ]]; then
+    export HOMEBREW_PREFIX=/usr/local # hardcoded for now, brew --prefix does it and should be "fast", but there's no point in it
+    export HOMEBREW_NO_ANALYTICS=1 # I don't really mind for privacy's sake, I just haven't looked at the code for it.
+    export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brew/brewfile
+
+    # Add these in the vital file since we want them before our own paths
+    fpath=(
+        $HOMEBREW_PREFIX/share/zsh-completions
+        $HOMEBREW_PREFIX/share/zsh/site-functions
+        $fpath
+    )
+
+    path=(
+        $HOMEBREW_PREFIX/sbin
+        $HOMEBREW_PREFIX/bin
+        $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
+        /usr/libexec
+        $path
+    )
+
+    manpath=(
+        $HOMEBREW_PREFIX/share/man
+        $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
+        /usr/local/opt/findutils/share/man
+        $manpath
+    )
+fi
+
+# paths
+path=(
+    $ZDOTDIR/bin
+    $ZDOTDIR/dots
+    $COMPOSER_HOME/vendor/bin
+    $gopath/bin
+    $path
+)
 
 # Set up TMPPREFIX
 export TMPPREFIX="$XDG_CACHE_HOME/zsh"
