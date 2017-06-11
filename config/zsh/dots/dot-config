@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+
+
+# idea
+if [[ $OSTYPE =~ darwin ]] {
+    # Actual Source Files/Folders
+    source_files=($XDG_CONFIG_HOME/idea/colors)
+
+    for idea_pref_folder in ~/Library/Preferences/{IntelliJ,PhpStorm,WebStorm,RubyMine,PyCharm,DataGrip}*(N); do
+        ink -c green "[idea] Symlinking $idea_pref_folder"
+        symlink-files -yq "$source_files" "$idea_pref_folder"
+        clean-symlinks "$idea_pref_folder"
+    done
+    print -l
+}
+
+# vscode
+if [[ -f ~/Dropbox/Apps/VSCode && ! -L ~/.vscode/extensions ]] {
+    # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
+    ink -lc green "[vscode] Linking vscode extension dir"
+    mkdir -p ~/.vscode
+    ln -sT ~/Dropbox/Apps/VSCode/extensions ~/.vscode/extensions
+}
+
+# virtualbox
+if (( $+commands[VBoxManage] )) {
+    ink -lc green "[virtualbox] setting default folder for virtualbox"
+    VBoxManage setproperty machinefolder "$XDG_DATA_HOME/Virtualbox VMs"
+}
+
+# dnsmasq
+if (( $+commands[dnsmasq] )) && [[ -f $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf ]] {
+    # Need password for dnsmasq
+    ink -lc green "[dnsmasq] Setting up dnsmasq config"
+    sudo -v
+
+    ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf /usr/local/etc/dnsmasq.conf
+
+    ink -c green "[dnsmasq] Setting up .dev resolver"
+    sudo mkdir -p /etc/resolver
+    sudo tee /etc/resolver/dev >/dev/null <<-EOF
+nameserver 127.0.0.1
+EOF
+}
+
+# grc
+if (( $+commands[grc] )) && [[ $OSTYPE =~ darwin ]] && [[ ! -L /usr/local/etc/grc.conf ]] {
+    ink -lc green "[colors] Symlinking grc config"
+    symlink-files -yq $XDG_CONFIG_HOME/grc/grc.conf /usr/local/etc/
+}

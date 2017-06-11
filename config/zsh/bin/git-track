@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# Sets up your branch to track a remote branch. Assumes you mean
-# `origin/$branch-name`.
+# Sets up your branch to track a remote branch.
 
 branch=$(git rev-parse --abbrev-ref HEAD)
-git branch $branch --set-upstream-to origin/$branch
+git branch $branch --set-upstream-to "$1"

@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-(( $+commands[VBoxManage] )) || exit 34
-
-ink -l -c green "[Virtualbox] setting default folder for virtualbox"
-VBoxManage setproperty machinefolder "$XDG_DATA_HOME/Virtualbox VMs"

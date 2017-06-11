@@ -2,9 +2,6 @@
 
 (( $+commands[node] )) || exit 34
 
-ink -l -c green -- "[node] Installing prompt"
-npm install -g git://github.com/sindresorhus/pure
-
 ink -l -c green -- "[node] Installing npm Packages"
 npm install -g \
     npm \
@@ -17,5 +14,4 @@ npm install -g \
     speed-test \
     spoof \
     ctrace \
-    git-open \
     babel-cli

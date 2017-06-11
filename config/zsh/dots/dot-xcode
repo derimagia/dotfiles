@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-[[ $OSTYPE =~ darwin ]] || exit 34
-
-ink -c green "[xcode] Removing xcode signature"
-sudo codesign --remove-signature /Applications/Xcode.app

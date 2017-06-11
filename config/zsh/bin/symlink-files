@@ -4,11 +4,15 @@ emulate -L zsh
 autoload -Uz colors && colors
 
 local verbose=1
+local yes=0
 
-while getopts q opt; do
+while getopts yq opt; do
     case $opt in
         (q)
             verbose=0
+        ;;
+        (y)
+            yes=1
         ;;
     esac
 done
@@ -30,6 +34,8 @@ answer_is_yes() {
 }
 
 ask_for_confirmation() {
+    (( $yes )) && REPLY='y' && return 0
+
     print_question "$1 (y/n)"
     read -q "REPLY"
 }
@@ -44,22 +50,22 @@ execute_info() {
 }
 
 print_question() {
-    printf "\e[0;33m  [?] $1 \e[0m\n"
+    (( $verbose )) && printf "\e[0;33m  [?] $1 \e[0m\n"
 }
 
 print_error() {
     # Print output in red
-    printf "\e[0;31m  [✖] $1$2\e[0m\n"
+    (( $verbose )) && printf "\e[0;31m  [✖] $1$2\e[0m\n"
 }
 
 print_warning() {
     # Print output in yellow
-    printf "\e[0;33m  [✔] $1\e[0m\n"
+    (( $verbose )) && printf "\e[0;33m  [✔] $1\e[0m\n"
 }
 
 print_success() {
     # Print output in green
-    printf "\e[0;32m  [✔] $1\e[0m\n"
+    (( $verbose )) && printf "\e[0;32m  [✔] $1\e[0m\n"
 }
 
 main() {

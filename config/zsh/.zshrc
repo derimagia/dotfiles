@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
-
-#zmodload zsh/zprof
-zmodload -F zsh/stat b:zstat
+(( $PROFILING )) && zmodload zsh/zprof
 
 # Go
 typeset -TUx GOPATH gopath
@@ -14,7 +12,7 @@ gopath=(
 )
 
 # Mac Only
-if [[ $OSTYPE =~ darwin ]]; then
+if [[ $OSTYPE =~ darwin ]] {
     export HOMEBREW_PREFIX=/usr/local # hardcoded for now, brew --prefix does it and should be "fast", but there's no point in it
     export HOMEBREW_NO_ANALYTICS=1 # I don't really mind for privacy's sake, I just haven't looked at the code for it.
     export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brew/brewfile
@@ -40,7 +38,7 @@ if [[ $OSTYPE =~ darwin ]]; then
         /usr/local/opt/findutils/share/man
         $manpath
     )
-fi
+}
 
 # paths
 path=(
@@ -135,4 +133,5 @@ if [[ -n "$DESK_ENV" ]] {
     }
 }
 
-# zprof | less
+
+(( $PROFILING )) && zprof

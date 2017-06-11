@@ -6,6 +6,14 @@ dot_file_prefix="$dot_parent_dir/dot-"
 dot_files=($dot_file_prefix*(N.))
 dots_list=$(print -l ${dot_files:t:r} | cut -d"-" -f 2)
 
+function error_message() {
+    ink -l -c red -t 2 -- "$@"
+}
+
+function success_message() {
+    ink -l -c green -- "$@"
+}
+
 # Gets the file of a dot name
 function include_dot_file() {
     local darg="$1"
@@ -19,7 +27,7 @@ function include_dot() {
     include_dot_file "$1"
 
     if [[ ! -f $dot_file ]] {
-        ink -l -c red "Error while loading dot $require_dot_arg"
+        error_message "Error while loading dot $require_dot_arg"
     }
 
     ink -l -c blue "Running $dot_name dot"
@@ -29,13 +37,11 @@ function include_dot() {
     local exit_code=$?
     # Magic exit code for not compatible ones.
     if (( $exit_code == 34 )) {
-        ink -l -c red "$dot_name is not compatible with this system."
+        error_message "$dot_name is not compatible with this system."
     } elif (( $exit_code != 0 )) {
-        ink -l -c red "Error while executing $dot_name"
+        error_message "Error while executing $dot_name"
         exit 1
     }
-
-    (( $+commands[hr] )) && hr ' ' '-=' ' '
 }
 
 # Include multiple dots
@@ -43,6 +49,7 @@ function include_dots() {
     # @TODO: async?
     while (($#)); do
         include_dot $1
+        (( $+commands[hr] )) && hr ' ' '-=' ' '
         shift
     done
 }
@@ -52,27 +59,27 @@ function create_dot() {
     local darg=$1
     include_dot_file $darg
 
-    if [[ -n $dot_name ]]; then
-        ink -l -c red "Cannot create dot, already exists: $dot_name"
+    if [[ -n $dot_name ]] {
+        error_message "Cannot create dot, already exists: $dot_name"
         exit 1
-    fi
+    }
 
     local dot_file="${dot_file_prefix}${darg}"
     touch $dot_file
     chmod +x $dot_file
-    ink -l -c green "Dot created: '$darg' at '$dot_file'"
+    success_message "Dot created: '$darg' at '$dot_file'"
 }
 
 # Run the default dots.
 function default_dots() {
-    # Install linker
-    # include_dot link
-
     # Set OS X defaults
     # include_dot macos "Running MacOS Defaults dot..."
 
     # Install homebrew packages
     [[ $OSTYPE =~ darwin ]] && include_dot homebrew
+
+    # Config dot
+    include_dot config
 
     # Linix Packages, right now only ubuntu..
     [[ $OSTYPE =~ linux ]] && include_dot ubuntu
@@ -88,12 +95,6 @@ function default_dots() {
 
     # Install vim packages
     include_dot vim
-
-    # Vagrant plugins:
-    # vagrant-auto_network
-    # vagrant-cachier
-    # vagrant-hostsupdater
-    # vagrant-share
 }
 
 local mode="run"

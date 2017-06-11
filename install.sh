@@ -48,7 +48,6 @@ PATH=$ZDOTDIR/bin/:$PATH
 print_status "Symlinking config"
 [[ -d $HOME/.config ]] || ln -sT $DOTFILES/config $HOME/.config
 
-
 if [[ $DISTRO == 'ubuntu' ]]; then
     sudo apt-get install zsh
     zsh_path=$(which zsh)
@@ -66,11 +65,13 @@ elif [[ $OSTYPE == 'darwin' ]]; then
 
     finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
+    # We set this here and in the launchctl environment file. Ideally we could remove this one.
     print_status "Adding ZDOTDIR to /etc/zshenv"
     #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
     sudo sed -i '/export ZDOTDIR/ d' /etc/zshenv
+
     echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
 
+    print -l 'Run `defaults write com.apple.dock persistent-apps -array ""` to kill all apps from the dock'
     exec $HOMEBREW_PREFIX/bin/zsh
-    # Run (defaults write com.apple.dock persistent-apps -array "") to kill all apps from the dock
 fi

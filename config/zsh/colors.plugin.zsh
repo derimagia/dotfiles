@@ -7,7 +7,6 @@ if (( $+commands[grc] )); then
     alias cl_stdbuf='stdbuf -oL grc -es --colour=auto'
     alias cl='grc -es --colour=auto'
     alias configure='cl ./configure'
-    alias diff='cl diff'
     alias make='cl make'
     alias gcc='cl gcc'
     alias g++='cl g++'
@@ -21,9 +20,6 @@ if (( $+commands[grc] )); then
     alias netstat='cl_stdbuf netstat'
     alias ping='cl ping'
     alias traceroute='cl traceroute'
-    alias docker='cl docker'
-    alias docker-compose='cl docker-compose'
-    alias docker-machine='cl docker-machine'
 fi
 
 alias ls='ls --color=auto'
