@@ -1,6 +1,6 @@
 [[ $OSTYPE =~ darwin ]] || return
 
-export BROWSER='open -a "Google Chrome"'
+export BROWSER='open'
 
 alias o="open"
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"

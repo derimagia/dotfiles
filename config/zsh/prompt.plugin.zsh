@@ -67,5 +67,3 @@ add-zsh-hook precmd _pprompt_precmd
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
-
-
