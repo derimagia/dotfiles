@@ -103,6 +103,7 @@ source $TMPPREFIX/fasd-init.sh
         psprint/history-search-multi-word
         zsh-users/zsh-autosuggestions
         zsh-users/zsh-syntax-highlighting
+        paulirish/git-open
     )
     [[ -s $TMPPREFIX/antibody-plugins.sh ]] || print ${(F)antibody_plugins} | antibody bundle > $TMPPREFIX/antibody-plugins.sh
     source $TMPPREFIX/antibody-plugins.sh

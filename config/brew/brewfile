@@ -283,8 +283,6 @@ brew 'php71-xdebug'
 
 tap 'homebrew/services'
 
-tap 'neovim/neovim'
-
 tap 'rcmdnk/file'
 brew 'brew-file'
 
