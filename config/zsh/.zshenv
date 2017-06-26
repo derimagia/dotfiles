@@ -36,7 +36,6 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
 export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
@@ -70,8 +69,3 @@ export PROJECTS_DIR=$HOME/projects
 # FZF
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
-
-# Some folders we need to check if they exist
-{
-    [[ -d $XDG_DATA_HOME/node ]] || mkdir -p $XDG_DATA_HOME/node
-}&!
