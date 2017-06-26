@@ -10757,11 +10757,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 136 606 469 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>2444 155 796 473 1920 30 1680 1027 </string>
+	<string>3895 373 796 473 3600 -17 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2111 154 1120 723 1920 30 1680 1027 </string>
+	<string>291 294 1456 723 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11658,6 +11658,14 @@
 					<key>regex</key>
 					<string>chrome-devtools://([a-z0-9A-Z]+(:[a-zA-Z0-9]+)?@)?[a-z0-9A-Z]+(\.[a-z0-9A-Z]+)*((:[0-9]+)?)(/[a-zA-Z0-9;:/\.\-_+%~?&amp;@=#\(\)]*)?</string>
 				</dict>
+				<dict>
+					<key>notes</key>
+					<string>Mongodb</string>
+					<key>precision</key>
+					<string>very_high</string>
+					<key>regex</key>
+					<string>mongodb://([a-z0-9A-Z]+(:[a-zA-Z0-9]+)?@)?[a-z0-9A-Z]+(\.[a-z0-9A-Z]+)*((:[0-9]+)?)(/[a-zA-Z0-9;:/\.\-_+%~?&amp;@=#\(\)]*)?</string>
+				</dict>
 			</array>
 			<key>Space</key>
 			<integer>0</integer>
@@ -11799,7 +11807,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-13T05:44:10Z</date>
+	<date>2017-06-15T21:51:16Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
