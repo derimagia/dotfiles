@@ -96,6 +96,8 @@ cask 'iterm2-beta'
 
 tap 'homebrew/bundle'
 
+tap 'homebrew/command-not-found'
+
 tap 'homebrew/core'
 brew 'ansible'
 brew 'asciiquarium'
@@ -155,6 +157,7 @@ brew 'glib'
 brew 'gmp'
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnutls'
+brew 'gnu-units', args: ['with-default-names']
 brew 'go'
 brew 'gpatch'
 brew 'gradle'
