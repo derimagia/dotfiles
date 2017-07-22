@@ -30,12 +30,22 @@
 	st = status -s
 	all = add -A
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = always
+	# diff = auto - currently broken by diff-so-fancy
+	ui = true
 [color "branch"]
 	local = yellow
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [color "status"]
 	untracked = cyan
 [diff]
@@ -56,7 +66,7 @@
 # Sourcetree wants this set.
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
