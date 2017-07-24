@@ -75,10 +75,12 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .pgn                  38;1;32;1
 .rss                  38;1;32;1
 .xml                  38;1;32;1
+.yaml                 38;1;32;1
 .yml                  38;1;32;1
 .rdata                38;1;32;1
 .csv                  38;1;32;1
 *Dockerfile           38;1;32;1
+*Jenkinsfile          38;1;32;1
 *Vagrantfile          38;1;32;1
 *Vagrantfile.local    38;1;32;1
 *Procfile             38;1;32;1
