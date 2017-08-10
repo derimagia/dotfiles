@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+if [[ $1 = '-d' ]]; then
+    shift
+    for brew in "$@"; do
+        receipt=$(echo $HOMEBREW_CELLAR/$brew/*/INSTALL_RECEIPT.json)
+        echo $receipt
+        jq '.installed_as_dependency = true | .installed_on_request = false' $receipt | sponge $receipt
+    done
+else
+    brews=($(cat $HOMEBREW_BREWFILE | egrep -v '^(#|tap|cask|$)' | cut -d ' ' -f2 | tr -d "'" | tr -d ','))
+    for brew in $brews; do
+        receipt=$(echo $HOMEBREW_CELLAR/$brew/*/INSTALL_RECEIPT.json)
+        dep=$(jq '.installed_as_dependency' $receipt)
+        req=$(jq '.installed_on_request' $receipt)
+        if [[ $dep = 'null' && $req = 'null' ]]; then
+            echo $brew
+        fi
+    done
+fi
+
