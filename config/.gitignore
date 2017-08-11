@@ -1,4 +1,4 @@
-aws/credentials
+aws
 composer
 configstore/update-*.json
 deis/config.json
