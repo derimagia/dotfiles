@@ -38,6 +38,7 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf" # pip incorrectly assumes mac doesn't want XDG_CONFIG_HOME.
 export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
 export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
 export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
