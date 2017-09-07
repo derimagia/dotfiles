@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# hushlogin
+touch ~/.hushlogin
 
 # idea
 if [[ $OSTYPE =~ darwin ]] {
