@@ -9,7 +9,7 @@ alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
 alias -s yaml='ccat'
 alias -s yml='ccat'
-alias -s json='jq .'
+alias -s json='() { file=$1; shift; jq ${@:-"."} "$file" }'
 alias -s xml='ccat'
 alias -s py='python'
 alias -s jar='java -jar'
@@ -36,18 +36,17 @@ alias ta='tmux attach -d'
 alias tnew='tmux new -s'
 
 # opening projects
-alias i='idea'
 alias vim="nvim"
 alias v="vim"
 alias dottime='time zsh -ic true'
+alias code='() { command code ${@:-"."} }'
 alias cddot="cd $DOTFILES"
-alias doti="i $DOTFILES"
+alias doti="idea $DOTFILES"
 alias dotc="code $DOTFILES"
 alias confc="code $XDG_CONFIG_HOME"
 alias confcd="cd $XDG_CONFIG_HOME"
-alias brewc="code $HOMEBREW_PREFIX/etc"
 alias zshc="code $ZDOTDIR"
-alias localrc="vim $ZDOTDIR/.zlocalrc"
+alias localrc="$EDITOR $ZDOTDIR/.zlocalrc"
 
 # files and directories
 alias rename='noglob zmv -W'
@@ -80,10 +79,6 @@ alias html2text='w3m -dump -T text/html'
 
 # composer/drush
 alias composer="php -n =composer"
-alias ev='drush php-eval'
-alias lsa='drush site-alias'
-alias dq='drush sql-query'
-alias xdrush='XDEBUG_CONFIG="idekey=PHPSTORM" drush'
 
 # meta
 alias list-aliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'

@@ -122,17 +122,6 @@ zrecompile -qp -- $TMPPREFIX/zcompdump
 [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
 
 # Hook for desk activation
-if [[ -n "$DESK_ENV" ]] {
-    source "$DESK_ENV"
-    if [[ -z $DESK_INIT ]] {
-        # @TODO Make this only happen once, is there a better way to do this?
-        export DESK_INIT=1
-
-        # Only cd if we are in the home directory which is the "default" directory
-        [[ -n $PROJECT_PATH && $PWD == $HOME ]] && cd $PROJECT_PATH
-        [[ -n $DRUSH_ALIAS ]] && drush site-set $DRUSH_ALIAS # Faster way to do this?
-    }
-}
-
+[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
 
 (( $PROFILING )) && zprof

@@ -10521,6 +10521,8 @@
 	<string>Arrangement 1</string>
 	<key>Default Bookmark Guid</key>
 	<string>D7C32772-13CB-477F-834F-434817169751</string>
+	<key>Default Toolbelt Width</key>
+	<real>206</real>
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
@@ -10753,15 +10755,15 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>-1160 616 400 129 -1920 -81 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-1270 418 620 392 -1920 -81 1920 1057 </string>
+	<string>2450 506 620 392 1920 30 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 136 606 469 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>295 466 796 473 0 0 1920 1177 </string>
+	<string>295 461 1018 447 0 0 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>3898 136 1120 746 3600 0 1920 1057 </string>
+	<string>2011 169 1683 746 1920 30 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -11811,7 +11813,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-22T13:52:38Z</date>
+	<date>2017-09-07T17:58:57Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
