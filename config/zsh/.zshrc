@@ -52,8 +52,8 @@ path=(
 # Set up TMPPREFIX
 export TMPPREFIX="$XDG_CACHE_HOME/zsh"
 
-# Create $TMPPREFIX
-mkdir -p $TMPPREFIX
+# Create $TMPPREFIX and "$XDG_DATA_HOME/zsh"
+mkdir -p "$TMPPREFIX" "$XDG_DATA_HOME/zsh"
 
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -79,10 +79,12 @@ zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
 
 # fasd
-[[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd
-[[ -s $TMPPREFIX/fasd-init.sh ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
-export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
-source $TMPPREFIX/fasd-init.sh
+if (( $+commands[fasd] )) {
+    [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd
+    [[ -s $TMPPREFIX/fasd-init.sh ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
+    export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
+    source $TMPPREFIX/fasd-init.sh
+}
 
 # Load all files
 () {
