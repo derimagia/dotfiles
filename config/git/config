@@ -50,19 +50,10 @@
 	untracked = cyan
 [diff]
 	indentHeuristic = true
-	tool = meld
 [difftool]
 	prompt = false
-[difftool "meld"]
-	cmd = /Applications/Meld.app/Contents/MacOS/Meld \"$LOCAL\" \"$PWD/$REMOTE\"
-	trustExitCode = true
 [merge]
 	prompt = false
-	tool = meld
-[mergetool "meld"]
-	trustExitCode = true
-	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
-	keepBackup = false
 # Sourcetree wants this set.
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
