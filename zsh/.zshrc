@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 (( $PROFILING )) && zmodload zsh/zprof
 
 # Go

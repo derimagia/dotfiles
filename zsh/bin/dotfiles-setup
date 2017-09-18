@@ -14,9 +14,8 @@ print_status() {
     ink -l -c blue "$@"
 }
 
-export DOTFILES=${DOTFILES:-$HOME/.dotfiles/}
-export ZDOTDIR="${ZDOTDIR:-"$DOTFILES/config/zsh"}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-~/.config}"
+export ZDOTDIR="${ZDOTDIR:-"$XDG_CONFIG_HOME/zsh"}"
 export LOCAL_PREFIX='/usr/local'
 
 get_metadata() {
@@ -63,11 +62,9 @@ install_git_darwin() {
 install_dotfiles() {
     os_function install_git
 
-    if [[ ! -d $DOTFILES ]]; then
-        git clone https://github.com/derimagia/dotfiles.git $DOTFILES
+    if [[ ! -d $XDG_CONFIG_HOME ]]; then
+        git clone https://github.com/derimagia/dotfiles.git $XDG_CONFIG_HOME
     fi
-
-    [[ -d "$XDG_CONFIG_HOME" ]] || ln -s "$DOTFILES/config/" "$XDG_CONFIG_HOME"
 
     # Link dotfile binaries.
     PATH=$ZDOTDIR/bin/:$PATH

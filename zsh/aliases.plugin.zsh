@@ -40,11 +40,10 @@ alias vim="nvim"
 alias v="vim"
 alias dottime='time zsh -ic true'
 alias code='() { command code ${@:-"."} }'
-alias cddot="cd $DOTFILES"
-alias doti="idea $DOTFILES"
-alias dotc="code $DOTFILES"
+alias subl='() { command subl ${@:-"."} }'
+alias cdconf="cd $XDG_CONFIG_HOME"
 alias confc="code $XDG_CONFIG_HOME"
-alias confcd="cd $XDG_CONFIG_HOME"
+alias confs="subl $XDG_CONFIG_HOME"
 alias zshc="code $ZDOTDIR"
 alias localrc="$EDITOR $ZDOTDIR/.zlocalrc"
 

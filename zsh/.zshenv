@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export TERM=${TERM:-xterm-256color}
 
 # See https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
@@ -61,7 +63,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 alias tmux="tmux -f $TMUX_HOME/tmux.conf"
 
 export TZ=:/etc/localtime
-export DOTFILES=$HOME/.dotfiles
 export TMPDIR=$XDG_CACHE_HOME
 
 # export LOCATE_PATH=/var/db/locate.database

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export MANPAGER='vimpager'
 export EDITOR='vim'
 export VISUAL='vim'

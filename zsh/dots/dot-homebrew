@@ -3,7 +3,7 @@
 [[ $OSTYPE =~ darwin ]] || exit 34
 
 # @TODO - Having issues with running from ~
-cd $DOTFILES
+cd $XDG_CONFIG_HOME
 
 # Homebrew
 #
