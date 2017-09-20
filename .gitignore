@@ -7,7 +7,7 @@ configstore/
 deis/
 gnupg/
 helm/
-hub/
+hub
 kube/
 npm/npmrc
 nvim/.netrwhist
@@ -15,6 +15,7 @@ psysh/
 slackcat/
 tmux/plugins
 wireshark/
+wgetrc
 config_local
 .zcompdump
 .zlocalrc
