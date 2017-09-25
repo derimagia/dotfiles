@@ -57,7 +57,6 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VIMINIT="source $MYVIMRC"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Aliases Respecting Programs
 alias tmux="tmux -f $TMUX_HOME/tmux.conf"
