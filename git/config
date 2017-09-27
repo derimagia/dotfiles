@@ -2,33 +2,35 @@
 	autocrlf = input
 	pager = diff-so-fancy | less -RFX
 [alias]
-	# Graphs/Charts
-	st = status --short --branch
-	lg = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ar %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+	# Shortcuts
+	aa = add -A
+	br = branch
+	co = checkout
+	ci = commit
+	cl = clone
+	cp = cherry-pick
+	rl = reflog
+	r = reset
+	rh = reset --hard
+	st = status -sb
 
-	# Another diff option
+	# Diff shortcuts
 	df = diff --color-words
+	dlc = diff --cached HEAD^
+	dc = diff --cached
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
 
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	gg = grep --break --heading --line-number
+	# Graphs/Charts
+	lg = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ar %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+	ls = log --oneline
+
+	# grep
 	f = "!git ls-files | grep -i"
-	count = !git shortlog -sn
-	pup = !git pull && git submodule init && git submodule update && git submodule status
+	gg = grep --break --heading --line-number
 
-	# Search all commits
-	grep-all = !"git rev-list --all | xargs git grep '$1'"
-
-	# Merging
+	# merging
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-
-	# Shortcuts
-	br = branch
-	rl = reflog
-	co = checkout
-	st = status -s
-	all = add -A
 [color]
 	# diff = auto - currently broken by diff-so-fancy
 	ui = true
@@ -53,10 +55,19 @@
 	tool = Kaleidoscope
 [difftool]
 	prompt = false
+[ghq]
+	root = ~/src
+	root = ~/go/src
+[interactive]
+	diffFilter = diff-so-fancy --patch-mode | less -RFX
 [merge]
 	prompt = false
+	conflictstyle = diff3
 	tool = Kaleidoscope
-# Sourcetree wants this set.
+[mergetool]
+	prompt = false
+	keepBackup = false
+# Sourcetree REALLYwants this set.
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -68,8 +79,17 @@
 	trustexitcode = true
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool]
-	prompt = false
+[pager]
+	show = diff-so-fancy | less --tabs=4 -RFX
+	log = diff-so-fancy | less --tabs=4 -RFX
+[pull]
+	rebase = true
+[push]
+	default = current
+[rebase]
+	autoStash = true
+[rerere]
+	enabled = 1
 # rewrites of repo paths
 [url "git@github.com:"]
 	insteadOf = "gh:"
@@ -82,25 +102,5 @@
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
 	pushInsteadOf = "https://gist.github.com/"
-[push]
-	default = current
-[pager]
-	show = diff-so-fancy | less --tabs=4 -RFX
-	log = diff-so-fancy | less --tabs=4 -RFX
-[rebase]
-	autoStash = true
-[pull]
-	rebase = true
-[ghq]
-	root = ~/src
-	root = ~/go/src
-[rerere]
-	enabled = 1
-[merge]
-	conflictstyle = diff3
-[mergetool]
-	keepBackup = false
-[interactive]
-	diffFilter = diff-so-fancy --patch-mode | less -RFX
 [include]
 	path = config_local
