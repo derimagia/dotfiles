@@ -1,14 +1,19 @@
 #!/usr/bin/env zsh
 
-(( $+commands[pip] )) || return 34
+local pip=pip2
+
+if (( $+commands[pip] )) {
+	pip=pip
+}
+
+(( $+commands[$pip] )) || return 34
 
 ink -l -c green "[python] installing python packages"
 
-pip install -U \
+$pip install -U \
     pip setuptools \
     virtualenv \
     pygments \
-    tmuxp \
     doge \
     http-prompt
 

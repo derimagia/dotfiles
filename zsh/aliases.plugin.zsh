@@ -14,8 +14,11 @@ alias -s xml='ccat'
 alias -s py='python'
 alias -s jar='java -jar'
 alias -s war='java -jar'
-alias -s md='ql'
-alias -s csv='ql'
+
+if [[ $OSTYPE =~ darwin ]] {
+	alias -s md='ql'
+	alias -s csv='ql'
+}
 
 alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
