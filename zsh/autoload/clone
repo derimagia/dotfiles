@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+
+local repoType='unknown' shallow=0 print=0
+
+while getopts dsp opt; do
+    case $opt in
+        (d)
+            repoType='drupal'
+        ;;
+        (s)
+            shallow=1
+        ;;
+        (p)
+            print=1
+        ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+local cloneopts=(-u)
+local query=$1
+
+# Drupal Module
+if [[ $repoType == 'drupal' ]] {
+  query="https://git.drupal.org/project/$query.git"
+  cloneopts+=(-p)
+}
+
+# Get Host
+# extract the protocol
+giturl=${query%/} giturl=${giturl%.git}
+
+# Trim before last '@' and protocol (*://) from beginning
+uri=${giturl##*@} uri=${uri##*://}
+
+# Trims before first ':' or '/' to get repo
+repo=${uri#*[/:]}
+
+if (( $shallow )) {
+  cloneopts+=(--shallow)
+}
+
+ghq get $cloneopts $query
+
+location="$(ghq list -p $repo)"
+
+if (( $print )) {
+  ghq list -p $location
+} else {
+  cd $location
+}
+
+
