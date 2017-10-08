@@ -16,7 +16,6 @@ gopath=(
 if [[ $OSTYPE =~ darwin ]] {
     export HOMEBREW_PREFIX=/usr/local # hardcoded for now, brew --prefix does it and should be "fast", but there's no point in it
     export HOMEBREW_NO_ANALYTICS=1 # I don't really mind for privacy's sake, I just haven't looked at the code for it.
-    export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brew/brewfile
 
     # Add these in the vital file since we want them before our own paths
     fpath=(
@@ -51,7 +50,7 @@ path=(
 )
 
 # Set up TMPPREFIX
-export TMPPREFIX="$XDG_CACHE_HOME/zsh"
+TMPPREFIX="$XDG_CACHE_HOME/zsh"
 
 # Create $TMPPREFIX and "$XDG_DATA_HOME/zsh"
 mkdir -p "$TMPPREFIX" "$XDG_DATA_HOME/zsh"

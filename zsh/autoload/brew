@@ -7,7 +7,7 @@
 [[ "$1" == "cask" ]] && shift
 
 homebrew-dump() {
-    command brew file init --on_request -F bundle -y
+    command brew file init --on_request -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" -y
 }
 
 case "$1" {

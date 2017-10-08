@@ -5,15 +5,25 @@
 # @TODO - Having issues with running from ~
 cd $XDG_CONFIG_HOME
 
+brewfile() {
+	brew-file -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" "$@"
+}
+
 # Homebrew
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 ink -l -c green -- "[brew] Installing/Upgrading Brews from file"
-command brew file -F bundle -C update
+brewfile -C update
 
 ink -l -c green -- "[brew] Upgrading Casks"
-command brew file -F bundle cask_upgrade -C
+brewfile cask_upgrade -C
+
+ink -l -c green -- "[brew] Cleaning"
+brewfile clean -C
+
+ink -l -c green -- "[brew] Cleaning Non Requested"
+brewfile clean_non_request -C
 
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
 manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
