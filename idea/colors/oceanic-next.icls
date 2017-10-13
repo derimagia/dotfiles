@@ -1,12 +1,9 @@
 <scheme name="Oceanic Next" version="142" parent_scheme="Darcula">
   <option name="FONT_SCALE" value="1.0" />
-  <option name="LINE_SPACING" value="1.4" />
-  <option name="EDITOR_FONT_SIZE" value="14" />
-  <option name="EDITOR_LIGATURES" value="true" />
-  <option name="CONSOLE_FONT_NAME" value="Fira Code" />
-  <option name="CONSOLE_FONT_SIZE" value="12" />
+  <option name="CONSOLE_FONT_NAME" value="Hack" />
+  <option name="CONSOLE_FONT_SIZE" value="14" />
   <option name="CONSOLE_LIGATURES" value="true" />
-  <option name="EDITOR_FONT_NAME" value="Fira Code" />
+  <option name="CONSOLE_LINE_SPACING" value="1.4" />
   <colors>
     <option name="ADDED_LINES_COLOR" value="343d46" />
     <option name="CARET_COLOR" value="65737e" />
@@ -20255,13 +20252,11 @@
       </value>
     </option>
     <option name="PY.BUILTIN_NAME" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
-    <option name="PY.CLASS_DEFINITION" baseAttributes="DEFAULT_CLASS_NAME" />
     <option name="PY.DECORATOR">
       <value>
         <option name="FOREGROUND" value="6699cc" />
       </value>
     </option>
-    <option name="PY.FUNC_DEFINITION" baseAttributes="DEFAULT_FUNCTION_DECLARATION" />
     <option name="PY.KEYWORD" baseAttributes="DEFAULT_KEYWORD" />
     <option name="PY.KEYWORD_ARGUMENT" baseAttributes="DEFAULT_PARAMETER" />
     <option name="PY.PREDEFINED_DEFINITION" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
@@ -20273,7 +20268,6 @@
       </value>
     </option>
     <option name="PY.STRING.B" baseAttributes="DEFAULT_STRING" />
-    <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING" />
     <option name="REGEXP.BRACES" baseAttributes="DEFAULT_BRACES" />
     <option name="REGEXP.BRACKETS" baseAttributes="DEFAULT_BRACKETS" />
     <option name="REGEXP.CHAR_CLASS" baseAttributes="DEFAULT_ENTITY" />
