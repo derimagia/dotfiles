@@ -3,19 +3,6 @@
 # hushlogin
 touch ~/.hushlogin
 
-# idea
-if [[ $OSTYPE =~ darwin ]] {
-    # Actual Source Files/Folders
-    source_files=($XDG_CONFIG_HOME/idea/colors)
-
-    for idea_pref_folder in ~/Library/Preferences/{IntelliJ,PhpStorm,WebStorm,RubyMine,PyCharm,DataGrip}*(N); do
-        ink -c green "[idea] Symlinking $idea_pref_folder"
-        symlink-files -yq "$source_files" "$idea_pref_folder"
-        clean-symlinks "$idea_pref_folder"
-    done
-    print -l
-}
-
 # vscode
 if [[ -f ~/Dropbox/Apps/VSCode && ! -L ~/.vscode/extensions ]] {
     # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.

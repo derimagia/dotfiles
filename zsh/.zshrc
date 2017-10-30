@@ -88,8 +88,6 @@ if (( $+commands[fasd] )) {
 
 # Load all files
 () {
-    emulate zsh -L
-
     # Autoload files
     autoload_files=($ZDOTDIR/autoload/*)
     fpath+=($autoload_files:h) && autoload -U ${autoload_files:t}
@@ -106,7 +104,9 @@ if (( $+commands[fasd] )) {
         zsh-users/zsh-autosuggestions
         zsh-users/zsh-syntax-highlighting
         paulirish/git-open
+        jocelynmallon/zshmarks
     )
+    
     [[ -s $TMPPREFIX/antibody-plugins.sh ]] || print ${(F)antibody_plugins} | antibody bundle > $TMPPREFIX/antibody-plugins.sh
     source $TMPPREFIX/antibody-plugins.sh
 }

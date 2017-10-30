@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-# colorful cat
-emulate -L zsh
-
-args=$*
-
-pygmentize -P style=base16_oceanicnext_dark -f console16m -g $args

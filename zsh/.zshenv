@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
-export TERM=${TERM:-xterm-256color}
+TERM=${TERM:-xterm-256color}
 
 # See https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 if [[ $OSTYPE =~ darwin ]] {
@@ -14,11 +13,9 @@ if [[ $OSTYPE =~ darwin ]] {
   export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 }
 
-export ANDROID_SDK_HOME="$XDG_DATA_HOME/android"
-export ADB_VENDOR_KEYS="$ANDROID_SDK_HOME/.android"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-export AWS_CREDENTIAL_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
 export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export COMPOSER_HOME="$XDG_DATA_HOME/composer"
 export COMPOSER_CACHE_DIR="$XDG_CACHE_HOME/composer"
@@ -30,42 +27,30 @@ export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export HTOPRC="$XDG_CONFIG_HOME/htop/htoprc"
 export HELM_HOME="$XDG_CONFIG_HOME/helm"
-export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
-export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
 export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf" # pip incorrectly assumes mac doesn't want XDG_CONFIG_HOME.
-export PSQLRC="$XDG_CONFIG_HOME/psql/psqlrc"
-export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
 export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
 export TERMINFO="$XDG_CONFIG_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export TERMINUS_PLUGINS_DIR="$XDG_DATA_HOME/terminus/plugins"
 export TERMINUS_CACHE_DIR="$XDG_CACHE_HOME/terminus"
 export TIGRC_USER="$XDG_CONFIG_HOME/tig/tigrc"
-export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
-export TMUX_TMPDIR="$XDG_CACHE_HOME"
-export TMUX_PLUGIN_MANAGER_PATH="$TMUX_HOME/plugins"
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins"
 export VAGRANT_DOTFILE_PATH="$XDG_DATA_HOME/vagrant"
 export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VIMINIT="source $MYVIMRC"
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
 # Aliases Respecting Programs
-alias tmux="tmux -f $TMUX_HOME/tmux.conf"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 export TZ=:/etc/localtime
 export TMPDIR=$XDG_CACHE_HOME
-
-# export LOCATE_PATH=/var/db/locate.database
-export PROJECTS_DIR=$HOME/projects
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag -g ""'

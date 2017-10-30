@@ -42,13 +42,10 @@ alias tnew='tmux new -s'
 alias vim="nvim"
 alias v="vim"
 alias dottime='time zsh -ic true'
-alias code='() { command code ${@:-"."} }'
-alias subl='() { command subl ${@:-"."} }'
 alias cdconf="cd $XDG_CONFIG_HOME"
-alias confc="code $XDG_CONFIG_HOME"
-alias confs="subl $XDG_CONFIG_HOME"
-alias zshc="code $ZDOTDIR"
-alias localrc="$EDITOR $ZDOTDIR/.zlocalrc"
+alias confs="${EDITOR:-subl} $XDG_CONFIG_HOME"
+alias zshs="${EDITOR:-subl} $ZDOTDIR"
+alias localrc="${EDITOR:-subl} $ZDOTDIR/.zlocalrc"
 
 # files and directories
 alias rename='noglob zmv -W'
@@ -70,7 +67,6 @@ alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/contain
 
 # git
 alias g='git'
-alias gup='() { cd "$1" && gitup }'
 alias diffg='git diff --color-words --no-index'
 alias dclone='clone -d'
 

@@ -39,9 +39,6 @@ zstyle ':completion:*:reserved-words'  list-colors '=*=31'
 zstyle ':completion:*:manuals*'        list-colors '=*=36'
 zstyle ':completion:*:options'         list-colors '=*=32' #'=^(-- *)=38;5;28'
 
-zstyle ':completion:*:functions' ignored-patterns '_*' # Remove complete/hidden functions
-zstyle '*' single-ignored menu # Fall back to ignored
-
 # Don't complete uninteresting users.
 zstyle ':completion:*:*:*:users' ignored-patterns '_*'
 
@@ -60,6 +57,7 @@ zstyle ':completion:*'    completer   _expand_alias \
 # Ignore Patterns
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:zcompile:*' ignored-patterns '(*~|*.zwc)'
+zstyle '*' single-ignored menu # Fall back to ignored
 
 # Ignore hidden files by default
 zstyle ':completion:*:(all-|other-|)files'  ignored-patterns '*/.*'

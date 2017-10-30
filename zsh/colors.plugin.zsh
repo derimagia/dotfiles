@@ -3,21 +3,16 @@
 autoload -Uz colors && colors
 
 if (( $+commands[grc] )); then
-    # Need to run it through stdbuf because of https://github.com/garabik/grc/issues/25
-    alias cl_stdbuf='stdbuf -oL grc -es --colour=auto'
     alias cl='grc -es --colour=auto'
     alias configure='cl ./configure'
     alias make='cl make'
     alias gcc='cl gcc'
     alias g++='cl g++'
     alias as='cl as'
-    alias ps='cl ps'
     alias php'cl php'
     alias dig='cl dig'
     alias mount='cl mount'
     alias ld='cl ld'
-    alias mtr='sudo grc -es --colour=auto mtr'
-    alias netstat='cl_stdbuf netstat'
     alias ping='cl ping'
     alias traceroute='cl traceroute'
 fi
