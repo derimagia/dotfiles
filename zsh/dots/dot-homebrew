@@ -20,10 +20,11 @@ ink -l -c green -- "[brew] Upgrading Casks"
 brewfile cask_upgrade -C
 
 ink -l -c green -- "[brew] Cleaning"
+brew cleanup
+brew cask cleanup
 brewfile clean -C
 
 ink -l -c green -- "[brew] Cleaning Non Requested"
-brewfile clean_non_request -C
 
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
 manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
