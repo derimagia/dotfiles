@@ -107,7 +107,16 @@ if (( $+commands[fasd] )) {
         jocelynmallon/zshmarks
     )
     
-    [[ -s $TMPPREFIX/antibody-plugins.sh ]] || print ${(F)antibody_plugins} | antibody bundle > $TMPPREFIX/antibody-plugins.sh
+    if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]] {
+        ink -c green -- '- Generating Antibody Bundle -'
+
+        # antibody doesn't seem to do detect fpaths and expects the plugin file to have it.
+        cat > $TMPPREFIX/antibody-plugins.sh <<ZSH
+$(echo ${(F)antibody_plugins} | antibody bundle)
+fpath+=($XDG_CACHE_HOME/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-jocelynmallon-SLASH-zshmarks/functions)
+ZSH
+    } 
+
     source $TMPPREFIX/antibody-plugins.sh
 }
 
