@@ -15,6 +15,7 @@ psysh/
 slackcat/
 tmux/plugins
 wireshark/
+telepresence/id
 wgetrc
 config_local
 .zcompdump

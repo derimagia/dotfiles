@@ -52,6 +52,8 @@ alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 export TZ=:/etc/localtime
 export TMPDIR=$XDG_CACHE_HOME
 
+export SCOUT_DISABLE=1
+
 # FZF
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"

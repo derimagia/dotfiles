@@ -2,9 +2,6 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-PLUGIN_DIR="${0:h}/../"
-PLUGIN_DIR=${PLUGIN_DIR:a}
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
@@ -277,32 +274,6 @@ defaults write com.apple.dock showhidden -bool true
 # Make Dock more transparent
 defaults write com.apple.dock hide-mirror -bool true
 
-
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# Top left screen corner
-defaults write com.apple.dock wvous-tl-corner -int 0
-defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner
-defaults write com.apple.dock wvous-tr-corner -int 0
-defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner
-defaults write com.apple.dock wvous-bl-corner -int 0
-defaults write com.apple.dock wvous-bl-modifier -int 0
-# Bottom Right screen corner
-defaults write com.apple.dock wvous-br-corner -int 0
-defaults write com.apple.dock wvous-br-modifier -int 0
-
 CFPreferencesAppSynchronize "com.apple.dock"
 
 # ==============================================
@@ -402,9 +373,6 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-# Select the Network tab
-defaults write com.apple.ActivityMonitor SelectedTab -int 4
-
 CFPreferencesAppSynchronize "com.apple.ActivityMonitor"
 
 # ==============================================
@@ -444,28 +412,6 @@ defaults write com.apple.iCal "first day of week" -int 1
 defaults write com.apple.iCal "Show time in Month View" -bool true
 
 CFPreferencesAppSynchronize "com.apple.iCal"
-
-# ==============================================
-# Disable CD & DVD actions
-# ==============================================
-ink -l -c green -- " Setting CD & DVD Preferences"
-
-# Disable blank CD automatic action.
-defaults write com.apple.digihub com.apple.digihub.blank.cd.appeared -dict action 1
-
-# Disable music CD automatic action.
-defaults write com.apple.digihub com.apple.digihub.cd.music.appeared -dict action 1
-
-# Disable picture CD automatic action.
-defaults write com.apple.digihub com.apple.digihub.cd.picture.appeared -dict action 1
-
-# Disable blank DVD automatic action.
-defaults write com.apple.digihub com.apple.digihub.blank.dvd.appeared -dict action 1
-
-# Disable video DVD automatic action.
-defaults write com.apple.digihub com.apple.digihub.dvd.video.appeared -dict action 1
-
-CFPreferencesAppSynchronize "com.apple.digihub"
 
 # ==============================================
 # Archive Utility
@@ -565,9 +511,6 @@ ink -l -c green -- " Setting Time Machine Preferences"
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 CFPreferencesAppSynchronize "com.apple.TimeMachine"
 
@@ -678,38 +621,12 @@ defaults write com.hegenberg.BetterTouchTool showicon -bool false
 CFPreferencesAppSynchronize "com.hegenberg.BetterTouchTool"
 
 # ==============================================
-# TotalFinder
-# ==============================================
-ink -l -c green -- " Setting TotalFinder Preferences"
-
-# Color in Sidebar
-defaults write com.binaryage.totalfinder TotalFinderColorfulSidebarEnabled -bool true
-
-# Show Dock Progress Bar
-defaults write com.binaryage.totalfinder TotalFinderShowDockProgressBar -bool true
-
-# Remove from Status Bar
-defaults write com.binaryage.totalfinder TotalFinderShowStatusItem -bool false
-
-# Allow Path Copying
-defaults write com.binaryage.totalfinder TotalFinderCopyPathMenuEnabled -bool true
-
-# Allow Cut and Paste
-defaults write com.binaryage.totalfinder TotalFinderCutAndPasteShowContextMenuButtons -bool true
-
-CFPreferencesAppSynchronize "com.binaryage.totalfinder"
-
-# ==============================================
 # iTerm2
 # ==============================================
 ink -l -c green -- " Setting iTerm2 Preferences"
 
 # Preference Folder
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string $PLUGIN_DIR/etc
-
-# Experimental!
-defaults write com.googlecode.iterm2.plist ExperimentalOptimizationsEnabled -bool true
-
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string $XDG_CONFIG_HOME/iterm
 CFPreferencesAppSynchronize "com.googlecode.iterm2"
 
 # ==============================================
@@ -733,17 +650,6 @@ defaults write com.torusknot.SourceTreeNotMAS agreedToUpdateConfig -bool false
 CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
 
 # ==============================================
-# Karabiner
-# ==============================================
-ink -l -c green -- " Setting Karabiner Preferences"
-
-local karabiner_cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
-if [[ -x karabiner_cli ]]; then
-    ink -l -c green -- " Setting Karabiner Preferences"
-    $karabiner_cli set remap.fnletter_to_ctrlletter2 1
-fi
-
-# ==============================================
 # Dash
 # ==============================================
 ink -l -c green -- " Setting Dash Preferences"
@@ -761,7 +667,7 @@ CFPreferencesAppSynchronize "com.kapeli.dashdoc"
 ink -l -c green -- " Setting Forklift Preferences"
 
 # Set as default reader
-defaults write -g NSFileViewer -string com.binarynights.ForkLift-3
+# defaults write -g NSFileViewer -string com.binarynights.ForkLift-3
 
 CFPreferencesAppSynchronize "com.binarynights.ForkLift-3"
 
@@ -774,7 +680,6 @@ if [[ ! -d ~/"Library/Application Support/cDock/themes/Material" ]]; then
 fi
 
 defaults write org.w0lf.cDock cd_theme -string "Material"
-
 CFPreferencesAppSynchronize "org.w0lf.cDock"
 
 # Kill affected applications

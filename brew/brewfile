@@ -222,7 +222,11 @@ cask 'font-hack'
 
 tap 'caskroom/versions'
 cask 'iterm2-beta'
+cask 'firefox-beta'
 cask 'google-chrome-canary'
+
+tap 'datawire/blackbird'
+brew 'telepresence'
 
 tap 'rcmdnk/file'
 brew 'brew-file'
