@@ -12,9 +12,9 @@ homebrew-dump() {
 
 case "$1" {
     instal|install|reinstall|tap|pip|gem|rm|remove|uninstall|untap)
-        homebrew-dump &!
+        homebrew-dump >/dev/null 2>&1 &!
         ;;
     dump)
-        homebrew-dump
+        homebrew-dump 
         ;;
 }

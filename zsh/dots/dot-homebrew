@@ -6,7 +6,7 @@
 cd $XDG_CONFIG_HOME
 
 brewfile() {
-	brew-file -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" "$@"
+	brew-file --on_request -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" "$@"
 }
 
 # Homebrew
@@ -23,7 +23,6 @@ ink -l -c green -- "[brew] Cleaning"
 brew cleanup
 brew cask cleanup
 brewfile clean -C
-
 ink -l -c green -- "[brew] Cleaning Non Requested"
 
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
