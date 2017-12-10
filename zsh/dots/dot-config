@@ -25,9 +25,9 @@ if (( $+commands[dnsmasq] )) && [[ -f $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf ]] {
 
     ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf /usr/local/etc/dnsmasq.conf
 
-    ink -c green "[dnsmasq] Setting up .dev resolver"
+    ink -c green "[dnsmasq] Setting up dns resolver"
     sudo mkdir -p /etc/resolver
-    sudo tee /etc/resolver/dev >/dev/null <<-EOF
+    sudo tee /etc/resolver/test >/dev/null <<-EOF
 nameserver 127.0.0.1
 EOF
 }
