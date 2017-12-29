@@ -37,3 +37,7 @@ if (( $+commands[grc] )) && [[ $OSTYPE =~ darwin ]] && [[ ! -L /usr/local/etc/gr
     ink -lc green "[colors] Symlinking grc config"
     symlink-files -yq $XDG_CONFIG_HOME/grc/grc.conf /usr/local/etc/
 }
+
+# Making some directories
+mkdir -p "$XDG_DATA_HOME/tig/history"
+mkdir -p "$XDG_DATA_HOME/node"

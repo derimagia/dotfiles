@@ -31,7 +31,7 @@ alias help='run-help'
 
 # ls
 alias l='exa -al --git'
-alias hidden='print -lr .*'
+alias hidden='() { cd "${1:-$PWD}" && print -lr .* }'
 
 # tmux
 alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
