@@ -68,6 +68,7 @@ alias di='docker images'
 alias dip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
 alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t'
 alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/container-transform'
+alias k='kubectl'
 
 # git
 alias g='git'
