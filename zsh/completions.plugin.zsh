@@ -13,17 +13,14 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*:matches' group yes
 zstyle ':completion:*' group-name '' # Group based on the tag, everywhere
 
-# Describe Options
-zstyle ':completion:*:options' description yes
-
 # Ignored Patterns (Except rm)
 zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' '*?.old' '*?.pro'
 
 # Completion presentation styles.
 zstyle ':completion:*:options' auto-description 'specify: %d'
-zstyle ':completion:*:descriptions' format $'\e[32m -- %d --\e[00m'
-zstyle ':completion:*:messages'     format $'\e[32m -- %d --\e[00m'
-zstyle ':completion:*:warnings'     format $'\e[33m -- No matches found for %d --\e[00m'
+zstyle ':completion:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:messages' format '%F{green}-- %d --%f'
+zstyle ':completion:*:warnings' format '%F{red}-- No matches found for %d --s%f'
 
 # Case insensitive search
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'

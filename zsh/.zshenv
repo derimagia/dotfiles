@@ -53,8 +53,6 @@ export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 export TZ=:/etc/localtime
-export TMPDIR=$XDG_CACHE_HOME
-
 export SCOUT_DISABLE=1
 
 # FZF

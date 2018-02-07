@@ -29,6 +29,7 @@ _pprompt_precmd() {
 promptinit && prompt pure
 add-zsh-hook precmd _pprompt_precmd
 
+# bracketed-paste-url-magic is a simplier version of bracketed-paste-magic
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic

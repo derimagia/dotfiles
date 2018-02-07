@@ -61,7 +61,7 @@ setopt \
     MULTIOS AUTO_CD \
     BEEP INTERACTIVE_COMMENTS MAGIC_EQUAL_SUBST SHORT_LOOPS \
     EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_IGNORE_DUPS \
-    KSH_OPTION_PRINT TRANSIENT_RPROMPT
+    KSH_OPTION_PRINT
 
 # Autoload needed functions
 autoload -Uz add-zsh-hook compinit zmv zrecompile promptinit bracketed-paste-url-magic url-quote-magic
@@ -73,10 +73,6 @@ bindkey -e
 HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
-
-# bracketed-paste-url-magic is a simplier version of bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-url-magic
-zle -N self-insert url-quote-magic
 
 # fasd
 if (( $+commands[fasd] )) {
@@ -120,7 +116,6 @@ ZSH
     source $TMPPREFIX/antibody-plugins.sh
 }
 
-bindkey '^U' backward-kill-line
 bindkey '^X^_' redo
 bindkey '^[[A' history-substring-search-up  # Sourcing after syntax-highlighting.
 bindkey '^[[B' history-substring-search-down
