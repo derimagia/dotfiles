@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
-export MANPAGER='vimpager'
+
+if [[ $OSTYPE =~ darwin ]] {
+  export MANPAGER='vimpager'
+  export PAGER='vimpager'
+}
 export EDITOR='vim'
 export VISUAL='vim'
-export PAGER='vimpager'
 export LANG='en_US.UTF-8'
