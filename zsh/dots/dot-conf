@@ -4,23 +4,33 @@
 touch ~/.hushlogin
 
 # vscode
-if [[ -f ~/Dropbox/Apps/VSCode && ! -L ~/.vscode/extensions ]] {
+if [[ -d ~/Dropbox/Apps/VSCode && ! -L ~/.vscode/extensions ]] {
     # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
-    ink -lc green "[vscode] Linking vscode extension dir"
+    ink -c green "[link] Linking VSCode Extension Dir"
     mkdir -p ~/.vscode
     ln -sT ~/Dropbox/Apps/VSCode/extensions ~/.vscode/extensions
 }
 
+local sublPackages="$XDG_DATA_HOME/Application Support/Sublime Text 3/Packages/User"
+if [[ -d ~/Dropbox/Apps/Sublime/User && ! -L "$sublPackages" ]] {
+    if [[ ! -d "$sublPackages" ]] {
+        ink -c green "[link] Linking Sublime Text Package Dir"
+        ln -Ts ~/Dropbox/Apps/Sublime/User "$sublPackages"
+    } else {
+        ink -c red "[link] Can't link - Folder Exists: '$sublPackages'"
+    }
+}
+
 # virtualbox
 if (( $+commands[VBoxManage] )) {
-    ink -lc green "[virtualbox] setting default folder for virtualbox"
+    ink -c green "[virtualbox] setting default folder for virtualbox"
     VBoxManage setproperty machinefolder "$XDG_DATA_HOME/Virtualbox VMs"
 }
 
 # dnsmasq
 if (( $+commands[dnsmasq] )) && [[ -f $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf ]] {
     # Need password for dnsmasq
-    ink -lc green "[dnsmasq] Setting up dnsmasq config"
+    ink -c green "[dnsmasq] Setting up dnsmasq config"
     sudo -v
 
     ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf /usr/local/etc/dnsmasq.conf
@@ -34,7 +44,7 @@ EOF
 
 # grc
 if (( $+commands[grc] )) && [[ $OSTYPE =~ darwin ]] && [[ ! -L /usr/local/etc/grc.conf ]] {
-    ink -lc green "[colors] Symlinking grc config"
+    ink -c green "[colors] Symlinking grc config"
     symlink-files -yq $XDG_CONFIG_HOME/grc/grc.conf /usr/local/etc/
 }
 
