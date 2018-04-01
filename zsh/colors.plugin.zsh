@@ -15,6 +15,8 @@ if (( $+commands[grc] )); then
     alias ld='cl ld'
     alias ping='cl ping'
     alias traceroute='cl traceroute'
+    alias docker='cl docker'
+    alias docker-compose='cl docker-compose'
 fi
 
 alias ls='ls --color=auto'

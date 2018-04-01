@@ -13,11 +13,11 @@ brewfile() {
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+ink -l -c green -- "[brew] Upgrading Casks"
+brew cask upgrade --all
+
 ink -l -c green -- "[brew] Installing/Upgrading Brews from file"
 brewfile -C update
-
-ink -l -c green -- "[brew] Upgrading Casks"
-brewfile cask_upgrade -C
 
 ink -l -c green -- "[brew] Cleaning"
 brew cleanup
