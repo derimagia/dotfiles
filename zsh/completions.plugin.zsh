@@ -26,7 +26,7 @@ zstyle ':completion:*:warnings' format '%F{red}-- No matches found for %d --s%f'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 #zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
-zstyle -e ':completion:*:default'      list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:/${(s.:.)LS_COLORS}")' # Parial Matching
+zstyle -e ':completion:*:default'      list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=0}:/${(s.:.)LS_COLORS}")' # Partial Matching
 zstyle ':completion:*:commands'        list-colors '=*=32'
 zstyle ':completion:*:builtins'        list-colors '=*=34'
 zstyle ':completion:*:functions'       list-colors '=*=34'

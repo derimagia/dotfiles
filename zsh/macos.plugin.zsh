@@ -80,5 +80,5 @@ osx-find-launchctl () {
 unalias run-help; autoload run-help
 
 # iterm2 integration
-[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://iterm2.com/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
+[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
 source $TMPPREFIX/iterm2.zsh

@@ -87,5 +87,5 @@ alias composer="php -n =composer"
 alias list-aliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
 alias list-functions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'
 
-# named directories, allows for e.g. ~config
-c="$XDG_CONFIG_HOME" conf=$c
+# named directories, allows for e.g. ~c
+hash -d c="$XDG_CONFIG_HOME"

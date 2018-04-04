@@ -44,6 +44,7 @@ if [[ $OSTYPE =~ darwin ]] {
 path=(
     $ZDOTDIR/bin
     $ZDOTDIR/dots
+    $CARGO_HOME/bin
     $COMPOSER_HOME/vendor/bin
     $gopath/bin
     $path
@@ -102,7 +103,7 @@ if (( $+commands[fasd] )) {
         paulirish/git-open
         jocelynmallon/zshmarks
     )
-    
+
     if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]] {
         ink -c green -- '- Generating Antibody Bundle -'
 
@@ -111,7 +112,7 @@ if (( $+commands[fasd] )) {
 $(echo ${(F)antibody_plugins} | antibody bundle)
 fpath+=($XDG_CACHE_HOME/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-jocelynmallon-SLASH-zshmarks/functions)
 ZSH
-    } 
+    }
 
     source $TMPPREFIX/antibody-plugins.sh
 }
