@@ -42,6 +42,7 @@ if [[ $OSTYPE =~ darwin ]] {
 
 # paths
 path=(
+    $ZDOTDIR/local/bin
     $ZDOTDIR/bin
     $ZDOTDIR/dots
     $CARGO_HOME/bin
