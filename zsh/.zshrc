@@ -8,14 +8,17 @@ typeset -TUx GOPATH gopath
 # make path, fpath, manpath linked and unique
 typeset -gU fpath path manpath
 
+typeset -g BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
+typeset -g COMPOSER_HOME="$XDG_DATA_HOME/composer"
+typeset -g TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+
 gopath=(
     $HOME/go
 )
 
 # Mac Only
 if [[ $OSTYPE =~ darwin ]] {
-    export HOMEBREW_PREFIX=/usr/local # hardcoded for now, brew --prefix does it and should be "fast", but there's no point in it
-    export HOMEBREW_NO_ANALYTICS=1 # I don't really mind for privacy's sake, I just haven't looked at the code for it.
+    HOMEBREW_PREFIX=/usr/local
 
     # Add these in the vital file since we want them before our own paths
     fpath=(
@@ -80,7 +83,7 @@ SAVEHIST=100000
 if (( $+commands[fasd] )) {
     [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd
     [[ -s $TMPPREFIX/fasd-init.sh ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
-    export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
+    alias fasd="_FASD_DATA=$XDG_DATA_HOME/fasd/fasd fasd"
     source $TMPPREFIX/fasd-init.sh
 }
 
@@ -123,8 +126,8 @@ bindkey '^[[A' history-substring-search-up  # Sourcing after syntax-highlighting
 bindkey '^[[B' history-substring-search-down
 bindkey '^ ' expand-all-aliases
 
-compinit -C -d $TMPPREFIX/zcompdump
-zrecompile -qp -- $TMPPREFIX/zcompdump
+compinit -C -d "$TMPPREFIX/zcompdump"
+zrecompile -qp -- "$TMPPREFIX/zcompdump"
 
 # Local rc file
 [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc

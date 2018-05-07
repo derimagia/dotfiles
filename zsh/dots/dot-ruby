@@ -2,8 +2,8 @@
 
 (( $+commands[gem] )) || exit 34
 
-ink -l -c green "[ruby] installing gems"
+ink -l -c green "[ruby] installing/updating gems"
+gem update --system
 
-gem install \
-    bundler \
-    lolcat
+(( $+commands[bundle])) || gem install bundler
+bundle install --system --gemfile="$XDG_CONFIG_HOME/ruby/Gemfile"

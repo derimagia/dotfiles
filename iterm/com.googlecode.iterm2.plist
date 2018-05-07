@@ -10689,7 +10689,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/config/iterm</string>
+	<string>~/Desktop</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -10768,11 +10768,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>2140 111 609 495 1920 30 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>3917 277 918 512 3600 -19 1920 1057 </string>
+	<string>3917 356 928 394 3600 -19 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>1920 473 592 584 1920 30 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>226 130 1120 723 0 0 1680 1027 </string>
+	<string>3980 273 1120 673 3600 -19 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_350E4DEF-E1BF-4DD5-91A7-FE2DF49E827F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_6F2E54EE-9325-4270-81C1-FB03C9F40678</key>
@@ -12762,7 +12762,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-15T13:39:18Z</date>
+	<date>2018-05-07T14:20:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

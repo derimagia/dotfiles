@@ -1,4 +1,0 @@
-#compdef dk
-
-local desks=($(desk list --only-names))
-_wanted desks expl 'desks' compadd -a desks

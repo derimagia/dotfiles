@@ -1,6 +1,7 @@
 [core]
 	autocrlf = input
 	pager = diff-so-fancy | less -RFX
+	editor = nvim
 [alias]
 	# Shortcuts
 	aa = add -A

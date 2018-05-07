@@ -24,7 +24,6 @@ alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
 alias editvar='vared'
 alias ccat='vimcat'
-alias dk='desk .'
 alias s='find . -iname'
 alias cpp='rsync -WavP --human-readable --progress' # copy with progress
 alias help='run-help'
@@ -80,12 +79,24 @@ alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
 alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias html2text='w3m -dump -T text/html'
 
-# composer/drush
-alias composer="php -n =composer"
-
 # meta
 alias list-aliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
 alias list-functions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
+
+# XDG_CONFIG
+alias aws='$XDG_CONFIG_HOME/aws/config" aws'
+alias ansible='$XDG_CONFIG_HOME/ansible/ansible.cfg ansible'
+alias composer='COMPOSER_HOME="$COMPOSER_HOME" COMPOSER_CACHE_DIR="$XDG_CACHE_HOME/composer" php -n =composer'
+alias deis='DEIS_PROFILE="$XDG_CONFIG_HOME/deis/config.json" deis'
+alias helm='HELM_HOME="$XDG_CONFIG_HOME/helm" helm'
+alias htop='HTOPRC="$XDG_CONFIG_HOME/htop/htoprc" htop'
+alias http='HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie" http'
+alias pip='PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf" pip'
+alias redis='REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history" redis'
+alias terminus='TERMINUS_PLUGINS_DIR="$XDG_DATA_HOME/terminus/plugsins" TERMINUS_CACHE_DIR="$XDG_CACHE_HOME/terminus" terminus'
+alias tig='TIGRC_USER="$XDG_CONFIG_HOME/tig/tigrc"'
+alias tmux='TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins" tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias vagrant='VAGRANT_DOTFILE_PATH="$XDG_DATA_HOME/vagrant" VAGRANT_HOME="$XDG_DATA_HOME/vagrant" vagrant'

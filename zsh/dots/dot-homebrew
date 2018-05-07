@@ -5,6 +5,8 @@
 # @TODO - Having issues with running from ~
 cd $XDG_CONFIG_HOME
 
+HOMEBREW_PREFIX=/usr/local
+
 brewfile() {
 	brew-file --on_request -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" "$@"
 }
@@ -14,7 +16,7 @@ brewfile() {
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 ink -l -c green -- "[brew] Upgrading Casks"
-brew cask upgrade --all
+brew cask upgrade
 
 ink -l -c green -- "[brew] Installing/Upgrading Brews from file"
 brewfile -C update

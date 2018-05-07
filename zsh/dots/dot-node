@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# set configs for node:
+# NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+# NPM_CONFIG_DEVDIR="$XDG_DATA_HOME/node/gyp" # node-gyp
+
 (( $+commands[node] )) || exit 34
 
 ink -l -c green -- "[node] Installing npm Packages"

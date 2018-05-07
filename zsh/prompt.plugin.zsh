@@ -21,8 +21,7 @@ _pprompt_precmd_drush() {
 _pprompt_precmd() {
     prompt_pure_extras=()
     _pprompt_precmd_drush
-
-    [[ -n "$DESK_NAME" ]] && prompt_pure_extras+=("%F{cyan}${DESK_NAME}%f")
+    # [[ -n "$DESK_NAME" ]] && prompt_pure_extras+=("%F{cyan}${DESK_NAME}%f")
 }
 
 # Setup Prompt
