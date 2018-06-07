@@ -74,14 +74,14 @@ alias g='git'
 alias diffg='git diff --color-words --no-index'
 alias dclone='clone -d'
 
-# Url functions
+# Url functons
 alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
 alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias html2text='w3m -dump -T text/html'
 
 # meta
-alias list-aliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
-alias list-functions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'
+alias laliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
+alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
