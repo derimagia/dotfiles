@@ -15,8 +15,7 @@ $pip install -U \
     virtualenv \
     pygments \
     tamper \
-    doge \
-    http-prompt
+    doge
 
 pip3 install -U \
     pip \

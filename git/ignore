@@ -1,6 +1,5 @@
 *~
 .DS_Store
 .idea
-wallaby.js
-wallaby.conf.js
+wallaby*.js
 config/local*.json

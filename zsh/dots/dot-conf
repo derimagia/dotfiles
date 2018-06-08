@@ -49,5 +49,4 @@ if (( $+commands[grc] )) && [[ $OSTYPE =~ darwin ]] && [[ ! -L /usr/local/etc/gr
 }
 
 # Making some directories
-mkdir -p "$XDG_DATA_HOME/tig/history"
-mkdir -p "$XDG_DATA_HOME/node"
+mkdir -p "$XDG_DATA_HOME/node" "$XDG_DATA_HOME/zsh"

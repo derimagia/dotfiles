@@ -9,8 +9,6 @@ typeset -TUx GOPATH gopath
 typeset -gU fpath path manpath
 
 typeset -g BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
-typeset -g COMPOSER_HOME="$XDG_DATA_HOME/composer"
-typeset -g TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 
 gopath=(
     $HOME/go
@@ -47,7 +45,6 @@ if [[ $OSTYPE =~ darwin ]] {
 path=(
     $ZDOTDIR/local/bin
     $ZDOTDIR/bin
-    $ZDOTDIR/dots
     $CARGO_HOME/bin
     $COMPOSER_HOME/vendor/bin
     $gopath/bin
@@ -56,9 +53,6 @@ path=(
 
 # Set up TMPPREFIX
 TMPPREFIX="$XDG_CACHE_HOME/zsh"
-
-# Create $TMPPREFIX and "$XDG_DATA_HOME/zsh"
-mkdir -p "$TMPPREFIX" "$XDG_DATA_HOME/zsh"
 
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -110,6 +104,7 @@ if (( $+commands[fasd] )) {
 
     if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]] {
         ink -c green -- '- Generating Antibody Bundle -'
+        mkdir -p "$TMPPREFIX"
 
         # antibody doesn't seem to do detect fpaths and expects the plugin file to have it.
         cat > $TMPPREFIX/antibody-plugins.sh <<ZSH

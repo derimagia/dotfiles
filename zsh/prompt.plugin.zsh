@@ -18,10 +18,9 @@ _pprompt_precmd_drush() {
     [[ -n "$DRUSH_SITE" ]] && prompt_pure_extras+=("%F{$ENV_COLOR}${DRUSH_SITE}%f")
 }
 
+typeset -ga prompt_pure_extras
 _pprompt_precmd() {
     prompt_pure_extras=()
-    _pprompt_precmd_drush
-    # [[ -n "$DESK_NAME" ]] && prompt_pure_extras+=("%F{cyan}${DESK_NAME}%f")
 }
 
 # Setup Prompt
