@@ -52,7 +52,8 @@ path=(
 )
 
 # Set up TMPPREFIX
-TMPPREFIX="$XDG_CACHE_HOME/zsh"
+typeset -g TMPPREFIX="$XDG_CACHE_HOME/zsh"
+mkdir -p "$TMPPREFIX"
 
 # General Terminal Options
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -73,12 +74,13 @@ HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 
+
 # fasd
 if (( $+commands[fasd] )) {
-    [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p $XDG_DATA_HOME/fasd
-    [[ -s $TMPPREFIX/fasd-init.sh ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| $TMPPREFIX/fasd-init.sh
+    [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p "$XDG_DATA_HOME/fasd"
+    [[ -f "$TMPPREFIX/fasd-init.sh" ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$TMPPREFIX/fasd-init.sh"
     alias fasd="_FASD_DATA=$XDG_DATA_HOME/fasd/fasd fasd"
-    source $TMPPREFIX/fasd-init.sh
+    source "$TMPPREFIX/fasd-init.sh"
 }
 
 # Load all files

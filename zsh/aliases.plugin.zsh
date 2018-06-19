@@ -67,7 +67,13 @@ alias di='docker images'
 alias dip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
 alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t'
 alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/container-transform'
+
+# kube
 alias k='kubectl'
+alias ku='k config use-context'
+alias kc='k config current-context'
+alias kg='k get'
+alias kl='k logs'
 
 # git
 alias g='git'
@@ -85,6 +91,3 @@ alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
-
-# XDG_CONFIG
-alias pip='PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf" pip'
