@@ -79,7 +79,7 @@ SAVEHIST=100000
 if (( $+commands[fasd] )) {
     [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p "$XDG_DATA_HOME/fasd"
     [[ -f "$TMPPREFIX/fasd-init.sh" ]] || fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$TMPPREFIX/fasd-init.sh"
-    alias fasd="_FASD_DATA=$XDG_DATA_HOME/fasd/fasd fasd"
+    export _FASD_DATA="$XDG_DATA_HOME/fasd/fasd"
     source "$TMPPREFIX/fasd-init.sh"
 }
 

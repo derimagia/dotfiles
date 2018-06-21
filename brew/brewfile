@@ -108,7 +108,7 @@ brew 'tig'
 brew 'tmux'
 brew 'tree'
 brew 'v8'
-brew 'vimpager'
+brew 'vimpager', args: ['HEAD']
 brew 'w3m'
 brew 'watch'
 brew 'webp'

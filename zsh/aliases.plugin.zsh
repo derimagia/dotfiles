@@ -72,6 +72,8 @@ alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/contain
 alias k='kubectl'
 alias ku='k config use-context'
 alias kc='k config current-context'
+alias kcl='k config view -o jsonpath="{.contexts[*].name}" | tr " " "\n"'
+
 alias kg='k get'
 alias kl='k logs'
 
@@ -86,8 +88,8 @@ alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias html2text='w3m -dump -T text/html'
 
 # meta
-alias laliases='() { alias | grep -E ${1-.} | vimcat | fzf-tmux }'
-alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf-tmux }'
+alias laliases='() { alias | grep -E ${1-.} | vimcat | fzf }'
+alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf }'
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
