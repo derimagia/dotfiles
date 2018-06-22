@@ -1,4 +1,4 @@
-" Autoload doesn't load for vimpager right now so load it.j
+" Autoload doesn't load for vimpager right now so load it.
 if !exists('plug#begin')
     source $XDG_DATA_HOME/nvim/site/autoload/plug.vim
 endif

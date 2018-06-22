@@ -24,6 +24,7 @@ export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tmux/plugins"
 export VAGRANT_DOTFILE_PATH="$XDG_DATA_HOME/vagrant"
 export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+export VIMPAGER_RC="$XDG_CONFIG_HOME/nvim/init.vim"
 
 # history files
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
