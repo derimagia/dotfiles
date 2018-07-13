@@ -3,30 +3,6 @@
 # hushlogin
 touch ~/.hushlogin
 
-# vscode
-local dropbox=~/Dropbox/Apps/VSCode
-if [[ -d "$dropbox" ]] {
-    ink -c green "[link] Linking VSCode Extension Dir"
-
-    # Symlink vscode to the right directory until https://github.com/Microsoft/vscode/issues/3884 is resolved.
-    if [[ ! -L ~/.vscode/extensions ]] {
-        ln -sT "$dropbox/extensions" ~/.vscode/extensions
-    }
-
-    mkdir -p ~/.vscode
-    if [[ ! -L ~/Library/Application\ Support/Code/User/settings.json ]] {
-        ln -s "$dropbox/settings.json" ~/Library/Application\ Support/Code/User/settings.json
-    }
-
-    if [[ ! -L ~/Library/Application\ Support/Code/User/keybindings.json ]] {
-        ln -s "$dropbox/keybindings.json" ~/Library/Application\ Support/Code/User/keybindings.json
-    }
-
-    if [[ ! -L ~/Library/Application\ Support/Code/User/snippets ]] {
-        ln -sT "$dropbox/snippets" ~/Library/Application\ Support/Code/User/snippets
-    }
-}
-
 local sublPackages="$XDG_DATA_HOME/Application Support/Sublime Text 3/Packages/User"
 if [[ -d ~/Dropbox/Apps/Sublime/User && ! -L "$sublPackages" ]] {
     if [[ ! -d "$sublPackages" ]] {

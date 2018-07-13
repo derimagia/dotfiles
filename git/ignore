@@ -4,3 +4,4 @@
 .vscode/
 wallaby*.js
 config/local*.json
+telepresence.log
