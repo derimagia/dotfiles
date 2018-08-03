@@ -30,20 +30,11 @@ chflags nohidden "${HOME}/Library"
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
 
-# Disable the sudden motion sensor as it’s not useful for SSDs
-sudo pmset -a sms 0
-
-# Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
-
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
 # Double-click a window's title bar to minimize
 defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 50
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
 defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
@@ -61,19 +52,10 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # How long it takes to start repeating
 defaults write NSGlobalDomain InitialKeyRepeat -int 40
 
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
 # Never go into computer sleep mode
 sudo systemsetup -setcomputersleep Off > /dev/null
 
-# Menu bar: hide the Time Machine, Volume, and User icons
-#for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-#	defaults write "${domain}" dontAutoLoad -array \
-#		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-#		"/System/Library/CoreServices/Menu Extras/User.menu"
-#done
-
+# Menu bar icons
 defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Displays.menu" \
 	"/System/Library/CoreServices/Menu Extras/Volume.menu" \
@@ -81,9 +63,6 @@ defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
 	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
-
-# Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
@@ -99,14 +78,8 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Automatically quit printer app once the print jobs complete
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Display ASCII control characters using caret notation in standard text views
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
@@ -115,8 +88,7 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
 
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
+# Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Check for software updates daily, not just once per week
@@ -134,7 +106,7 @@ ink -l -c green -- " Setting Finder Preferences"
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+# defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
@@ -171,25 +143,9 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Enable spring loading for directories
-defaults write NSGlobalDomain com.apple.springing.enabled -bool true
-
-# Remove the spring loading delay for directories
-defaults write NSGlobalDomain com.apple.springing.delay -float 0
-
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
-# Automatically open a new Finder window when a volume is mounted
-defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
-defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
-defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Use list view in all Finder windows by default
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
@@ -244,17 +200,11 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
-# Don’t animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool false
-
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Don’t group windows by application in Mission Control (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
@@ -418,9 +368,6 @@ CFPreferencesAppSynchronize "com.apple.iCal"
 # ==============================================
 ink -l -c green -- " Setting Archive Utility Preferences"
 
-# Move archives to trash after extraction
-defaults write com.apple.archiveutility "dearchive-move-after" -string "~/.Trash"
-
 # Don't reveal extracted items
 defaults write com.apple.archiveutility "dearchive-reveal-after" -bool false
 
@@ -495,26 +442,6 @@ ink -l -c green -- " Setting Spotlight Preferences"
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # ==============================================
-# Terminal
-# ==============================================
-ink -l -c green -- " Setting Terminal Preferences"
-
-# Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
-
-CFPreferencesAppSynchronize "com.apple.terminal"
-
-# ==============================================
-# Time Machine                                                                #
-# ==============================================
-ink -l -c green -- " Setting Time Machine Preferences"
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-CFPreferencesAppSynchronize "com.apple.TimeMachine"
-
-# ==============================================
 # Dashboard
 # ==============================================
 ink -l -c green -- " Setting Dashboard Preferences"
@@ -546,56 +473,6 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 CFPreferencesAppSynchronize "com.apple.DiskUtility"
 
 # ==============================================
-# Mac App Store                                                               #
-# ==============================================
-ink -l -c green -- " Setting Mac App Store Preferences"
-
-# Enable the WebKit Developer Tools in the Mac App Store
-defaults write com.apple.appstore WebKitDeveloperExtras -bool true
-
-# Enable Debug Menu in the Mac App Store
-defaults write com.apple.appstore ShowDebugMenu -bool true
-
-# Enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
-
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-# Download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
-
-# Install System data files & security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-
-# Automatically download apps purchased on other Macs
-defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
-
-# Turn on app auto-update
-defaults write com.apple.commerce AutoUpdate -bool true
-
-# Allow the App Store to reboot machine on macOS updates
-defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
-
-CFPreferencesAppSynchronize "com.apple.appstore"
-
-# ==============================================
-# Messages                                                                    #
-# ==============================================
-ink -l -c green -- " Setting Messages Preferences"
-
-# Disable automatic emoji substitution (i.e. use plain text smileys)
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
-
-# Disable smart quotes as it’s annoying for messages that contain code
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-
-# Disable continuous spell checking
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-CFPreferencesAppSynchronize "com.apple.messageshelper"
-
-# ==============================================
 # Alfred
 # ==============================================
 ink -l -c green -- " Setting Alfred Preferences"
@@ -603,22 +480,9 @@ ink -l -c green -- " Setting Alfred Preferences"
 # Sync Directory
 defaults write com.runningwithcrayons.Alfred-Preferences-3 syncfolder -string '~/Dropbox/Apps/Alfred'
 # Allow ~/Dropbox/Apps to be used. See https://www.alfredapp.com/help/troubleshooting/dropbox-apps-folder/
-defaults write com.runningwithcrayons.Alfred-Preferences-3 dropbox.allowappsfolder -bool TRUE
+defaults write com.runningwithcrayons.Alfred-Preferences-3 dropbox.allowappsfolder -bool true
 
 CFPreferencesAppSynchronize "com.runningwithcrayons.Alfred-Preferences-3"
-
-# ==============================================
-# BetterTouchTool
-# ==============================================
-ink -l -c green -- " Setting BetterTouchTool Preferences"
-
-# Sync Directory
-defaults write com.hegenberg.BetterTouchTool windowSnappingEnabled -bool true
-
-# Remove Status Bar Icon
-defaults write com.hegenberg.BetterTouchTool showicon -bool false
-
-CFPreferencesAppSynchronize "com.hegenberg.BetterTouchTool"
 
 # ==============================================
 # iTerm2
@@ -626,7 +490,8 @@ CFPreferencesAppSynchronize "com.hegenberg.BetterTouchTool"
 ink -l -c green -- " Setting iTerm2 Preferences"
 
 # Preference Folder
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string $XDG_CONFIG_HOME/iterm
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string '~/Dropbox/Apps/iTerm'
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 CFPreferencesAppSynchronize "com.googlecode.iterm2"
 
 # ==============================================
@@ -656,61 +521,4 @@ ink -l -c green -- " Setting Dash Preferences"
 
 defaults write com.kapeli.dashdoc snippetSQLPath -string '~/Dropbox/Apps/Dash/Snippets.dash'
 defaults write com.kapeli.dashdoc syncFolderPath -string '~/Dropbox/Apps/Dash'
-defaults write com.kapeli.dashdoc showInDock -int 1
-defaults write com.kapeli.dashdoc shouldStartAtLogin -int 1
-
 CFPreferencesAppSynchronize "com.kapeli.dashdoc"
-
-# ==============================================
-# ForkLift
-# ==============================================
-ink -l -c green -- " Setting Forklift Preferences"
-
-# Set as default reader
-# defaults write -g NSFileViewer -string com.binarynights.ForkLift-3
-
-CFPreferencesAppSynchronize "com.binarynights.ForkLift-3"
-
-# ==============================================
-# cDock
-# ==============================================
-ink -l -c green -- " Setting cDock Preferences"
-if [[ ! -d ~/"Library/Application Support/cDock/themes/Material" ]]; then
-    ln -sT ~/"Library/Application Support/cDock/themes/Material" ~/Dropbox/Apps/cDock/Material
-fi
-
-defaults write org.w0lf.cDock cd_theme -string "Material"
-CFPreferencesAppSynchronize "org.w0lf.cDock"
-
-# Kill affected applications
-# ==============================================
-
-function killallApps() {
-    killall "Finder" > /dev/null 2>&1
-    killall "SystemUIServer" > /dev/null 2>&1
-    killall "Dock" > /dev/null 2>&1
-
-    appsToKill=(
-	    "Activity Monitor"
-	    "Calendar"
-	    "Contacts"
-	    "Dashboard"
-	    "Disk Utility"
-	    "Safari"
-	    "System Preferences"
-	    "Xcode"
-    )
-
-    for app in "${appsToKill[@]}"
-    do
-        killall "${app}" > /dev/null 2>&1
-        if [[ $? -eq 0 ]]; then
-            # We just killed an app so restart it
-            open -a "${app}"
-        fi
-    done
-
-    ink -l -c green -- " Note that some of these changes require a logout/restart to take effect."
-}
-
-exit 0

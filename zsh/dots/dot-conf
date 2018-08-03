@@ -3,16 +3,6 @@
 # hushlogin
 touch ~/.hushlogin
 
-local sublPackages="$XDG_DATA_HOME/Application Support/Sublime Text 3/Packages/User"
-if [[ -d ~/Dropbox/Apps/Sublime/User && ! -L "$sublPackages" ]] {
-    if [[ ! -d "$sublPackages" ]] {
-        ink -c green "[link] Linking Sublime Text Package Dir"
-        ln -sT ~/Dropbox/Apps/Sublime/User "$sublPackages"
-    } else {
-        ink -c red "[link] Can't link - Folder Exists: '$sublPackages'"
-    }
-}
-
 # virtualbox
 if (( $+commands[VBoxManage] )) {
     ink -c green "[virtualbox] setting default folder for virtualbox"
@@ -23,15 +13,7 @@ if (( $+commands[VBoxManage] )) {
 if (( $+commands[dnsmasq] )) && [[ -f $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf ]] {
     # Need password for dnsmasq
     ink -c green "[dnsmasq] Setting up dnsmasq config"
-    sudo -v
-
     ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf /usr/local/etc/dnsmasq.conf
-
-    # ink -c green "[dnsmasq] Setting up dns resolver"
-    # sudo mkdir -p /etc/resolver
-    # sudo tee /etc/resolver/test >/dev/null <<-EOF
-# nameserver 127.0.0.1
-# EOF
 }
 
 # grc
