@@ -2,17 +2,17 @@
 
 (( $PROFILING )) && zmodload zsh/zprof
 
-# Go
-typeset -TUx GOPATH gopath
-
 # make path, fpath, manpath linked and unique
 typeset -gU fpath path manpath
 
-typeset -g BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
+# Go
+typeset -TUx GOPATH gopath
 
 gopath=(
     $HOME/go
 )
+
+typeset -g BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
 
 # Mac Only
 if [[ $OSTYPE =~ darwin ]] {
@@ -59,7 +59,7 @@ mkdir -p "$TMPPREFIX"
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
 setopt \
     MULTIOS AUTO_CD \
-    BEEP INTERACTIVE_COMMENTS MAGIC_EQUAL_SUBST SHORT_LOOPS \
+    INTERACTIVE_COMMENTS MAGIC_EQUAL_SUBST SHORT_LOOPS \
     EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_IGNORE_DUPS \
     KSH_OPTION_PRINT
 
@@ -86,8 +86,8 @@ if (( $+commands[fasd] )) {
 # Load all files
 () {
     # Autoload files
-    autoload_files=($ZDOTDIR/autoload/*)
-    fpath+=($autoload_files:h) && autoload -U ${autoload_files:t}
+    local autoload_files=($ZDOTDIR/autoload/*)
+    fpath+=($ZDOTDIR/autoload) && autoload -U ${autoload_files:t}
 
     typeset -U plugin_files=(
         $ZDOTDIR/*.plugin.zsh
@@ -100,19 +100,12 @@ if (( $+commands[fasd] )) {
         psprint/history-search-multi-word
         zsh-users/zsh-autosuggestions
         zsh-users/zsh-syntax-highlighting
-        paulirish/git-open
-        jocelynmallon/zshmarks
     )
 
     if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]] {
         ink -c green -- '- Generating Antibody Bundle -'
         mkdir -p "$TMPPREFIX"
-
-        # antibody doesn't seem to do detect fpaths and expects the plugin file to have it.
-        cat > $TMPPREFIX/antibody-plugins.sh <<ZSH
-$(echo ${(F)antibody_plugins} | antibody bundle)
-fpath+=($XDG_CACHE_HOME/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-jocelynmallon-SLASH-zshmarks/functions)
-ZSH
+        echo ${(F)antibody_plugins} | antibody bundle > $TMPPREFIX/antibody-plugins.sh
     }
 
     source $TMPPREFIX/antibody-plugins.sh
@@ -123,13 +116,10 @@ bindkey '^[[A' history-substring-search-up  # Sourcing after syntax-highlighting
 bindkey '^[[B' history-substring-search-down
 bindkey '^ ' expand-all-aliases
 
-compinit -C -d "$TMPPREFIX/zcompdump"
-zrecompile -qp -- "$TMPPREFIX/zcompdump"
-
 # Local rc file
 [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
 
-# Hook for desk activation
-[[ -n "$DESK_ENV" ]] && source "$DESK_ENV"
+compinit -C -d "$TMPPREFIX/zcompdump"
+zrecompile -qp -- "$TMPPREFIX/zcompdump"
 
 (( $PROFILING )) && zprof
