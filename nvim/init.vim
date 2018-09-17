@@ -1,8 +1,3 @@
-" Autoload doesn't load for vimpager right now so load it.
-if !exists('plug#begin')
-    source $XDG_DATA_HOME/nvim/site/autoload/plug.vim
-endif
-
 set t_Co=256
 set background=dark
 set encoding=utf8
@@ -114,11 +109,6 @@ let g:NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
-
-" vimpager
-let g:vimpager = {}
-let g:vimpager.passthrough = 0
-
 " fix cursor on exit
 if has("autocmd")
   au VimLeave * set guicursor=a:ver25-blinkon1-blinkoff1

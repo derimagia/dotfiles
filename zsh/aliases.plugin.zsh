@@ -7,10 +7,10 @@ alias -g P='2>&1 | $PAGER'
 # Suffix Aliases
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
-alias -s yaml='ccat'
-alias -s yml='ccat'
+alias -s yaml='bat'
+alias -s yml='bat'
 alias -s json='() { file=$1; shift; jq ${@:-"."} "$file" }'
-alias -s xml='ccat'
+alias -s xml='bat'
 alias -s py='python'
 alias -s jar='java -jar'
 alias -s war='java -jar'
@@ -23,7 +23,6 @@ if [[ $OSTYPE =~ darwin ]] {
 alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
 alias editvar='vared'
-alias ccat='vimcat'
 alias s='find . -iname'
 alias cpp='rsync -WavP --human-readable --progress' # copy with progress
 alias help='run-help'
@@ -87,8 +86,8 @@ alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias html2text='w3m -dump -T text/html'
 
 # meta
-alias laliases='() { alias | grep -E ${1-.} | vimcat | fzf }'
-alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | vimcat | fzf }'
+alias laliases='() { alias | grep -E ${1-.} | bat | fzf }'
+alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | bat | fzf }'
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"

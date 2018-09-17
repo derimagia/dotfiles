@@ -35,23 +35,11 @@ function color_enabled() {
     return !$color_mode
 }
 
-function process_highlight() {
-    if color_enabled; then
-        if [[ -n $1 ]]; then
-            vimcat -c "set syntax=$1"
-        else
-            vimcat
-        fi
-    else
-        cat
-    fi
-}
-
 function process_output() {
     # @TODO: Look into better wrapping
     print -l
     local width="$((( $COLS - 20 )))"
-    process_highlight $*
+    $* | bat
 }
 
 

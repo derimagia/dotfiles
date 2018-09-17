@@ -5,3 +5,4 @@
 wallaby*.js
 config/local*.json
 telepresence.log
+newrelic_agent.log

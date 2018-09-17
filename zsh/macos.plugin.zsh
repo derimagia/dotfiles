@@ -79,6 +79,10 @@ osx-find-launchctl () {
 # Fix Help
 unalias run-help; autoload run-help
 
-# iterm2 integration
-[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
-source $TMPPREFIX/iterm2.zsh
+if [[ -n "$ITERM_PROFILE" ]] {
+    iterm2_hostname="$HOST"
+
+    # iterm2 integration
+    [[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
+    source $TMPPREFIX/iterm2.zsh
+}
