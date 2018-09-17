@@ -74,7 +74,6 @@ HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 
-
 # fasd
 if (( $+commands[fasd] )) {
     [[ -d $XDG_DATA_HOME/fasd ]] || mkdir -p "$XDG_DATA_HOME/fasd"
@@ -93,13 +92,13 @@ if (( $+commands[fasd] )) {
         $ZDOTDIR/*.plugin.zsh
         $ZDOTDIR/prompt.plugin.zsh
     )
-    for plugin_file ($plugin_files) source $plugin_file
+    for plugin_file ($plugin_files) source "$plugin_file"
 
     local antibody_plugins=(
         zsh-users/zsh-history-substring-search
         psprint/history-search-multi-word
         zsh-users/zsh-autosuggestions
-        zsh-users/zsh-syntax-highlighting
+        zdharma/fast-syntax-highlighting
     )
 
     if [[ ! -s $TMPPREFIX/antibody-plugins.sh ]] {
