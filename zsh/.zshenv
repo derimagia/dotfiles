@@ -33,6 +33,6 @@ export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
 
 # Kubectl
 () {
-    local -U kubeconfigs=($XDG_CONFIG_HOME/kube/*.yaml(N))
+    local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
     export KUBECONFIG="${(j;:;)kubeconfigs}"
 }
