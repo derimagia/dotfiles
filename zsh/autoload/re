@@ -18,6 +18,7 @@ command="$@"
 
 if $clearcache; then
     rm -rf $TMPPREFIX
+    rm -f $ZDOTDIR/zcompdump
     ink -c green -- "- Cleared Caches -"
 fi
 

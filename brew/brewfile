@@ -116,7 +116,6 @@ brew 'wget'
 brew 'xmlstarlet'
 brew 'youtube-dl'
 brew 'zsh'
-brew 'zsh-completions'
 
 tap 'homebrew/bundle'
 

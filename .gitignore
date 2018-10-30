@@ -24,3 +24,12 @@ config_local
 .zcompdump
 .zlocalrc
 *.zwc
+
+# Linux
+Code - OSS/
+Slack/
+session/
+unity3d/
+discord/
+google-chrome/
+sublime-text-3/

@@ -36,3 +36,8 @@ export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
     local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
     export KUBECONFIG="${(j;:;)kubeconfigs}"
 }
+
+if [[ -n "$ITERM_PROFILE" ]] {
+    iterm2_hostname="$HOST"
+}
+

@@ -31,3 +31,25 @@ add-zsh-hook precmd _pprompt_precmd
 autoload -Uz bracketed-paste-url-magic url-quote-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
+
+# zsh-sticky-prefix
+local zle_sticked
+zle-line-init() {
+    BUFFER="$zle_sticked$BUFFER"
+    zle end-of-line
+}
+zle -N zle-line-init
+
+function zle-set-sticky {
+    zle_sticked="$BUFFER"
+    zle -M "Sticky: '$zle_sticked'"
+}
+zle -N zle-set-sticky
+
+function accept-line {
+    if [[ -z "$BUFFER" ]] && [[ -n "$zle_sticked" ]]; then
+        zle_sticked=
+    fi
+    zle .accept-line
+}
+zle -N accept-line

@@ -82,8 +82,7 @@ if (( $+commands[fasd] )) {
     source "$TMPPREFIX/fasd-init.sh"
 }
 
-# Load all files
-() {
+load_custom_plugins() {
     # Autoload files
     local autoload_files=($ZDOTDIR/autoload/*)
     fpath+=($ZDOTDIR/autoload) && autoload -U ${autoload_files:t}
@@ -93,8 +92,11 @@ if (( $+commands[fasd] )) {
         $ZDOTDIR/prompt.plugin.zsh
     )
     for plugin_file ($plugin_files) source "$plugin_file"
+}
 
+load_packaged_plugins() {
     local antibody_plugins=(
+        zsh-users/zsh-completions
         zsh-users/zsh-history-substring-search
         psprint/history-search-multi-word
         zsh-users/zsh-autosuggestions
@@ -110,15 +112,23 @@ if (( $+commands[fasd] )) {
     source $TMPPREFIX/antibody-plugins.sh
 }
 
-bindkey '^X^_' redo
-bindkey '^[[A' history-substring-search-up  # Sourcing after syntax-highlighting.
+load_local() {
+    # Local rc file
+    [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
+}
+
+load_custom_plugins
+load_packaged_plugins
+
+bindkey '^X^_' redo # iterm
+bindkey '^[[A' history-substring-search-up # Sourcing after syntax-highlighting
 bindkey '^[[B' history-substring-search-down
-bindkey '^ ' expand-all-aliases
+bindkey '^>' expand-all-aliases
+bindkey '^ ' zle-set-sticky
 
-# Local rc file
-[[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
+load_local
 
-compinit -C -d "$TMPPREFIX/zcompdump"
-zrecompile -qp -- "$TMPPREFIX/zcompdump"
+compinit -C
+zrecompile -p -- $ZDOTDIR/.zcompdump
 
 (( $PROFILING )) && zprof

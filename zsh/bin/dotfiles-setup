@@ -1,10 +1,8 @@
 #!/bin/bash
 
-
 print_info() {
     ink -l -c yellow "$@"
 }
-
 
 print_error() {
     ink -l -c red "$@"
@@ -14,17 +12,12 @@ print_status() {
     ink -l -c blue "$@"
 }
 
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-~/.config}"
-export ZDOTDIR="${ZDOTDIR:-"$XDG_CONFIG_HOME/zsh"}"
-export LOCAL_PREFIX='/usr/local'
-
 get_metadata() {
-    OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
     # If Linux, try to determine specific distribution
-    if [[ "$OSTYPE" == "linux" ]]; then
-        if [[ -f /etc/lsb-release ]]; then
-            OSTYPE=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'// | tr "[:upper:]" "[:lower:]")
-        fi
+    if [[ -f /etc/os-release ]]; then
+        OSTYPE="$(source /etc/os-release && echo $ID)"
+    else
+        OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
     fi
 }
 
@@ -37,12 +30,6 @@ os_function() {
     fi
 
     $os_function
-}
-
-install_git_ubuntu() {
-    sudo apt update
-    hash git 2>/dev/null && return
-    sudo apt install git
 }
 
 install_git_darwin() {
@@ -63,11 +50,11 @@ install_dotfiles() {
     os_function install_git
 
     if [[ ! -d $XDG_CONFIG_HOME ]]; then
-        git clone https://github.com/derimagia/dotfiles.git $XDG_CONFIG_HOME
+        git clone git@github.com:derimagia/dotfiles.git $XDG_CONFIG_HOME
     fi
 
     # Link dotfile binaries.
-    PATH=$ZDOTDIR/bin/:$PATH
+    PATH="$ZDOTDIR/bin:$PATH"
 }
 
 install_from_url() {
@@ -85,6 +72,7 @@ setup() {
     # @TODO: Just add this to binaries in dotfiles
     hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
 
+    dot setup
     dot vim
 }
 
@@ -104,22 +92,11 @@ setup_darwin() {
 
     # We set this here and in the launchctl environment file. Ideally we could remove this one.
     print_status "Adding ZDOTDIR to /etc/zshenv"
+
     #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
     echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
 
     print_info 'Run `defaults write com.apple.dock persistent-apps -array ""` to kill all apps from the dock'
-}
-
-setup_ubuntu() {
-    sudo apt install -y \
-        software-properties-common apt-transport-https python-software-properties \
-        git unzip curl wget \
-        zsh neovim
-
-    echo 'export ZDOTDIR=~/.config/zsh' | sudo tee /etc/zsh/zshenv >/dev/null
-    chsh -s "$(which zsh)"
-
-    install_from_url 'diff-so-fancy' 'https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy'
 }
 
 get_metadata

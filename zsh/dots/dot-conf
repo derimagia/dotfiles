@@ -1,19 +1,12 @@
 #!/usr/bin/env zsh
 
-# hushlogin
-touch ~/.hushlogin
+# Making some directories
+mkdir -p "$XDG_DATA_HOME/node" "$XDG_DATA_HOME/zsh"
 
 # virtualbox
 if (( $+commands[VBoxManage] )) {
     ink -c green "[virtualbox] setting default folder for virtualbox"
     VBoxManage setproperty machinefolder "$XDG_DATA_HOME/Virtualbox VMs"
-}
-
-# dnsmasq
-if (( $+commands[dnsmasq] )) && [[ -f $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf ]] {
-    # Need password for dnsmasq
-    ink -c green "[dnsmasq] Setting up dnsmasq config"
-    ln -fs $XDG_CONFIG_HOME/dnsmasq/dnsmasq.conf /usr/local/etc/dnsmasq.conf
 }
 
 # grc
@@ -22,5 +15,3 @@ if (( $+commands[grc] )) && [[ $OSTYPE =~ darwin ]] && [[ ! -L /usr/local/etc/gr
     ln -s $XDG_CONFIG_HOME/grc/grc.conf /usr/local/etc/grc.conf
 }
 
-# Making some directories
-mkdir -p "$XDG_DATA_HOME/node" "$XDG_DATA_HOME/zsh"

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-(( $+commands[vim] )) || exit 34
+(( $+commands[nvim] )) || exit 34
 
 dot_path=$(realpath "$(dirname $0)/../")
 
