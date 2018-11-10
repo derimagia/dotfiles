@@ -1,4 +1,3 @@
-
 #!/usr/bin/env zsh
 
 # Pure
@@ -180,6 +179,9 @@ prompt_pure_precmd() {
 	# store name of virtualenv in psvar if activated
 	psvar[12]=
 	[[ -n $VIRTUAL_ENV ]] && psvar[12]="${VIRTUAL_ENV:t}"
+
+    # reset extras
+    prompt_pure_extras=()
 
 	# print the preprompt
 	prompt_pure_preprompt_render "precmd"

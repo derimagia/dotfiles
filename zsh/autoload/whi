@@ -3,108 +3,30 @@
 emulate -L zsh
 autoload -Uz colors && colors
 
-local color_mode="auto"
+() {
+    local stagingdir="$(mktemp -d)"
+    local inspect="$1" matched_inspect=0 files=()
 
-COLS="$(tput cols)"
-if (( COLS <= 0 )); then
-    COLS="${COLUMNS:-80}"
-fi
-
-while getopts c: opt; do
-    case $opt in
-        (c)
-            if [[ $OPTARG == 1 ]]; then
-              color_mode=1
-            elif [[ $OPTARG == 0 ]]; then
-              color_mode=0
-            fi
-            ;;
-    esac
-    shift $(( OPTIND - 1 ))
-done
-
-if [[ $color_mode == "auto" ]]; then
-    if [[ -t 1 ]] && (($(tput colors))); then
-        color_mode=1
-    else
-        color_mode=0
+    if (( $+aliases[$inspect] )); then
+        alias $inspect > "$stagingdir/alias.zsh"
+        files+=('alias.zsh')
     fi
-fi
 
-function color_enabled() {
-    return !$color_mode
-}
+    if (( $+functions[$inspect] )); then
+        autoload +X $inspect 2>/dev/null
+        functions $inspect > "$stagingdir/functions.zsh"
+        files+=('functions.zsh')
+    fi
 
-function process_output() {
-    # @TODO: Look into better wrapping
-    print -l
-    local width="$((( $COLS - 20 )))"
-    $* | bat
-}
+    if (( $+commands[$inspect] )); then
+        files+=( ${(p)$(where -p $inspect 2>/dev/null)} )
+    fi
 
-
-if ! color_enabled; then
-  unset fg
-  unset color_reset
-fi
-
-local inspect="$1" matched_inspect=0 found_aliases
-found_aliases=$(alias $inspect)
-
-if [[ -n $found_aliases ]]; then
-    matched_inspect=1
-    hr ' ' '-' ' '
-
-    print -l "${fg[blue]}Aliases:${reset_color}"
-    print -- $found_aliases | process_output zsh
-fi
-
-found_functions=$(declare -f $inspect)
-
-if [[ -n $found_functions ]]; then
-    matched_inspect=1
-    hr ' ' '-' ' '
-
-    print -l "${fg[blue]}Functions:${reset_color}"
-    print -- $found_functions | process_output zsh
-fi
-
-found_commands=( ${(p)$(command which $inspect --all --skip-alias 2>/dev/null)} )
-
-if [[ -n $found_commands ]]; then
-    matched_inspect=1
-    hr ' ' '-' ' '
-
-    local command_main_path=${:-=$found_command}
-
-    print -l "${fg[blue]}Commands:${reset_color}"
-
-    for command_path in $found_commands; do
-        file_type_output=$(file -b $command_path | tr -d "\n" | tr "\t" " ")
-
-        local file_type="unknown"
-        case "$file_type_output" in
-            *executable*) file_type="binary" ;| # default for executable right above text
-            *text*) file_type="text" ;| # default for text
-            *"Bourne-Again shell"* | *"sh script"*| *"shell script"*) file_type="bash" ;;
-            *python*) file_type="python" ;;
-            *ruby*) file_type="ruby" ;;
-            *php*) file_type="php" ;;
-        esac
-
-        print -l "'${fg[green]}${command_path:a}${reset_color}' → '${fg[green]}${command_path:A}${reset_color}' ${fg[cyan]}($file_type_output - [$file_type])${reset_color}"
-
-        if [[ -f $command_path ]] && [[ $file_type != "unknown" ]] && [[ $file_type != "binary" ]]; then
-            <$command_path | process_output
-        fi
-        print -l
-    done
-fi
-
-
-if (( $matched_inspect )); then
-    hr ' ' '-' ' '
-else
-    ink -c red "Invalid Command/Alias/Function '$inspect'"
-    return 1
-fi
+    if (( ${#files[@]} )); then
+        pushd -q $stagingdir && bat $files && popd -q
+        rm -rf $stagingdir
+    else
+        ink -c red "${fg[red]}Invalid Command/Alias/Function '$inspect'${reset_color}"
+        return 1
+    fi
+} "$@"

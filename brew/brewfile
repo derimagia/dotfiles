@@ -162,9 +162,9 @@ cask 'quicklook-csv'
 cask 'quicklookapk'
 cask 'robo-3t'
 cask 'slack'
-cask 'steam'
-cask 'suspicious-package'
-cask 'textual'
+cask 'sourcetree'
+cask 'sublime-text'
+cask 'tad'
 cask 'tuntap'
 cask 'virtualbox'
 cask 'webpquicklook'
@@ -208,9 +208,10 @@ cask 'qlvideo'
 cask 'quicklook-json'
 cask 'rcdefaultapp'
 cask 'setapp'
-cask 'sourcetree'
-cask 'sublime-text'
-cask 'tad'
+cask 'soduto'
+cask 'steam'
+cask 'suspicious-package'
+cask 'textual'
 cask 'torbrowser'
 cask 'vimr'
 cask 'visual-studio-code'
@@ -218,11 +219,11 @@ cask 'wireshark'
 
 # App Store applications
 mas 'Jayson (1.8.1)', id: 1189824719
-mas 'Keynote (8.2)', id: 409183694
-mas 'Numbers (5.2)', id: 409203825
-mas 'Pages (7.2)', id: 409201541
+mas 'Keynote (8.3)', id: 409183694
+mas 'Numbers (5.3)', id: 409203825
+mas 'Pages (7.3)', id: 409201541
 mas 'Quiver (3.1.3)', id: 866773894
 mas 'Sip (4.5.2)', id: 507257563
 mas 'Tweetbot (2.5.8)', id: 557168941
-mas 'Twitterrific (5.3.6)', id: 1289378661
-mas 'Xcode (10.0)', id: 497799835
+mas 'Twitterrific (5.3.8)', id: 1289378661
+mas 'Xcode (10.1)', id: 497799835

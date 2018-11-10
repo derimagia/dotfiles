@@ -2,55 +2,6 @@
 
 (( $PROFILING )) && zmodload zsh/zprof
 
-# make path, fpath, manpath linked and unique
-typeset -gU fpath path manpath
-
-# Go
-typeset -TUx GOPATH gopath
-
-gopath=(
-    $HOME/go
-)
-
-typeset -g BOOKMARKS_FILE="$XDG_DATA_HOME/zsh/bookmarks"
-
-# Mac Only
-if [[ $OSTYPE =~ darwin ]] {
-    HOMEBREW_PREFIX=/usr/local
-
-    # Add these in the vital file since we want them before our own paths
-    fpath=(
-        $HOMEBREW_PREFIX/share/zsh-completions
-        $HOMEBREW_PREFIX/share/zsh/site-functions
-        $fpath
-    )
-
-    path=(
-        $HOMEBREW_PREFIX/sbin
-        $HOMEBREW_PREFIX/bin
-        $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
-        /usr/libexec
-        $path
-    )
-
-    manpath=(
-        $HOMEBREW_PREFIX/share/man
-        $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman
-        /usr/local/opt/findutils/share/man
-        $manpath
-    )
-}
-
-# paths
-path=(
-    $ZDOTDIR/local/bin
-    $ZDOTDIR/bin
-    $CARGO_HOME/bin
-    $COMPOSER_HOME/vendor/bin
-    $gopath/bin
-    $path
-)
-
 # Set up TMPPREFIX
 typeset -g TMPPREFIX="$XDG_CACHE_HOME/zsh"
 mkdir -p "$TMPPREFIX"
@@ -64,7 +15,7 @@ setopt \
     KSH_OPTION_PRINT
 
 # Autoload needed functions
-autoload -Uz add-zsh-hook compinit zmv zrecompile promptinit bracketed-paste-url-magic url-quote-magic
+autoload -Uz add-zsh-hook compinit zmv
 
 # Reset key bindings
 bindkey -e
@@ -83,9 +34,14 @@ if (( $+commands[fasd] )) {
 }
 
 load_custom_plugins() {
+    # Mac Only
+    [[ $OSTYPE =~ darwin ]] && path+=('/usr/local/sbin' '/usr/libexec')
+
     # Autoload files
     local autoload_files=($ZDOTDIR/autoload/*)
     fpath+=($ZDOTDIR/autoload) && autoload -U ${autoload_files:t}
+
+    path=($ZDOTDIR/bin $path)
 
     typeset -U plugin_files=(
         $ZDOTDIR/*.plugin.zsh
@@ -95,7 +51,7 @@ load_custom_plugins() {
 }
 
 load_packaged_plugins() {
-    local antibody_plugins=(
+   local antibody_plugins=(
         zsh-users/zsh-completions
         zsh-users/zsh-history-substring-search
         psprint/history-search-multi-word
@@ -110,9 +66,16 @@ load_packaged_plugins() {
     }
 
     source $TMPPREFIX/antibody-plugins.sh
+
+    # Go
+    typeset -TUx GOPATH gopath && gopath=($HOME/go)
+
+    path+=($CARGO_HOME/bin $COMPOSER_HOME/vendor/bin $gopath/bin)
 }
 
 load_local() {
+    path=($ZDOTDIR/local/bin $path)
+
     # Local rc file
     [[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
 }
@@ -129,6 +92,11 @@ bindkey '^ ' zle-set-sticky
 load_local
 
 compinit -C
-zrecompile -p -- $ZDOTDIR/.zcompdump
+
+() {
+    autoload -Uz zrecompile
+    zrecompile -p -- $ZDOTDIR/.zcompdump
+    rm -f $ZDOTDIR/.zcompdump.zwc.old
+}&!
 
 (( $PROFILING )) && zprof
