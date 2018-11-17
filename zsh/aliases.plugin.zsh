@@ -37,6 +37,7 @@ alias ta='tmux attach -d'
 alias tnew='tmux new -s'
 
 # opening projects
+alias vim='nvim'
 alias v="vim"
 alias dottime='time zsh -ic true'
 alias cdconf="cd $XDG_CONFIG_HOME"

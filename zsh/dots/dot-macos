@@ -20,6 +20,43 @@ END
 }
 
 # ==============================================
+# plists
+# ==============================================
+ink -l -c green -- " Setting up plists"
+
+local plist_dir=$XDG_CONFIG_HOME/plists
+
+# User LaunchAgents
+for file in $plist_dir/LaunchAgents/*(N.); do
+    filename=${file:t}
+    service_name=${filename:r}
+    service_location=~/Library/LaunchAgents/$filename
+
+    ink -l -c green -- "[plist] Setting up $service_name"
+
+    # Replace $HOME
+    cat $file | sed "s|\$HOME|$HOME|g" > $service_location
+    chown $USER $service_location
+    chmod 644 $service_location
+    launchctl load $service_location
+done
+
+# Root LaunchAgents
+for file in $plist_dir/LaunchAgentsRoot/*(N.); do
+    filename=${file:t}
+    service_location=/Library/LaunchAgents/$filename
+    service_name=${filename:r}
+
+    ink -l -c green -- "[plist-root] Setting up $service_name"
+
+    # Replace $HOME
+    cat $file | sed "s|\$HOME|$HOME|g" | sudo tee $service_location >/dev/null
+    sudo chown root $service_location
+    sudo chmod 644 $service_location
+    sudo launchctl load $service_location
+done
+
+# ==============================================
 # Global and NSGlobalDomain
 # ==============================================
 ink -l -c green -- " Setting NSGlobalDomain Preferences"
