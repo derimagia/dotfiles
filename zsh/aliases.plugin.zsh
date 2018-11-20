@@ -53,7 +53,7 @@ alias z=jump
 alias p="showmarks"
 
 # network
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # external ip
+alias eip='dig +short myip.opendns.com @resolver1.opendns.com' # external ip
 alias iip='ifdata -pN' # internal ip, needs interface
 
 # docker
