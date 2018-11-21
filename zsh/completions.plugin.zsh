@@ -53,7 +53,6 @@ zstyle ':completion:*:rm:*' file-patterns '*:all-files'
 
 # ignore patterns
 zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)'
-zstyle ':completion:*:*:zcompile:*' ignored-patterns '(*~|*.zwc)'
 zstyle ':completion:*:*:*:users' ignored-patterns '_*'
 
 # speed up completion by avoiding partial globs

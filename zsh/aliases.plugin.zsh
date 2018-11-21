@@ -31,19 +31,14 @@ alias help='run-help'
 alias l='exa -al --git'
 alias hidden='() { cd "${1:-$PWD}" && print -lr .* }'
 
-# tmux
-alias tmux='tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf'
-alias ta='tmux attach -d'
-alias tnew='tmux new -s'
-
 # opening projects
 alias vim='nvim'
 alias v="vim"
 alias dottime='time zsh -ic true'
 alias cdconf="cd $XDG_CONFIG_HOME"
-alias confs="${EDITOR:-subl} $XDG_CONFIG_HOME"
-alias zshs="${EDITOR:-subl} $ZDOTDIR"
-alias localrc="${EDITOR:-subl} $ZDOTDIR/.zlocalrc"
+alias confs="$VISUAL $XDG_CONFIG_HOME"
+alias zshs="$VISUAL $ZDOTDIR"
+alias localrc="$VISUAL $ZDOTDIR/.zlocalrc"
 
 # files and directories
 alias rename='noglob zmv -W'

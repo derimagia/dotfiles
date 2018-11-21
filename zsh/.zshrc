@@ -1,5 +1,7 @@
 (( $PROFILING )) && zmodload zsh/zprof
 
+: ${TERM:=xterm-256color}
+
 # Set up TMPPREFIX
 typeset -g TMPPREFIX="$XDG_CACHE_HOME/zsh"
 mkdir -p "$TMPPREFIX"
@@ -23,7 +25,7 @@ HISTFILE="$XDG_DATA_HOME/zsh/history" HISTSIZE=100000 SAVEHIST=100000
 ## Custom Packages
 
 # Autoload files
-autoload -U $ZDOTDIR/autoload/*(:t)
+autoload -Uz $ZDOTDIR/autoload/*(-.N:t)
 fpath+=($ZDOTDIR/autoload)
 path=($ZDOTDIR/bin $path)
 
@@ -63,9 +65,18 @@ path=($ZDOTDIR/local/bin $path)
 
 compinit -C
 
-() {
+{
+    setopt LOCAL_OPTIONS EXTENDED_GLOB
     autoload -Uz zrecompile
-    zrecompile -qp -- $ZDOTDIR/.zcompdump && rm -f $ZDOTDIR/.zcompdump.zwc.old
+
+    zrecompile -qp -- \
+        $ZDOTDIR/.zcompdump -- \
+        $ZDOTDIR/.zshrc -- \
+        $ZDOTDIR/autoload/prompt_pure_setup
+
+    zrecompile -qp $ZDOTDIR/autoload.zwc $ZDOTDIR/autoload/^(_*|prompt_*_setup|*.*)(-.N)
+
+    for file ($ZDOTDIR/*.plugin.zsh) zrecompile -qp $file
 }&!
 
 (( $PROFILING )) && zprof

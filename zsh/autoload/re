@@ -15,7 +15,7 @@ command="$@"
 
 if $clearcache; then
     antibody update
-    rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump{,.zwc}(N)
+    rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump $ZDOTDIR/{*,.*}.zwc{,.old}(-.N)
     ink -c green -- "- Cleared Caches -"
 fi
 
