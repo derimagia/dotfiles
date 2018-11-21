@@ -1,7 +1,5 @@
 (( $PROFILING )) && zmodload zsh/zprof
 
-env
-
 # Set up TMPPREFIX
 typeset -g TMPPREFIX="$XDG_CACHE_HOME/zsh"
 mkdir -p "$TMPPREFIX"

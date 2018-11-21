@@ -79,6 +79,9 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .yml                  38;1;32;1
 .rdata                38;1;32;1
 .csv                  38;1;32;1
+.tmLanguage           38;1;32;1
+.sublime-settings     38;1;32;1
+.sublime-keymap       38;1;32;1
 *Dockerfile           38;1;32;1
 *Jenkinsfile          38;1;32;1
 *Vagrantfile          38;1;32;1
@@ -412,6 +415,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .asc                  38;1;33;1;3
 .enc                  38;1;33;1;3
 .sig                  38;1;33;1;3
+.crt                  38;1;33;1;3
 
 
 # termcap

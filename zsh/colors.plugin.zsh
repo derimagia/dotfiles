@@ -37,7 +37,7 @@ if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
 
     {
         dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
-        available=(g++ gas head make ld tail /usr/share/grc/*(.:e))
+        available=(g++ gas head make ld tail /usr{,/local}/share/grc/*(N.:e))
         installed=${available:*commands}
         disabled=(ls)
         for cmd (${available:|disabled}) print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
