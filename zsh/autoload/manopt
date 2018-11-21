@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 # man a specific option
 
 local program="$1"

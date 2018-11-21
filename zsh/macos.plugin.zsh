@@ -1,5 +1,7 @@
 [[ $OSTYPE =~ darwin ]] || return
 
+path+=(/usr/local/sbin /usr/libexec)
+
 export BROWSER='open'
 
 alias open='() { command open ${@:-"."} }'
@@ -86,3 +88,5 @@ if [[ -n "$ITERM_PROFILE" ]] {
     [[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
     source $TMPPREFIX/iterm2.zsh
 }
+
+bindkey '^X^_' redo # iterm

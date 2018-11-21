@@ -29,3 +29,6 @@ accept-line() {
     zle .accept-line
 }
 zle -N accept-line
+
+bindkey '^>' expand-all-aliases
+bindkey '^ ' zle-set-sticky

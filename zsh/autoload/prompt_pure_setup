@@ -439,7 +439,7 @@ prompt_pure_setup() {
 	export PROMPT_EOL_MARK=''
 
 	# disallow python virtualenvs from updating the prompt
-	export VIRTUAL_ENV_DISABLE_PROMPT=1
+	# export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 	prompt_opts=(subst percent)
 

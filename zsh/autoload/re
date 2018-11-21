@@ -8,24 +8,18 @@ while getopts tcr opt; do
         (c)
             clearcache=true
         ;;
-        (r)
-            readall=true
-        ;;
     esac
 done
 shift $(( OPTIND - 1 ))
 command="$@"
 
 if $clearcache; then
-    rm -rf $TMPPREFIX
-    rm -f $ZDOTDIR/zcompdump
+    antibody update
+    rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump{,.zwc}(N)
     ink -c green -- "- Cleared Caches -"
 fi
 
 if [[ -n $command ]]; then
-    if $readall; then
-        command+=" | cat -A"
-    fi
     zsh -ic "$command; exit"
     return
 fi

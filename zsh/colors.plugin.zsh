@@ -2,23 +2,6 @@
 
 autoload -Uz colors && colors
 
-if (( $+commands[grc] )); then
-    alias cl='grc -es --colour=auto'
-    alias configure='cl ./configure'
-    alias make='cl make'
-    alias gcc='cl gcc'
-    alias g++='cl g++'
-    alias as='cl as'
-    alias php'cl php'
-    alias dig='cl dig'
-    alias mount='cl mount'
-    alias ld='cl ld'
-    alias ping='cl ping'
-    alias traceroute='cl traceroute'
-    alias docker='cl docker'
-    alias docker-compose='cl docker-compose'
-fi
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -49,8 +32,16 @@ FAST_HIGHLIGHT_STYLES[double-quoted-argument]='fg=green'
 FAST_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=green'
 FAST_HIGHLIGHT_STYLES[comment]='fg=green,bold'
 
-if [[ ! -s $TMPPREFIX/dircolors-init.sh ]]; then
-    dircolors -b $XDG_CONFIG_HOME/ls/LS_COLORS >| $TMPPREFIX/dircolors-init.sh
+if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
+    ink -c green -- '- Generating Colors Bundle -'
+
+    {
+        dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
+        available=(g++ gas head make ld tail /usr/share/grc/*(.:e))
+        installed=${available:*commands}
+        disabled=(ls)
+        for cmd (${available:|disabled}) print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
+    } | > "$TMPPREFIX/colors.sh"
 fi
 
-source $TMPPREFIX/dircolors-init.sh
+source "$TMPPREFIX/colors.sh"

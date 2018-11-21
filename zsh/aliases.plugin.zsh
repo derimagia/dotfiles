@@ -16,8 +16,8 @@ alias -s jar='java -jar'
 alias -s war='java -jar'
 
 if [[ $OSTYPE =~ darwin ]] {
-	alias -s md='ql'
-	alias -s csv='ql'
+    alias -s md='ql'
+    alias -s csv='ql'
 }
 
 alias fs='stat -c "%s Bytes"' # File Size
@@ -48,10 +48,6 @@ alias localrc="${EDITOR:-subl} $ZDOTDIR/.zlocalrc"
 # files and directories
 alias rename='noglob zmv -W'
 
-# bookmarks
-alias z=jump
-alias p="showmarks"
-
 # network
 alias eip='dig +short myip.opendns.com @resolver1.opendns.com' # external ip
 alias iip='ifdata -pN' # internal ip, needs interface
@@ -60,9 +56,7 @@ alias iip='ifdata -pN' # internal ip, needs interface
 alias dr="docker"
 alias drr="docker run -it --rm"
 alias drc="docker-compose"
-alias dl='docker ps -lq'
 alias dps='docker ps'
-alias di='docker images'
 alias dip='docker inspect --format "{{ .NetworkSettings.IPAddress }}"'
 alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t'
 alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/container-transform'
@@ -72,7 +66,6 @@ alias k='kubectl'
 alias ku='k config use-context'
 alias kc='k config current-context'
 alias kcl='k config view -o jsonpath="{.contexts[*].name}" | tr " " "\n"'
-
 alias kg='k get'
 alias kl='k logs'
 

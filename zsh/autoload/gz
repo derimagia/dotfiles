@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # get gzipped size
 echo "orig size    (bytes): "
 cat "$1" | wc -c
