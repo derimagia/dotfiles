@@ -30,7 +30,6 @@ brew 'dockward'
 brew 'dos2unix'
 brew 'duti'
 brew 'exa'
-brew 'fasd'
 brew 'ffmpeg'
 brew 'figlet'
 brew 'findutils', args: ['with-default-names']
@@ -216,7 +215,6 @@ cask 'visual-studio-code'
 cask 'wireshark'
 
 # App Store applications
-mas 'Jayson (1.8.1)', id: 1189824719
 mas 'Keynote (8.3)', id: 409183694
 mas 'Numbers (5.3)', id: 409203825
 mas 'Pages (7.3)', id: 409201541
