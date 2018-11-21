@@ -28,4 +28,3 @@ fi
     export KUBECONFIG="${(j;:;)kubeconfigs}"
 }
 
-#export LANG=en_US.UTF-8
