@@ -153,8 +153,8 @@ function getConfig() {
 domain=$(getConfig "domain")
 protocol=$(getConfig "protocol")
 
-# Get current branch
-branch=${2:-$(git symbolic-ref -q --short HEAD)}
+# Get current branch / tag / commit
+branch=${2:-$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match 2>/dev/null || git rev-parse HEAD)}
 
 # Split arguments on '/'
 IFS='/' read -r -a pathargs <<<"$urlpath"
@@ -196,6 +196,28 @@ elif [[ "${#pathargs[@]}" -ge '2' && ${pathargs[${#pathargs[@]} - 2]} == '_git' 
     # Keep project and repository name, append branch selector.
     providerBranchRef="?version=GB$branch"
   fi
+elif [[ "$domain" =~ amazonaws\.com$ ]]; then
+  # AWS Code Commit
+  if (( is_issue )); then
+    echo "Issue feature does not supported on AWS Code Commit." 1>&2
+    exit 1
+  fi
+
+  # Take region name from domain.
+  region=${domain#*.}
+  region=${region%%.*}
+
+  # Replace domain.
+  # Ex. git-codecommit.us-east-1.amazonaws.com -> us-east-1.console.aws.amazon.com
+  domain="${region}.console.aws.amazon.com"
+
+  # Replace URL path.
+  # Ex. v1/repos/example -> codecommit/home?region=us-east-1#/repository/example/browse/
+  urlpath="codecommit/home?region=${region}#/repository/${urlpath##*/}/browse/"
+
+  # Replace branch ref.
+  # Ex. /tree/foobar -> foobar/--/
+  providerBranchRef="${providerBranchRef##*/}/--/"
 fi
 
 openurl="$protocol://$domain/$urlpath"
@@ -213,21 +235,16 @@ case $( uname -s ) in
   CYGWIN*)  open='cygstart';;
   *)        # Try to detect WSL (Windows Subsystem for Linux)
             if uname -r | grep -q Microsoft; then
-              open='powershell.exe'
-              openopt='Start'
+              open='powershell.exe Start'
             else
               open='xdg-open'
             fi;;
 esac
 
 # Allow printing the url if BROWSER=echo
-if [[ $BROWSER == "echo" ]]; then
-  openopt=''
-else
+if [[ $BROWSER != "echo" ]]; then
   exec &>/dev/null
 fi
 
 # open it in a browser
-${BROWSER:-$open} $openopt "$openurl"
-
-unset openopt
+${BROWSER:-$open} "$openurl"
