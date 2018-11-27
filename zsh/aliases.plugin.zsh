@@ -5,8 +5,8 @@ alias -g G='| grep -i --'
 alias -g P='2>&1 | $PAGER'
 
 # Suffix Aliases
-alias -s htm="$BROWSER"
-alias -s html="$BROWSER"
+alias -s htm='$BROWSER'
+alias -s html='$BROWSER'
 alias -s yaml='bat'
 alias -s yml='bat'
 alias -s json='() { file=$1; shift; jq ${@:-"."} "$file" }'

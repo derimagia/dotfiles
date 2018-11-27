@@ -1,226 +1,327 @@
-
-# tap repositories and their packages
-
-tap 'homebrew/core'
-brew 'asciiquarium'
-brew 'autoconf'
-brew 'automake'
-brew 'awscli'
-brew 'bash'
-brew 'bat'
-brew 'bats'
-brew 'bfg'
-brew 'boxes'
-brew 'brew-cask-completion'
-brew 'cmake'
-brew 'composer'
-brew 'coreutils'
-brew 'cowsay'
-brew 'ctop'
-brew 'curl'
-brew 'dateutils'
-brew 'deis'
-brew 'diff-so-fancy'
-brew 'diffutils'
-brew 'dnsmasq'
-brew 'docker'
-brew 'docker-completion'
-brew 'docker-compose-completion'
-brew 'dockward'
-brew 'dos2unix'
-brew 'duti'
-brew 'exa'
-brew 'ffmpeg'
-brew 'figlet'
-brew 'findutils', args: ['with-default-names']
-brew 'fortune'
-brew 'fswatch'
-brew 'fzf'
-brew 'gawk'
-brew 'gcc'
-brew 'ghq'
-brew 'git'
-brew 'git-extras'
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gnu-units', args: ['with-default-names']
-brew 'go'
-brew 'gpatch'
-brew 'gradle'
-brew 'grc'
-brew 'grep', args: ['with-default-names']
-brew 'gzip'
-brew 'hashcat'
-brew 'hr'
-brew 'htop'
-brew 'httpie'
-brew 'hub'
-brew 'iftop'
-brew 'imagemagick'
-brew 'jid'
-brew 'jq'
-brew 'kops'
-brew 'kubernetes-cli'
-brew 'kubernetes-helm'
-brew 'libtool'
-brew 'livestreamer'
-brew 'lnav'
-brew 'mariadb'
-brew 'mas'
-brew 'miller'
-brew 'moreutils'
-brew 'mr'
-brew 'mtr'
-brew 'mycli'
-brew 'neovim'
-brew 'netcat'
-brew 'nginx'
-brew 'ngrep'
-brew 'nmap'
-brew 'node@6'
-brew 'node@8', args: ['without-npm']
-brew 'noti'
-brew 'openconnect'
-brew 'openssh'
-brew 'p7zip'
-brew 'pigz'
-brew 'pv'
-brew 'python'
-brew 'reattach-to-user-namespace'
-brew 'redis'
-brew 'remarshal'
-brew 'renameutils'
-brew 'ripgrep'
-brew 'rsync'
-brew 'ruby'
-brew 'rust'
-brew 'shellcheck'
-brew 'slackcat'
-brew 'slurm'
-brew 'socat'
-brew 'spark'
-brew 'ssh-copy-id'
-brew 'stormssh'
-brew 'stow'
-brew 'switchaudio-osx'
-brew 'teleport'
-brew 'tig'
-brew 'tmux'
-brew 'traefik'
-brew 'tree'
-brew 'v8'
-brew 'w3m'
-brew 'watch'
-brew 'webp'
-brew 'wget'
-brew 'xmlstarlet'
-brew 'youtube-dl'
-brew 'zsh'
-
-tap 'homebrew/bundle'
-
-tap 'homebrew/cask-fonts'
-cask 'font-fira-code'
-cask 'font-hack'
-cask 'font-roboto'
-
-tap 'homebrew/cask-versions'
-cask 'docker-edge'
-cask 'firefox-beta'
-cask 'google-chrome-canary'
-cask 'iterm2-beta'
-
-tap 'homebrew/services'
-
-tap 'homebrew/cask'
-cask '1password'
-cask 'aerial'
-cask 'android-platform-tools'
-cask 'archiver'
-cask 'authy'
-cask 'charles'
-cask 'dash'
-cask 'dropbox'
-cask 'electron-api-demos'
-cask 'etcher'
-cask 'forklift'
-cask 'gitkraken'
-cask 'google-chrome'
-cask 'imageoptim'
-cask 'jetbrains-toolbox'
-cask 'kitematic'
-cask 'launchrocket'
-cask 'lincastor'
-cask 'onyx'
-cask 'paw'
-cask 'pritunl'
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'qlstephen'
-cask 'quicklook-csv'
-cask 'quicklookapk'
-cask 'robo-3t'
-cask 'slack'
-cask 'sourcetree'
-cask 'sublime-text'
-cask 'tad'
-cask 'tuntap'
-cask 'virtualbox'
-cask 'webpquicklook'
-cask 'xquartz'
-
-tap 'datawire/blackbird'
-brew 'telepresence'
-
-tap 'rcmdnk/file'
-brew 'brew-file'
-
-# Other Cask applications
-cask 'adobe-air'
-cask 'alfred'
-cask 'android-studio'
-cask 'asset-catalog-tinkerer'
-cask 'captain'
-cask 'colorpicker-skalacolor'
-cask 'default-folder-x'
-cask 'eclipse-ide'
-cask 'electrum'
-cask 'firefox-developer-edition'
-cask 'font-firamono-nerd-font-mono'
-cask 'font-hack-nerd-font-mono'
-cask 'font-source-code-pro'
-cask 'gear-player'
-cask 'gitup'
-cask 'hopper-disassembler'
-cask 'hosts'
-cask 'java8'
-cask 'kaleidoscope'
-cask 'knockknock'
-cask 'licecap'
-cask 'mono-mdk'
-cask 'osxfuse'
-cask 'prefs-editor'
-cask 'provisionql'
-cask 'qlimagesize'
-cask 'qlprettypatch'
-cask 'qlvideo'
-cask 'quicklook-json'
-cask 'rcdefaultapp'
-cask 'setapp'
-cask 'soduto'
-cask 'steam'
-cask 'suspicious-package'
-cask 'textual'
-cask 'torbrowser'
-cask 'vimr'
-cask 'visual-studio-code'
-cask 'wireshark'
-
-# App Store applications
-mas 'Keynote (8.3)', id: 409183694
-mas 'Numbers (5.3)', id: 409203825
-mas 'Pages (7.3)', id: 409201541
-mas 'Quiver (3.1.3)', id: 866773894
-mas 'Sip (4.5.2)', id: 507257563
-mas 'Tweetbot (2.5.8)', id: 557168941
-mas 'Twitterrific (5.3.8)', id: 1289378661
-mas 'Xcode (10.1)', id: 497799835
+tap "datawire/blackbird"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+cask "osxfuse"
+cask "xquartz"
+# Aquarium animation in ASCII art
+brew "asciiquarium"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# TAP-compliant test framework for Bash scripts
+brew "bats"
+# Remove large files or passwords from Git history like git-filter-branch
+brew "bfg"
+# Draw boxes around text
+brew "boxes"
+# Fish completion for brew-cask
+brew "brew-cask-completion"
+# Cross-platform make
+brew "cmake"
+# Dependency Manager for PHP
+brew "composer"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Configurable talking characters in ASCII art
+brew "cowsay"
+# Top-like interface for container metrics
+brew "ctop"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Tools to manipulate dates with a focus on financial data
+brew "dateutils"
+# The CLI for Deis Workflow
+brew "deis"
+# Good-lookin' diffs with diff-highlight and more
+brew "diff-so-fancy"
+# File comparison utilities
+brew "diffutils"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# Bash, Zsh and Fish completion for Docker
+brew "docker-completion"
+# Docker-compose completion script
+brew "docker-compose-completion"
+# Port forwarding tool for Docker containers
+brew "dockward"
+# Convert text between DOS, UNIX, and Mac formats
+brew "dos2unix"
+# Select default apps for documents and URL schemes on macOS
+brew "duti"
+# Modern replacement for 'ls'
+brew "exa"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# Collection of GNU find, xargs, and locate
+brew "findutils", args: ["with-default-names"]
+# Infamous electronic fortune-cookie generator
+brew "fortune"
+# Generic library support script
+brew "libtool"
+# Monitor a directory for changes and run a shell command
+brew "fswatch"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU awk utility
+brew "gawk"
+# GNU compiler collection
+brew "gcc"
+# Remote repository management made easy
+brew "ghq"
+# Distributed revision control system
+brew "git"
+# Small git utilities
+brew "git-extras"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# GNU implementation of the famous stream editor
+brew "gnu-sed", args: ["with-default-names"]
+# GNU unit conversion tool
+brew "gnu-units", args: ["with-default-names"]
+# Apply a diff file to an original
+brew "gpatch"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
+# Colorize logfiles and command output
+brew "grc"
+# GNU grep, egrep and fgrep
+brew "grep", args: ["with-default-names"]
+# Popular GNU data compression program
+brew "gzip"
+# World's fastest and most advanced password recovery utility
+brew "hashcat"
+# <hr />, for your terminal window
+brew "hr"
+# Improved top (interactive process viewer)
+brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Add GitHub support to git on the command-line
+brew "hub"
+# Display an interface's bandwidth usage
+brew "iftop"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Json incremental digger
+brew "jid"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Production Grade K8s Installation, Upgrades, and Management
+brew "kops"
+# The Kubernetes package manager
+brew "kubernetes-helm"
+# Pipes video from streaming services into a player such as VLC
+brew "livestreamer"
+# Curses-based tool for viewing and analyzing log files
+brew "lnav"
+# Drop-in replacement for MySQL
+brew "mariadb"
+# Mac App Store command-line interface
+brew "mas"
+# Like sed, awk, cut, join & sort for name-indexed data such as CSV
+brew "miller"
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
+# Multiple Repository management tool
+brew "mr"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
+# CLI for MySQL with auto-completion and syntax highlighting
+brew "mycli"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Utility for managing network connections
+brew "netcat"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
+# Network grep
+brew "ngrep"
+# Port scanning utility for large networks
+brew "nmap"
+# Platform built on V8 to build network applications
+brew "node"
+# Platform built on V8 to build network applications
+brew "node@6"
+# Platform built on V8 to build network applications
+brew "node@8", args: ["without-npm"]
+# Trigger notifications when a process completes
+brew "noti"
+# Open client for Cisco AnyConnect VPN
+brew "openconnect"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Parallel gzip
+brew "pigz"
+# Monitor data's progress through a pipe
+brew "pv"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Convert between TOML, YAML and JSON
+brew "remarshal"
+# Tools for file renaming
+brew "renameutils"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Powerful, clean, object-oriented scripting language
+brew "ruby", link: true
+# Safe, concurrent, practical language
+brew "rust"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Command-line utility for posting snippets to Slack
+brew "slackcat"
+# Yet another network load monitor
+brew "slurm"
+# netcat on steroids
+brew "socat"
+# Sparklines for the shell
+brew "spark"
+# Add a public key to a remote machine's authorized_keys file
+brew "ssh-copy-id"
+# Command-line tool to manage your ssh connections
+brew "stormssh"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
+# Modern SSH server for teams managing distributed infrastructure
+brew "teleport"
+# Text interface for Git repositories
+brew "tig"
+# Terminal multiplexer
+brew "tmux"
+# Modern reverse proxy
+brew "traefik"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Google's JavaScript engine
+brew "v8"
+# Pager/text based browser
+brew "w3m"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# XML command-line utilities
+brew "xmlstarlet"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Local dev environment attached to a remote Kubernetes cluster
+brew "datawire/blackbird/telepresence"
+cask "1password"
+cask "adobe-air"
+cask "aerial"
+cask "alfred"
+cask "android-platform-tools"
+cask "android-studio"
+cask "archiver"
+cask "asset-catalog-tinkerer"
+cask "authy"
+cask "captain"
+cask "charles"
+cask "colorpicker-skalacolor"
+cask "dash"
+cask "default-folder-x"
+cask "discord"
+cask "docker-edge"
+cask "dropbox"
+cask "eclipse-ide"
+cask "electron-api-demos"
+cask "electrum"
+cask "etcher"
+cask "firefox-beta"
+cask "firefox-developer-edition"
+cask "font-fira-code"
+cask "font-firamono-nerd-font-mono"
+cask "font-hack"
+cask "font-hack-nerd-font-mono"
+cask "font-roboto"
+cask "font-source-code-pro"
+cask "forklift"
+cask "gear-player"
+cask "gitkraken"
+cask "gitup"
+cask "google-chrome"
+cask "google-chrome-canary"
+cask "hopper-disassembler"
+cask "hosts"
+cask "imageoptim"
+cask "iterm2-beta"
+cask "java8"
+cask "jetbrains-toolbox"
+cask "kaleidoscope"
+cask "kitematic"
+cask "knockknock"
+cask "launchrocket"
+cask "licecap"
+cask "lincastor"
+cask "mono-mdk"
+cask "onyx"
+cask "paw"
+cask "prefs-editor"
+cask "pritunl"
+cask "provisionql"
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "quicklookapk"
+cask "rcdefaultapp"
+cask "robo-3t"
+cask "setapp"
+cask "slack"
+cask "soduto"
+cask "sourcetree"
+cask "steam"
+cask "sublime-text"
+cask "suspicious-package"
+cask "tad"
+cask "textual"
+cask "torbrowser"
+cask "tuntap"
+cask "vimr"
+cask "virtualbox"
+cask "visual-studio-code"
+cask "webpquicklook"
+cask "wireshark"
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Quiver", id: 866773894
+mas "Sip", id: 507257563
+mas "Tweetbot", id: 557168941
+mas "Twitterrific", id: 1289378661
+mas "Xcode", id: 497799835

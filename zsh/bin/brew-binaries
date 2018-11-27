@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
-print -l $HOMEBREW_PREFIX/Cellar/${^$(brew ls)}/*/bin/*(*N) | cut -d '/' -f '5,8'

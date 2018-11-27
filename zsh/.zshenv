@@ -22,6 +22,8 @@ fi
 (( $+commands[node] )) && export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
 (( $+commands[redis] )) && export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
 
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+
 # Kubectl
 (( $+commands[kubectl] )) && () {
     local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))

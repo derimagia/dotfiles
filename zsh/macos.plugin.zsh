@@ -15,10 +15,13 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 alias wifi-ssid="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr(\$0, index(\$0, \$2))}'"
 alias docker-screen="screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty"
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+alias brew-bundle='brew bundle --file=$XDG_CONFIG_HOME/brew/Brewfile'
+alias brew-dump='brew-bundle dump --describe --force'
+alias brew-binaries='print -l "$(brew --prefix)"/Cellar/${^$(brew ls)}/*/bin/*(*N) | cut -d '/' -f '5,8''
 
 # quicklook
 ql() {
-    [[ -f $1 ]] || ink -c red -t 2 'Invalid file' | return 1
+    [[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' | return 1
     chronic sh -c "qlmanage -p $'$1'" &!
 }
 
@@ -65,17 +68,15 @@ osx-ls-download-history() {
 
 # find all launchctl scripts
 osx-find-launchctl () {
-    LaunchctlPATHS=( \
-        ~/Library/LaunchAgents \
-        /Library/LaunchAgents \
-        /Library/LaunchDaemons \
-        /System/Library/LaunchAgents \
-        /System/Library/LaunchDaemons \
+    local launchctlPATHS=(
+        ~/Library/LaunchAgents
+        /Library/LaunchAgents
+        /Library/LaunchDaemons
+        /System/Library/LaunchAgents
+        /System/Library/LaunchDaemons
     )
 
-    for curPATH in "${LaunchctlPATHS[@]}"; do
-        sudo grep -i -r "$curPATH" -e "$1"
-    done
+    bat ${^launchctlPATHS[@]}/*
 }
 
 # Fix Help
