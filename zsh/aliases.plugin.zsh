@@ -16,8 +16,8 @@ alias -s jar='java -jar'
 alias -s war='java -jar'
 
 if [[ $OSTYPE =~ darwin ]] {
-    alias -s md='ql'
-    alias -s csv='ql'
+	alias -s md='ql'
+	alias -s csv='ql'
 }
 
 alias fs='stat -c "%s Bytes"' # File Size

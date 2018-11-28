@@ -43,8 +43,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # hostnames completion.
 zstyle -e ':completion:*:hosts' hosts 'reply=(
-    ${${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*[*?]*}%\#*}% *}
-    ${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}})'
+	${${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*[*?]*}%\#*}% *}
+	${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}})'
 zstyle ':completion:*:*:*:hosts' ignored-patterns 'ip6*' 'localhost*'
 
 # ignore multiple entries.

@@ -13,7 +13,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 function CFPreferencesAppSynchronize() {
-    /usr/bin/python - <<END
+	/usr/bin/python - <<END
 from Foundation import CFPreferencesAppSynchronize
 CFPreferencesAppSynchronize('$1')
 END
@@ -28,32 +28,32 @@ local plist_dir=$XDG_CONFIG_HOME/plists
 
 # User LaunchAgents
 for file in $plist_dir/LaunchAgents/*(N.); do
-    filename=${file:t}
-    service_name=${filename:r}
-    service_location=~/Library/LaunchAgents/$filename
+	filename=${file:t}
+	service_name=${filename:r}
+	service_location=~/Library/LaunchAgents/$filename
 
-    ink -l -c green -- "[plist] Setting up $service_name"
+	ink -l -c green -- "[plist] Setting up $service_name"
 
-    # Replace $HOME
-    cat $file | sed "s|\$HOME|$HOME|g" > $service_location
-    chown $USER $service_location
-    chmod 644 $service_location
-    launchctl load $service_location
+	# Replace $HOME
+	cat $file | sed "s|\$HOME|$HOME|g" > $service_location
+	chown $USER $service_location
+	chmod 644 $service_location
+	launchctl load $service_location
 done
 
 # Root LaunchAgents
 for file in $plist_dir/LaunchAgentsRoot/*(N.); do
-    filename=${file:t}
-    service_location=/Library/LaunchAgents/$filename
-    service_name=${filename:r}
+	filename=${file:t}
+	service_location=/Library/LaunchAgents/$filename
+	service_name=${filename:r}
 
-    ink -l -c green -- "[plist-root] Setting up $service_name"
+	ink -l -c green -- "[plist-root] Setting up $service_name"
 
-    # Replace $HOME
-    cat $file | sed "s|\$HOME|$HOME|g" | sudo tee $service_location >/dev/null
-    sudo chown root $service_location
-    sudo chmod 644 $service_location
-    sudo launchctl load $service_location
+	# Replace $HOME
+	cat $file | sed "s|\$HOME|$HOME|g" | sudo tee $service_location >/dev/null
+	sudo chown root $service_location
+	sudo chmod 644 $service_location
+	sudo launchctl load $service_location
 done
 
 # ==============================================
@@ -202,9 +202,9 @@ sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Res
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-    General -bool true \
-    OpenWith -bool true \
-    Privileges -bool true
+	General -bool true \
+	OpenWith -bool true \
+	Privileges -bool true
 
 CFPreferencesAppSynchronize "com.apple.finder"
 

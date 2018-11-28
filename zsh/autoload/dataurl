@@ -4,6 +4,6 @@
 local mimeType=`file -b --mime-type "$1"`
 
 if [[ $mimeType == text/* ]]; then
-    mimeType="${mimeType};charset=utf-8"
+	mimeType="${mimeType};charset=utf-8"
 fi
 echo "data:${mimeType};base64,$(base64 -w 0 "$1")"

@@ -3,59 +3,29 @@
 root = true
 
 [*]
-end_of_line = LF
-indent_style = space
-indent_size = 2
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_style = tab
 charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
 
-# HTML, JS, Ruby, Sass, YAML, yml, Colorschemes
-[*.{html,js,rb,scss,xml,icls,yaml,yml}]
+[*.{yaml,yml}]
 indent_style = space
 indent_size = 2
 
-# Ruby Gemfile, Rakefile
 [{Gemfile*,Rakefile}]
 indent_style = space
 indent_size = 2
 
-# Markdown
 [*.md]
 trim_trailing_whitespace = false
 indent_style = space
 indent_size = 4
 
-# Shell
-[*.{sh,zsh,bash}]
-indent_style = space
-indent_size = 4
-
-# Python
 [*.py]
 indent_style = space
 indent_size = 4
 
-# Golang
-[*.go]
-indent_style = tab
-indent_size = 4
-
-# Gitconfig
-[.gitconfig]
-indent_style = tab
-
-# c files
-[*.c]
-indent_style = tab
-indent_size = 8
-
-# Makefile
-[Makefile]
-indent_style = tab
-
-# The indent size used in the `package.json` file cannot be changed
-# https://github.com/npm/npm/pull/3180#issuecomment-16336516
-[{.travis.yml,package.json}]
-indent_size = 2
+[package.json]
 indent_style = space
+indent_size = 2

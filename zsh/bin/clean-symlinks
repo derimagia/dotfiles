@@ -5,6 +5,6 @@ local directory_path symlinks=()
 directory_path="${1:-$PWD}"
 symlinks=($directory_path/{.,}*(-@N))
 if [[ -n $symlinks ]]; then
-    ink -c green "Removing Symlinks: " ${(j:, :)symlinks}
-    rm $symlinks
+	ink -c green "Removing Symlinks: " ${(j:, :)symlinks}
+	rm $symlinks
 fi

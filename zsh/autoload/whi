@@ -4,29 +4,29 @@ emulate -L zsh
 autoload -Uz colors && colors
 
 () {
-    local stagingdir="$(mktemp -d)"
-    local inspect="$1" matched_inspect=0 files=()
+	local stagingdir="$(mktemp -d)"
+	local inspect="$1" matched_inspect=0 files=()
 
-    if (( $+aliases[$inspect] )); then
-        alias $inspect > "$stagingdir/alias.zsh"
-        files+=('alias.zsh')
-    fi
+	if (( $+aliases[$inspect] )); then
+		alias $inspect > "$stagingdir/alias.zsh"
+		files+=('alias.zsh')
+	fi
 
-    if (( $+functions[$inspect] )); then
-        autoload +X $inspect 2>/dev/null
-        functions $inspect > "$stagingdir/functions.zsh"
-        files+=('functions.zsh')
-    fi
+	if (( $+functions[$inspect] )); then
+		autoload +X $inspect 2>/dev/null
+		functions $inspect > "$stagingdir/functions.zsh"
+		files+=('functions.zsh')
+	fi
 
-    if (( $+commands[$inspect] )); then
-        files+=( ${(p)$(where -p $inspect 2>/dev/null)} )
-    fi
+	if (( $+commands[$inspect] )); then
+		files+=( ${(p)$(where -p $inspect 2>/dev/null)} )
+	fi
 
-    if (( ${#files[@]} )); then
-        pushd -q $stagingdir && bat $files && popd -q
-        rm -rf $stagingdir
-    else
-        ink -c red "${fg[red]}Invalid Command/Alias/Function '$inspect'${reset_color}"
-        return 1
-    fi
+	if (( ${#files[@]} )); then
+		pushd -q $stagingdir && bat $files && popd -q
+		rm -rf $stagingdir
+	else
+		ink -c red "${fg[red]}Invalid Command/Alias/Function '$inspect'${reset_color}"
+		return 1
+	fi
 } "$@"

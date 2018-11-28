@@ -47,13 +47,13 @@ elif test -t 1 || echo "$*" | grep -E -- "--color( |=always|$)" >/dev/null; then
   # and hence the output will not be colored :(
   color_when=always
   if tput bold >/dev/null 2>&1; then #terminfo
-    BLD=`tput bold`
-    RST=`tput sgr0`
-    HLI=`tput smso`
+	BLD=`tput bold`
+	RST=`tput sgr0`
+	HLI=`tput smso`
   elif tput md >/dev/null 2>&1; then #termcap
-    BLD=`tput md`
-    RST=`tput me`
-    HLI=`tput so`
+	BLD=`tput md`
+	RST=`tput me`
+	HLI=`tput so`
   fi
   LS_HLI=`echo "$HLI" | sed "s/$ESC\[\(.*\)m/\1/"`
 else
@@ -66,69 +66,69 @@ ls=ls #default to standard name
 
 if [ "$color_when" ]; then
   if [ "$NONGNU" ]; then
-    { colorls -d .; } >/dev/null 2>&1 && ls=colorls # for OpenBSD
-    $ls -G -d . >/dev/null 2>&1 && color_opt=-G #not supported on Solaris
-    [ "$color_when" = "always" ] && { CLICOLOR_FORCE=1; export CLICOLOR_FORCE; }
-    color_when=
+	{ colorls -d .; } >/dev/null 2>&1 && ls=colorls # for OpenBSD
+	$ls -G -d . >/dev/null 2>&1 && color_opt=-G #not supported on Solaris
+	[ "$color_when" = "always" ] && { CLICOLOR_FORCE=1; export CLICOLOR_FORCE; }
+	color_when=
 
-    # Turn off the confusing different background colors
-    # as we'll highlight the mode bits instead. Also change the
-    # main colors to match the default one on linux (coreutils).
-    LSCOLORS="ExGxcxdxCxegedCxCxExEx"; export LSCOLORS
+	# Turn off the confusing different background colors
+	# as we'll highlight the mode bits instead. Also change the
+	# main colors to match the default one on linux (coreutils).
+	LSCOLORS="ExGxcxdxCxegedCxCxExEx"; export LSCOLORS
   else
-    color_opt='--color='
-    color_never="--color=never"
-    # modify the coreutils default colors if distro or user colors not set
-    [ "$LS_COLORS" ] || eval `dircolors`
-    # xterm-256color not supported by older dircolors for example
-    [ "$LS_COLORS" ] || eval `TERM=xterm dircolors`
+	color_opt='--color='
+	color_never="--color=never"
+	# modify the coreutils default colors if distro or user colors not set
+	[ "$LS_COLORS" ] || eval `dircolors`
+	# xterm-256color not supported by older dircolors for example
+	[ "$LS_COLORS" ] || eval `TERM=xterm dircolors`
 
-    # Turn off the confusing entries with different backgrounds
-    # as we'll highlight the mode bits and hardlink count instead.
-    #
-    # Also turn off capability colouring even though we don't
-    # highlight anything in lieu of it, as this will short circuit
-    # the slow capability checks within ls
-    #
-    # Also we reset the dangling symlink color to "highlight"
-    # as it defaults to blinking.  We could do all this in ~/.dir_colors
-    # but so this script is more general, we do it here.
+	# Turn off the confusing entries with different backgrounds
+	# as we'll highlight the mode bits and hardlink count instead.
+	#
+	# Also turn off capability colouring even though we don't
+	# highlight anything in lieu of it, as this will short circuit
+	# the slow capability checks within ls
+	#
+	# Also we reset the dangling symlink color to "highlight"
+	# as it defaults to blinking.  We could do all this in ~/.dir_colors
+	# but so this script is more general, we do it here.
 
-    # Ensure LS_COLORS is delimited with ':' to simplify the following regexes.
-    # Otherwise we'd have to consider using word boundaries (\b, \<, [[:<:]]),
-    # but those are non portable.
-    LS_COLORS=":$LS_COLORS:"; export LS_COLORS
+	# Ensure LS_COLORS is delimited with ':' to simplify the following regexes.
+	# Otherwise we'd have to consider using word boundaries (\b, \<, [[:<:]]),
+	# but those are non portable.
+	LS_COLORS=":$LS_COLORS:"; export LS_COLORS
 
-    # Newer ls use "mh" to represent the color for multi hardlinked
-    # files so handle the backwards incompatibility with "hl"
-    if   dircolors | grep -F ":mh=" >/dev/null; then
-      hl_no_color="s/:hl=[^:]*:/:mh=:/; s/:mh=[^:]*:/:mh=:/"
-    elif dircolors | grep -F "hl=" >/dev/null; then
-      hl_no_color="s/:mh=[^:]*:/:hl=:/; s/:hl=[^:]*:/:hl=:/"
-    fi
+	# Newer ls use "mh" to represent the color for multi hardlinked
+	# files so handle the backwards incompatibility with "hl"
+	if   dircolors | grep -F ":mh=" >/dev/null; then
+	  hl_no_color="s/:hl=[^:]*:/:mh=:/; s/:mh=[^:]*:/:mh=:/"
+	elif dircolors | grep -F "hl=" >/dev/null; then
+	  hl_no_color="s/:mh=[^:]*:/:hl=:/; s/:hl=[^:]*:/:hl=:/"
+	fi
 
-    # The extra quoting (wrapping in "") is required for
-    # speed in bash where it inefficiently tries to glob
-    # for each *.ext component of LS_COLORS, which is
-    # noticeably slow in directories with many files.
-    eval "`
-      echo LS_COLORS=\'\"$LS_COLORS\"\'\; |
+	# The extra quoting (wrapping in "") is required for
+	# speed in bash where it inefficiently tries to glob
+	# for each *.ext component of LS_COLORS, which is
+	# noticeably slow in directories with many files.
+	eval "`
+	  echo LS_COLORS=\'\"$LS_COLORS\"\'\; |
 
-      sed \"
-        $hl_no_color
-        s/:su=[^:]*:/:su=:/
-        s/:sg=[^:]*:/:sg=:/
-        s/:ow=[^:]*:/:ow=:/
-        s/:st=[^:]*:/:st=:/
-        s/:tw=[^:]*:/:tw=:/
+	  sed \"
+		$hl_no_color
+		s/:su=[^:]*:/:su=:/
+		s/:sg=[^:]*:/:sg=:/
+		s/:ow=[^:]*:/:ow=:/
+		s/:st=[^:]*:/:st=:/
+		s/:tw=[^:]*:/:tw=:/
 
-        s/:ca=[^:]*:/:ca=:/
+		s/:ca=[^:]*:/:ca=:/
 
-        s/:mi=[^:]\{1,\}:/:mi=$LS_HLI:/
-      \"
+		s/:mi=[^:]\{1,\}:/:mi=$LS_HLI:/
+	  \"
 
-      echo 'export LS_COLORS'
-    `"
+	  echo 'export LS_COLORS'
+	`"
   fi
 fi
 # Get locale total string to match on

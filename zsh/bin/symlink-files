@@ -7,100 +7,100 @@ local verbose=1
 local yes=0
 
 while getopts yq opt; do
-    case $opt in
-        (q)
-            verbose=0
-        ;;
-        (y)
-            yes=1
-        ;;
-    esac
+	case $opt in
+		(q)
+			verbose=0
+		;;
+		(y)
+			yes=1
+		;;
+	esac
 done
 shift $(( OPTIND - 1 ))
 
 if [[ -z $1 ]] || [[ -z $2 ]]; then
-    cat <<EOF
+	cat <<EOF
 Usage: symlink-files [target files] [destination folder]
 
 Symlinks all target files to a destination
 EOF
-    return 1
+	return 1
 fi
 
 answer_is_yes() {
-    [[ "$REPLY" =~ ^[Yy]$ ]] \
-            && return 0 \
-            || return 1
+	[[ "$REPLY" =~ ^[Yy]$ ]] \
+			&& return 0 \
+			|| return 1
 }
 
 ask_for_confirmation() {
-    (( $yes )) && REPLY='y' && return 0
+	(( $yes )) && REPLY='y' && return 0
 
-    print_question "$1 (y/n)"
-    read -q "REPLY"
+	print_question "$1 (y/n)"
+	read -q "REPLY"
 }
 
 execute_info() {
-    success=$(eval "$1")
-    if $success; then
-        print_success "$2"
-    else
-        print_error "$2"
-    fi
+	success=$(eval "$1")
+	if $success; then
+		print_success "$2"
+	else
+		print_error "$2"
+	fi
 }
 
 print_question() {
-    (( $verbose )) && printf "\e[0;33m  [?] $1 \e[0m\n"
+	(( $verbose )) && printf "\e[0;33m  [?] $1 \e[0m\n"
 }
 
 print_error() {
-    # Print output in red
-    (( $verbose )) && printf "\e[0;31m  [✖] $1$2\e[0m\n"
+	# Print output in red
+	(( $verbose )) && printf "\e[0;31m  [✖] $1$2\e[0m\n"
 }
 
 print_warning() {
-    # Print output in yellow
-    (( $verbose )) && printf "\e[0;33m  [✔] $1\e[0m\n"
+	# Print output in yellow
+	(( $verbose )) && printf "\e[0;33m  [✔] $1\e[0m\n"
 }
 
 print_success() {
-    # Print output in green
-    (( $verbose )) && printf "\e[0;32m  [✔] $1\e[0m\n"
+	# Print output in green
+	(( $verbose )) && printf "\e[0;32m  [✔] $1\e[0m\n"
 }
 
 main() {
-    local filesToSymlink=($1)
-    local targetFolder="${2%/}"
+	local filesToSymlink=($1)
+	local targetFolder="${2%/}"
 
-    # sourceFile can be a file or a directory
-    for sourceFile in ${(z)filesToSymlink}; do
-        targetFile="${targetFolder}/${sourceFile:t}"
+	# sourceFile can be a file or a directory
+	for sourceFile in ${(z)filesToSymlink}; do
+		targetFile="${targetFolder}/${sourceFile:t}"
 
-        proposedLink="'$targetFile' → '$sourceFile'"
-        linkCommand="ln -fsn ${(qq)sourceFile} ${(qq)targetFile}"
+		proposedLink="'$targetFile' → '$sourceFile'"
+		linkCommand="ln -fsn ${(qq)sourceFile} ${(qq)targetFile}"
 
-        if [[ -e "$targetFile" ]]; then
-            if [[ "$targetFile:A" != "$sourceFile:A" ]]; then
-                currentLink="'$targetFile' → '$targetFile:A'"
-                print_warning "Current File: $currentLink"
-                print_warning "Proposed Link: $proposedLink"
-                ask_for_confirmation "Do you want to overwrite this file?"
-                if answer_is_yes; then
-                    # ln can't remove directories so remove it if needed
-                    [[ -d  "$targetFile" ]] && rm -rf $targetFile
-                    execute_info $linkCommand $proposedLink
-                else
-                    print_error $proposedLink
-                fi
-            else
-                if (( $verbose )); then
-                    print_warning $proposedLink
-                fi
-            fi
-        else
-            execute_info $linkCommand $proposedLink
-        fi
-    done
+		if [[ -e "$targetFile" ]]; then
+			if [[ "$targetFile:A" != "$sourceFile:A" ]]; then
+				currentLink="'$targetFile' → '$targetFile:A'"
+				print_warning "Current File: $currentLink"
+				print_warning "Proposed Link: $proposedLink"
+				ask_for_confirmation "Do you want to overwrite this file?"
+				if answer_is_yes; then
+					# ln can't remove directories so remove it if needed
+					[[ -d  "$targetFile" ]] && rm -rf $targetFile
+					execute_info $linkCommand $proposedLink
+				else
+					print_error $proposedLink
+				fi
+			else
+				if (( $verbose )); then
+					print_warning $proposedLink
+				fi
+			fi
+		else
+			execute_info $linkCommand $proposedLink
+		fi
+	done
 }
 
 main $*

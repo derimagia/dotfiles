@@ -67,10 +67,10 @@ nmap <Leader>s :%s//g<Left><Left>
 " Relative numbering
 function! NumberToggle()
   if(&relativenumber == 1)
-    set nornu
-    set number
+	set nornu
+	set number
   else
-    set rnu
+	set rnu
   endif
 endfunc
 
@@ -111,5 +111,5 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 " fix cursor on exit
 if has("autocmd")
-  au VimLeave * set guicursor=a:ver25-blinkon1-blinkoff1
+	au VimLeave * set guicursor=a:ver25-blinkon1-blinkoff1
 endif

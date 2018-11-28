@@ -8,12 +8,12 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 zle_highlight+=(
-    default:none
-    region:standout
-    special:standout
-    suffix:bold
-    isearch:underline
-    paste:underline
+	default:none
+	region:standout
+	special:standout
+	suffix:bold
+	isearch:underline
+	paste:underline
 )
 
 ## ZSH Highlight
@@ -33,14 +33,14 @@ FAST_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=green'
 FAST_HIGHLIGHT_STYLES[comment]='fg=green,bold'
 
 if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
-    ink -c green -- '- Generating Colors Bundle -'
+	ink -c green -- '- Generating Colors Bundle -'
 
-    {
-        dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
-        available=(g++ gas head make ld tail docker /usr{,/local}/share/grc/*(-.N:e))
-        disabled=(ls)
-        for cmd (${available:|disabled}) (( $+commands[$cmd] )) && print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
-    } | > "$TMPPREFIX/colors.sh"
+	{
+		dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
+		available=(g++ gas head make ld tail docker /usr{,/local}/share/grc/*(-.N:e))
+		disabled=(ls)
+		for cmd (${available:|disabled}) (( $+commands[$cmd] )) && print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
+	} | > "$TMPPREFIX/colors.sh"
 fi
 
 source "$TMPPREFIX/colors.sh"

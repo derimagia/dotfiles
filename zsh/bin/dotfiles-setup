@@ -1,102 +1,102 @@
 #!/bin/bash
 
 print_info() {
-    ink -l -c yellow "$@"
+	ink -l -c yellow "$@"
 }
 
 print_error() {
-    ink -l -c red "$@"
+	ink -l -c red "$@"
 }
 
 print_status() {
-    ink -l -c blue "$@"
+	ink -l -c blue "$@"
 }
 
 get_metadata() {
-    # If Linux, try to determine specific distribution
-    if [[ -f /etc/os-release ]]; then
-        OSTYPE="$(source /etc/os-release && echo $ID)"
-    else
-        OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
-    fi
+	# If Linux, try to determine specific distribution
+	if [[ -f /etc/os-release ]]; then
+		OSTYPE="$(source /etc/os-release && echo $ID)"
+	else
+		OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
+	fi
 }
 
 os_function() {
-    local os_function="$1_$OSTYPE"
+	local os_function="$1_$OSTYPE"
 
-    if ! declare -f $local os_function > /dev/null; then
-        print_error "Could not find $1 function for OS '$OSTYPE'"
-        exit 1
-    fi
+	if ! declare -f $local os_function > /dev/null; then
+		print_error "Could not find $1 function for OS '$OSTYPE'"
+		exit 1
+	fi
 
-    $os_function
+	$os_function
 }
 
 install_git_darwin() {
-    hash git 2>/dev/null && return
+	hash git 2>/dev/null && return
 
-    xcode-select --install &> /dev/null
+	xcode-select --install &> /dev/null
 
-    until xcode-select --print-path &> /dev/null; do
-        sleep 5
-    done
+	until xcode-select --print-path &> /dev/null; do
+		sleep 5
+	done
 
-    sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+	sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-    sudo xcodebuild -license
+	sudo xcodebuild -license
 }
 
 install_dotfiles() {
-    os_function install_git
+	os_function install_git
 
-    if [[ ! -d $XDG_CONFIG_HOME ]]; then
-        git clone git@github.com:derimagia/dotfiles.git $XDG_CONFIG_HOME
-    fi
+	if [[ ! -d $XDG_CONFIG_HOME ]]; then
+		git clone git@github.com:derimagia/dotfiles.git $XDG_CONFIG_HOME
+	fi
 
-    # Link dotfile binaries.
-    PATH="$ZDOTDIR/bin:$PATH"
+	# Link dotfile binaries.
+	PATH="$ZDOTDIR/bin:$PATH"
 }
 
 install_from_url() {
-    local binpath="$LOCAL_PREFIX/bin"
-    local name="$1"
-    local url="$2"
+	local binpath="$LOCAL_PREFIX/bin"
+	local name="$1"
+	local url="$2"
 
-    curl -sfLo "$binpath/$name" "$url"
-    chmod +x "$binpath/$name"
+	curl -sfLo "$binpath/$name" "$url"
+	chmod +x "$binpath/$name"
 }
 
 setup() {
-    os_function setup
+	os_function setup
 
-    # @TODO: Just add this to binaries in dotfiles
-    hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
+	# @TODO: Just add this to binaries in dotfiles
+	hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
 
-    dot setup
-    dot vim
+	dot setup
+	dot vim
 }
 
 setup_darwin() {
-    hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+	hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
 
-    HOMEBREW_PREFIX=$(brew --prefix)
+	HOMEBREW_PREFIX=$(brew --prefix)
 
-    # Install ZSH specifically
-    [[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
+	# Install ZSH specifically
+	[[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
 
-    # Default Shells
-    sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
-    sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
+	# Default Shells
+	sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
+	sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
 
-    finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
+	finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
 
-    # We set this here and in the launchctl environment file. Ideally we could remove this one.
-    print_status "Adding ZDOTDIR to /etc/zshenv"
+	# We set this here and in the launchctl environment file. Ideally we could remove this one.
+	print_status "Adding ZDOTDIR to /etc/zshenv"
 
-    #@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-    echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
+	#@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
+	echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
 
-    print_info 'Run `defaults write com.apple.dock persistent-apps -array ""` to kill all apps from the dock'
+	print_info 'Run `defaults write com.apple.dock persistent-apps -array ""` to kill all apps from the dock'
 }
 
 get_metadata

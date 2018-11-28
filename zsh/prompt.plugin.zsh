@@ -11,22 +11,22 @@ zle -N self-insert url-quote-magic
 # zsh-sticky-prefix
 local zle_sticked
 zle-line-init() {
-    BUFFER="$zle_sticked$BUFFER"
-    zle end-of-line
+	BUFFER="$zle_sticked$BUFFER"
+	zle end-of-line
 }
 zle -N zle-line-init
 
 zle-set-sticky() {
-    zle_sticked="$BUFFER"
-    zle -M "Sticky: '$zle_sticked'"
+	zle_sticked="$BUFFER"
+	zle -M "Sticky: '$zle_sticked'"
 }
 zle -N zle-set-sticky
 
 accept-line() {
-    if [[ -z "$BUFFER" ]] && [[ -n "$zle_sticked" ]]; then
-        zle_sticked=
-    fi
-    zle .accept-line
+	if [[ -z "$BUFFER" ]] && [[ -n "$zle_sticked" ]]; then
+		zle_sticked=
+	fi
+	zle .accept-line
 }
 zle -N accept-line
 

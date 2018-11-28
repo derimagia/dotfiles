@@ -6,44 +6,44 @@ autoload -Uz colors && colors
 local ink_text=() ink_color='' is_new_line=false ink_effects=()
 
 while getopts c:luibt: opt; do
-    case $opt in
-        (c)
-            ink_color=$OPTARG
-            ;;
-        (l)
-            is_new_line=true
-            ;;
-        (i)
-            ink_effects+=(italic)
-            ;;
-        (b)
-            ink_effects+=(bold)
-            ;;
-        (u)
-            ink_effects+=(underline)
-            ;;
-        (t)
-            if [[ $OPTARG != <-> ]]; then
-                print -- "$OPTARG: must be an integer" >&2
-                return 1
-            fi
-            tty="$OPTARG"
-            ;;
-    esac
+	case $opt in
+		(c)
+			ink_color=$OPTARG
+			;;
+		(l)
+			is_new_line=true
+			;;
+		(i)
+			ink_effects+=(italic)
+			;;
+		(b)
+			ink_effects+=(bold)
+			;;
+		(u)
+			ink_effects+=(underline)
+			;;
+		(t)
+			if [[ $OPTARG != <-> ]]; then
+				print -- "$OPTARG: must be an integer" >&2
+				return 1
+			fi
+			tty="$OPTARG"
+			;;
+	esac
 done
 shift $(( OPTIND - 1 ))
 
 if [[ $* == '-' ]]; then
-    while IFS= read -r line; do
-        ink_text+=($line) ;
-    done
-    shift
+	while IFS= read -r line; do
+		ink_text+=($line) ;
+	done
+	shift
 fi
 
 ink_text+=($*)
 
 for ink_effect in $ink_effects; do
-    ink_text="${fg[$ink_effect]}${ink_text}${reset_color}"
+	ink_text="${fg[$ink_effect]}${ink_text}${reset_color}"
 done
 
 $is_new_line && text_after="\n" || text_after=""
@@ -51,10 +51,10 @@ $is_new_line && text_after="\n" || text_after=""
 ink_text=${fg[$ink_color]}${ink_text}${reset_color}${text_after}
 
 case $tty in
-    (2)
-        print -- $ink_text >&2
-        ;;
-    (*)
-        print -- $ink_text
-        ;;
+	(2)
+		print -- $ink_text >&2
+		;;
+	(*)
+		print -- $ink_text
+		;;
 esac

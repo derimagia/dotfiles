@@ -26,7 +26,7 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 
 # Kubectl
 (( $+commands[kubectl] )) && () {
-    local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
-    export KUBECONFIG="${(j;:;)kubeconfigs}"
+	local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
+	export KUBECONFIG="${(j;:;)kubeconfigs}"
 }
 

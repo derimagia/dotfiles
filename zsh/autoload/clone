@@ -4,17 +4,17 @@ emulate -L zsh
 local repoType='unknown' shallow=0 print=0
 
 while getopts dsp opt; do
-    case $opt in
-        (d)
-            repoType='drupal'
-        ;;
-        (s)
-            shallow=1
-        ;;
-        (p)
-            print=1
-        ;;
-    esac
+	case $opt in
+		(d)
+			repoType='drupal'
+		;;
+		(s)
+			shallow=1
+		;;
+		(p)
+			print=1
+		;;
+	esac
 done
 shift $(( OPTIND - 1 ))
 

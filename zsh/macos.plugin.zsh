@@ -21,8 +21,8 @@ alias brew-binaries='print -l "$(brew --prefix)"/Cellar/${^$(brew ls)}/*/bin/*(*
 
 # quicklook
 ql() {
-    [[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' | return 1
-    chronic sh -c "qlmanage -p $'$1'" &!
+	[[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' | return 1
+	chronic sh -c "qlmanage -p $'$1'" &!
 }
 
 # dash
@@ -32,62 +32,62 @@ dash() {
 
 # dash man
 mand() {
-    dash "manpages:$1" 2>/dev/null
+	dash "manpages:$1" 2>/dev/null
 }
 
 # finder Directory
 pfd() {
-    osascript 2>/dev/null <<EOF
-    tell application "Finder"
-        return POSIX path of (target of first window as text)
-    end tell
+	osascript 2>/dev/null <<EOF
+	tell application "Finder"
+		return POSIX path of (target of first window as text)
+	end tell
 EOF
 }
 
 # Finder Selection
 pds() {
-    osascript 2>&1 <<EOF
-    tell application "Finder" to set the_selection to selection
-    if the_selection is not {}
-        repeat with an_item in the_selection
-            log POSIX path of (an_item as text)
-        end repeat
-    end if
+	osascript 2>&1 <<EOF
+	tell application "Finder" to set the_selection to selection
+	if the_selection is not {}
+		repeat with an_item in the_selection
+			log POSIX path of (an_item as text)
+		end repeat
+	end if
 EOF
 }
 
 # print download history
 osx-ls-download-history() {
-    local db
-    for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
-        if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then
-            sqlite3 "$db" 'SELECT LSQuarantineDataURLString FROM LSQuarantineEvent'
-        fi
-    done
+	local db
+	for db in ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*; do
+		if grep -q 'LSQuarantineEvent' < <(sqlite3 "$db" .tables); then
+			sqlite3 "$db" 'SELECT LSQuarantineDataURLString FROM LSQuarantineEvent'
+		fi
+	done
 }
 
 # find all launchctl scripts
 osx-find-launchctl () {
-    local launchctlPATHS=(
-        ~/Library/LaunchAgents
-        /Library/LaunchAgents
-        /Library/LaunchDaemons
-        /System/Library/LaunchAgents
-        /System/Library/LaunchDaemons
-    )
+	local launchctlPATHS=(
+		~/Library/LaunchAgents
+		/Library/LaunchAgents
+		/Library/LaunchDaemons
+		/System/Library/LaunchAgents
+		/System/Library/LaunchDaemons
+	)
 
-    bat ${^launchctlPATHS[@]}/*
+	bat ${^launchctlPATHS[@]}/*
 }
 
 # Fix Help
 unalias run-help; autoload run-help
 
 if [[ -n "$ITERM_PROFILE" ]] {
-    iterm2_hostname="$HOST"
+	iterm2_hostname="$HOST"
 
-    # iterm2 integration
-    [[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
-    source $TMPPREFIX/iterm2.zsh
+	# iterm2 integration
+	[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
+	source $TMPPREFIX/iterm2.zsh
 }
 
 bindkey '^X^_' redo # iterm

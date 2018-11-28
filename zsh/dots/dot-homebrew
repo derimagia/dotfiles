@@ -2,31 +2,6 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-# @TODO - Having issues with running from ~
-cd $XDG_CONFIG_HOME
-
-HOMEBREW_PREFIX=/usr/local
-
-brewfile() {
-	brew-file --on_request -F bundle -f "$XDG_CONFIG_HOME/brew/brewfile" "$@"
-}
-
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
-ink -l -c green -- "[brew] Upgrading Casks"
-brew cask upgrade
-
-ink -l -c green -- "[brew] Installing/Upgrading Brews from file"
-brewfile -C update
-
-ink -l -c green -- "[brew] Cleaning"
-brew cleanup
-brew cask cleanup
-brewfile clean -C
-ink -l -c green -- "[brew] Cleaning Non Requested"
-
 gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
 manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
 

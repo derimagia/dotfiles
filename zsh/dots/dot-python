@@ -11,12 +11,12 @@ if (( $+commands[pip] )) {
 ink -l -c green "[python] installing python packages"
 
 $pip install -U \
-    pip setuptools \
-    virtualenv \
-    pygments \
-    tamper \
-    doge
+	pip setuptools \
+	virtualenv \
+	pygments \
+	tamper \
+	doge
 
 pip3 install -U \
-    pip \
-    git-repo
+	pip \
+	git-repo
