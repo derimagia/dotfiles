@@ -1,3 +1,5 @@
+# vim: set syntax=zsh
+
 # print opened connections, filtered by known applications.
 # TODO: Just filter by the process, not the entire string
 

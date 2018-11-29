@@ -11,18 +11,19 @@ else
   export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME/.local/share"}
 fi
 
-(( $+commands[ansible] )) && export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
-(( $+commands[rust] )) && export CARGO_HOME="$XDG_DATA_HOME/cargo"
-(( $+commands[composer] )) && export COMPOSER_HOME="$XDG_DATA_HOME/composer"
-(( $+commands[gradle] )) && export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
-(( $+commands[npm] )) && export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-(( $+commands[go] )) && typeset -TUx GOPATH gopath; gopath=($HOME/go)
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export COMPOSER_HOME="$XDG_DATA_HOME/composer"
+export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
+typeset -TUx GOPATH gopath; gopath=($HOME/go)
 
 # history files
-(( $+commands[node] )) && export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
-(( $+commands[redis] )) && export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/node_repl_history"
+export REDISCLI_HISTFILE="$XDG_DATA_HOME/redis/history"
 
-export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 
 # Kubectl
 (( $+commands[kubectl] )) && () {

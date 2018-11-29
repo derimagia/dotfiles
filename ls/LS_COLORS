@@ -321,6 +321,7 @@ STICKY_OTHER_WRITABLE 48;5;235;38;5;139;3
 .zip                  38;1;36
 .asar                 38;1;36
 .ab                   38;1;36
+.sublime-package      38;1;36
 
 # packaged apps
 .apk                  38;1;36;1
