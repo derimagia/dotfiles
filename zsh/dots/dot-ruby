@@ -6,4 +6,4 @@ ink -l -c green "[ruby] installing/updating gems"
 gem update --system
 
 (( $+commands[bundle])) || gem install bundler
-bundle install --system --gemfile="$XDG_CONFIG_HOME/ruby/Gemfile"
+bundle install --system --gemfile="$XDG_CONFIG_HOME"/ruby/Gemfile

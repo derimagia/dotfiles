@@ -18,6 +18,7 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 alias brew-bundle='brew bundle --file=$XDG_CONFIG_HOME/brew/Brewfile'
 alias brew-dump='brew-bundle dump --describe --force'
 alias brew-binaries='print -l "$(brew --prefix)"/Cellar/${^$(brew ls)}/*/bin/*(*N) | cut -d '/' -f '5,8''
+alias get-uti='mdls -name kMDItemContentTypeTree -raw'
 
 # quicklook
 ql() {
@@ -80,7 +81,7 @@ osx-find-launchctl () {
 }
 
 # Fix Help
-unalias run-help; autoload run-help
+unalias run-help 2>/dev/null && autoload run-help
 
 if [[ -n "$ITERM_PROFILE" ]] {
 	iterm2_hostname="$HOST"

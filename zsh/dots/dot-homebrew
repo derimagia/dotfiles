@@ -2,10 +2,12 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-gnufiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin/*)
-manfiles=($HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman/man1/*)
+HOMEBREW_PREFIX="$(brew --prefix)"
+
+gnufiles=("$HOMEBREW_PREFIX"/opt/coreutils/libexec/gnubin/*)
+manfiles=("$HOMEBREW_PREFIX"/opt/coreutils/libexec/gnuman/man1/*)
 
 ink -l -c green "[brew] Symlinking gnu man files"
 # Link Man Files that aren't linked by default
-symlink-files -q "$gnufiles" "$HOMEBREW_PREFIX/bin"
-symlink-files -q "$manfiles" "$HOMEBREW_PREFIX/share/man/man1"
+symlink-files -q "$gnufiles" "$HOMEBREW_PREFIX"/bin
+symlink-files -q "$manfiles" "$HOMEBREW_PREFIX"/share/man/man1

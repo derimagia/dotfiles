@@ -3,7 +3,7 @@
 : ${TERM:=xterm-256color}
 
 # Set up TMPPREFIX
-typeset -g TMPPREFIX="$XDG_CACHE_HOME/zsh"
+TMPPREFIX="$XDG_CACHE_HOME"/zsh
 mkdir -p "$TMPPREFIX"
 
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
@@ -25,11 +25,11 @@ HISTFILE="$XDG_DATA_HOME/zsh/history" HISTSIZE=100000 SAVEHIST=100000
 ## Custom Packages
 
 # Autoload files
-autoload -Uz $ZDOTDIR/autoload/*(-.N:t)
-fpath+=($ZDOTDIR/autoload)
-path=($ZDOTDIR/bin $path)
+autoload -Uz "$ZDOTDIR"/autoload/*(-.N:t)
+fpath+=("$ZDOTDIR"/autoload)
+path=("$ZDOTDIR"/bin $path)
 
-for plugin_file ($ZDOTDIR/*.plugin.zsh) source $plugin_file
+for plugin_file ("$ZDOTDIR"/*.plugin.zsh) source $plugin_file
 unset plugin_file
 
 ## Packages
@@ -53,15 +53,15 @@ if [[ ! -f "$TMPPREFIX/antibody-plugins.sh" ]] {
 source "$TMPPREFIX/antibody-plugins.sh"
 
 (( $+gopath )) && path+=(${^gopath}/bin)
-(( $+CARGO_HOME )) && path+=($CARGO_HOME/bin)
-(( $+COMPOSER_HOME )) && path+=($COMPOSER_HOME/vendor/bin)
+(( $+CARGO_HOME )) && path+=("$CARGO_HOME"/bin)
+(( $+COMPOSER_HOME )) && path+=("$COMPOSER_HOME"/vendor/bin)
 
 bindkey '^[[A' history-substring-search-up # Sourcing after syntax-highlighting
 bindkey '^[[B' history-substring-search-down
 
 ## Local
-path=($ZDOTDIR/local/bin $path)
-[[ -f $ZDOTDIR/.zlocalrc ]] && source $ZDOTDIR/.zlocalrc
+path=("$ZDOTDIR"/local/bin $path)
+[[ -f "$ZDOTDIR"/.zlocalrc ]] && source "$ZDOTDIR"/.zlocalrc
 
 compinit -C
 
@@ -70,17 +70,17 @@ compinit -C
 	autoload -Uz zrecompile
 
 	zrecompile -qp -- \
-		$ZDOTDIR/.zcompdump -- \
-		$ZDOTDIR/.zshrc -- \
-		$ZDOTDIR/autoload/prompt_pure_setup
+		"$ZDOTDIR"/.zcompdump -- \
+		"$ZDOTDIR"/.zshrc -- \
+		"$ZDOTDIR"/autoload/prompt_pure_setup
 
-	zrecompile -qp $ZDOTDIR/autoload.zwc $ZDOTDIR/autoload/^(_*|prompt_*_setup|*.*)(-.N)
+	zrecompile -qp "$ZDOTDIR"/autoload.zwc "$ZDOTDIR"/autoload/^(_*|prompt_*_setup|*.*)(-.N)
 
-	rm -f $ZDOTDIR/.zcompdump.zwc.old $ZDOTDIR/.zshrc.zwc.old $ZDOTDIR/autoload/prompt_pure_setup.zwc.old $ZDOTDIR/autoload.zwc.old
+	rm -f "$ZDOTDIR"/.zcompdump.zwc.old "$ZDOTDIR"/.zshrc.zwc.old "$ZDOTDIR"/autoload/prompt_pure_setup.zwc.old "$ZDOTDIR"/autoload.zwc.old
 
-	for file ($ZDOTDIR/*.plugin.zsh) {
-	  zrecompile -qp $file
-	  rm -f  $file.zwc.old
+	for file ("$ZDOTDIR"/*.plugin.zsh) {
+	  zrecompile -qp "$file"
+	  rm -f  "$file".zwc.old
 	}
 }&!
 

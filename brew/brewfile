@@ -100,7 +100,7 @@ brew "gpatch"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # Colorize logfiles and command output
-brew "grc"
+brew "grc", args: ["HEAD"]
 # GNU grep, egrep and fgrep
 brew "grep", args: ["with-default-names"]
 # Popular GNU data compression program
@@ -164,7 +164,7 @@ brew "node"
 # Platform built on V8 to build network applications
 brew "node@6"
 # Platform built on V8 to build network applications
-brew "node@8", args: ["without-npm"]
+brew "node@8"
 # Trigger notifications when a process completes
 brew "noti"
 # Open client for Cisco AnyConnect VPN
@@ -308,7 +308,9 @@ cask "sourcetree"
 cask "steam"
 cask "sublime-text"
 cask "suspicious-package"
+cask "swiftdefaultappsprefpane"
 cask "tad"
+cask "taskexplorer"
 cask "textual"
 cask "torbrowser"
 cask "tuntap"
@@ -316,6 +318,7 @@ cask "vimr"
 cask "virtualbox"
 cask "visual-studio-code"
 cask "webpquicklook"
+cask "whatsyoursign"
 cask "wireshark"
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
