@@ -2,10 +2,6 @@
 
 : ${TERM:=xterm-256color}
 
-# Set up TMPPREFIX
-TMPPREFIX="$XDG_CACHE_HOME"/zsh
-mkdir -p "$TMPPREFIX"
-
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
 setopt \
 	MULTIOS AUTO_CD \
@@ -63,25 +59,6 @@ bindkey '^[[B' history-substring-search-down
 path=("$ZDOTDIR"/local/bin $path)
 [[ -f "$ZDOTDIR"/.zlocalrc ]] && source "$ZDOTDIR"/.zlocalrc
 
-compinit -C
-
-{
-	setopt LOCAL_OPTIONS EXTENDED_GLOB
-	autoload -Uz zrecompile
-
-	zrecompile -qp -- \
-		"$ZDOTDIR"/.zcompdump -- \
-		"$ZDOTDIR"/.zshrc -- \
-		"$ZDOTDIR"/autoload/prompt_pure_setup
-
-	zrecompile -qp "$ZDOTDIR"/autoload.zwc "$ZDOTDIR"/autoload/^(_*|prompt_*_setup|*.*)(-.N)
-
-	rm -f "$ZDOTDIR"/.zcompdump.zwc.old "$ZDOTDIR"/.zshrc.zwc.old "$ZDOTDIR"/autoload/prompt_pure_setup.zwc.old "$ZDOTDIR"/autoload.zwc.old
-
-	for file ("$ZDOTDIR"/*.plugin.zsh) {
-	  zrecompile -qp "$file"
-	  rm -f  "$file".zwc.old
-	}
-}&!
+compinit -iC
 
 (( $PROFILING )) && zprof

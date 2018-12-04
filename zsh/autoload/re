@@ -15,13 +15,13 @@ command="$@"
 
 if $clearcache; then
     antibody update
-    rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump $ZDOTDIR/{*,.*}.zwc{,.old}(-.N)
+    rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump $ZDOTDIR/{*,.*}.zwc(-.N)
     ink -c green -- "- Cleared Caches -"
 fi
 
 if [[ -n $command ]]; then
-    zsh -ic "$command; exit"
+    SHLVL=0 zsh -c "$command; exit"
     return
 fi
 
-exec zsh -i
+exec zsh

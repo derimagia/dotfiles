@@ -1,14 +1,15 @@
+
 export TZ=:/etc/localtime
 
 # See https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME"/.config}
 
 if [[ $OSTYPE =~ darwin ]]; then
-  export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/Library/Caches}
-  export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/Library}
+	export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/Library/Caches}
+	export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/Library}
 else
-  export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/.cache}
-  export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/.local/share}
+	export XDG_CACHE_HOME=${XDG_CACHE_HOME:-"$HOME"/.cache}
+	export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/.local/share}
 fi
 
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
@@ -32,5 +33,12 @@ export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/history
 	export KUBECONFIG="${(j;:;)kubeconfigs}"
 }
 
+# Set up TMPPREFIX
+TMPPREFIX="$XDG_CACHE_HOME"/zsh
+
 # Make sure some directories exist
-mkdir -p "$XDG_DATA_HOME"/node "$XDG_DATA_HOME"/zsh "$XDG_CACHE_HOME"/less
+mkdir -p "$XDG_DATA_HOME"/node "$XDG_DATA_HOME"/zsh "$XDG_CACHE_HOME"/less "$TMPPREFIX"
+
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+	source "${ZDOTDIR:-$HOME}/.zprofile"
+fi

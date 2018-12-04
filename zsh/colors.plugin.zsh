@@ -43,4 +43,4 @@ if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
 	} | > "$TMPPREFIX/colors.sh"
 fi
 
-source "$TMPPREFIX/colors.sh"
+source "$TMPPREFIX"/colors.sh

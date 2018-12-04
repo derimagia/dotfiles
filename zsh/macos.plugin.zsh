@@ -87,8 +87,11 @@ if [[ -n "$ITERM_PROFILE" ]] {
 	iterm2_hostname="$HOST"
 
 	# iterm2 integration
-	[[ -s $TMPPREFIX/iterm2.zsh ]] || curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' >| $TMPPREFIX/iterm2.zsh
-	source $TMPPREFIX/iterm2.zsh
+	if [[ ! -s "$TMPPREFIX"/iterm2.zsh ]]; then
+		ink -c green -- '- Downloading iterm2 plugin -'
+		curl -s 'https://raw.githubusercontent.com/gnachman/iterm2-website/master/source/misc/zsh_startup.in' > "$TMPPREFIX"/iterm2.zsh
+	fi
+	source "$TMPPREFIX"/iterm2.zsh
 }
 
 bindkey '^X^_' redo # iterm
