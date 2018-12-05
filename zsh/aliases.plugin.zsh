@@ -72,7 +72,6 @@ alias dclone='clone -d'
 # Url functons
 alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
 alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
-alias html2text='w3m -dump -T text/html'
 
 # meta
 alias laliases='() { alias | grep -E ${1-.} | bat | fzf }'

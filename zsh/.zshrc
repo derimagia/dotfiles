@@ -15,7 +15,7 @@ autoload -Uz add-zsh-hook compinit zmv
 # Reset key bindings
 bindkey -e
 
-# ZSH ENV Variables
+# ZSH Variables
 HISTFILE="$XDG_DATA_HOME/zsh/history" HISTSIZE=100000 SAVEHIST=100000
 
 ## Custom Packages

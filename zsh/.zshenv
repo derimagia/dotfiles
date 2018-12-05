@@ -1,4 +1,3 @@
-
 export TZ=:/etc/localtime
 
 # See https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
@@ -12,29 +11,26 @@ else
 	export XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME"/.local/share}
 fi
 
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export COMPOSER_HOME="$XDG_DATA_HOME"/composer
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GRADLE_USER_HOME="$XDG_CACHE_HOME"/gradle
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-
-typeset -TUx GOPATH gopath; gopath=($HOME/go)
-
-# history files
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/node_repl_history
+export RANDFILE="$XDG_CACHE_HOME"/rnd
 export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/history
-
-# Kubectl
-(( $+commands[kubectl] )) && () {
-	local -U kubeconfigs=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
-	export KUBECONFIG="${(j;:;)kubeconfigs}"
-}
 
 # Set up TMPPREFIX
 TMPPREFIX="$XDG_CACHE_HOME"/zsh
+
+export -TU GOPATH gopath=("$HOME"/go)
+export -TU KUBECONFIG kubeconfig=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
 
 # Make sure some directories exist
 mkdir -p "$XDG_DATA_HOME"/node "$XDG_DATA_HOME"/zsh "$XDG_CACHE_HOME"/less "$TMPPREFIX"
