@@ -18,6 +18,7 @@
 
 			launchctl setenv ZDOTDIR "$XDG_CONFIG_HOME"/zsh
 			launchctl setenv YOURKIT_HOME "$XDG_CACHE_HOME"/yjp
+			launchctl setenv VSCODE_EXTENSIONS "$XDG_DATA_HOME"/Code/extensions
 		</string>
 	</array>
 	<key>RunAtLoad</key>
