@@ -30,7 +30,7 @@ export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/history
 TMPPREFIX="$XDG_CACHE_HOME"/zsh
 
 export -TU GOPATH gopath=("$HOME"/go)
-export -TU KUBECONFIG kubeconfig=("$HOME/.kube/config" "$XDG_CONFIG_HOME"/kube/*.yaml(N))
+export -TU KUBECONFIG kubeconfig=("$XDG_CONFIG_HOME"/kube/config.yaml "$XDG_CONFIG_HOME"/kube/*.yaml(N))
 
 # Make sure some directories exist
 mkdir -p "$XDG_DATA_HOME"/node "$XDG_DATA_HOME"/zsh "$XDG_CACHE_HOME"/less "$TMPPREFIX"

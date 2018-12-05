@@ -57,6 +57,7 @@ alias docker-images-tree='docker run --rm -v /var/run/docker.sock:/var/run/docke
 alias container-transform='docker run --rm -v $(pwd):/data/ micahhausler/container-transform'
 
 # kube
+alias kubectl='kubectl --cache-dir="$XDG_CACHE_HOME/kube/http"'
 alias k='kubectl'
 alias ku='k config use-context'
 alias kc='k config current-context'
