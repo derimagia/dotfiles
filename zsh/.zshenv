@@ -14,6 +14,8 @@ fi
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
+export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 export COMPOSER_HOME="$XDG_DATA_HOME"/composer
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
