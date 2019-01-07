@@ -2,7 +2,7 @@
 
 [[ $OSTYPE =~ darwin ]] || exit 34
 
-local plist_dir="$XDG_CONFIG_HOME"/plists
+local plist_dir="$XDG_CONFIG_HOME"/macos
 
 # User LaunchAgents
 for file in $plist_dir/LaunchAgents/*(N.); do
