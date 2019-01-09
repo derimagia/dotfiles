@@ -5,7 +5,7 @@ aws/
 composer/
 ansible/
 configstore/
-deis/
+docker/
 gnupg/
 helm/
 htop/
@@ -13,12 +13,12 @@ hub
 kube/
 npm/npmrc
 nvim/.netrwhist
-psysh/
 slackcat/
 zsh/local
 tmux/plugins
 wireshark/
 telepresence/id
+teamkube/
 wgetrc
 config_local
 .zcompdump

@@ -13,21 +13,23 @@ fi
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
+export BABEL_CACHE_PATH="$XDG_CACHE_HOME"/node/babel.cache.json
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 export COMPOSER_HOME="$XDG_DATA_HOME"/composer
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GRADLE_USER_HOME="$XDG_CACHE_HOME"/gradle
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/node_repl_history
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/node_repl_history
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export PEX_ROOT="$XDG_CACHE_HOME"/pex # Used for telepresence
 export RANDFILE="$XDG_CACHE_HOME"/rnd
 export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/history
-export BABEL_CACHE_PATH="$XDG_CACHE_HOME"/node/babel.cache.json
 
 # Set up TMPPREFIX
 TMPPREFIX="$XDG_CACHE_HOME"/zsh

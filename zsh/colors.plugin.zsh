@@ -7,15 +7,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-zle_highlight+=(
-	default:none
-	region:standout
-	special:standout
-	suffix:bold
-	isearch:underline
-	paste:underline
-)
-
 ## ZSH Highlight
 typeset -gA FAST_HIGHLIGHT_STYLES
 FAST_HIGHLIGHT_STYLES[alias]='fg=blue'

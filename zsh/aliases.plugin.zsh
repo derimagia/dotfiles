@@ -80,3 +80,7 @@ alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | bat | fzf }'
 
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
+
+# Telepresence
+alias telepresence="telepresence --logfile $XDG_CACHE_HOME/telepresence.log"
+alias tp="telepresence"

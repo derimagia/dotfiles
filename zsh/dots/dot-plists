@@ -6,32 +6,33 @@ local plist_dir="$XDG_CONFIG_HOME"/macos
 
 # User LaunchAgents
 for file in $plist_dir/LaunchAgents/*(N.); do
-	filename=${file:t}
-	service_name=${filename:r}
-	service_location=~/Library/LaunchAgents/$filename
+	filename="${file:t}"
+	service_name="${filename:r}"
+	service_location=~/Library/LaunchAgents/"$filename"
 
 	ink -l -c green -- "[plist] Setting up $service_name"
 
 	# Replace $HOME
-	sed "s|\$HOME|$HOME|g" "$file" > $service_location
-	chown $USER $service_location
-	chmod 644 $service_location
-	launchctl unload $service_location 2>/dev/null
-	launchctl load $service_location 2>/dev/null
+	sed "s|\$HOME|$HOME|g" "$file" > "$service_location"
+	chown $USER "$service_location"
+	chmod 644 "$service_location"
+
+	launchctl unload "$service_location" 2>/dev/null
+	launchctl load "$service_location" 2>/dev/null
 done
 
 # Root LaunchAgents
 for file in $plist_dir/LaunchAgentsRoot/*(N.); do
-	filename=${file:t}
-	service_location=/Library/LaunchAgents/$filename
-	service_name=${filename:r}
+	filename="${file:t}"
+	service_location=/Library/LaunchAgents/"$filename"
+	service_name="${filename:r}"
 
 	ink -l -c green -- "[plist-root] Setting up $service_name"
 
 	# Replace $HOME
-	sed "s|\$HOME|$HOME|g" "$file" | sudo tee $service_location >/dev/null
+	sed "s|\$HOME|$HOME|g" "$file" | sudo tee "$service_location" >/dev/null
 	# sudo chown root $service_location
-	sudo chmod 644 $service_location
-	sudo launchctl unload -w $service_location 2>/dev/null
-	sudo launchctl load -w $service_location 2>/dev/null
+	sudo chmod 644 "$service_location"
+	sudo launchctl "$service_location" 2>/dev/null
+	sudo launchctl load "$service_location" 2>/dev/null
 done

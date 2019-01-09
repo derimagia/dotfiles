@@ -107,6 +107,8 @@ brew "grep", args: ["with-default-names"]
 brew "gzip"
 # World's fastest and most advanced password recovery utility
 brew "hashcat"
+# Command-line hex viewer
+brew "hexyl"
 # <hr />, for your terminal window
 brew "hr"
 # Improved top (interactive process viewer)
@@ -135,8 +137,6 @@ brew "kubernetes-helm"
 brew "livestreamer"
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
-# Drop-in replacement for MySQL
-brew "mariadb"
 # Mac App Store command-line interface
 brew "mas"
 # Like sed, awk, cut, join & sort for name-indexed data such as CSV
@@ -223,8 +223,6 @@ brew "traefik"
 brew "tree"
 # Google's JavaScript engine
 brew "v8"
-# Pager/text based browser
-brew "w3m"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
@@ -246,6 +244,8 @@ cask "android-studio"
 cask "archiver"
 cask "asset-catalog-tinkerer"
 cask "authy"
+cask "azure-data-studio"
+cask "barrier"
 cask "captain"
 cask "charles"
 cask "colorpicker-skalacolor"
@@ -281,6 +281,7 @@ cask "jetbrains-toolbox"
 cask "kaleidoscope"
 cask "kitematic"
 cask "knockknock"
+cask "launchcontrol"
 cask "launchrocket"
 cask "licecap"
 cask "lincastor"
@@ -299,7 +300,6 @@ cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookapk"
-cask "rcdefaultapp"
 cask "robo-3t"
 cask "setapp"
 cask "slack"
