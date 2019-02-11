@@ -5,8 +5,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+cask "java8"
 cask "osxfuse"
-cask "xquartz"
 # Aquarium animation in ASCII art
 brew "asciiquarium"
 # Automatic configure script builder
@@ -51,12 +51,8 @@ brew "diff-so-fancy"
 brew "diffutils"
 # Lightweight DNS forwarder and DHCP server
 brew "dnsmasq"
-# Pack, ship and run any application as a lightweight container
-brew "docker", link: false
 # Bash, Zsh and Fish completion for Docker
-brew "docker-completion"
-# Docker-compose completion script
-brew "docker-compose-completion"
+brew "docker-completion", link: false
 # Port forwarding tool for Docker containers
 brew "dockward"
 # Convert text between DOS, UNIX, and Mac formats
@@ -65,6 +61,8 @@ brew "dos2unix"
 brew "duti"
 # Modern replacement for 'ls'
 brew "exa"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Banner-like program prints strings as ASCII art
@@ -94,7 +92,7 @@ brew "go"
 # GNU implementation of the famous stream editor
 brew "gnu-sed", args: ["with-default-names"]
 # GNU unit conversion tool
-brew "gnu-units", args: ["with-default-names"]
+brew "gnu-units"
 # Apply a diff file to an original
 brew "gpatch"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
@@ -119,8 +117,6 @@ brew "httpie"
 brew "hub"
 # Display an interface's bandwidth usage
 brew "iftop"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Json incremental digger
@@ -131,8 +127,6 @@ brew "jq"
 brew "kubernetes-cli"
 # Production Grade K8s Installation, Upgrades, and Management
 brew "kops"
-# The Kubernetes package manager
-brew "kubernetes-helm"
 # Pipes video from streaming services into a player such as VLC
 brew "livestreamer"
 # Curses-based tool for viewing and analyzing log files
@@ -163,8 +157,6 @@ brew "nmap"
 brew "node"
 # Platform built on V8 to build network applications
 brew "node@6"
-# Platform built on V8 to build network applications
-brew "node@8"
 # Trigger notifications when a process completes
 brew "noti"
 # Open client for Cisco AnyConnect VPN
@@ -180,7 +172,7 @@ brew "pv"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: true
 # Convert between TOML, YAML and JSON
 brew "remarshal"
 # Tools for file renaming
@@ -240,7 +232,6 @@ cask "adobe-air"
 cask "aerial"
 cask "alfred"
 cask "android-platform-tools"
-cask "android-studio"
 cask "archiver"
 cask "asset-catalog-tinkerer"
 cask "authy"
@@ -259,13 +250,13 @@ cask "electron-api-demos"
 cask "electrum"
 cask "etcher"
 cask "firefox-beta"
-cask "firefox-developer-edition"
 cask "font-fira-code"
 cask "font-firamono-nerd-font-mono"
 cask "font-hack"
 cask "font-hack-nerd-font-mono"
 cask "font-roboto"
 cask "font-source-code-pro"
+cask "fork"
 cask "forklift"
 cask "gear-player"
 cask "gitkraken"
@@ -276,7 +267,6 @@ cask "hopper-disassembler"
 cask "hosts"
 cask "imageoptim"
 cask "iterm2-beta"
-cask "java8"
 cask "jetbrains-toolbox"
 cask "kaleidoscope"
 cask "kitematic"
@@ -304,7 +294,6 @@ cask "robo-3t"
 cask "setapp"
 cask "slack"
 cask "soduto"
-cask "sourcetree"
 cask "steam"
 cask "sublime-text"
 cask "suspicious-package"
@@ -312,7 +301,7 @@ cask "swiftdefaultappsprefpane"
 cask "tad"
 cask "taskexplorer"
 cask "textual"
-cask "torbrowser"
+cask "tor-browser"
 cask "tuntap"
 cask "vimr"
 cask "virtualbox"
@@ -320,6 +309,7 @@ cask "visual-studio-code"
 cask "webpquicklook"
 cask "whatsyoursign"
 cask "wireshark"
+cask "xquartz"
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541

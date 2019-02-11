@@ -495,26 +495,6 @@ defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 CFPreferencesAppSynchronize "com.googlecode.iterm2"
 
 # ==============================================
-# SourceTree
-# ==============================================
-ink -l -c green -- " Setting SourceTree Preferences"
-
-# Allow Force Push
-defaults write com.torusknot.SourceTreeNotMAS allowForcePush -bool true
-
-# Analytics
-defaults write com.torusknot.SourceTreeNotMAS analyticsHasAgreed -bool false
-
-# Don't ask to create bookmarks on opening repo
-defaults write com.torusknot.SourceTreeNotMAS createBookmarksOnOpenRepo -bool false
-
-# Fix config paths for git, and don't modify git settings
-defaults write com.torusknot.SourceTreeNotMAS gitGlobalIgnoreFile -string "$XDG_CONFIG_HOME/git/ignore"
-defaults write com.torusknot.SourceTreeNotMAS agreedToUpdateConfig -bool false
-
-CFPreferencesAppSynchronize "com.torusknot.SourceTreeNotMAS"
-
-# ==============================================
 # Dash
 # ==============================================
 ink -l -c green -- " Setting Dash Preferences"

@@ -25,7 +25,7 @@ autoload -Uz "$ZDOTDIR"/autoload/*(-.N:t)
 fpath+=("$ZDOTDIR"/autoload)
 path=("$ZDOTDIR"/bin $path)
 
-for plugin_file ("$ZDOTDIR"/*.plugin.zsh) source $plugin_file
+for plugin_file ("$ZDOTDIR"/*.plugin.zsh) source "$plugin_file"
 unset plugin_file
 
 ## Packages
@@ -59,6 +59,6 @@ bindkey '^[[B' history-substring-search-down
 path=("$ZDOTDIR"/local/bin $path)
 [[ -f "$ZDOTDIR"/.zlocalrc ]] && source "$ZDOTDIR"/.zlocalrc
 
-compinit -iC
+compinit -C
 
 (( $PROFILING )) && zprof

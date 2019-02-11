@@ -54,7 +54,7 @@ install_dotfiles() {
 	fi
 
 	# Link dotfile binaries.
-	PATH="$ZDOTDIR/bin:$PATH"
+	PATH="$ZDOTDIR/dots:$PATH"
 }
 
 install_from_url() {
@@ -66,16 +66,6 @@ install_from_url() {
 	chmod +x "$binpath/$name"
 }
 
-setup() {
-	os_function setup
-
-	# @TODO: Just add this to binaries in dotfiles
-	hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
-
-	dot setup
-	dot vim
-}
-
 setup_darwin() {
 	hash brew 2>/dev/null || printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
 
@@ -85,18 +75,27 @@ setup_darwin() {
 	[[ ! -x $HOMEBREW_PREFIX/bin/zsh ]] && brew install zsh
 
 	# Default Shells
-	sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
-	sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
+	grep -Fq "$HOMEBREW_PREFIX/bin/bash" /etc/shells || sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
+	grep -Fq "$HOMEBREW_PREFIX/bin/zsh" /etc/shells || sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
 
-	finger -k $USER | fgrep -q "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s $HOMEBREW_PREFIX/bin/zsh
+	finger -k $USER | grep -Fq "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s "$HOMEBREW_PREFIX"/bin/zsh
 
-	# We set this here and in the launchctl environment file. Ideally we could remove this one.
-	print_status "Adding ZDOTDIR to /etc/zshenv"
+	echo '[[ -n "$XDG_CONFIG_HOME" ]] && export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
+}
 
-	#@TODO This is global for everyone, see https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-	echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
+setup() {
+	os_function setup
 
-	print_info 'Run `defaults write com.apple.dock persistent-apps -array ""` to kill all apps from the dock'
+	hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
+
+	DROPBOX_FOLDER="$HOME/Dropbox"
+	[[ ! -d $DROPBOX_FOLDER ]] && print_error "Dropbox folder not found: $DROPBOX_FOLDER" && exit 1
+
+	FF_PROFILE_DIRECTORY="$XDG_DATA_HOME/Application Support/Firefox/Profiles"
+	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/chrome" "$FF_PROFILE_DIRECTORY/"*".default/"
+	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/user.js" "$FF_PROFILE_DIRECTORY/"*".default/"
+
+	dot-vim
 }
 
 get_metadata

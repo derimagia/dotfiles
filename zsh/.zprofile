@@ -20,16 +20,10 @@ export VISUAL='subl'
 
 	zrecompile -qp -- \
 		"$ZDOTDIR"/.zcompdump -- \
-		"$ZDOTDIR"/.zshrc -- \
 		"$ZDOTDIR"/autoload/prompt_pure_setup
 
 	zrecompile -qp "$ZDOTDIR"/autoload.zwc "$ZDOTDIR"/autoload/^(_*|prompt_*_setup|*.*)(-.N)
 
-	rm -f "$ZDOTDIR"/.zcompdump.zwc.old "$ZDOTDIR"/.zshrc.zwc.old "$ZDOTDIR"/autoload/prompt_pure_setup.zwc.old "$ZDOTDIR"/autoload.zwc.old
-
-	for file ("$ZDOTDIR"/*.plugin.zsh) {
-	  zrecompile -qp "$file"
-	  rm -f  "$file".zwc.old
-	}
+	rm -f "$ZDOTDIR"/**/*.zwc.old(N)
 }&!
 

@@ -1,6 +1,7 @@
 [[ $OSTYPE =~ darwin ]] || return
 
-path+=(/usr/local/sbin /usr/libexec)
+path=(/usr/local/sbin /usr/libexec /usr/local/opt/coreutils/libexec/gnubin $path)
+manpath=(/usr/local/opt/coreutils/libexec/gnuman $manpath)
 
 export BROWSER='open'
 
