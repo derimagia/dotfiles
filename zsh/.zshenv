@@ -35,7 +35,6 @@ export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/history
 TMPPREFIX="$XDG_CACHE_HOME"/zsh
 
 typeset -U path
-export -TU MANPATH="$(manpath)" manpath
 export -TU GOPATH gopath=("$HOME"/go)
 export -TU KUBECONFIG kubeconfig=("$XDG_CONFIG_HOME"/kube/config.yaml "$XDG_CONFIG_HOME"/kube/*.yaml(N))
 

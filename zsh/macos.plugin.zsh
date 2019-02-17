@@ -1,5 +1,6 @@
 [[ $OSTYPE =~ darwin ]] || return
 
+export -TU MANPATH="$(manpath)" manpath
 path=(/usr/local/sbin /usr/libexec /usr/local/opt/coreutils/libexec/gnubin $path)
 manpath=(/usr/local/opt/coreutils/libexec/gnuman $manpath)
 

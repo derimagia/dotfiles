@@ -1,35 +1,30 @@
 #!/bin/bash
+set -euo pipefail
 
-print_info() {
-	ink -l -c yellow "$@"
-}
+ZDOTDIR="$XDG_CONFIG_HOME/.config/zsh"
+DROPBOX_FOLDER="$HOME/Dropbox"
+[[ ! -d $DROPBOX_FOLDER ]] && print_error "Dropbox folder not found: $DROPBOX_FOLDER" && exit 1
+
+OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
+
+if [[ -f /etc/os-release ]]; then
+	OSRELEASE="$(source /etc/os-release && echo $ID)"
+fi
 
 print_error() {
-	ink -l -c red "$@"
+	echo -e "\e[31m$@\e[39m"
 }
 
 print_status() {
-	ink -l -c blue "$@"
-}
-
-get_metadata() {
-	# If Linux, try to determine specific distribution
-	if [[ -f /etc/os-release ]]; then
-		OSTYPE="$(source /etc/os-release && echo $ID)"
-	else
-		OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
-	fi
+	echo -e "\e[34m$@\e[39m"
 }
 
 os_function() {
-	local os_function="$1_$OSTYPE"
-
-	if ! declare -f $local os_function > /dev/null; then
-		print_error "Could not find $1 function for OS '$OSTYPE'"
-		exit 1
+	if ! declare -f "$1_$OSTYPE" > /dev/null; then
+		return 1
 	fi
 
-	$os_function
+	"$1_$OSTYPE"
 }
 
 install_git_darwin() {
@@ -47,23 +42,14 @@ install_git_darwin() {
 }
 
 install_dotfiles() {
-	os_function install_git
+	os_function install_git || true
 
-	if [[ ! -d $XDG_CONFIG_HOME ]]; then
+	if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
 		git clone git@github.com:derimagia/dotfiles.git $XDG_CONFIG_HOME
 	fi
 
 	# Link dotfile binaries.
 	PATH="$ZDOTDIR/dots:$PATH"
-}
-
-install_from_url() {
-	local binpath="$LOCAL_PREFIX/bin"
-	local name="$1"
-	local url="$2"
-
-	curl -sfLo "$binpath/$name" "$url"
-	chmod +x "$binpath/$name"
 }
 
 setup_darwin() {
@@ -77,28 +63,30 @@ setup_darwin() {
 	# Default Shells
 	grep -Fq "$HOMEBREW_PREFIX/bin/bash" /etc/shells || sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
 	grep -Fq "$HOMEBREW_PREFIX/bin/zsh" /etc/shells || sudo bash -c "echo $HOMEBREW_PREFIX/bin/zsh >> /etc/shells"
-
 	finger -k $USER | grep -Fq "Shell: $HOMEBREW_PREFIX/bin/zsh" || chsh -s "$HOMEBREW_PREFIX"/bin/zsh
-
 	echo '[[ -n "$XDG_CONFIG_HOME" ]] && export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' | sudo tee /etc/zshenv >/dev/null
-}
 
-setup() {
-	os_function setup
-
+	# Antibody
 	hash antibody 2>/dev/null || curl -sL 'https://raw.githubusercontent.com/getantibody/installer/master/install' | bash -s
 
-	DROPBOX_FOLDER="$HOME/Dropbox"
-	[[ ! -d $DROPBOX_FOLDER ]] && print_error "Dropbox folder not found: $DROPBOX_FOLDER" && exit 1
-
 	FF_PROFILE_DIRECTORY="$XDG_DATA_HOME/Application Support/Firefox/Profiles"
-	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/chrome" "$FF_PROFILE_DIRECTORY/"*".default/"
-	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/user.js" "$FF_PROFILE_DIRECTORY/"*".default/"
-
-	dot-vim
 }
 
-get_metadata
+setup_linux() {
+	# Firefox doesn't support XDG. Crazy.
+	FF_PROFILE_DIRECTORY="$HOME/.mozilla/firefox"
+}
+
+configure_firefox() {
+	print_status "Syncing Firefox"
+
+	# Currently a bug in linking chrome directory which causes userContent.css to not work.
+	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/chrome" "$FF_PROFILE_DIRECTORY/"*".default/"
+	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/user.js" "$FF_PROFILE_DIRECTORY/"*".default/"
+}
+
 install_dotfiles
-setup
+os_function setup
+configure_firefox
+
 exec zsh
