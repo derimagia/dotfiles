@@ -14,25 +14,13 @@ for file in $plist_dir/LaunchAgents/*(N.); do
 
 	# Replace $HOME
 	sed "s|\$HOME|$HOME|g" "$file" > "$service_location"
-	chown $USER "$service_location"
 	chmod 644 "$service_location"
 
-	launchctl unload "$service_location" 2>/dev/null
-	launchctl load "$service_location" 2>/dev/null
-done
-
-# Root LaunchAgents
-for file in $plist_dir/LaunchAgentsRoot/*(N.); do
-	filename="${file:t}"
-	service_location=/Library/LaunchAgents/"$filename"
-	service_name="${filename:r}"
-
-	ink -l -c green -- "[plist-root] Setting up $service_name"
-
-	# Replace $HOME
-	sed "s|\$HOME|$HOME|g" "$file" | sudo tee "$service_location" >/dev/null
-	# sudo chown root $service_location
-	sudo chmod 644 "$service_location"
-	sudo launchctl "$service_location" 2>/dev/null
-	sudo launchctl load "$service_location" 2>/dev/null
+	domain_target="gui/$UID"
+	service_target="$domain_target/$service_name"
+	launchctl bootout "$domain_target" "$service_location"
+	# load is deprecated. Can't get bootstrap/enable to actually enable
+	launchctl load -w "$service_location"
+	# launchctl bootstrap "$domain_target" "$service_location"
+	# launchctl kickstart "$service_target"
 done

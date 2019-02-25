@@ -14,6 +14,7 @@
 	r = reset
 	rh = reset --hard
 	st = status -sb
+	fixup = commit --fixup
 
 	# Diff shortcuts
 	df = diff --color-words
