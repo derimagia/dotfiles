@@ -7,6 +7,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 cask "java8"
 cask "osxfuse"
+# Download with resuming and segmented downloading
+brew "aria2"
 # Aquarium animation in ASCII art
 brew "asciiquarium"
 # Automatic configure script builder
@@ -41,6 +43,8 @@ brew "cowsay"
 brew "ctop"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Generate Dash documentation from HTML files
+brew "dashing"
 # Tools to manipulate dates with a focus on financial data
 brew "dateutils"
 # The CLI for Deis Workflow
@@ -127,6 +131,8 @@ brew "jq"
 brew "kubernetes-cli"
 # Production Grade K8s Installation, Upgrades, and Management
 brew "kops"
+# The Kubernetes package manager
+brew "kubernetes-helm"
 # Pipes video from streaming services into a player such as VLC
 brew "livestreamer"
 # Curses-based tool for viewing and analyzing log files
@@ -217,8 +223,12 @@ brew "tree"
 brew "v8"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
+# Watch files and take action when they change
+brew "watchman"
 # Internet file retriever
 brew "wget"
+# Tools for the WireGuard secure network tunnel
+brew "wireguard-tools"
 # XML command-line utilities
 brew "xmlstarlet"
 # Download YouTube videos from the command-line
@@ -262,7 +272,6 @@ cask "gear-player"
 cask "gitkraken"
 cask "gitup"
 cask "google-chrome"
-cask "google-chrome-canary"
 cask "hopper-disassembler"
 cask "hosts"
 cask "imageoptim"
@@ -293,8 +302,10 @@ cask "quicklookapk"
 cask "robo-3t"
 cask "setapp"
 cask "slack"
+cask "sloth"
 cask "soduto"
 cask "steam"
+cask "sublime-merge"
 cask "sublime-text"
 cask "suspicious-package"
 cask "swiftdefaultappsprefpane"
@@ -303,9 +314,11 @@ cask "taskexplorer"
 cask "textual"
 cask "tor-browser"
 cask "tuntap"
+cask "vagrant"
 cask "vimr"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "visualvm"
 cask "webpquicklook"
 cask "whatsyoursign"
 cask "wireshark"

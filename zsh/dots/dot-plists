@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -euo pipefail
+
 [[ $OSTYPE =~ darwin ]] || exit 34
 
 local plist_dir="$XDG_CONFIG_HOME"/macos
@@ -18,9 +20,8 @@ for file in $plist_dir/LaunchAgents/*(N.); do
 
 	domain_target="gui/$UID"
 	service_target="$domain_target/$service_name"
-	launchctl bootout "$domain_target" "$service_location"
-	# load is deprecated. Can't get bootstrap/enable to actually enable
-	launchctl load -w "$service_location"
-	# launchctl bootstrap "$domain_target" "$service_location"
-	# launchctl kickstart "$service_target"
+	launchctl bootout "$domain_target" "$service_location" ||  true
+	launchctl bootstrap "$domain_target" "$service_location" 2>&1 > /dev/null
+	launchctl kickstart "$service_target"
 done
+
