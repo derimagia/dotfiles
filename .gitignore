@@ -2,10 +2,14 @@
 .DS_Store
 .vscode/
 aws/
+android/
 composer/
 ansible/
 configstore/
+dlv/
 docker/
+docksal/
+gcloud/
 gnupg/
 helm/
 htop/
@@ -17,13 +21,17 @@ slackcat/
 zsh/local
 tmux/plugins
 wireshark/
-telepresence/id
+telepresence/
+
 teamkube/
+
 wgetrc
 config_local
 .zcompdump
+.zcompcache/
 .zlocalrc
 *.zwc
+*.zwc.old
 
 # Linux
 Code - OSS/

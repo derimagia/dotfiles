@@ -23,6 +23,7 @@ export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GRADLE_USER_HOME="$XDG_CACHE_HOME"/gradle
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
+export HELM_HOME="$XDG_CONFIG_HOME"/helm
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/node_repl_history

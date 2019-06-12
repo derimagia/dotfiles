@@ -5,9 +5,6 @@ local repoType='unknown' shallow=0 print=0
 
 while getopts dsp opt; do
 	case $opt in
-		(d)
-			repoType='drupal'
-		;;
 		(s)
 			shallow=1
 		;;
@@ -18,14 +15,8 @@ while getopts dsp opt; do
 done
 shift $(( OPTIND - 1 ))
 
-local cloneopts=(-u)
+local cloneopts=(-u -p)
 local query=$1
-
-# Drupal Module
-if [[ $repoType == 'drupal' ]] {
-  query="https://git.drupal.org/project/$query.git"
-  cloneopts+=(-p)
-}
 
 # Get Host
 # extract the protocol
@@ -41,14 +32,14 @@ if (( $shallow )) {
   cloneopts+=(--shallow)
 }
 
-ghq get $cloneopts $query
+ghq get $cloneopts "$query"
 
 location="$(ghq list -p $repo)"
 
-if (( $print )) {
-  ghq list -p $location
-} else {
-  cd $location
-}
+if (( $print )); then
+	ghq list -p $location
+else
+	cd "$location"
+fi
 
 

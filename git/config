@@ -86,8 +86,6 @@
 [pager]
 	show = diff-so-fancy | less --tabs=4 -RFX
 	log = diff-so-fancy | less --tabs=4 -RFX
-[pull]
-	rebase = true
 [push]
 	default = current
 [rebase]
@@ -108,3 +106,5 @@
 	pushInsteadOf = "https://gist.github.com/"
 [include]
 	path = config_local
+[branch]
+	autosetuprebase = always

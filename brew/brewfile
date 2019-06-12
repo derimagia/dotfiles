@@ -43,8 +43,6 @@ brew "cowsay"
 brew "ctop"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Generate Dash documentation from HTML files
-brew "dashing"
 # Tools to manipulate dates with a focus on financial data
 brew "dateutils"
 # The CLI for Deis Workflow
@@ -131,8 +129,6 @@ brew "jq"
 brew "kubernetes-cli"
 # Production Grade K8s Installation, Upgrades, and Management
 brew "kops"
-# The Kubernetes package manager
-brew "kubernetes-helm"
 # Pipes video from streaming services into a player such as VLC
 brew "livestreamer"
 # Curses-based tool for viewing and analyzing log files
