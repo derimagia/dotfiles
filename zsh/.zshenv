@@ -13,8 +13,10 @@ fi
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
+export AZURE_CONFIG_DIR="$XDG_CONFIG_HOME"/azure
 export BABEL_CACHE_PATH="$XDG_CACHE_HOME"/node/babel.cache.json
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.config
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 export COMPOSER_HOME="$XDG_DATA_HOME"/composer

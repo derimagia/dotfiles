@@ -1,6 +1,5 @@
 if [[ $OSTYPE =~ darwin && -x /usr/libexec/path_helper ]]; then
 	if [[ ! -f "$TMPPREFIX"/path-helper.sh ]]; then
-		ink -c green -- '- Generating Path Helper Bundle -'
 		/usr/libexec/path_helper -s > "$TMPPREFIX"/path-helper.sh
 	fi
 	source  "$TMPPREFIX"/path-helper.sh
