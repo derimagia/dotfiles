@@ -1,7 +1,6 @@
 [[ $OSTYPE =~ darwin ]] || return
 
 export ANDROID_SDK_ROOT='/usr/local/share/android-sdk'
-export ANDROID_HOME="$ANDROID_SDK_ROOT" # Deprecated
 export -TU MANPATH="$(manpath)" manpath
 path=(/usr/local/sbin /usr/libexec /usr/local/opt/coreutils/libexec/gnubin $path)
 manpath=(/usr/local/opt/coreutils/libexec/gnuman $manpath)

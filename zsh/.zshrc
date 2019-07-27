@@ -51,7 +51,7 @@ source "$TMPPREFIX/antibody-plugins.sh"
 (( $+gopath )) && path+=(${^gopath}/bin)
 (( $+CARGO_HOME )) && path+=("$CARGO_HOME"/bin)
 (( $+COMPOSER_HOME )) && path+=("$COMPOSER_HOME"/vendor/bin)
-(( $+ANDROID_SDK_HOME )) && path+=("$ANDROID_HOME"/platform-tools)
+(( $+ANDROID_SDK_ROOT )) && path+=("$ANDROID_SDK_ROOT"/platform-tools)
 
 bindkey '^[[A' history-substring-search-up # Sourcing after syntax-highlighting
 bindkey '^[[B' history-substring-search-down
