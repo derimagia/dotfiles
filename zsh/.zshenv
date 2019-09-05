@@ -13,6 +13,8 @@ fi
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 export AZURE_CONFIG_DIR="$XDG_CONFIG_HOME"/azure
 export BABEL_CACHE_PATH="$XDG_CACHE_HOME"/node/babel.cache.json
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
