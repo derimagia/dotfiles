@@ -15,11 +15,6 @@ alias -s py='python'
 alias -s jar='java -jar'
 alias -s war='java -jar'
 
-if [[ $OSTYPE =~ darwin ]] {
-	alias -s md='ql'
-	alias -s csv='ql'
-}
-
 alias fs='stat -c "%s Bytes"' # File Size
 alias map="xargs -n1"
 alias editvar='vared'
@@ -31,7 +26,8 @@ alias help='run-help'
 alias l='exa -al --git'
 alias hidden='() { cd "${1:-$PWD}" && print -lr .* }'
 
-# opening projects
+# opening
+alias o='open'
 alias vim='nvim'
 alias v="vim"
 alias dottime='time zsh -ic true'
@@ -78,9 +74,8 @@ alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
 alias laliases='() { alias | grep -E ${1-.} | bat | fzf }'
 alias lfunctions='() { print -l ${(ok)functions} | grep -E ${1-.} | bat | fzf }'
 
+# Telepresence
+# alias telepresence="telepresence --logfile $XDG_CACHE_HOME/telepresence.log"
+
 # named directories, allows for e.g. ~c
 hash -d c="$XDG_CONFIG_HOME"
-
-# Telepresence
-alias telepresence="telepresence --logfile $XDG_CACHE_HOME/telepresence.log"
-alias tp="telepresence"

@@ -8,8 +8,7 @@ manpath=(/usr/local/opt/coreutils/libexec/gnuman $manpath)
 export BROWSER='open'
 
 alias open='() { command open ${@:-"."} }'
-alias o=open
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash; sudo rm /private/var/vm/sleepimage"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias cask='brew cask'
@@ -28,6 +27,9 @@ ql() {
 	[[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' | return 1
 	chronic sh -c "qlmanage -p $'$1'" &!
 }
+
+alias -s md='ql'
+alias -s csv='ql'
 
 # dash
 dash() {

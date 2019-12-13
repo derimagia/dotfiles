@@ -1,10 +1,3 @@
-if [[ $OSTYPE =~ darwin && -x /usr/libexec/path_helper ]]; then
-	if [[ ! -f "$TMPPREFIX"/path-helper.sh ]]; then
-		/usr/libexec/path_helper -s > "$TMPPREFIX"/path-helper.sh
-	fi
-	source  "$TMPPREFIX"/path-helper.sh
-fi
-
 export PAGER='bat -p'
 export BAT_PAGER='less -FXR'
 export EDITOR='nvim'
@@ -25,4 +18,3 @@ export VISUAL='subl'
 
 	rm -f "$ZDOTDIR"/**/*.zwc.old(N)
 }&!
-

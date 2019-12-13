@@ -28,9 +28,9 @@ if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
 
 	{
 		dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
-		available=(g++ gas head make ld tail docker /usr{,/local}/share/grc/*(-.N:e))
-		disabled=(ls)
-		for cmd (${available:|disabled}) (( $+commands[$cmd] )) && print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
+		# available=(g++ gas head make ld tail docker /usr{,/local}/share/grc/*(-.N:e))
+		# disabled=(ls systemctl)
+		# for cmd (${available:|disabled}) (( $+commands[$cmd] )) && print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"
 	} | > "$TMPPREFIX/colors.sh"
 fi
 

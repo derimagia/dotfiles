@@ -1,6 +1,11 @@
 (( $PROFILING )) && zmodload zsh/zprof
 
-: ${TERM:=xterm-256color}
+if [[ $OSTYPE =~ darwin && -x /usr/libexec/path_helper ]]; then
+	if [[ ! -f "$TMPPREFIX"/path-helper.sh ]]; then
+		/usr/libexec/path_helper -s > "$TMPPREFIX"/path-helper.sh
+	fi
+	source  "$TMPPREFIX"/path-helper.sh
+fi
 
 # See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
 setopt \
@@ -53,8 +58,16 @@ source "$TMPPREFIX/antibody-plugins.sh"
 (( $+COMPOSER_HOME )) && path+=("$COMPOSER_HOME"/vendor/bin)
 (( $+ANDROID_SDK_ROOT )) && path+=("$ANDROID_SDK_ROOT"/platform-tools)
 
-bindkey '^[[A' history-substring-search-up # Sourcing after syntax-highlighting
-bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' history-substring-search-up          # [UpArrow] - Sourced after syntax-highlighting
+bindkey '^[[B' history-substring-search-down        # [DownArrow]
+
+bindkey '^[[1;5C' forward-word                      # [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5D' backward-word                     # [Ctrl-LeftArrow] - move backward one word
+
+bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
+bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
+
+bindkey '\ew' kill-region                           # [Esc-w] - Kill from the cursor to the mark
 
 ## Local
 path=("$ZDOTDIR"/local/bin $path)
