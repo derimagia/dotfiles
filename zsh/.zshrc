@@ -67,6 +67,8 @@ bindkey '^[[1;5D' backward-word                     # [Ctrl-LeftArrow] - move ba
 bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
 bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
 
+bindkey "${terminfo[kdch1]}" delete-char          # [Delete] - Delete
+
 bindkey '\ew' kill-region                           # [Esc-w] - Kill from the cursor to the mark
 
 ## Local
