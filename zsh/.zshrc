@@ -1,21 +1,17 @@
-(( $PROFILING )) && zmodload zsh/zprof
+setopt MULTIOS # Perform implicit tees or cats when multiple redirections are attempted.
+setopt AUTO_CD # Perform cd command to directory automatically.# See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
 
-if [[ $OSTYPE =~ darwin && -x /usr/libexec/path_helper ]]; then
-	if [[ ! -f "$TMPPREFIX"/path-helper.sh ]]; then
-		/usr/libexec/path_helper -s > "$TMPPREFIX"/path-helper.sh
-	fi
-	source  "$TMPPREFIX"/path-helper.sh
-fi
+setopt EXTENDED_HISTORY # Save each command’s beginning timestamp (in seconds since the epoch) and the duration (in seconds) to the history file.
+setopt SHARE_HISTORY # This option both imports new commands from the history file
+setopt HIST_IGNORE_DUPS # Do not enter command lines into the history list if they are duplicates of the previous event.
+setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells.
 
-# See man zshoptions or http://zsh.sourceforge.net/Doc/Release/Options.html
-setopt \
-	MULTIOS AUTO_CD \
-	INTERACTIVE_COMMENTS MAGIC_EQUAL_SUBST SHORT_LOOPS \
-	EXTENDED_HISTORY SHARE_HISTORY HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_IGNORE_DUPS \
-	KSH_OPTION_PRINT
+setopt MAGIC_EQUAL_SUBST # All unquoted arguments of the form ‘anything=expression’ appearing after the command name have filename expansion (that is, where expression has a leading ‘~’ or ‘=’).
+setopt SHORT_LOOPS # Allow the short forms of for, repeat, select, if, and function constructs.
+setopt KSH_OPTION_PRINT # Alters the way options settings are printed: instead of separate lists of set and unset options, all options are shown, marked ‘on’ if they are in the non-default state, ‘off’ otherwise.
 
 # Autoload needed functions
-autoload -Uz add-zsh-hook compinit zmv
+autoload -Uz compinit
 
 # Reset key bindings
 bindkey -e
@@ -33,30 +29,10 @@ path=("$ZDOTDIR"/bin $path)
 for plugin_file ("$ZDOTDIR"/*.plugin.zsh) source "$plugin_file"
 unset plugin_file
 
-## Packages
-if [[ ! -f "$TMPPREFIX/antibody-plugins.sh" ]] {
-	ink -c green -- '- Generating Antibody Bundle -'
-
-	{
-		# Packaged
-		local antibody_plugins=(
-			zsh-users/zsh-completions
-			psprint/history-search-multi-word
-			zsh-users/zsh-autosuggestions
-			zdharma/fast-syntax-highlighting
-			zsh-users/zsh-history-substring-search
-		)
-
-		antibody init
-		echo ${(F)antibody_plugins} | antibody bundle
-	} | > "$TMPPREFIX/antibody-plugins.sh"
-}
-source "$TMPPREFIX/antibody-plugins.sh"
-
-(( $+gopath )) && path+=(${^gopath}/bin)
-(( $+CARGO_HOME )) && path+=("$CARGO_HOME"/bin)
-(( $+COMPOSER_HOME )) && path+=("$COMPOSER_HOME"/vendor/bin)
-(( $+ANDROID_SDK_ROOT )) && path+=("$ANDROID_SDK_ROOT"/platform-tools)
+typeset -ga ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+typeset -g ZSH_AUTOSUGGEST_USE_ASYNC=1
+typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=magenta'
+typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
 
 bindkey '^[[A' history-substring-search-up          # [UpArrow] - Sourced after syntax-highlighting
 bindkey '^[[B' history-substring-search-down        # [DownArrow]
@@ -64,10 +40,11 @@ bindkey '^[[B' history-substring-search-down        # [DownArrow]
 bindkey '^[[1;5C' forward-word                      # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5D' backward-word                     # [Ctrl-LeftArrow] - move backward one word
 
+bindkey "${terminfo[kcbt]}"  reverse-menu-complete  # [Shift-Tab] - Reverse select in completion
 bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
 bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
 
-bindkey "${terminfo[kdch1]}" delete-char          # [Delete] - Delete
+bindkey "${terminfo[kdch1]}" delete-char            # [Delete] - Delete
 
 bindkey '\ew' kill-region                           # [Esc-w] - Kill from the cursor to the mark
 

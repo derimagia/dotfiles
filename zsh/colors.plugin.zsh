@@ -24,10 +24,8 @@ FAST_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=green'
 FAST_HIGHLIGHT_STYLES[comment]='fg=green,bold'
 
 if [[ ! -f "$TMPPREFIX/colors.sh" ]]; then
-	ink -c green -- '- Generating Colors Bundle -'
-
 	{
-		dircolors -b "$XDG_CONFIG_HOME/ls/LS_COLORS"
+		dircolors -b "$XDG_CONFIG_HOME/dircolors"
 		# available=(g++ gas head make ld tail docker /usr{,/local}/share/grc/*(-.N:e))
 		# disabled=(ls systemctl)
 		# for cmd (${available:|disabled}) (( $+commands[$cmd] )) && print -- "alias '${cmd}'='grc --colour=auto ${cmd}'"

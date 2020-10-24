@@ -3,7 +3,7 @@
 emulate -L zsh
 autoload -Uz colors && colors
 
-() {
+whi_main () {
 	local stagingdir="$(mktemp -d)"
 	local inspect="$1" matched_inspect=0 files=()
 
@@ -29,4 +29,7 @@ autoload -Uz colors && colors
 		ink -c red "${fg[red]}Invalid Command/Alias/Function '$inspect'${reset_color}"
 		return 1
 	fi
-} "$@"
+}
+
+whi_main "$@"
+unset whi_main

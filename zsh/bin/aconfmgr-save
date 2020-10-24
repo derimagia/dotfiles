@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Remove files and unsorted list before saving
+rm -rf ~/.config/aconfmgr/files/ ~/.config/aconfmgr/99-unsorted.sh
+
+aconfmgr save

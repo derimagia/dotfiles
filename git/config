@@ -1,7 +1,7 @@
 [core]
 	autocrlf = input
-	pager = diff-so-fancy | less -RFX
-	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = vim
 [alias]
 	# Shortcuts
 	aa = add -A
@@ -34,7 +34,6 @@
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 [color]
-	# diff = auto - currently broken by diff-so-fancy
 	ui = true
 [color "branch"]
 	local = yellow
@@ -44,48 +43,31 @@
 	newNormal = green bold
 	newHighlight = green bold 22
 [color "diff"]
-	meta = 227
+	meta = yellow
 	frag = magenta bold
-	commit = 227 bold
+	commit = yellow bold
 	old = red bold
 	new = green bold
 	whitespace = red reverse
 [color "status"]
 	untracked = cyan
+[branch]
+	autosetuprebase = always
 [diff]
 	indentHeuristic = true
-    algorithm = patience
-	tool = Kaleidoscope
+	algorithm = patience
 [difftool]
 	prompt = false
 [ghq]
 	user = "derimagia"
-	root = ~/src
 	root = ~/go/src
-[interactive]
-	diffFilter = diff-so-fancy --patch-mode | less -RFX
+	root = ~/src
 [merge]
 	prompt = false
 	conflictstyle = diff3
-	tool = Kaleidoscope
 [mergetool]
 	prompt = false
 	keepBackup = false
-# Sourcetree REALLY wants this set.
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[pager]
-	show = diff-so-fancy | less --tabs=4 -RFX
-	log = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = current
 [rebase]
@@ -104,7 +86,7 @@
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
 	pushInsteadOf = "https://gist.github.com/"
+[url "ssh://aur@aur.archlinux.org/"]
+	insteadOf = "aur:"
 [include]
 	path = config_local
-[branch]
-	autosetuprebase = always

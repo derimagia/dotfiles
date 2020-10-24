@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 emulate -L zsh
 
-local repoType='unknown' shallow=0 print=0
+local shallow=0 print=0 update=0 vcs=git
 
-while getopts dsp opt; do
+while getopts spu opt; do
 	case $opt in
 		(s)
 			shallow=1
@@ -11,35 +11,30 @@ while getopts dsp opt; do
 		(p)
 			print=1
 		;;
+		(u)
+			update=1
+		;;
 	esac
 done
 shift $(( OPTIND - 1 ))
 
-local cloneopts=(-u -p)
+local cloneopts=(--vcs $vcs)
 local query=$1
-
-# Get Host
-# extract the protocol
-giturl=${query%/} giturl=${giturl%.git}
-
-# Trim before last '@' and protocol (*://) from beginning
-uri=${giturl##*@} uri=${uri##*://}
-
-# Trims before first ':' or '/' to get repo
-repo=${uri#*[/:]}
 
 if (( $shallow )) {
   cloneopts+=(--shallow)
 }
 
+if (( $update )) {
+  cloneopts+=(-u)
+}
+
 ghq get $cloneopts "$query"
 
-location="$(ghq list -p $repo)"
+location="$(ghq list -p $query)"
 
 if (( $print )); then
 	ghq list -p $location
 else
 	cd "$location"
 fi
-
-

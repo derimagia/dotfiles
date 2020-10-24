@@ -21,10 +21,11 @@ alias brew-bundle='brew bundle --file=$XDG_CONFIG_HOME/brew/Brewfile'
 alias brew-dump='brew-bundle dump --describe --force'
 alias brew-binaries='print -l "$(brew --prefix)"/Cellar/${^$(brew ls)}/*/bin/*(*N) | cut -d '/' -f '5,8''
 alias get-uti='mdls -name kMDItemContentTypeTree -raw'
+alias iip='ifdata -pN' # internal ip, needs interface
 
 # quicklook
 ql() {
-	[[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' | return 1
+	[[ -a $1 ]] || ink -c red -t 2 'Invalid file/directory' >&2 | return 1
 	chronic sh -c "qlmanage -p $'$1'" &!
 }
 

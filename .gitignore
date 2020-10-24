@@ -8,7 +8,6 @@ ansible/
 configstore/
 dlv/
 docker/
-docksal/
 gcloud/
 gnupg/
 helm/
@@ -16,28 +15,26 @@ htop/
 hub
 kube/
 npm/npmrc
-nvim/.netrwhist
-slackcat/
-zsh/local
-tmux/plugins
+zsh/local/
+tmux/plugins/
 wireshark/
-telepresence/
-
-teamkube/
+session/
+inkscape/
 
 wgetrc
 config_local
-.zcompdump
-.zcompcache/
-.zlocalrc
-*.zwc
-*.zwc.old
 
-# Linux
+# Data
+sublime-text-3/
+sublime-merge/
+cef_user_data/
+QtProject/
+pulse/
+unity3d/
+libaccounts-glib/
+Electron/
+google-chrome/
 Code - OSS/
 Slack/
-session/
-unity3d/
+streamlink-twitch-gui/
 discord/
-google-chrome/
-sublime-text-3/

@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+if [[ -z "$1" ]]; then
+	echo "Usage: $0 <file>"
+	return
+fi
+
+if [[ ! -f "$1" ]]; then
+	echo "$1 does not exist"
+	return
+fi
+
+printf "%s %s\n" "compression method" "bytes"
+
+printf "%s %s\n" "original" "$( cat "$1" | wc -c )"
+
+# -5 is what GH pages uses, dunno about others
+# fwiw --no-name is equivalent to catting into gzip
+printf "%s %s\n" "gzipped (-5)" "$( cat "$1" | gzip -5 -c | wc -c )"
+printf "%s %s\n" "gzipped (--best)" "$( cat "$1" | gzip --best -c | wc -c )"
+
+if hash brotli; then
+	# googlenews uses about -5, walmart serves --best
+	printf "%s %s\n" "brotli (-q 5)" "$( cat "$1" | brotli -c -q 5 | wc -c )"
+	printf "%s %s\n" "brotli (--best)" "$( cat "$1" | brotli -c --best | wc -c )"
+fi
+
+if hash zstd; then
+	printf "%s %s\n" "zstd (-5)" "$( cat "$1" | zstd -5 - | wc -c )"
+	printf "%s %s\n" "zstd (-19)" "$( cat "$1" | zstd -19 - | wc -c )"
+fi

@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# man a specific option
+
+if [[ -z "$1" ]]; then
+	echo "Usage: manopt bash -c"
+fi
+
+local program="$1"
+shift
+man "$program" | less -XF -p "^ *$@"

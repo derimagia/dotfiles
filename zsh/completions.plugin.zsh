@@ -1,22 +1,17 @@
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+unsetopt LIST_BEEP # Don't beep on an ambiguous completion.
+unsetopt MENU_COMPLETE # For ambiguous completion don't insert first match automatically.
+setopt AUTO_MENU # Allow pressing tab second time to get menu.
 
-# Automatically select menu
-setopt MENU_COMPLETE
+setopt COMPLETE_IN_WORD # Do completion from both ends of the word.
+setopt ALWAYS_TO_END # For mid-word completions with 1 match, the cursor is moved to the end of the word
 
-# For mid-word completions, the cursor is moved to the end of the word
-setopt ALWAYS_TO_END
-
-# Don't beep on an ambiguous completion.
-unsetopt LIST_BEEP
-
-zstyle ':completion:*' single-ignored menu select
-zstyle ':completion:*:matches' group yes
+zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name '' # Group based on the tag, everywhere
 zstyle ':completion:*' verbose yes
 
 # cache
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:s*' cache-path "$TMPPREFIX/zcompcache"
+zstyle ':completion::complete:*' cache-path "$TMPPREFIX/zcompcache"
 
 # Completion presentation styles.
 zstyle ':completion:*' format '%F{yellow}-- %d --%f'

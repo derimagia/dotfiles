@@ -1,9 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env sh
 set -euo pipefail
 
 ZDOTDIR="$XDG_CONFIG_HOME/.config/zsh"
-DROPBOX_FOLDER="$HOME/Dropbox"
-[[ ! -d $DROPBOX_FOLDER ]] && print_error "Dropbox folder not found: $DROPBOX_FOLDER" && exit 1
 
 OSTYPE=$(uname | tr "[:upper:]" "[:lower:]")
 
@@ -47,9 +45,6 @@ install_dotfiles() {
 	if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
 		git clone git@github.com:derimagia/dotfiles.git "$XDG_CONFIG_HOME"
 	fi
-
-	# Link dotfile binaries.
-	PATH="$ZDOTDIR/dots:$PATH"
 }
 
 setup_darwin() {
@@ -73,20 +68,8 @@ setup_darwin() {
 }
 
 setup_linux() {
-	# Firefox doesn't support XDG. Crazy.
-	FF_PROFILE_DIRECTORY="$HOME/.mozilla/firefox"
 }
 
-configure_firefox() {
-	print_status "Syncing Firefox"
-
-	# Currently a bug in linking chrome directory which causes userContent.css to not work.
-	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/chrome" "$FF_PROFILE_DIRECTORY/"*".default/"
-	symlink-files "$DROPBOX_FOLDER/Apps/Firefox/user.js" "$FF_PROFILE_DIRECTORY/"*".default/"
-}
-
-install_dotfiles
 os_function setup
-configure_firefox
 
 exec zsh

@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+function help() {
+	echo "Usage: $(basename $0) <target>" >&2
+	echo "Retrieves the PKGBUILD of <target>" >&2
+	exit 1
+}
+
+if [[ -z "$1" ]]; then
+	help
+fi
+
+target="$1"
+
+function try_url() {
+	curl -f "$1" 2>/dev/null
+}
+
+try_url "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/$target/trunk/PKGBUILD"
+try_url "https://raw.githubusercontent.com/archlinux/svntogit-community/packages/$target/trunk/PKGBUILD"
+try_url "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$target"

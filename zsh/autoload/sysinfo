@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+print
+hr
+print
+
+print "Date: $(date +%s)"
+print "User: $USER"
+print "Term: $TERM"
+print "Boot Time: $(uptime -s)"
+
+print
+hr
+print
+
+print "Logged In Users: "
+who -a
+
+print
+hr
+print
+
+print "ENV: "
+printenv
