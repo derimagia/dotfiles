@@ -14,7 +14,7 @@ shift $(( OPTIND - 1 ))
 command="$@"
 
 if $clearcache; then
-    antibody update
+    antidote update
     rm -rf "$TMPPREFIX" $ZDOTDIR/.zcompdump $ZDOTDIR/{*,.*}.zwc(-.N)
     ink -c green -- "- Cleared Caches -"
 fi

@@ -1,4 +1,6 @@
-[[ $OSTYPE =~ darwin ]] || return
+if [[ $OSTYPE != darwin* ]]; then
+	return 1
+fi
 
 export ANDROID_SDK_ROOT='/usr/local/share/android-sdk'
 export -TU MANPATH="$(manpath)" manpath

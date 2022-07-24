@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 emulate -L zsh
 
 local shallow=0 print=0 update=0 vcs=git
